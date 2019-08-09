@@ -79,8 +79,6 @@ class PropertiesTable extends Table
             ->scalar('image_attribution')
             ->allowEmpty('image_attribution');
 
-        $validator
-
 
         return $validator;
     }

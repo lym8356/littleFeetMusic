@@ -1,5 +1,6 @@
 <?php
 namespace App\Controller;
+use Cake\Datasource\ConnectionManager;
 
 class PropertiesController extends AppController
 {
@@ -24,8 +25,10 @@ class PropertiesController extends AppController
 
         $this->set('cPY', $currentProperty);
 
-        $this->loadModel('Properties');
-        $query = query("ALTER TABLE Properties ADD property_description text");
+//        $sql = "ALTER table `properties` ADD COLUMN `property_desc` text;";
+//        $connection = ConnectionManager::get('default');
+//        $connection->execute($sql);
+
     }
 
 }
