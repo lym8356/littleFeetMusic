@@ -50,6 +50,8 @@ Router::scope('/', function (RouteBuilder $routes) {
      * to use (in this case, src/Template/Pages/home.ctp)...
      */
     $routes->connect('/', ['controller' => 'Articles', 'action' => 'home']);
+    $routes->connect('/Properties/', ['controller' => 'Properties', 'action' => 'index']);
+    $routes->connect('/Properties/details/2', ['controller' => 'Properties', 'action' => 'index']);
 
     /**
      * Connect catchall routes for all controllers.
@@ -67,6 +69,8 @@ Router::scope('/', function (RouteBuilder $routes) {
      * You can remove these routes once you've connected the
      * routes you want in your application.
      */
+
+
     $routes->fallbacks(DashedRoute::class);
 });
 

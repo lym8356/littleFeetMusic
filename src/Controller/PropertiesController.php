@@ -18,4 +18,14 @@ class PropertiesController extends AppController
         // At the end of this function, CakePHP will render the template in src/Templates/Properties/index.ctp.
     }
 
+    public function details($id)
+    {
+        $currentProperty = $this->Properties->find()->where(['id' => $id]);
+
+        $this->set('cPY', $currentProperty);
+
+        $this->loadModel('Properties');
+        $query = query("ALTER TABLE Properties ADD property_description text");
+    }
+
 }
