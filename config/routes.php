@@ -50,6 +50,19 @@ Router::scope('/', function (RouteBuilder $routes) {
     $routes->registerMiddleware('csrf', new CsrfProtectionMiddleware([
         'httpOnly' => true
     ]));
+    $routes->connect('/', ['controller' => 'Home', 'action' => 'index']);
+    $routes->connect('/Login', ['controller' => 'Users', 'action' => 'login']);
+    $routes->connect('/Signup', ['controller' => 'Users', 'action' => 'signup']);
+
+    /**
+     * Admin Panel Routing
+     *
+     */
+Router::prefix('admin', function($routes){
+
+    $routes->connect('/', ['controller' => 'Admin', 'action' => 'index']);
+    $routes->fallbacks(DashedRoute::class);
+});
 
     /**
      * Apply a middleware to the current route scope.
@@ -62,8 +75,8 @@ Router::scope('/', function (RouteBuilder $routes) {
      * its action called 'display', and we pass a param to select the view file
      * to use (in this case, src/Template/Pages/home.ctp)...
      */
-    $routes->connect('/', ['controller' => 'Pages', 'action' => 'display', 'home']);
-
+    //$routes->connect('/', ['controller' => 'Pages', 'action' => 'display', 'home']);
+    //$routes->connect('/', ['controller' => 'Home', 'action' => 'index']);
     /**
      * ...and connect the rest of 'Pages' controller's URLs.
      */

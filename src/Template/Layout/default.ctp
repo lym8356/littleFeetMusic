@@ -26,32 +26,54 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
     </title>
     <?= $this->Html->meta('icon') ?>
 
-    <?= $this->Html->css('base.css') ?>
-    <?= $this->Html->css('style.css') ?>
+<!--    <?//= $this->Html->css('base.css') ?> -->
+<!--    <?//= $this->Html->css('style.css') ?> -->
+
+    <!-- bootstrap -->
+    <?= $this->Html->css('/bootstrap/css/bootstrap.min.css') ?>
+    <?= $this->Html->script('/bootstrap/js/jquery-3.3.1.slim.min.js') ?>
+    <?= $this->Html->script('/bootstrap/js/bootstrap.min.js') ?>
+    <?= $this->Html->script('/bootstrap/js/popper.min.js') ?>
+    <!-- font awesome -->
+    <?= $this->Html->css('/font-awesome/css/all.min.css') ?>
+    <?= $this->Html->script('/font-awesome/js/all.min.js') ?>
 
     <?= $this->fetch('meta') ?>
     <?= $this->fetch('css') ?>
     <?= $this->fetch('script') ?>
 </head>
 <body>
-    <nav class="top-bar expanded" data-topbar role="navigation">
-        <ul class="title-area large-3 medium-4 columns">
-            <li class="name">
-                <h1><a href=""><?= $this->fetch('title') ?></a></h1>
-            </li>
-        </ul>
-        <div class="top-bar-section">
-            <ul class="right">
-                <li><a target="_blank" href="https://book.cakephp.org/3.0/">Documentation</a></li>
-                <li><a target="_blank" href="https://api.cakephp.org/3.0/">API</a></li>
+
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+        <a class="navbar-brand" href="#">LOGO</a>
+        <button class="navbar-toggler" type="button"
+                data-toggle="collapse" data-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false"
+                aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collpse navbar-collapse" id="navbarColor01">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item active">
+                    <?= $this->Html->link('<i class="fa fa-home"></i> Home<span class="sr-only">(current)</span>', '/', ['class' => 'nav-link', 'escape' => false]); ?>
+<!--                    <a class="nav-link" href="#">Home<span class="sr-only">(current)</span></a>-->
+                </li>
+            </ul>
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <?= $this->Html->link('<i class="fa fa-sign-in-alt"></i> Login', '/Login', ['class' => 'nav-link', 'escape' => false]); ?>
+                </li>
+                <li class="nav-item">
+                    <?= $this->Html->link('<i class="fa fa-user-plus"></i> Sign Up', '/Signup', ['class' => 'nav-link', 'escape' => false]); ?>
+                </li>
             </ul>
         </div>
     </nav>
+
     <?= $this->Flash->render() ?>
-    <div class="container clearfix">
-        <?= $this->fetch('content') ?>
-    </div>
-    <footer>
-    </footer>
+
+    <?= $this->fetch('content') ?>
+
+    <?php echo $this->element('footer') ?>
 </body>
 </html>
