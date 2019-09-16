@@ -5,7 +5,6 @@ namespace App\Model\Table;
 use Cake\ORM\Table;
 use Cake\Validation\Validator;
 use Cake\ORM\RulesChecker;
-use Cake\Auth\DefaultPasswordHasher;
 
 class UsersTable extends Table
 {
@@ -24,9 +23,9 @@ class UsersTable extends Table
 
     public function validationDefault(Validator $validator)
     {
-        $validator
-            ->notEmptyArray('name', 'Please Enter Full Name')
-            ->requirePresence('name');
+        $validator;
+//            ->notEmptyArray('name', 'Please Enter Full Name')
+//            ->requirePresence('name');
         return $validator;
     }
 
@@ -74,13 +73,43 @@ class UsersTable extends Table
 
         $validator
             ->notEmpty('phone')
-            ->requirePresence('phone');
+            ->requirePresence('phone')
+            ->numeric('phone', 'Please enter only numbers.');
+
         return $validator;
     }
 
     public function validationLogin($validator)
     {
-        
+        $validator
+            ->notEmpty('username');
+        $validator
+            ->notEmpty('password');
+
+        return $validator;
+    }
+
+    public function validationUpdate_profile($validator)
+    {
+        $validator
+            ->notEmpty('name')
+            ->requirePresence('name');
+
+        //check email
+        $validator
+            ->notEmpty('email')
+            ->requirePresence('email')
+            ->add('email', 'valid', [
+                'rule' => 'email',
+                'message' => 'Please enter a valid email'
+            ]);
+
+        $validator
+            ->notEmpty('phone')
+            ->requirePresence('phone')
+            ->numeric('phone', 'Please enter only numbers.');
+
+        return $validator;
     }
 
 }

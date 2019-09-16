@@ -17,7 +17,7 @@ $cakeDescription = 'User Panel';
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>
         <?= $cakeDescription ?>:
-        <?= $this->fetch('title') ?>
+        <?= $title ?>
     </title>
 </head>
 
@@ -25,36 +25,39 @@ $cakeDescription = 'User Panel';
 <header>
     <div class="header py-1 fixed-top bg-light" style="margin-top: 56px">
         <ul class="nav justify-content-end">
-            <li class="nav-item"><i class="fas fa-envelope-square"></i>&nbsp;info@littlefeetmusic.com.au &nbsp;&nbsp;</li>
+            <li class="nav-item"><i class="fas fa-envelope-square"></i>&nbsp;info@littlefeetmusic.com.au &nbsp;&nbsp;
+            </li>
             <li class="nav-item"><i class="fas fa-phone-square"></i>&nbsp;0410 600 060&nbsp;</li>
         </ul>
     </div>
-    <nav class="navbar navbar-expand-lg fixed-top navbar-dark bg-primary">
+    <nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-primary">
         <a class="navbar-brand" href="#">LOGO</a>
         <button class="navbar-toggler" type="button"
                 data-toggle="collapse" data-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false"
                 aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
+        <a class="navbar-brand" href="<?= $this->Url->
+        build(['controller' => 'Booking', 'action' => 'view']) ?>">User Panel</a>
         <div class="collpse navbar-collapse" id="navbarColor01">
             <ul class="navbar-nav mr-auto">
-                <li class="nav-item active">
-                    <?= $this->Html->link('<i class="fa fa-home"></i> Home<span class="sr-only">(current)</span>', '/', ['class' => 'nav-link', 'escape' => false]); ?>
-                    <!--                    <a class="nav-link" href="#">Home<span class="sr-only">(current)</span></a>-->
-                </li>
-                <li class="nav-item">
-                    <?= $this->Html->link('<i class="fas fa-graduation-cap"></i> Enroll<span class="sr-only">(current)</span>', '/Class/Enroll', ['class' => 'nav-link', 'escape' => false]); ?>
-                </li>
-                <li class="nav-item">
-                    <?= $this->Html->link('<i class="fas fa-chalkboard-teacher"></i> Class<span class="sr-only">(current)</span>', '/Class', ['class' => 'nav-link', 'escape' => false]); ?>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button"
+                       aria-haspopup="true" aria-expanded="false">Action</a>
+                    <div class="dropdown-menu">
+                        <?= $this->Html->link('<i class="fas fa-plus-circle"></i> &nbsp; Book A New Class', '/', ['class' => 'dropdown-item', 'escape' => false]); ?>
+                        <?= $this->Html->link('<i class="fas fa-edit"></i> &nbsp; Edit A Booking', '/', ['class' => 'dropdown-item', 'escape' => false]); ?>
+                    </div>
                 </li>
             </ul>
             <ul class="navbar-nav">
                 <li class="nav-item">
-                    <?= $this->Html->link('<i class="fa fa-sign-in-alt"></i> Login', '/Login', ['class' => 'nav-link', 'escape' => false]); ?>
+                    <?= $this->Html->link('<i class="fa fa-user"></i> Profile', '/User/Profile',
+                        ['class' => 'nav-link', 'escape' => false]); ?>
                 </li>
                 <li class="nav-item">
-                    <?= $this->Html->link('<i class="fa fa-user-plus"></i> Sign Up', '/Signup', ['class' => 'nav-link', 'escape' => false]); ?>
+                    <?= $this->Html->link('<i class="fa fa-sign-out-alt"></i> Logout', '/Logout',
+                        ['class' => 'nav-link', 'escape' => false]); ?>
                 </li>
             </ul>
         </div>

@@ -53,7 +53,15 @@ Router::scope('/', function (RouteBuilder $routes) {
     $routes->connect('/', ['controller' => 'Home', 'action' => 'index']);
     $routes->connect('/Login', ['controller' => 'Users', 'action' => 'login']);
     $routes->connect('/Signup', ['controller' => 'Users', 'action' => 'signup']);
+    $routes->connect('/Logout', ['controller' => 'Users', 'action' => 'logout']);
+    $routes->connect('/User/Profile', ['controller' => 'Users', 'action' => 'profile']);
 
+    $routes->connect('/Booking/View', ['controller' => 'Booking', 'action' => 'view']);
+    $routes->connect('/Booking/Add', ['controller' => 'Booking', 'action' => 'add']);
+    $routes->connect('/Booking/Manage', ['controller' => 'Booking', 'action' => 'manage']);
+
+    $routes->connect('/Class', ['controller' => 'Class', 'action' => 'view']);
+    $routes->connect('/Class/Enroll', ['controller' => 'Class', 'action' => 'enroll']);
     /**
      * Admin Panel Routing
      *

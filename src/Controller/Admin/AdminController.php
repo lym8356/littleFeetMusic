@@ -17,6 +17,7 @@ class AdminController extends AppController{
     public function index()
     {
         $this->set('title', 'Admin Panel');
+        $this->set('user_session', $this->request->getSession()->read('Auth.User'));
     }
 }
 

@@ -13,7 +13,7 @@
  * @license       https://opensource.org/licenses/mit-license.php MIT License
  */
 
-$cakeDescription = 'CakePHP: the rapid development php framework';
+$cakeDescription = 'User Panel';
 ?>
 <!DOCTYPE html>
 <html>
@@ -26,8 +26,8 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
     </title>
     <?= $this->Html->meta('icon') ?>
 
-<!--    <?//= $this->Html->css('base.css') ?> -->
-<!--    <?//= $this->Html->css('style.css') ?> -->
+    <!--    <?//= $this->Html->css('base.css') ?> -->
+    <!--    <?//= $this->Html->css('style.css') ?> -->
 
     <!-- bootstrap -->
     <?= $this->Html->css('/bootstrap/css/bootstrap.min.css') ?>
@@ -37,6 +37,7 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
     <!-- font awesome -->
     <?= $this->Html->css('/font-awesome/css/all.min.css') ?>
     <?= $this->Html->script('/font-awesome/js/all.min.js') ?>
+
     <!-- custom css -->
     <?= $this->Html->css('global-style.css') ?>
 
@@ -45,7 +46,7 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
     <?= $this->fetch('script') ?>
 </head>
 <body>
-<?php echo $this->element('header') ?>
+<?php echo $this->element('user/userheader') ?>
 
 <?= $this->Flash->render() ?>
 
