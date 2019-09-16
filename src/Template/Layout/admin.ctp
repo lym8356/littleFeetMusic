@@ -12,6 +12,9 @@
     <?= $this->Html->css('/dashboard_css/styles.css') ?>
 
     <!--   dashboard js-->
+    <?= $this->Html->script('dashboard_js/jquery-1.11.1.min.js') ?>
+    <?= $this->Html->script('dashboard_js/bootstrap.min.js') ?>
+    <?= $this->Html->script('dashboard_js/bootstrap-datepicker.js') ?>
 
     <!--Icons-->
     <?= $this->Html->script('/dashboard_js/lumino.glyphs.js') ?>
@@ -52,13 +55,13 @@
                 </svg>
                 Dashboard</a></li>
         <li><a href="#">
-                <svg class="glyph stroked calendar">
-                    <use xlink:href="#stroked-calendar"></use>
-                </svg>
-               Manage Booking</a></li>
+            <?= $this->Html->link('<svg class="glyph stroked app window with content">
+                    <use xlink:href="#stroked-app-window-with-content"></use>
+                </svg> Manage Class', '/admin/class/manage',
+                ['escape' => false]); ?></li>
         <li><a href="#">
-                <svg class="glyph stroked line-graph">
-                    <use xlink:href="#stroked-line-graph"></use>
+                <svg class="glyph stroked female-user">
+                    <use xlink:href="#stroked-female-user"></use>
                 </svg>
                Manage User</a></li>
         <li><a href="#">
@@ -67,13 +70,11 @@
                 </svg>
                 Manage Admin</a></li>
         <li role="presentation" class="divider"></li>
-        <li><a href="/Logout">
-                <?= $this->Html->link('<i class="fa fa-sign-out-alt"></i> Logout', '/Logout',
-                    ['escape' => false]); ?>
-                <svg class="glyph stroked arrow right">
-                    <use xlink:href="#stroked-arrow-right"></use>
-                </svg>
-                Logout</li></a>
+        <li>
+            <?= $this->Html->link('<svg class="glyph stroked male-user">
+                <use xlink:href="#stroked-male-user"></use>
+            </svg> Logout', '/Logout',
+                ['escape' => false]); ?></li>
     </ul>
 
 </div><!--/.sidebar-->
@@ -97,152 +98,11 @@
     </div><!--/.row-->
 
     <div class="row">
-        <div class="col-xs-12 col-md-6 col-lg-3">
-            <div class="panel panel-blue panel-widget ">
-                <div class="row no-padding">
-                    <div class="col-sm-3 col-lg-5 widget-left">
-                        <svg class="glyph stroked bag">
-                            <use xlink:href="#stroked-bag"></use>
-                        </svg>
-                    </div>
-                    <div class="col-sm-9 col-lg-7 widget-right">
-                        <div class="large">120</div>
-                        <div class="text-muted">New Orders</div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="col-xs-12 col-md-6 col-lg-3">
-            <div class="panel panel-orange panel-widget">
-                <div class="row no-padding">
-                    <div class="col-sm-3 col-lg-5 widget-left">
-                        <svg class="glyph stroked empty-message">
-                            <use xlink:href="#stroked-empty-message"></use>
-                        </svg>
-                    </div>
-                    <div class="col-sm-9 col-lg-7 widget-right">
-                        <div class="large">52</div>
-                        <div class="text-muted">Comments</div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="col-xs-12 col-md-6 col-lg-3">
-            <div class="panel panel-teal panel-widget">
-                <div class="row no-padding">
-                    <div class="col-sm-3 col-lg-5 widget-left">
-                        <svg class="glyph stroked male-user">
-                            <use xlink:href="#stroked-male-user"></use>
-                        </svg>
-                    </div>
-                    <div class="col-sm-9 col-lg-7 widget-right">
-                        <div class="large">24</div>
-                        <div class="text-muted">New Users</div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="col-xs-12 col-md-6 col-lg-3">
-            <div class="panel panel-red panel-widget">
-                <div class="row no-padding">
-                    <div class="col-sm-3 col-lg-5 widget-left">
-                        <svg class="glyph stroked app-window-with-content">
-                            <use xlink:href="#stroked-app-window-with-content"></use>
-                        </svg>
-                    </div>
-                    <div class="col-sm-9 col-lg-7 widget-right">
-                        <div class="large">25.2k</div>
-                        <div class="text-muted">Page Views</div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div><!--/.row-->
-
-    <div class="row">
-        <div class="col-xs-6 col-md-3">
-            <div class="panel panel-default">
-                <div class="panel-body easypiechart-panel">
-                    <h4>Comments</h4>
-                    <div class="easypiechart" id="easypiechart-orange" data-percent="65"><span
-                            class="percent">65%</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="col-xs-6 col-md-3">
-            <div class="panel panel-default">
-                <div class="panel-body easypiechart-panel">
-                    <h4>New Users</h4>
-                    <div class="easypiechart" id="easypiechart-teal" data-percent="56"><span class="percent">56%</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="col-xs-6 col-md-3">
-            <div class="panel panel-default">
-                <div class="panel-body easypiechart-panel">
-                    <h4>Visitors</h4>
-                    <div class="easypiechart" id="easypiechart-red" data-percent="27"><span class="percent">27%</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div><!--/.row-->
-
-    <div class="row">
         <div class="col-md-8">
-
-        </div><!--/.col-->
-
-        <div class="col-md-4">
-
-            <div class="panel panel-blue">
-                <div class="panel-heading dark-overlay">
-                    <svg class="glyph stroked clipboard-with-paper">
-                        <use xlink:href="#stroked-clipboard-with-paper"></use>
-                    </svg>
-                    To-do List
-                </div>
-                <div class="panel-body">
-                </div>
-                <div class="panel-footer">
-                    <div class="input-group">
-                        <input id="btn-input" type="text" class="form-control input-md" placeholder="Add new task"/>
-                        <span class="input-group-btn">
-								<button class="btn btn-primary btn-md" id="btn-todo">Add</button>
-							</span>
-                    </div>
-                </div>
-            </div>
-
+            <?= $this->fetch('content') ?>
         </div><!--/.col-->
     </div><!--/.row-->
 </div>    <!--/.main-->
-<?= $this->Html->script('dashboard_js/jquery-1.11.1.min.js') ?>
-<?= $this->Html->script('dashboard_js/bootstrap.min.js') ?>
-<?= $this->Html->script('dashboard_js/chart.min.js') ?>
-<?= $this->Html->script('dashboard_js/chart-data.js') ?>
-<?= $this->Html->script('dashboard_js/easypiechart.js') ?>
-<?= $this->Html->script('dashboard_js/easypiechart-data.js') ?>
-<?= $this->Html->script('dashboard_js/bootstrap-datepicker.js') ?>
-<script>
-    $('#calendar').datepicker({});
-
-    !function ($) {
-        $(document).on("click", "ul.nav li.parent > a > span.icon", function () {
-            $(this).find('em:first').toggleClass("glyphicon-minus");
-        });
-        $(".sidebar span.icon").find('em:first').addClass("glyphicon-plus");
-    }(window.jQuery);
-
-    $(window).on('resize', function () {
-        if ($(window).width() > 768) $('#sidebar-collapse').collapse('show')
-    })
-    $(window).on('resize', function () {
-        if ($(window).width() <= 767) $('#sidebar-collapse').collapse('hide')
-    })
-</script>
 </body>
 
 </html>

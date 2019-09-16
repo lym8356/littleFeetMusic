@@ -62,6 +62,7 @@ Router::scope('/', function (RouteBuilder $routes) {
 
     $routes->connect('/Class', ['controller' => 'Class', 'action' => 'view']);
     $routes->connect('/Class/Enroll', ['controller' => 'Class', 'action' => 'enroll']);
+
     /**
      * Admin Panel Routing
      *
@@ -69,6 +70,7 @@ Router::scope('/', function (RouteBuilder $routes) {
 Router::prefix('admin', function($routes){
 
     $routes->connect('/', ['controller' => 'Admin', 'action' => 'index']);
+    $routes->connect('/:controller/:action/*', ['controller' => 'controller', 'action' => 'action']);
     $routes->fallbacks(DashedRoute::class);
 });
 

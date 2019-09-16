@@ -11,7 +11,7 @@ class AdminController extends AppController{
     {
         parent::beforeFilter($event);
 
-        $this->viewBuilder()->setLayout('admin');
+        //$this->viewBuilder()->setLayout('admin');
     }
 
     public function index()
