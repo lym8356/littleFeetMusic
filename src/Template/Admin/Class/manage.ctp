@@ -2,19 +2,24 @@
     <div class="col-lg-12">
         <div class="card">
             <h3 class="card-header">Manage Class</h3>
-            <button class="btn btn-lg btn-primary pull-right" style="margin-bottom: 10px">Create New Class</button>
+            <?php echo $this->Html->link('Create New Class','/admin/class/add',
+                ['class' => 'btn btn-lg btn-primary pull-right',
+                    'style' => 'margin-bottom: 20px',
+                    'escape' => false]); ?>
             <div class="card-body">
                 <?= $this->Flash->render(); ?>
 
                 <table class="table table-striped table-hover table-bordered">
                     <thead class="thead-dark">
                     <tr>
-                        <th>class id</th>
-                        <th>location</th>
-                        <th>start_time</th>
-                        <th>duration</th>
-                        <th>capacity</th>
-                        <th>cost</th>
+                        <th>Class ID</th>
+                        <th>Location</th>
+                        <th>Start Date</th>
+                        <th>Start Time</th>
+                        <th>Duration</th>
+                        <th>Capacity</th>
+                        <th>Cost</th>
+                        <th>Actions</th>
                     </tr>
                     </thead>
                     <tbody>
@@ -25,7 +30,10 @@
                             <tr>
                                 <td><?= $value['id'] ?></td>
                                 <td><?= $value['location'] ?></td>
-                                <td><?= $value['start_time'] ?></td>
+                                <td><?= $value['start_date'] ?></td>
+                                <td><?= $value['start_time']->i18nFormat(
+                                        [\IntlDateFormatter::NONE, \IntlDateFormatter::SHORT]
+                                    ) ?></td>
                                 <td><?= $value['duration'] ?></td>
                                 <td><?= $value['capacity'] ?></td>
                                 <td><?= $value['cost'] ?></td>

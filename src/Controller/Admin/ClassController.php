@@ -20,13 +20,31 @@ class ClassController extends AppController{
     {
         $this->set('title', "Add Class");
 
+
+        $this->set('class_location', $this->Class->find('all'));
+
         $class = $this->Class->newEntity();
         if($this->request->is('post') AND !empty($this->request->getData()) )
         {
             $class = $this->Class->patchEntity($class, $this->request->getData(), [
                 'validate' => true
             ]);
+
+            if($class->errors())
+            {
+                $this->Flash->error('Please Fill In The Required Fields');
+            }else{
+                if($this->Class->save($class))
+                {
+                    $this->redirect('/admin/class/manage');
+                    $this->Flash->success('Class Created.');
+                }else{
+                    $this->Flash->error(_('Failed To Add Class.'));
+                }
+            }
         }
+        $this->set(compact('class'));
+        $this->set('_serialize', ['class']);
 
     }
 

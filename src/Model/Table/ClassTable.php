@@ -28,11 +28,14 @@ class ClassTable extends Table
      */
     public function initialize(array $config)
     {
-        parent::initialize($config);
-
         $this->setTable('class');
-        $this->setDisplayField('id');
-        $this->setPrimaryKey('id');
+        $this->addBehavior('Timestamp');
+    }
+
+    public function buildRules(RulesChecker $rules)
+    {
+
+        return $rules;
     }
 
     /**
@@ -44,35 +47,16 @@ class ClassTable extends Table
     public function validationDefault(Validator $validator)
     {
         $validator
-            ->integer('id')
-            ->allowEmptyString('id', null, 'create');
+            ->notBlank('location')
+            ->notBlank('start_date')
+            ->notBlank('start_time')
+            ->notBlank('duration')
+            ->notBlank('capacity')
+            ->notBlank('cost');
 
-        $validator
-            ->scalar('location')
-            ->maxLength('location', 500)
-            ->requirePresence('location', 'create')
-            ->notEmptyString('location');
-
-        $validator
-            ->dateTime('start_time')
-            ->requirePresence('start_time', 'create')
-            ->notEmptyDateTime('start_time');
-
-        $validator
-            ->integer('duration')
-            ->requirePresence('duration', 'create')
-            ->notEmptyString('duration');
-
-        $validator
-            ->integer('capacity')
-            ->requirePresence('capacity', 'create')
-            ->notEmptyString('capacity');
-
-        $validator
-            ->integer('cost')
-            ->requirePresence('cost', 'create')
-            ->notEmptyString('cost');
 
         return $validator;
     }
+
+
 }

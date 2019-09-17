@@ -11,6 +11,10 @@
     <?= $this->Html->css('/dashboard_css/datepicker3.css') ?>
     <?= $this->Html->css('/dashboard_css/styles.css') ?>
 
+    <!-- font awesome -->
+    <?= $this->Html->css('/font-awesome/css/all.min.css') ?>
+    <?= $this->Html->script('/font-awesome/js/all.min.js') ?>
+
     <!--   dashboard js-->
     <?= $this->Html->script('dashboard_js/jquery-1.11.1.min.js') ?>
     <?= $this->Html->script('dashboard_js/bootstrap.min.js') ?>
@@ -48,27 +52,32 @@
             <input type="text" class="form-control" placeholder="Search">
         </div>
     </form>
-    <ul class="nav menu">
-        <li class="active"><a href="index.html">
-                <svg class="glyph stroked dashboard-dial">
+    <ul class="nav menu" id="sidebar_nav">
+        <li class="sidebar_item active">
+            <?= $this->Html->link('<svg class="glyph stroked dashboard dial">
                     <use xlink:href="#stroked-dashboard-dial"></use>
-                </svg>
-                Dashboard</a></li>
-        <li><a href="#">
+                </svg> Dashboard', '/admin',
+                ['escape' => false]); ?></li>
+        <li class="sidebar_item">
             <?= $this->Html->link('<svg class="glyph stroked app window with content">
                     <use xlink:href="#stroked-app-window-with-content"></use>
                 </svg> Manage Class', '/admin/class/manage',
                 ['escape' => false]); ?></li>
-        <li><a href="#">
+        <li class="sidebar_item">
+            <?= $this->Html->link('<svg class="glyph stroked notepad">
+                    <use xlink:href="#stroked-notepad"></use>
+                </svg> Manage Booking', '/admin/booking/manage',
+                ['escape' => false]); ?></li>
+        <li class="sidebar_item"><a href="#">
                 <svg class="glyph stroked female-user">
                     <use xlink:href="#stroked-female-user"></use>
                 </svg>
                Manage User</a></li>
-        <li><a href="#">
+        <li class="sidebar_item"><a href="#">
                 <svg class="glyph stroked table">
                     <use xlink:href="#stroked-table"></use>
                 </svg>
-                Manage Admin</a></li>
+                Manage Staff</a></li>
         <li role="presentation" class="divider"></li>
         <li>
             <?= $this->Html->link('<svg class="glyph stroked male-user">
@@ -98,11 +107,24 @@
     </div><!--/.row-->
 
     <div class="row">
-        <div class="col-md-8">
+        <div class="col-md-10">
             <?= $this->fetch('content') ?>
         </div><!--/.col-->
     </div><!--/.row-->
 </div>    <!--/.main-->
+
+<script>
+    // Add active class to the current button (highlight it)
+    var header = document.getElementById("sidebar_nav");
+    var sidebar_ele = header.getElementsByClassName("sidebar_item");
+    for (var i = 0; i < sidebar_ele.length; i++) {
+        sidebar_ele[i].addEventListener("click", function() {
+            var current = document.getElementsByClassName("active");
+            current[0].className = current[0].className.replace(" active", "");
+            this.className += " active";
+        });
+    }
+</script>
 </body>
 
 </html>
