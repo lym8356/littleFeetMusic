@@ -15,7 +15,7 @@
     <div class="container">
         <div class="row">
             <div class="col-sm-3">
-                <h2 class="logo"><a href="#"> LOGO </a></h2>
+                <h2 class="logo"><a href="#"> <?php echo $this->Html->image('Logo.png',array('width'=>'200px')); ?> </a></h2>
             </div>
             <div class="col-sm-3">
                 <h5>Contact Info</h5>
