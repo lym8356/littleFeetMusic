@@ -28,7 +28,7 @@
                             foreach($classes as $value){
                         ?>
                             <tr>
-                                <td><?= $classes->location->name; ?></td>
+                                <td><?= $value['location_id'] ?></td>
                                 <td><?= $value['start_date'] ?></td>
                                 <td><?= $value['start_time']->i18nFormat(
                                         [\IntlDateFormatter::NONE, \IntlDateFormatter::SHORT]

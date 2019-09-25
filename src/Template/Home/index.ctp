@@ -51,7 +51,15 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
 <body>
 
 <?php echo $this->element('header') ?>
-<?php echo $this->Html->image('LFM.jpg'); ?>
+<div class="container">
+    <div class="row">
+            <div class="img-responsive pt-5 pb-4">
+               <?php echo $this->Html->image('LFM.jpg'); ?>
+            </div>
+    </div>
+</div>
+
+
 
 <?= $this->Flash->render() ?>
 <?= $this->fetch('content') ?>

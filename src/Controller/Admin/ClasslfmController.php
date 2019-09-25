@@ -57,18 +57,12 @@ class ClasslfmController extends AppController{
         $this->paginate=[
             'limit' => '10'
         ];
-
-        $this->paginate = [
-            'contain' => ['Location']
-        ];
-
         $class_p = $this->paginate($this->Classlfm->find('all'));
         $this->set('class_p', $class_p);
 
-
         //drop down options for location
 //        $this->set('location', $this->Classlfm->location->find('list'));
-        $this->set('location', $this->Classlfm->location->find('list'));
+
 
 
 

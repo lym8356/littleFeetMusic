@@ -79,7 +79,7 @@
         <li class="sidebar_item">
             <?= $this->Html->link('<svg class="glyph stroked notepad">
                     <use xlink:href="#stroked-notepad"></use>
-                </svg> Manage Booking', '/admin/booking/manage',
+                </svg> Manage Booking', '',
                 ['escape' => false]); ?></li>
         <li class="sidebar_item"><a href="#">
                 <svg class="glyph stroked female-user">
