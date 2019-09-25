@@ -29,5 +29,8 @@ class BookingController extends AppController
     {
 
     }
+    public function enroll(){
+
+    }
 
 }
