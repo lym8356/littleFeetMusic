@@ -6,7 +6,7 @@ namespace App\Controller;
 use Cake\Event\Event;
 use http\Client\Curl\User;
 
-class BookingController extends AppController
+class ClassController extends AppController
 {
     public function beforeFilter(Event $event)
     {
@@ -26,6 +26,11 @@ class BookingController extends AppController
     }
 
     public function edit()
+    {
+
+    }
+
+    public function enroll()
     {
 
     }

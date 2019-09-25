@@ -5,7 +5,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Admin - Dashboard</title>
 
-
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <link rel="stylesheet" href="/resources/demos/style.css">
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <script>
+        $( function() {
+            $( "#datepicker" ).datepicker();
+        } );
+    </script>
     <!--   dashboard css-->
     <?= $this->Html->css('/dashboard_css/bootstrap.min.css') ?>
     <?= $this->Html->css('/dashboard_css/datepicker3.css') ?>
@@ -14,6 +22,11 @@
     <!-- font awesome -->
     <?= $this->Html->css('/font-awesome/css/all.min.css') ?>
     <?= $this->Html->script('/font-awesome/js/all.min.js') ?>
+
+    <!-- date picker -->
+    <?= $this->Html->css('/datepicker/css/bootstrap-datetimepicker.min.css') ?>
+    <?= $this->Html->script('/datepicker/js/bootstrap-datetimepicker.min.js') ?>
+    <?= $this->Html->script('/datepicker/js/moment.js') ?>
 
     <!--   dashboard js-->
     <?= $this->Html->script('dashboard_js/jquery-1.11.1.min.js') ?>
@@ -61,7 +74,7 @@
         <li class="sidebar_item">
             <?= $this->Html->link('<svg class="glyph stroked app window with content">
                     <use xlink:href="#stroked-app-window-with-content"></use>
-                </svg> Manage Class', '/admin/class/manage',
+                </svg> Manage Class', '/admin/classlfm/manage',
                 ['escape' => false]); ?></li>
         <li class="sidebar_item">
             <?= $this->Html->link('<svg class="glyph stroked notepad">
@@ -124,6 +137,7 @@
             this.className += " active";
         });
     }
+
 </script>
 </body>
 

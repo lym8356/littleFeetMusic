@@ -4,16 +4,18 @@ namespace App\Model\Entity;
 use Cake\ORM\Entity;
 
 /**
- * Clas Entity
+ * Location Entity
  *
- * @property int $id
- * @property string $location
- * @property \Cake\I18n\FrozenTime $start_time
- * @property int $duration
- * @property int $capacity
- * @property int $cost
+ * @property int $Id
+ * @property string|null $name
+ * @property string|null $street address
+ * @property string $suberb
+ * @property int $post_code
+ * @property string|null $note
+ *
+ * @property \App\Model\Entity\Classlfm[] $classlfm
  */
-class Clas extends Entity
+class Location extends Entity
 {
     /**
      * Fields that can be mass assigned using newEntity() or patchEntity().
@@ -25,10 +27,11 @@ class Clas extends Entity
      * @var array
      */
     protected $_accessible = [
-        'location' => true,
-        'start_time' => true,
-        'duration' => true,
-        'capacity' => true,
-        'cost' => true
+        'name' => true,
+        'street address' => true,
+        'suberb' => true,
+        'post_code' => true,
+        'note' => true,
+        'classlfm' => true
     ];
 }
