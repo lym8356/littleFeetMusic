@@ -33,7 +33,7 @@ class ClasslfmTable extends Table
         parent::initialize($config);
 
         $this->setTable('classlfm');
-        $this->setDisplayField('name');
+        $this->setDisplayField('id');
         $this->setPrimaryKey('id');
 
         $this->belongsTo('Location', [
@@ -55,12 +55,6 @@ class ClasslfmTable extends Table
             ->allowEmptyString('id', null, 'create');
 
         $validator
-            ->scalar('name')
-            ->maxLength('name', 50)
-            ->requirePresence('name', 'create')
-            ->notEmptyString('name');
-
-        $validator
             ->scalar('age_group')
             ->maxLength('age_group', 50)
             ->requirePresence('age_group', 'create')
@@ -72,11 +66,6 @@ class ClasslfmTable extends Table
             ->notEmptyDate('start_date');
 
         $validator
-            ->date('end_date')
-            ->requirePresence('end_date', 'create')
-            ->notEmptyDate('end_date');
-
-        $validator
             ->integer('week_length')
             ->requirePresence('week_length', 'create')
             ->notEmptyString('week_length');
@@ -85,11 +74,6 @@ class ClasslfmTable extends Table
             ->time('start_time')
             ->requirePresence('start_time', 'create')
             ->notEmptyTime('start_time');
-
-        $validator
-            ->time('end_time')
-            ->requirePresence('end_time', 'create')
-            ->notEmptyTime('end_time');
 
         $validator
             ->integer('duration')
@@ -107,7 +91,7 @@ class ClasslfmTable extends Table
             ->notEmptyString('cost_per_class');
 
         $validator
-            ->boolean('overflow')
+            ->scalar('overflow')
             ->notEmptyString('overflow');
 
         $validator

@@ -20,3 +20,5 @@ class AdminController extends AppController{
         $this->set('user_session', $this->request->getSession()->read('Auth.User'));
     }
 }
+
+

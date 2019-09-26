@@ -74,7 +74,7 @@
         <li class="sidebar_item">
             <?= $this->Html->link('<svg class="glyph stroked app window with content">
                     <use xlink:href="#stroked-app-window-with-content"></use>
-                </svg> Manage Class', '/admin/classlfm/manage',
+                </svg> Manage Class', '/admin/classlfm/view',
                 ['escape' => false]); ?></li>
         <li class="sidebar_item">
             <?= $this->Html->link('<svg class="glyph stroked notepad">

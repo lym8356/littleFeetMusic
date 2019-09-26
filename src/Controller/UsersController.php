@@ -1,16 +1,108 @@
 <?php
-
 namespace App\Controller;
 
-use Cake\Event\Event;
+use App\Controller\AppController;
 use Cake\ORM\TableRegistry;
 
+/**
+ * Users Controller
+ *
+ * @property \App\Model\Table\UsersTable $Users
+ *
+ * @method \App\Model\Entity\User[]|\Cake\Datasource\ResultSetInterface paginate($object = null, array $settings = [])
+ */
 class UsersController extends AppController
 {
-    public function beforeFilter(Event $event)
+    /**
+     * Index method
+     *
+     * @return \Cake\Http\Response|null
+     */
+    public function index()
     {
-        parent::beforeFilter($event);
-        $this->Auth->allow(['signup']);
+        $users = $this->paginate($this->Users);
+
+        $this->set(compact('users'));
+    }
+
+    /**
+     * View method
+     *
+     * @param string|null $id User id.
+     * @return \Cake\Http\Response|null
+     * @throws \Cake\Datasource\Exception\RecordNotFoundException When record not found.
+     */
+    public function view($id = null)
+    {
+        $user = $this->Users->get($id, [
+            'contain' => []
+        ]);
+
+        $this->set('user', $user);
+    }
+
+    /**
+     * Add method
+     *
+     * @return \Cake\Http\Response|null Redirects on successful add, renders view otherwise.
+     */
+    public function add()
+    {
+        $user = $this->Users->newEntity();
+        if ($this->request->is('post')) {
+            $user = $this->Users->patchEntity($user, $this->request->getData());
+            if ($this->Users->save($user)) {
+                $this->Flash->success(__('The user has been saved.'));
+
+                return $this->redirect(['action' => 'index']);
+            }
+            $this->Flash->error(__('The user could not be saved. Please, try again.'));
+        }
+        $this->set(compact('user'));
+    }
+
+    /**
+     * Edit method
+     *
+     * @param string|null $id User id.
+     * @return \Cake\Http\Response|null Redirects on successful edit, renders view otherwise.
+     * @throws \Cake\Datasource\Exception\RecordNotFoundException When record not found.
+     */
+    public function edit($id = null)
+    {
+        $user = $this->Users->get($id, [
+            'contain' => []
+        ]);
+        if ($this->request->is(['patch', 'post', 'put'])) {
+            $user = $this->Users->patchEntity($user, $this->request->getData());
+            if ($this->Users->save($user)) {
+                $this->Flash->success(__('The user has been saved.'));
+
+                return $this->redirect(['action' => 'index']);
+            }
+            $this->Flash->error(__('The user could not be saved. Please, try again.'));
+        }
+        $this->set(compact('user'));
+    }
+
+    /**
+     * Delete method
+     *
+     * @param string|null $id User id.
+     * @return \Cake\Http\Response|null Redirects to index.
+     * @throws \Cake\Datasource\Exception\RecordNotFoundException When record not found.
+     */
+    public function delete($id = null)
+    {
+        $this->request->allowMethod(['post', 'delete']);
+        $user = $this->Users->get($id);
+        if ($this->Users->delete($user)) {
+            $this->Flash->success(__('The user has been deleted.'));
+        } else {
+            $this->Flash->error(__('The user could not be deleted. Please, try again.'));
+        }
+
+        return $this->redirect(['action' => 'index']);
     }
 
     public function login()
@@ -24,7 +116,7 @@ class UsersController extends AppController
             if ($this->request->is('POST') AND !empty($this->request->getData())) {
                 $login_check = $this->Users->patchEntity($login, $this->request->getData(),
                     [
-                        'validate' => 'login'
+                        //'validate' => 'login'
                     ]);
                 if ($login_check->errors()) {
                     $this->Flash->error('Please Fill in the required fields', ['key' => 'message']);
@@ -47,44 +139,6 @@ class UsersController extends AppController
             $this->set('login', $login);
         }
 
-    }
-
-    public function signup()
-    {
-        $sign_up = $this->Users->newEntity();
-
-        if ($this->request->is('POST') AND !empty($this->request->getData())) {
-            $signup = $this->Users->patchEntity($sign_up, $this->request->getData(),
-                [
-                    'validate' => 'update'
-                ]);
-            if ($signup->errors()) {
-                $this->Flash->error('Please Fill in the required fields', ['key' => 'message']);
-            } else {
-
-                $sign_up->name = $this->request->getData('name');
-                $sign_up->username = $this->request->getData('username');
-                $sign_up->password = $this->request->getData('password');
-                $sign_up->email = $this->request->getData('email');
-                $sign_up->phone = $this->request->getData('phone');
-                $sign_up->zipcode = $this->request->getData('zipcode');
-                $sign_up->role = 'user';
-
-                if ($this->Users->save($sign_up)) {
-                    $this->Flash->success('You have signed up successfully!',
-                        ['key' => 'message']);
-                    return $this->redirect(['action' => 'Login']);
-                }
-                $this->Flash->error(_('Sign Up Failed, Please try again later! ', ['key' => 'message']));
-            }
-        }
-        $this->set('sign_up', $sign_up);
-    }
-
-    public function logout()
-    {
-        $this->Auth->logout();
-        return $this->redirect(['controller' => 'Home', 'action' => 'index']);
     }
 
     public function profile()
@@ -124,4 +178,9 @@ class UsersController extends AppController
         $this->set('_serialize', ['user_data']);
     }
 
+    public function logout()
+    {
+        $this->Auth->logout();
+        return $this->redirect(['controller' => 'Home', 'action' => 'index']);
+    }
 }

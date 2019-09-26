@@ -56,20 +56,18 @@ class LocationTable extends Table
         $validator
             ->scalar('name')
             ->maxLength('name', 50)
-            ->requirePresence('name', 'create')
-            ->notEmptyString('name');
+            ->allowEmptyString('name');
 
         $validator
-            ->scalar('street_address')
-            ->maxLength('street_address', 50)
-            ->requirePresence('street_address', 'create')
-            ->notEmptyString('street_address');
+            ->scalar('street address')
+            ->maxLength('street address', 50)
+            ->allowEmptyString('street address');
 
         $validator
-            ->scalar('suburb')
-            ->maxLength('suburb', 20)
-            ->requirePresence('suburb', 'create')
-            ->notEmptyString('suburb');
+            ->scalar('suberb')
+            ->maxLength('suberb', 20)
+            ->requirePresence('suberb', 'create')
+            ->notEmptyString('suberb');
 
         $validator
             ->integer('post_code')

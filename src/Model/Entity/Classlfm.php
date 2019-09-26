@@ -7,15 +7,18 @@ use Cake\ORM\Entity;
  * Classlfm Entity
  *
  * @property int $id
+ * @property string $name
  * @property string $age_group
  * @property int $location_id
  * @property \Cake\I18n\FrozenDate $start_date
+ * @property \Cake\I18n\FrozenDate $end_date
  * @property int $week_length
  * @property \Cake\I18n\FrozenTime $start_time
+ * @property \Cake\I18n\FrozenTime $end_time
  * @property int $duration
  * @property int $capacity
  * @property int $cost_per_class
- * @property string $overflow
+ * @property bool $overflow
  * @property string|null $note
  *
  * @property \App\Model\Entity\Location $location
@@ -32,11 +35,14 @@ class Classlfm extends Entity
      * @var array
      */
     protected $_accessible = [
+        'name' => true,
         'age_group' => true,
         'location_id' => true,
         'start_date' => true,
+        'end_date' => true,
         'week_length' => true,
         'start_time' => true,
+        'end_time' => true,
         'duration' => true,
         'capacity' => true,
         'cost_per_class' => true,

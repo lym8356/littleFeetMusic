@@ -1,54 +1,35 @@
-<div class="row">
-
-    <p>Date: <input type="text" id="datepicker"></p>
-
-    <div class="col-lg-6">
-        <div class="card border-warning mb-3">
-            <h3 class="card-header"><i class="fas fa-edit"></i>&nbsp; Add Class</h3>
-            <div class="card-body">
-                <?php
-                echo $this->Flash->render();
-
-                $this->Form->setTemplates([
-                    'inputContainerError' => '<div class="form-group has-danger {{type}}{{required}}">{{content}}{{error}}</div>',
-                    'error' => '<div class="text-danger">{{content}}</div>',
-                ]);
-
-                echo $this->Form->create($class);
-                echo $this->Form->controls(
-                    [
-                        'location' => ['required' => true, 'type' => 'select','empty' => 'Select Location',
-                            'options' => $class_location,'text' => 'Location', 'class' => 'form-control'],
-                        'start_date' => ['required' => true, 'type' => 'text',  'id' => 'datetimepicker1'],
-                        'start_time' => ['required' => true, 'type' => 'time']
-                    ],
-                    ['legend' => false]
-                );
-
-                ?>
-            </div>
-        </div>
-    </div>
-    <div class="col-lg-6">
-        <div class="card border-warning mb-3">
-            <h3 class="card-header">&nbsp</h3>
-            <div class="card-body">
-                <?php
-                echo $this->Form->input('age_group', ['type' => 'select', 'empty' => 'Please Select', 'class' => 'form-control']);
-                echo $this->Form->controls(
-                    [
-                        'duration' => ['required' => true, 'type' => 'number',  'class' => 'form-control'],
-                        'capacity' => ['required' => true, 'type' => 'number', 'text' => 'Start Date', 'class' => 'form-control'],
-                        'cost_per_class' => ['required' => true, 'type' => 'number',  'class' => 'form-control'],
-                        'note' => ['required' => true, 'type' => 'textarea',  'class' => 'form-control'],
-                    ],
-                    ['legend' => false]
-                );
-                echo $this->Form->button('<i class="fa fa-plus-circle"></i> Create Class', ['class' => 'btn btn-info pull-right mt-3']);
-                echo $this->Form->end();
-                ?>
-            </div>
-        </div>
-    </div>
+<?php
+/**
+ * @var \App\View\AppView $this
+ * @var \App\Model\Entity\Classlfm $classlfm
+ */
+?>
+<nav class="large-3 medium-4 columns" id="actions-sidebar">
+    <ul class="side-nav">
+        <li class="heading"><?= __('Actions') ?></li>
+        <li><?= $this->Html->link(__('List Classlfm'), ['action' => 'index']) ?></li>
+    </ul>
+</nav>
+<div class="classlfm form large-9 medium-8 columns content">
+    <?= $this->Form->create($classlfm) ?>
+    <fieldset>
+        <legend><?= __('Add Classlfm') ?></legend>
+        <?php
+            echo $this->Form->control('name');
+            echo $this->Form->control('age_group');
+            echo $this->Form->control('location_id');
+            echo $this->Form->control('start_date');
+            echo $this->Form->control('end_date');
+            echo $this->Form->control('week_length');
+            echo $this->Form->control('start_time');
+            echo $this->Form->control('end_time');
+            echo $this->Form->control('duration');
+            echo $this->Form->control('capacity');
+            echo $this->Form->control('cost_per_class');
+            echo $this->Form->control('overflow');
+            echo $this->Form->control('note');
+        ?>
+    </fieldset>
+    <?= $this->Form->button(__('Submit')) ?>
+    <?= $this->Form->end() ?>
 </div>
-

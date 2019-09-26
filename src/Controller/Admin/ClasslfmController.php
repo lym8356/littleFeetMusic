@@ -2,74 +2,108 @@
 namespace App\Controller\Admin;
 
 use App\Controller\AppController;
-use Cake\Event\Event;
-use Cake\ORM\Table;
-use Cake\ORM\TableRegistry;
 
-class ClasslfmController extends AppController{
+/**
+ * Classlfm Controller
+ *
+ *
+ * @method \App\Model\Entity\Classlfm[]|\Cake\Datasource\ResultSetInterface paginate($object = null, array $settings = [])
+ */
+class ClasslfmController extends AppController
+{
+    /**
+     * Index method
+     *
+     * @return \Cake\Http\Response|null
+     */
+    public function index()
+    {
+        $this->paginate= [
+            'contain' => ['Location']
+        ];
+        $classlfm = $this->paginate($this->Classlfm);
 
+        $this->set(compact('classlfm'));
+    }
 
-//    public function beforeFilter(Event $event)
-//    {
-//        parent::beforeFilter($event);
-//
-//        $this->viewBuilder()->setLayout('admin');
-//    }
+    /**
+     * View method
+     *
+     * @param string|null $id Classlfm id.
+     * @return \Cake\Http\Response|null
+     * @throws \Cake\Datasource\Exception\RecordNotFoundException When record not found.
+     */
+    public function view($id = null)
+    {
+        $classlfm = $this->Classlfm->get($id, [
+            'contain' => []
+        ]);
 
+        $this->set('classlfm', $classlfm);
+    }
+
+    /**
+     * Add method
+     *
+     * @return \Cake\Http\Response|null Redirects on successful add, renders view otherwise.
+     */
     public function add()
     {
-        $this->set('title', "Add Class");
+        $classlfm = $this->Classlfm->newEntity();
+        if ($this->request->is('post')) {
+            $classlfm = $this->Classlfm->patchEntity($classlfm, $this->request->getData());
+            if ($this->Classlfm->save($classlfm)) {
+                $this->Flash->success(__('The classlfm has been saved.'));
 
-
-        $this->set('class_location', $this->Classlfm->find('all'));
-
-        $class = $this->Classlfm->newEntity();
-        if($this->request->is('post') && !empty($this->request->getData()) )
-        {
-            $class = $this->Classlfm->patchEntity($class, $this->request->getData(), [
-                'validate' => true
-            ]);
-
-            if($class->errors())
-            {
-                $this->Flash->error('Please Fill In The Required Fields');
-            }else{
-                if($this->Classlfm->save($class))
-                {
-                    $this->redirect('/admin/class/manage');
-                    $this->Flash->success('Class Created.');
-                }else{
-                    $this->Flash->error(_('Failed To Add Class.'));
-                }
+                return $this->redirect(['action' => 'index']);
             }
+            $this->Flash->error(__('The classlfm could not be saved. Please, try again.'));
         }
-        $this->set(compact('class'));
-        $this->set('_serialize', ['class']);
-
+        $locations = $this->Classlfm->Location->find('list', ['limit' => 200]);
+        $this->set(compact('classlfm', 'locations'));
     }
 
-    public function manage()
+    /**
+     * Edit method
+     *
+     * @param string|null $id Classlfm id.
+     * @return \Cake\Http\Response|null Redirects on successful edit, renders view otherwise.
+     * @throws \Cake\Datasource\Exception\RecordNotFoundException When record not found.
+     */
+    public function edit($id = null)
     {
-        //set title
-        $this->set('title', 'Admin Panel');
+        $classlfm = $this->Classlfm->get($id, [
+            'contain' => []
+        ]);
+        if ($this->request->is(['patch', 'post', 'put'])) {
+            $classlfm = $this->Classlfm->patchEntity($classlfm, $this->request->getData());
+            if ($this->Classlfm->save($classlfm)) {
+                $this->Flash->success(__('The classlfm has been saved.'));
 
-        //pagination
-        $this->paginate=[
-            'limit' => '10'
-        ];
-        $class_p = $this->paginate($this->Classlfm->find('all'));
-        $this->set('class_p', $class_p);
+                return $this->redirect(['action' => 'index']);
+            }
+            $this->Flash->error(__('The classlfm could not be saved. Please, try again.'));
+        }
+        $this->set(compact('classlfm'));
+    }
 
-        //drop down options for location
-//        $this->set('location', $this->Classlfm->location->find('list'));
+    /**
+     * Delete method
+     *
+     * @param string|null $id Classlfm id.
+     * @return \Cake\Http\Response|null Redirects to index.
+     * @throws \Cake\Datasource\Exception\RecordNotFoundException When record not found.
+     */
+    public function delete($id = null)
+    {
+        $this->request->allowMethod(['post', 'delete']);
+        $classlfm = $this->Classlfm->get($id);
+        if ($this->Classlfm->delete($classlfm)) {
+            $this->Flash->success(__('The classlfm has been deleted.'));
+        } else {
+            $this->Flash->error(__('The classlfm could not be deleted. Please, try again.'));
+        }
 
-
-
-
-        $classes = $this->Classlfm->find('all');
-        $this->set(compact('classes'));
-
+        return $this->redirect(['action' => 'index']);
     }
 }
-
-

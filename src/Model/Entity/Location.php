@@ -7,9 +7,9 @@ use Cake\ORM\Entity;
  * Location Entity
  *
  * @property int $Id
- * @property string|null $name
- * @property string|null $street address
- * @property string $suberb
+ * @property string $name
+ * @property string $street_address
+ * @property string $suburb
  * @property int $post_code
  * @property string|null $note
  *
@@ -28,8 +28,8 @@ class Location extends Entity
      */
     protected $_accessible = [
         'name' => true,
-        'street address' => true,
-        'suberb' => true,
+        'street_address' => true,
+        'suburb' => true,
         'post_code' => true,
         'note' => true,
         'classlfm' => true
