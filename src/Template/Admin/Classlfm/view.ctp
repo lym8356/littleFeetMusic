@@ -33,8 +33,8 @@
             <td><?= $this->Number->format($classlfm->id) ?></td>
         </tr>
         <tr>
-            <th scope="row"><?= __('Location Id') ?></th>
-            <td><?= $this->Number->format($classlfm->location_id) ?></td>
+            <th scope="row"><?= __('Location') ?></th>
+            <td><?= $classlfm->location->name ?></td>
         </tr>
         <tr>
             <th scope="row"><?= __('Week Length') ?></th>

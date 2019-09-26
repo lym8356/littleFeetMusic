@@ -1,5 +1,4 @@
 <div class="row">
-    <? print_r($location);die; ?>
     <div class="col-lg-12">
         <div class="card">
             <h3 class="card-header">Manage Class</h3>
@@ -23,29 +22,29 @@
                     </tr>
                     </thead>
                     <tbody>
-                        <?php
-                            $i = 1;
-                            foreach($classes as $value){
-                        ?>
-                            <tr>
-                                <td><?= $value['location_id'] ?></td>
-                                <td><?= $value['start_date'] ?></td>
-                                <td><?= $value['start_time']->i18nFormat(
-                                        [\IntlDateFormatter::NONE, \IntlDateFormatter::SHORT]
-                                    ) ?></td>
-                                <td><?= $value['duration'] ?></td>
-                                <td><?= $value['capacity'] ?></td>
-                                <td><?= $value['cost'] ?></td>
-                                <td>
-                                    <div class="btn-group" role="group">
-                                        <?php
-                                        echo $this->Html->link('<i class="fa fa-pencil-square-o"></i> Edit', '#'.$value->EId,['class' => 'btn btn-success', 'escape' => false]);
-                                        echo $this->Form->postLink('<i class="fa fa-recycle"></i> Delete', '#'.$value->EId,['confirm' => 'Are you sure?', 'class' => 'btn btn-danger', 'escape' => false]);
-                                        ?>
-                                    </div>
-                                </td>
-                            </tr>
-                    <?php } ?>
+                    <?php foreach ($classlfm as $class): ?>
+                        <tr>
+                            <td><?= $this->Number->format($class->id) ?></td>
+                            <td><?= h($class->name) ?></td>
+                            <td><?= h($class->age_group) ?></td>
+                            <td><?= $class->location->name ?></td>
+                            <td><?= h($class->start_date) ?></td>
+                            <td><?= h($class->end_date) ?></td>
+                            <td><?= $this->Number->format($class->week_length) ?></td>
+                            <td><?= h($class->start_time) ?></td>
+                            <td><?= h($class->end_time) ?></td>
+                            <td><?= $this->Number->format($class->duration) ?></td>
+                            <td><?= $this->Number->format($class->capacity) ?></td>
+                            <td><?= $this->Number->format($class->cost_per_class) ?></td>
+                            <td><?= h($class->overflow) ?></td>
+                            <td><?= h($class->note) ?></td>
+                            <td class="actions">
+                                <?= $this->Html->link(__('View'), ['action' => 'view', $class->id]) ?>
+                                <?= $this->Html->link(__('Edit'), ['action' => 'edit', $class->id]) ?>
+                                <?= $this->Form->postLink(__('Delete'), ['action' => 'delete', $class->id], ['confirm' => __('Are you sure you want to delete # {0}?', $class->id)]) ?>
+                            </td>
+                        </tr>
+                    <?php endforeach; ?>
                     </tbody>
                 </table>
 

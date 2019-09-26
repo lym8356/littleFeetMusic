@@ -7,7 +7,7 @@ use Cake\ORM\Table;
 use Cake\Validation\Validator;
 
 /**
- * Location Model
+ * Locations Model
  *
  * @property \App\Model\Table\ClasslfmTable&\Cake\ORM\Association\HasMany $Classlfm
  *
@@ -20,7 +20,7 @@ use Cake\Validation\Validator;
  * @method \App\Model\Entity\Location[] patchEntities($entities, array $data, array $options = [])
  * @method \App\Model\Entity\Location findOrCreate($search, callable $callback = null, $options = [])
  */
-class LocationTable extends Table
+class LocationsTable extends Table
 {
     /**
      * Initialize method
@@ -32,7 +32,7 @@ class LocationTable extends Table
     {
         parent::initialize($config);
 
-        $this->setTable('location');
+        $this->setTable('locations');
         $this->setDisplayField('name');
         $this->setPrimaryKey('Id');
 

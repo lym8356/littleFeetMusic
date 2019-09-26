@@ -19,7 +19,8 @@ class ClasslfmController extends AppController
     public function index()
     {
         $this->paginate= [
-            'contain' => ['Location']
+            'contain' => ['Locations'],
+            'limit' => '10'
         ];
         $classlfm = $this->paginate($this->Classlfm);
 
@@ -33,14 +34,15 @@ class ClasslfmController extends AppController
      * @return \Cake\Http\Response|null
      * @throws \Cake\Datasource\Exception\RecordNotFoundException When record not found.
      */
-    public function view($id = null)
-    {
-        $classlfm = $this->Classlfm->get($id, [
-            'contain' => []
-        ]);
 
-        $this->set('classlfm', $classlfm);
-    }
+//    public function view($id = null)
+//    {
+//        $classlfm = $this->Classlfm->get($id, [
+//            'contain' => ['Location']
+//        ]);
+//
+//        $this->set('classlfm', $classlfm);
+//    }
 
     /**
      * Add method
@@ -59,7 +61,7 @@ class ClasslfmController extends AppController
             }
             $this->Flash->error(__('The classlfm could not be saved. Please, try again.'));
         }
-        $locations = $this->Classlfm->Location->find('list', ['limit' => 200]);
+        $locations = $this->Classlfm->Locations->find('list', ['limit' => 200]);
         $this->set(compact('classlfm', 'locations'));
     }
 
@@ -84,7 +86,8 @@ class ClasslfmController extends AppController
             }
             $this->Flash->error(__('The classlfm could not be saved. Please, try again.'));
         }
-        $this->set(compact('classlfm'));
+        $locations = $this->Classlfm->Locations->find('list', ['limit' => 200]);
+        $this->set(compact('classlfm', 'locations'));
     }
 
     /**

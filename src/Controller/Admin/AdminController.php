@@ -7,12 +7,7 @@ use Cake\Event\Event;
 class AdminController extends AppController{
 
 
-    public function beforeFilter(Event $event)
-    {
-        parent::beforeFilter($event);
 
-        //$this->viewBuilder()->setLayout('admin');
-    }
 
     public function index()
     {
