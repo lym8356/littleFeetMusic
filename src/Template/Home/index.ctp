@@ -16,7 +16,6 @@
 $cakeDescription = 'CakePHP: the rapid development php framework';
 ?>
 <!DOCTYPE html>
-<html>
 <head>
     <?= $this->Html->charset() ?>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -38,7 +37,7 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
     <?= $this->Html->css('/font-awesome/css/all.min.css') ?>
     <?= $this->Html->script('/font-awesome/js/all.min.js') ?>
     <!-- custom css -->
-    <?= $this->Html->css('global-style.css') ?>
+    <?= $this->Html->css('homepage.css') ?>
 
     <?= $this->fetch('meta') ?>
     <?= $this->fetch('css') ?>
@@ -48,58 +47,87 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
 </head>
 
 
-<body>
 
 <?php echo $this->element('header') ?>
+
 <div class="container">
     <div class="row">
-            <div class="img-responsive pt-5 pb-4">
-               <?php echo $this->Html->image('LFM.jpg'); ?>
-            </div>
+        <div class="img-responsive pt-5 pb-4">
+            <?php echo $this->Html->image('LFM.jpg'); ?>
+        </div>
     </div>
 </div>
 
 
 
-<?= $this->Flash->render() ?>
-<?= $this->fetch('content') ?>
 
 
-<div class="container">
-    <h4>-Customer comment:
-    </h4>
+<div class="flex-container">
+
+    <div class="box">
+        <h5>Little Feet Music</h5>
+        <p>Little Feet Music is fun educational music and entertainment for your little ones.</p>
+        <p>Rachel Parkinson runs Little Feet Music - amazingly fun and engaging music and movement classes for babies, toddlers and preschoolers.  Rachel knows HUNDREDS of songs, so it never gets boring!</p>
+
+        <a href="Enroll" class="btn EnrollBtn" >Enroll</a>
+        <a href="FreeTrial" class="btn TrailBtn">Book a free trial</a>
+    </div>
+
+    <div class="box2">
+
+
+    </div>
 </div>
 
-<div class="container">
-    <div class="row">
-        <div class="col-md-4">
-            <div class="testimonial text-center">
-                <div class="testimonial-body">
-                    <p>My kid enjoyed the class and had a good time with children in his own age.</p>
-                    <div class="testimonial-info-1">- John Smith</div>
-                    <div class="testimonial-info-2">Little Feet Music Parent</div>
-                </div>
-            </div>
+
+
+<div class="clearfix">
+
+    <div class="testimonial">
+        <div class="testimonial-info">
+            <blockquote>
+                <p> "My kid enjoyed the class."</p>
+            </blockquote>
+            <p>   -John Smith</p>
+            <p>Little Feet Music Parent</p>
         </div>
-        <div class="col-md-4">
-            <div class="testimonial text-center">
-                <div class="testimonial-body">
-                    <p> Kids had fun in the class.</p>
-                    <div class="testimonial-info-1">- Sarah Jane</div>
-                    <div class="testimonial-info-2">Little Feet Music Parent</div>
-                </div>
-            </div>
+    </div>
+
+    <div class="testimonial">
+        <div class="testimonial-info">
+            <p> "Kids had fun in the class."</p>
+            <p>   -Sarah Jane</p>
+            <p>Little Feet Music Parent</p>
         </div>
-        <div class="col-md-4">
-            <div class="testimonial text-center">
-                <div class="testimonial-body">
-                    <p> Nice class and nice teacher.</p>
-                    <div class="testimonial-info-1">- Paul Frank</div>
-                    <div class="testimonial-info-2">Little Feet Music Parent</div>
+    </div>
+
+    <div class="testimonial">
+        <div class="testimonial-info">
+            <p> "Nice class and nice teacher."</p>
+            <p>   -Paul Frank</p>
+            <p>Little Feet Music Parent</p>
+        </div>
+    </div>
+
+</div>
+<div class="sub-footer">
+    <div class="container">
+        <div class="col-md-12">
+            <div class="row">
+                <div class="col-sm-8">
+                    Discover our classes and find more!
+                </div>
+                <div class="col-sm-4">
+                    <p class="mt-10"><a href="GetClassInfo" class="classbtn">Class Info Here<i class="fa fa-arrow-right pl-20"></i></a></p>
                 </div>
             </div>
         </div>
     </div>
+</div>
+<div class="imgbox">
+    <?php echo $this->Html->image('ft.png'); ?>
+</div>
+
 
 </body>
 </html>

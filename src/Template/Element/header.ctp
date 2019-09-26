@@ -23,14 +23,9 @@ $cakeDescription = 'User Panel';
 
 <body>
 <header>
-    <div class="header py-1 fixed-top bg-light" style="margin-top: 56px">
-        <ul class="nav justify-content-end">
-            <li class="nav-item"><i class="fas fa-envelope-square"></i>&nbsp;info@littlefeetmusic.com.au &nbsp;&nbsp;</li>
-            <li class="nav-item"><i class="fas fa-phone-square"></i>&nbsp;0410 600 060&nbsp;</li>
-        </ul>
-    </div>
+
     <nav class="navbar navbar-expand-lg fixed-top navbar-dark bg-primary">
-        <a class="navbar-brand" href="#"> <?php echo $this->Html->image('Logo.png'); ?></a>
+        <a class="navbar-brand" href="#"> <?php echo $this->Html->image('Logo.gif'); ?></a>
         <button class="navbar-toggler" type="button"
                 data-toggle="collapse" data-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false"
                 aria-label="Toggle navigation">
@@ -68,6 +63,12 @@ $cakeDescription = 'User Panel';
             </ul>
         </div>
     </nav>
+    <div class="header py-1 fixed-top bg-light" style="margin-top: 90px">
+        <ul class="nav justify-content-end">
+            <li class="nav-item"><i class="fas fa-envelope-square"></i>&nbsp;info@littlefeetmusic.com.au &nbsp;&nbsp;</li>
+            <li class="nav-item"><i class="fas fa-phone-square"></i>&nbsp;0410 600 060&nbsp;</li>
+        </ul>
+    </div>
 </header>
 </body>
 </html>
