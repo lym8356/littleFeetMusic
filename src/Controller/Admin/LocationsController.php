@@ -4,13 +4,13 @@ namespace App\Controller\Admin;
 use App\Controller\AppController;
 
 /**
- * Location Controller
+ * Locations Controller
  *
- * @property \App\Model\Table\LocationTable $Location
+ * @property \App\Model\Table\LocationsTable $Locations
  *
  * @method \App\Model\Entity\Location[]|\Cake\Datasource\ResultSetInterface paginate($object = null, array $settings = [])
  */
-class LocationController extends AppController
+class LocationsController extends AppController
 {
     /**
      * Index method
@@ -19,9 +19,9 @@ class LocationController extends AppController
      */
     public function index()
     {
-        $location = $this->paginate($this->Location);
+        $locations = $this->paginate($this->Locations);
 
-        $this->set(compact('location'));
+        $this->set(compact('locations'));
     }
 
     /**
@@ -33,7 +33,7 @@ class LocationController extends AppController
      */
     public function view($id = null)
     {
-        $location = $this->Location->get($id, [
+        $location = $this->Locations->get($id, [
             'contain' => ['Classlfm']
         ]);
 
@@ -47,10 +47,10 @@ class LocationController extends AppController
      */
     public function add()
     {
-        $location = $this->Location->newEntity();
+        $location = $this->Locations->newEntity();
         if ($this->request->is('post')) {
-            $location = $this->Location->patchEntity($location, $this->request->getData());
-            if ($this->Location->save($location)) {
+            $location = $this->Locations->patchEntity($location, $this->request->getData());
+            if ($this->Locations->save($location)) {
                 $this->Flash->success(__('The location has been saved.'));
 
                 return $this->redirect(['action' => 'index']);
@@ -69,12 +69,12 @@ class LocationController extends AppController
      */
     public function edit($id = null)
     {
-        $location = $this->Location->get($id, [
+        $location = $this->Locations->get($id, [
             'contain' => []
         ]);
         if ($this->request->is(['patch', 'post', 'put'])) {
-            $location = $this->Location->patchEntity($location, $this->request->getData());
-            if ($this->Location->save($location)) {
+            $location = $this->Locations->patchEntity($location, $this->request->getData());
+            if ($this->Locations->save($location)) {
                 $this->Flash->success(__('The location has been saved.'));
 
                 return $this->redirect(['action' => 'index']);
@@ -94,8 +94,8 @@ class LocationController extends AppController
     public function delete($id = null)
     {
         $this->request->allowMethod(['post', 'delete']);
-        $location = $this->Location->get($id);
-        if ($this->Location->delete($location)) {
+        $location = $this->Locations->get($id);
+        if ($this->Locations->delete($location)) {
             $this->Flash->success(__('The location has been deleted.'));
         } else {
             $this->Flash->error(__('The location could not be deleted. Please, try again.'));

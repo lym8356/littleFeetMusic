@@ -1,7 +1,7 @@
 <?php
 /**
  * @var \App\View\AppView $this
- * @var \App\Model\Entity\Location[]|\Cake\Collection\CollectionInterface $location
+ * @var \App\Model\Entity\Location[]|\Cake\Collection\CollectionInterface $locations
  */
 ?>
 <nav class="large-3 medium-4 columns" id="actions-sidebar">
@@ -12,8 +12,8 @@
         <li><?= $this->Html->link(__('New Classlfm'), ['controller' => 'Classlfm', 'action' => 'add']) ?></li>
     </ul>
 </nav>
-<div class="location index large-9 medium-8 columns content">
-    <h3><?= __('Location') ?></h3>
+<div class="locations index large-9 medium-8 columns content">
+    <h3><?= __('Locations') ?></h3>
     <table cellpadding="0" cellspacing="0">
         <thead>
             <tr>
@@ -27,7 +27,7 @@
             </tr>
         </thead>
         <tbody>
-            <?php foreach ($location as $location): ?>
+            <?php foreach ($locations as $location): ?>
             <tr>
                 <td><?= $this->Number->format($location->Id) ?></td>
                 <td><?= h($location->name) ?></td>

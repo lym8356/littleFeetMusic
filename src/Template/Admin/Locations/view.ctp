@@ -9,13 +9,13 @@
         <li class="heading"><?= __('Actions') ?></li>
         <li><?= $this->Html->link(__('Edit Location'), ['action' => 'edit', $location->Id]) ?> </li>
         <li><?= $this->Form->postLink(__('Delete Location'), ['action' => 'delete', $location->Id], ['confirm' => __('Are you sure you want to delete # {0}?', $location->Id)]) ?> </li>
-        <li><?= $this->Html->link(__('List Location'), ['action' => 'index']) ?> </li>
+        <li><?= $this->Html->link(__('List Locations'), ['action' => 'index']) ?> </li>
         <li><?= $this->Html->link(__('New Location'), ['action' => 'add']) ?> </li>
         <li><?= $this->Html->link(__('List Classlfm'), ['controller' => 'Classlfm', 'action' => 'index']) ?> </li>
         <li><?= $this->Html->link(__('New Classlfm'), ['controller' => 'Classlfm', 'action' => 'add']) ?> </li>
     </ul>
 </nav>
-<div class="location view large-9 medium-8 columns content">
+<div class="locations view large-9 medium-8 columns content">
     <h3><?= h($location->name) ?></h3>
     <table class="vertical-table">
         <tr>
