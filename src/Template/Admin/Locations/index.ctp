@@ -17,7 +17,6 @@
     <table cellpadding="0" cellspacing="0">
         <thead>
             <tr>
-                <th scope="col"><?= $this->Paginator->sort('Id') ?></th>
                 <th scope="col"><?= $this->Paginator->sort('name') ?></th>
                 <th scope="col"><?= $this->Paginator->sort('street_address') ?></th>
                 <th scope="col"><?= $this->Paginator->sort('suburb') ?></th>
@@ -29,7 +28,6 @@
         <tbody>
             <?php foreach ($locations as $location): ?>
             <tr>
-                <td><?= $this->Number->format($location->Id) ?></td>
                 <td><?= h($location->name) ?></td>
                 <td><?= h($location->street_address) ?></td>
                 <td><?= h($location->suburb) ?></td>

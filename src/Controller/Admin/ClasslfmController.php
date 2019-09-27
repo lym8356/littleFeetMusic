@@ -35,14 +35,14 @@ class ClasslfmController extends AppController
      * @throws \Cake\Datasource\Exception\RecordNotFoundException When record not found.
      */
 
-//    public function view($id = null)
-//    {
-//        $classlfm = $this->Classlfm->get($id, [
-//            'contain' => ['Location']
-//        ]);
-//
-//        $this->set('classlfm', $classlfm);
-//    }
+   public function view($id = null)
+   {
+       $classlfm = $this->Classlfm->get($id, [
+           'contain' => ['Location']
+       ]);
+
+       $this->set('classlfm', $classlfm);
+   }
 
     /**
      * Add method

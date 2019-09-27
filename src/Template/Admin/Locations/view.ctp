@@ -48,10 +48,8 @@
         <?php if (!empty($location->classlfm)): ?>
         <table cellpadding="0" cellspacing="0">
             <tr>
-                <th scope="col"><?= __('Id') ?></th>
                 <th scope="col"><?= __('Name') ?></th>
                 <th scope="col"><?= __('Age Group') ?></th>
-                <th scope="col"><?= __('Location Id') ?></th>
                 <th scope="col"><?= __('Start Date') ?></th>
                 <th scope="col"><?= __('End Date') ?></th>
                 <th scope="col"><?= __('Week Length') ?></th>
@@ -60,16 +58,13 @@
                 <th scope="col"><?= __('Duration') ?></th>
                 <th scope="col"><?= __('Capacity') ?></th>
                 <th scope="col"><?= __('Cost Per Class') ?></th>
-                <th scope="col"><?= __('Overflow') ?></th>
                 <th scope="col"><?= __('Note') ?></th>
                 <th scope="col" class="actions"><?= __('Actions') ?></th>
             </tr>
             <?php foreach ($location->classlfm as $classlfm): ?>
             <tr>
-                <td><?= h($classlfm->id) ?></td>
                 <td><?= h($classlfm->name) ?></td>
                 <td><?= h($classlfm->age_group) ?></td>
-                <td><?= h($classlfm->location_id) ?></td>
                 <td><?= h($classlfm->start_date) ?></td>
                 <td><?= h($classlfm->end_date) ?></td>
                 <td><?= h($classlfm->week_length) ?></td>
@@ -78,10 +73,8 @@
                 <td><?= h($classlfm->duration) ?></td>
                 <td><?= h($classlfm->capacity) ?></td>
                 <td><?= h($classlfm->cost_per_class) ?></td>
-                <td><?= h($classlfm->overflow) ?></td>
                 <td><?= h($classlfm->note) ?></td>
                 <td class="actions">
-                    <?= $this->Html->link(__('View'), ['controller' => 'Classlfm', 'action' => 'view', $classlfm->id]) ?>
                     <?= $this->Html->link(__('Edit'), ['controller' => 'Classlfm', 'action' => 'edit', $classlfm->id]) ?>
                     <?= $this->Form->postLink(__('Delete'), ['controller' => 'Classlfm', 'action' => 'delete', $classlfm->id], ['confirm' => __('Are you sure you want to delete # {0}?', $classlfm->id)]) ?>
                 </td>
