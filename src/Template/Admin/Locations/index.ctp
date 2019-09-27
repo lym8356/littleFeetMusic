@@ -4,14 +4,54 @@
  * @var \App\Model\Entity\Location[]|\Cake\Collection\CollectionInterface $locations
  */
 ?>
+<link rel="stylesheet" type="text/css" href="../../../../webroot/css/location.css">
+
+<style type="text/css">
+    table{
+        border: 1px solid black;
+        position: center;
+    }
+    th, td{
+        padding: 15px;
+        vertical-align: center;
+        text-orientation: left;
+        border: 1px solid black;
+    }
+
+    tr:hover{
+        background-color: #f5f5f5;
+    }
+
+    #loc-dt{
+
+    }
+
+    
+    a:hover{
+        text-decoration: none;
+
+    }
+
+     .btn{
+        margin-left: 5px;
+     }
+     .btn:hover{
+        background-color: #4da6ff;
+     }
+
+     .tbn{
+        float: right;
+        margin-right: 5%;
+     }
+
+
+
+</style>
+
 <nav class="large-3 medium-4 columns" id="actions-sidebar">
-    <ul class="side-nav">
-        <li class="heading"><?= __('Actions') ?></li>
-        <li><?= $this->Html->link(__('New Location'), ['action' => 'add']) ?></li>
-        <li><?= $this->Html->link(__('List Classlfm'), ['controller' => 'Classlfm', 'action' => 'index']) ?></li>
-        <li><?= $this->Html->link(__('New Classlfm'), ['controller' => 'Classlfm', 'action' => 'add']) ?></li>
-    </ul>
+ <button><?= $this->Html->link(__('Add New Location'), ['action' => 'add']) ?></button>
 </nav>
+<br>
 <div class="locations index large-9 medium-8 columns content">
     <h3><?= __('Locations') ?></h3>
     <table cellpadding="0" cellspacing="0">
@@ -22,7 +62,7 @@
                 <th scope="col"><?= $this->Paginator->sort('suburb') ?></th>
                 <th scope="col"><?= $this->Paginator->sort('post_code') ?></th>
                 <th scope="col"><?= $this->Paginator->sort('note') ?></th>
-                <th scope="col" class="actions"><?= __('Actions') ?></th>
+                <th scope="col" colspan="3" class="actions"><?= __('Actions') ?></th>
             </tr>
         </thead>
         <tbody>
@@ -35,7 +75,11 @@
                 <td><?= h($location->note) ?></td>
                 <td class="actions">
                     <?= $this->Html->link(__('View'), ['action' => 'view', $location->Id]) ?>
+                </td>
+                <td>
                     <?= $this->Html->link(__('Edit'), ['action' => 'edit', $location->Id]) ?>
+                </td>
+                <td>
                     <?= $this->Form->postLink(__('Delete'), ['action' => 'delete', $location->Id], ['confirm' => __('Are you sure you want to delete # {0}?', $location->Id)]) ?>
                 </td>
             </tr>
