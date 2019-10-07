@@ -24,7 +24,7 @@ class ClasslfmTableTest extends TestCase
      */
     public $fixtures = [
         'app.Classlfm',
-        'app.Location'
+        'app.Locations'
     ];
 
     /**

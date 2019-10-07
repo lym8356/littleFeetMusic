@@ -1,0 +1,9 @@
+.side-nav{
+	float: right;
+	margin-top:60px;
+}
+.side-nav li{
+	display:inline-block;
+	list-style:none;
+	
+}

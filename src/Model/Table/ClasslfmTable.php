@@ -9,7 +9,7 @@ use Cake\Validation\Validator;
 /**
  * Classlfm Model
  *
- * @property \App\Model\Table\LocationTable&\Cake\ORM\Association\BelongsTo $Location
+ * @property \App\Model\Table\LocationsTable&\Cake\ORM\Association\BelongsTo $Locations
  *
  * @method \App\Model\Entity\Classlfm get($primaryKey, $options = [])
  * @method \App\Model\Entity\Classlfm newEntity($data = null, array $options = [])

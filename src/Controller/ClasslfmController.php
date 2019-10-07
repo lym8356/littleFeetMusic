@@ -1,11 +1,12 @@
 <?php
-namespace App\Controller\Admin;
+namespace App\Controller;
 
 use App\Controller\AppController;
 
 /**
  * Classlfm Controller
  *
+ * @property \App\Model\Table\ClasslfmTable $Classlfm
  *
  * @method \App\Model\Entity\Classlfm[]|\Cake\Datasource\ResultSetInterface paginate($object = null, array $settings = [])
  */
@@ -18,18 +19,12 @@ class ClasslfmController extends AppController
      */
     public function index()
     {
-        $this->paginate= [
-            'contain' => ['Locations'],
-            'limit' => '10'
+        $this->paginate = [
+            'contain' => ['Locations']
         ];
         $classlfm = $this->paginate($this->Classlfm);
 
         $this->set(compact('classlfm'));
-
-        $locations = $this->Classlfm->Locations->find('list');
-
-        $this->set('location',$locations);
-
     }
 
     /**
@@ -39,15 +34,14 @@ class ClasslfmController extends AppController
      * @return \Cake\Http\Response|null
      * @throws \Cake\Datasource\Exception\RecordNotFoundException When record not found.
      */
+    public function view($id = null)
+    {
+        $classlfm = $this->Classlfm->get($id, [
+            'contain' => ['Locations']
+        ]);
 
-   public function view($id = null)
-   {
-       $classlfm = $this->Classlfm->get($id, [
-           'contain' => ['Location']
-       ]);
-
-       $this->set('classlfm', $classlfm);
-   }
+        $this->set('classlfm', $classlfm);
+    }
 
     /**
      * Add method
@@ -114,41 +108,4 @@ class ClasslfmController extends AppController
 
         return $this->redirect(['action' => 'index']);
     }
-
-    public function search()
-    {
-
-        $this->layout = 'ajax';
-        $this->request->allowMethod('ajax');
-
-        $keyword = $this->request->getQuery('keyword');
-        $query = $this->Classlfm->find('all',[
-            'contain' => ['Locations'],
-            'conditions' => ['Classlfm.name LIKE'=>'%'.$keyword.'%'],
-            'order' => ['Classlfm.id'=>'DESC'],
-            'limit' => 10
-        ]);
-
-        $this->set('classlfm', $this->paginate($query));
-        $this->set('_serialize', ['classlfm']);
-    }
-
-    public function searchLocation(){
-
-        $this->layout = 'ajax';
-        $this->request->allowMethod('ajax');
-
-        $keyword = $this->request->getQuery('keyword');
-        $query = $this->Classlfm->find('all',[
-            'contain' => ['Locations'],
-            'conditions' => ['Classlfm.location_id'=>$keyword],
-            'order' => ['Classlfm.id'=>'DESC'],
-            'limit' => 10
-        ]);
-        //pr($query);die;
-
-        $this->set('classlfm', $this->paginate($query));
-        $this->set('_serialize', ['classlfm']);
-    }
-
 }
