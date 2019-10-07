@@ -201,3 +201,4 @@ Type::build('timestamp')
 //Inflector::rules('irregular', ['red' => 'redlings']);
 //Inflector::rules('uninflected', ['dontinflectme']);
 //Inflector::rules('transliteration', ['/å/' => 'aa']);
+$this->addPlugin('FullCalendar', ['bootstrap' => true, 'routes' => true]);

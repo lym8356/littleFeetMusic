@@ -3,6 +3,7 @@
  * @var \App\View\AppView $this
  * @var \App\Model\Entity\Classlfm $classlfm
  */
+use Cake\Validation\Validator;
 ?>
 <!DOCTYPE html>
 <html>
@@ -47,18 +48,22 @@
             <?= $this->Form->create($classlfm) ?>
 
             <?php
+            $s_date = date('Y-m-d', strtotime($classlfm['start_date']));
+            $s_time = date('H i s', strtotime($classlfm['start_time']));
             echo $this->Form->control('name', ['class' => 'form-control']);
             echo $this->Form->control('age_group', ['class' => 'form-control']);
             echo $this->Form->control('location_id', ['class' => 'form-control']);
             echo $this->Form->control('start_date', ['class' => 'form-control',
-                'id' => 'start_date', 'type' => 'text']);
+                'id' => 'start_date', 'type' => 'text', 'required' => false,
+                'value' => $s_date]);
             echo $this->Form->control('end_date', ['class' => 'form-control',
-                'id' => 'end_date', 'type' => 'text']);
+                'id' => 'end_date', 'type' => 'text', 'required' => false]);
             echo $this->Form->control('week_length', ['class' => 'form-control']);
             echo $this->Form->control('start_time', ['class' => 'form-control',
-                'id' => 'start_time', 'type' => 'text']);
+                'id' => 'start_time', 'type' => 'text', 'required' => false,
+                'value' => $s_time]);
             echo $this->Form->control('end_time', ['class' => 'form-control',
-                'id' => 'end_time', 'type' => 'text']);
+                'id' => 'end_time', 'type' => 'text', 'required' => false]);
 
             ?>
             <?php echo $this->Html->link('Back', ['action' => 'index'],

@@ -67,12 +67,12 @@ class ClasslfmTable extends Table
             ->notEmptyString('age_group');
 
         $validator
-            ->date('start_date')
+            //->date('start_date')
             ->requirePresence('start_date', 'create')
             ->notEmptyDate('start_date');
 
         $validator
-            ->date('end_date')
+            //->date('end_date')
             ->requirePresence('end_date', 'create')
             ->notEmptyDate('end_date');
 
@@ -82,12 +82,12 @@ class ClasslfmTable extends Table
             ->notEmptyString('week_length');
 
         $validator
-            ->time('start_time')
+            //->time('start_time')
             ->requirePresence('start_time', 'create')
             ->notEmptyTime('start_time');
 
         $validator
-            ->time('end_time')
+            //->time('end_time')
             ->requirePresence('end_time', 'create')
             ->notEmptyTime('end_time');
 
@@ -127,7 +127,7 @@ class ClasslfmTable extends Table
      */
     public function buildRules(RulesChecker $rules)
     {
-        $rules->add($rules->existsIn(['location_id'], 'Location'));
+        $rules->add($rules->existsIn(['location_id'], 'Locations'));
 
         return $rules;
     }

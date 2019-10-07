@@ -25,6 +25,11 @@ class ClasslfmController extends AppController
         $classlfm = $this->paginate($this->Classlfm);
 
         $this->set(compact('classlfm'));
+
+        $locations = $this->Classlfm->Locations->find('list');
+
+        $this->set('location',$locations);
+
     }
 
     /**
@@ -109,4 +114,41 @@ class ClasslfmController extends AppController
 
         return $this->redirect(['action' => 'index']);
     }
+
+    public function search()
+    {
+
+        $this->layout = 'ajax';
+        $this->request->allowMethod('ajax');
+
+        $keyword = $this->request->getQuery('keyword');
+        $query = $this->Classlfm->find('all',[
+            'contain' => ['Locations'],
+            'conditions' => ['Classlfm.name LIKE'=>'%'.$keyword.'%'],
+            'order' => ['Classlfm.id'=>'DESC'],
+            'limit' => 10
+        ]);
+
+        $this->set('classlfm', $this->paginate($query));
+        $this->set('_serialize', ['classlfm']);
+    }
+
+    public function searchLocation(){
+
+        $this->layout = 'ajax';
+        $this->request->allowMethod('ajax');
+
+        $keyword = $this->request->getQuery('keyword');
+        $query = $this->Classlfm->find('all',[
+            'contain' => ['Locations'],
+            'conditions' => ['Classlfm.location_id'=>$keyword],
+            'order' => ['Classlfm.id'=>'DESC'],
+            'limit' => 10
+        ]);
+        //pr($query);die;
+
+        $this->set('classlfm', $this->paginate($query));
+        $this->set('_serialize', ['classlfm']);
+    }
+
 }
