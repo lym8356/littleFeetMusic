@@ -14,7 +14,7 @@ use Cake\ORM\Entity;
  * @property string|null $phone
  * @property \Cake\I18n\FrozenDate|null $birthdate
  * @property string|null $zipcode
- * @property string $role
+ * @property string|null $role
  * @property \Cake\I18n\FrozenTime|null $created
  * @property \Cake\I18n\FrozenTime|null $modified
  */

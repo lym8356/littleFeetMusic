@@ -59,11 +59,11 @@ $action=$this->request->params['action'];
                     <use xlink:href="#stroked-notepad"></use>
                 </svg> Manage Booking', '/admin/bookings/index',
                 ['escape' => false]); ?></li>
-        <li class="sidebar_item"><a href="#">
-                <svg class="glyph stroked female-user">
+        <li class="sidebar_item <?php echo ($controller=='Users')?'active':'';?>">
+            <?= $this->Html->link('<svg class="glyph stroked female-user">)                
                     <use xlink:href="#stroked-female-user"></use>
-                </svg>
-               Manage User</a></li>
+                </svg> Manage User', '/admin/users/index',
+                ['escape' => false]); ?></li>
         <li class="sidebar_item"><a href="#">
                 <svg class="glyph stroked table">
                     <use xlink:href="#stroked-table"></use>

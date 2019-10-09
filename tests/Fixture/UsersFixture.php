@@ -23,7 +23,7 @@ class UsersFixture extends TestFixture
         'phone' => ['type' => 'string', 'length' => 25, 'null' => true, 'default' => null, 'collate' => 'utf8mb4_general_ci', 'comment' => '', 'precision' => null, 'fixed' => null],
         'birthdate' => ['type' => 'date', 'length' => null, 'null' => true, 'default' => null, 'comment' => '', 'precision' => null],
         'zipcode' => ['type' => 'string', 'length' => 20, 'null' => true, 'default' => null, 'collate' => 'utf8mb4_general_ci', 'comment' => '', 'precision' => null, 'fixed' => null],
-        'role' => ['type' => 'string', 'length' => 20, 'null' => false, 'default' => 'user', 'collate' => 'utf8mb4_general_ci', 'comment' => '', 'precision' => null, 'fixed' => null],
+        'role' => ['type' => 'string', 'length' => null, 'null' => true, 'default' => 'user', 'collate' => 'utf8mb4_general_ci', 'comment' => '', 'precision' => null, 'fixed' => null],
         'created' => ['type' => 'datetime', 'length' => null, 'null' => true, 'default' => null, 'comment' => '', 'precision' => null],
         'modified' => ['type' => 'datetime', 'length' => null, 'null' => true, 'default' => null, 'comment' => '', 'precision' => null],
         '_constraints' => [
@@ -50,11 +50,11 @@ class UsersFixture extends TestFixture
                 'password' => 'Lorem ipsum dolor sit amet',
                 'email' => 'Lorem ipsum dolor sit amet',
                 'phone' => 'Lorem ipsum dolor sit a',
-                'birthdate' => '2019-09-26',
+                'birthdate' => '2019-10-09',
                 'zipcode' => 'Lorem ipsum dolor ',
-                'role' => 'Lorem ipsum dolor ',
-                'created' => '2019-09-26 12:32:22',
-                'modified' => '2019-09-26 12:32:22'
+                'role' => 'Lorem ipsum dolor sit amet',
+                'created' => '2019-10-09 01:55:05',
+                'modified' => '2019-10-09 01:55:05'
             ],
         ];
         parent::init();

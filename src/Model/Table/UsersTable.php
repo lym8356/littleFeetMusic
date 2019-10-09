@@ -86,8 +86,7 @@ class UsersTable extends Table
 
         $validator
             ->scalar('role')
-            ->maxLength('role', 20)
-            ->notEmptyString('role');
+            ->allowEmptyString('role');
 
         return $validator;
     }
