@@ -69,7 +69,7 @@ class AppController extends Controller
             // Set the layout.
             $this->viewBuilder()->setLayout('admin');
         }else{
-            //$this->Auth->allow();
+            $this->Auth->allow();
             return true;
         }
 
