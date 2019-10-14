@@ -45,12 +45,16 @@ $cakeDescription = 'User Panel';
                 </li>
                 <li class="nav-item">
                     <?= $this->Html->link('<i class="fas fa-birthday-cake"></i> Book us<span class="sr-only">(current)</span>', '/Event', ['class' => 'nav-link', 'escape' => false]); ?>
+                </li>
                 <li class="nav-item">
                     <?= $this->Html->link('<i class="fas fa-shopping-cart"></i> Shop<span class="sr-only">(current)</span>', '/Shopping', ['class' => 'nav-link', 'escape' => false]); ?>
+                </li>
                 <li class="nav-item">
                     <?= $this->Html->link('<i class="fas fa-photo-video"></i> News & Videos<span class="sr-only">(current)</span>', '/Media', ['class' => 'nav-link', 'escape' => false]); ?>
+                </li>
                 <li class="nav-item">
                     <?= $this->Html->link('<i class="fas fa-phone-alt"></i> Contact us<span class="sr-only">(current)</span>', '/Contact', ['class' => 'nav-link', 'escape' => false]); ?>
+                </li>
 
             </ul>
             <ul class="navbar-nav">

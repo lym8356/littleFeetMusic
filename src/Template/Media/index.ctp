@@ -51,9 +51,9 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
 <?php echo $this->element('header') ?>
 
 <div class="headpic">
-<div class="container">
-            <?php echo $this->Html->image('LFM.jpg'); ?>
-</div>
+    <div class="container">
+        <?php echo $this->Html->image('LFM.jpg'); ?>
+    </div>
 </div>
 
 
@@ -68,25 +68,11 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
                     <div class="row">
                         <div class="col-md-6">
                             <div class="LFM-about-us-left">
-                                <p>Rachel Parkinson runs Little Feet Music - amazingly fun and engaging music and movement classes for babies, toddlers and preschoolers.  Rachel knows HUNDREDS of songs, so it never gets boring!</p>
-                                <p>Services include:</p>
-                                <ul>
-                                    <li>Music classes for child care centres and kindergartens.</li>
-                                    <li>Music workshops for community events and festivals.</li>
-                                    <li>Entertainment for birthday parties, playgroups and parents' groups</li>
-                                    <li>Live shows with a full band plus Bingle the Bear</li>
-
-                                </ul>
-                                <p>The Little Feet Music program helps children to develop skills such as strengthened self image and self assurance, improved concentration and listening skills, as well as offering lots of opportunities for social interaction.
-                                </p>
-                                <a href="Enroll" class="btn EnrollBtn" >Enroll</a>
-                                <a href="FreeTrial" class="btn TrailBtn">Book a free trial</a>
-
                             </div>
                         </div>
                         <div class="col-md-6">
                             <div class="LFM-about-us-right">
-                                <?php echo $this->Html->image('sc.jpg'); ?>
+
 
 
                             </div>
@@ -97,25 +83,20 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
         </div>
     </div>
 </section>
-
-
-
-
-
-    <section class="testimonial">
-        <div class="container">
-            <h1>Testimonial</h1>
-            <p class="text-center"> from our customers</p>
+<section class="testimonial">
+    <div class="container">
+        <h1>Testimonial</h1>
+        <p class="text-center"> from our customers</p>
         <div class="row">
             <div class="col-md-4 text-center">
-               <div class="testimonial-info">
-               <blockquote>
-                   <p> My kid enjoyed the class.</p>
-               </blockquote>
-               <h5> -John Smith</h5>
-               <h7>Little Feet Music Parent</h7>
-               </div>
-           </div>
+                <div class="testimonial-info">
+                    <blockquote>
+                        <p> My kid enjoyed the class.</p>
+                    </blockquote>
+                    <h5> -John Smith</h5>
+                    <h7>Little Feet Music Parent</h7>
+                </div>
+            </div>
             <div class="col-md-4 text-center">
                 <div class="testimonial-info">
                     <blockquote>
@@ -136,23 +117,5 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
             </div>
 
         </div>
-        </div>
-    </section>
-
-<div class="sub-footer">
-    <div class="container">
-        <div class="col-md-12">
-            <div class="row">
-                <div class="col-sm-8">
-                    Discover our classes and find more!
-                </div>
-                <div class="col-sm-4">
-                    <p class="mt-10"><a href="GetClassInfo" class="classbtn">Class Info Here<i class="fa fa-arrow-right pl-20"></i></a></p>
-                </div>
-            </div>
-        </div>
     </div>
-</div>
-</body>
-
-</html>
+</section>
