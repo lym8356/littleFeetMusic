@@ -60,7 +60,7 @@ Router::scope('/', function (RouteBuilder $routes) {
     $routes->connect('/Booking/Add', ['controller' => 'Booking', 'action' => 'add']);
     $routes->connect('/Booking/Manage', ['controller' => 'Booking', 'action' => 'manage']);
 
-    $routes->connect('/Class', ['controller' => 'Classlfm', 'action' => 'view']);
+    $routes->connect('/Class', ['controller' => 'Lfmclasses', 'action' => 'index']);
     $routes->connect('/Class/Enroll', ['controller' => 'Classlfm', 'action' => 'enroll']);
 
     /**

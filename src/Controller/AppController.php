@@ -42,9 +42,7 @@ class AppController extends Controller
     {
         parent::initialize();
 
-        $this->loadComponent('RequestHandler', [
-            'enableBeforeRedirect' => false,
-        ]);
+        $this->loadComponent('RequestHandler');
         $this->loadComponent('Flash');
 
         $this->loadComponent('Auth', [
@@ -66,6 +64,14 @@ class AppController extends Controller
             'unauthorizedRedirect' => $this->referer(),
             'storage' => 'Session'
         ]);
+
+        if ($this->request->prefix == 'admin') {
+            // Set the layout.
+            $this->viewBuilder()->setLayout('admin');
+        }else{
+            //$this->Auth->allow();
+            return true;
+        }
 
         /*
          * Enable the following component for recommended CakePHP security settings.
@@ -91,13 +97,4 @@ class AppController extends Controller
         return false;
     }
 
-    public function beforeFilter(Event $event)
-    {
-        parent::beforeFilter($event);
-
-        if ($this->request->prefix == 'admin') {
-            // Set the layout.
-            $this->viewBuilder()->setLayout('admin');
-        }
-    }
 }

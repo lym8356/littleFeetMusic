@@ -1,0 +1,84 @@
+<?php
+namespace App\Model\Table;
+
+use Cake\ORM\Query;
+use Cake\ORM\RulesChecker;
+use Cake\ORM\Table;
+use Cake\Validation\Validator;
+
+/**
+ * Childs Model
+ *
+ * @property \App\Model\Table\EnrolmentsTable&\Cake\ORM\Association\HasMany $Enrolments
+ * @property \App\Model\Table\RelationsTable&\Cake\ORM\Association\HasMany $Relations
+ *
+ * @method \App\Model\Entity\Child get($primaryKey, $options = [])
+ * @method \App\Model\Entity\Child newEntity($data = null, array $options = [])
+ * @method \App\Model\Entity\Child[] newEntities(array $data, array $options = [])
+ * @method \App\Model\Entity\Child|false save(\Cake\Datasource\EntityInterface $entity, $options = [])
+ * @method \App\Model\Entity\Child saveOrFail(\Cake\Datasource\EntityInterface $entity, $options = [])
+ * @method \App\Model\Entity\Child patchEntity(\Cake\Datasource\EntityInterface $entity, array $data, array $options = [])
+ * @method \App\Model\Entity\Child[] patchEntities($entities, array $data, array $options = [])
+ * @method \App\Model\Entity\Child findOrCreate($search, callable $callback = null, $options = [])
+ */
+class ChildsTable extends Table
+{
+    /**
+     * Initialize method
+     *
+     * @param array $config The configuration for the Table.
+     * @return void
+     */
+    public function initialize(array $config)
+    {
+        parent::initialize($config);
+
+        $this->setTable('childs');
+        $this->setDisplayField('id');
+        $this->setPrimaryKey('id');
+
+        $this->hasMany('Enrolments', [
+            'foreignKey' => 'child_id'
+        ]);
+        $this->hasMany('Relations', [
+            'foreignKey' => 'child_id'
+        ]);
+    }
+
+    /**
+     * Default validation rules.
+     *
+     * @param \Cake\Validation\Validator $validator Validator instance.
+     * @return \Cake\Validation\Validator
+     */
+    public function validationDefault(Validator $validator)
+    {
+        $validator
+            ->integer('id')
+            ->allowEmptyString('id', null, 'create');
+
+        $validator
+            ->scalar('first_name')
+            ->maxLength('first_name', 100)
+            ->requirePresence('first_name', 'create')
+            ->notEmptyString('first_name');
+
+        $validator
+            ->scalar('last_name')
+            ->maxLength('last_name', 100)
+            ->requirePresence('last_name', 'create')
+            ->notEmptyString('last_name');
+
+        $validator
+            ->date('dob')
+            ->requirePresence('dob', 'create')
+            ->notEmptyDate('dob');
+
+        $validator
+            ->scalar('Note')
+            ->maxLength('Note', 50)
+            ->allowEmptyString('Note');
+
+        return $validator;
+    }
+}

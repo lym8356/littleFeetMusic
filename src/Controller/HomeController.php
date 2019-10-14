@@ -7,10 +7,10 @@ use Cake\Event\Event;
 class HomeController extends AppController
 {
 
-    public function beforeFilter(Event $event)
+    public function initialize()
     {
-        parent::beforeFilter($event);
-        $this->Auth->allow(['index']);
+        parent::initialize();
+        $this->Auth->allow('all');
     }
 
     public function index()

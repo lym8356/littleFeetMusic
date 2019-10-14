@@ -23,6 +23,14 @@
     <!--Icons-->
     <?= $this->Html->script('/dashboard/js/lumino.glyphs.js') ?>
 
+    <!-- Full Calendar Resources -->
+    <?= $this->Html->css('/full_calendar/css/fullcalendar.min', ['plugin' => true]); ?>
+    <?= $this->Html->css('/full_calendar/css/jquery.qtip.min', ['plugin' => true]); ?>
+    <?= $this->Html->script('/full_calendar/js/lib/moment.min.js', ['plugin' => true]); ?>
+    <?= $this->Html->script('/full_calendar/js/fullcalendar.js', ['plugin' => true]); ?>
+    <?= $this->Html->script('/full_calendar/js/jquery.qtip.min.js', ['plugin' => true]); ?>
+    <?= $this->Html->script('/full_calendar/js/ready.js', ['plugin' => true]); ?>
+
     <!--    <[if lt IE 9]>-->
     <!--    <script src="js/html5shiv.js"></script>-->
     <!--    <script src="js/respond.min.js"></script>-->
@@ -49,15 +57,15 @@ $action=$this->request->params['action'];
                     <use xlink:href="#stroked-dashboard-dial"></use>
                 </svg> Dashboard', '/admin',
                 ['escape' => false]); ?></li>
-        <li class="sidebar_item <?php echo ($controller=='Classlfm')?'active':'';?>">
+        <li class="sidebar_item <?php echo ($controller=='Terms')?'active':'';?>">
             <?= $this->Html->link('<svg class="glyph stroked app window with content">
                     <use xlink:href="#stroked-app-window-with-content"></use>
-                </svg> Manage Class', '/admin/classlfm/index',
+                </svg> Manage Term', '/admin/terms/index',
                 ['escape' => false]); ?></li>
-        <li class="sidebar_item <?php echo ($controller=='Bookings')?'active':'';?>">
+        <li class="sidebar_item <?php echo ($controller=='Enrolments')?'active':'';?>">
             <?= $this->Html->link('<svg class="glyph stroked notepad">
                     <use xlink:href="#stroked-notepad"></use>
-                </svg> Manage Booking', '/admin/bookings/index',
+                </svg> Manage Enrolment', '/admin/enrolments/index',
                 ['escape' => false]); ?></li>
         <li class="sidebar_item <?php echo ($controller=='Users')?'active':'';?>">
             <?= $this->Html->link('<svg class="glyph stroked female-user">)                
@@ -70,7 +78,7 @@ $action=$this->request->params['action'];
                 </svg>
                 Manage Staff</a></li>
 
-        <li class="sidebar_item <?php echo ($controller=='Classlfm')?'active':'';?>">
+        <li class="sidebar_item <?php echo ($controller=='Locations')?'active':'';?>">
             <?= $this->Html->link('<svg class="glyph stroked app window with content">
                     <use xlink:href="#stroked-app-window-with-content"></use>
         </svg> Manage Location', '/admin/locations/index',

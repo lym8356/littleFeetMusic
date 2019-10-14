@@ -1,59 +1,50 @@
-<?php
-/**
- * @var \App\View\AppView $this
- * @var \Cake\Datasource\EntityInterface[]|\Cake\Collection\CollectionInterface $bookings
- */
-?>
-<nav class="large-3 medium-4 columns" id="actions-sidebar">
-    <ul class="side-nav">
-        <li class="heading"><?= __('Actions') ?></li>
-        <li><?= $this->Html->link(__('New Booking'), ['action' => 'add']) ?></li>
-    </ul>
-</nav>
-<div class="bookings index large-9 medium-8 columns content">
-    <h3><?= __('Bookings') ?></h3>
-    <table cellpadding="0" cellspacing="0">
-        <thead>
-            <tr>
-                <th scope="col"><?= $this->Paginator->sort('id') ?></th>
-                <th scope="col"><?= $this->Paginator->sort('booking_date') ?></th>
-                <th scope="col"><?= $this->Paginator->sort('booking_time') ?></th>
-                <th scope="col"><?= $this->Paginator->sort('booking_type') ?></th>
-                <th scope="col"><?= $this->Paginator->sort('booking_status') ?></th>
-                <th scope="col"><?= $this->Paginator->sort('booking_cost') ?></th>
-                <th scope="col"><?= $this->Paginator->sort('class_id') ?></th>
-                <th scope="col"><?= $this->Paginator->sort('child_id') ?></th>
-                <th scope="col" class="actions"><?= __('Actions') ?></th>
-            </tr>
-        </thead>
-        <tbody>
-            <?php foreach ($bookings as $booking): ?>
-            <tr>
-                <td><?= $this->Number->format($booking->id) ?></td>
-                <td><?= h($booking->booking_date) ?></td>
-                <td><?= h($booking->booking_time) ?></td>
-                <td><?= h($booking->booking_type) ?></td>
-                <td><?= h($booking->booking_status) ?></td>
-                <td><?= $this->Number->format($booking->booking_cost) ?></td>
-                <td><?= $this->Number->format($booking->class_id) ?></td>
-                <td><?= $this->Number->format($booking->child_id) ?></td>
-                <td class="actions">
-                    <?= $this->Html->link(__('View'), ['action' => 'view', $booking->id]) ?>
-                    <?= $this->Html->link(__('Edit'), ['action' => 'edit', $booking->id]) ?>
-                    <?= $this->Form->postLink(__('Delete'), ['action' => 'delete', $booking->id], ['confirm' => __('Are you sure you want to delete # {0}?', $booking->id)]) ?>
-                </td>
-            </tr>
-            <?php endforeach; ?>
-        </tbody>
-    </table>
-    <div class="paginator">
-        <ul class="pagination">
-            <?= $this->Paginator->first('<< ' . __('first')) ?>
-            <?= $this->Paginator->prev('< ' . __('previous')) ?>
-            <?= $this->Paginator->numbers() ?>
-            <?= $this->Paginator->next(__('next') . ' >') ?>
-            <?= $this->Paginator->last(__('last') . ' >>') ?>
-        </ul>
-        <p><?= $this->Paginator->counter(['format' => __('Page {{page}} of {{pages}}, showing {{current}} record(s) out of {{count}} total')]) ?></p>
+<div class="row">
+    <div class="col-lg-12">
+        <h3 class="card-header">Booking Summary</h3>
+        <div class="card-body">
+            <ul class="row nav nav-pills mb-3" id="pills-tab" role="tablist" style="font-size: 18px;">
+                <li class="nav-item active">
+                    <a class="nav-link active" id="pills-home-tab" data-toggle="pill" href="#pills-home" role="tab"
+                       aria-controls="pills-home" aria-selected="true">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" id="pills-profile-tab" data-toggle="pill" href="#pills-profile" role="tab"
+                       aria-controls="pills-profile" aria-selected="false">Monday Port Melbourne</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" id="pills-contact-tab" data-toggle="pill" href="#pills-contact" role="tab"
+                       aria-controls="pills-contact" aria-selected="false">Tuesday Mordialloc</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" id="pills-contact-tab" data-toggle="pill" href="#pills-contact" role="tab"
+                       aria-controls="pills-contact" aria-selected="false">Wednesday</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" id="pills-contact-tab" data-toggle="pill" href="#pills-contact" role="tab"
+                       aria-controls="pills-contact" aria-selected="false">Thursday</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" id="pills-contact-tab" data-toggle="pill" href="#pills-contact" role="tab"
+                       aria-controls="pills-contact" aria-selected="false">Friday</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" id="pills-contact-tab" data-toggle="pill" href="#pills-contact" role="tab"
+                       aria-controls="pills-contact" aria-selected="false">Extras</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" id="pills-contact-tab" data-toggle="pill" href="#pills-contact" role="tab"
+                       aria-controls="pills-contact" aria-selected="false">Holiday</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" id="pills-contact-tab" data-toggle="pill" href="#pills-contact" role="tab"
+                       aria-controls="pills-contact" aria-selected="false">Wait List</a>
+                </li>
+            </ul>
+            <div class="tab-content" id="pills-tabContent">
+                <div class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">...</div>
+                <div class="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab">...</div>
+                <div class="tab-pane fade" id="pills-contact" role="tabpanel" aria-labelledby="pills-contact-tab">...</div>
+            </div>
+        </div>
     </div>
 </div>
