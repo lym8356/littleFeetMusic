@@ -15,7 +15,8 @@
     <div class="container">
         <div class="row">
             <div class="col-sm-3">
-                <h2 class="logo"><a href="#"> <?php echo $this->Html->image('ftLogo.gif'); ?> </a></h2>
+                <class="logo"><a href="#">
+                    <?php echo $this->Html->image('ftLogo.gif'); ?> </a>
             </div>
             <div class="col-sm-3">
                 <h5>Contact Info</h5>

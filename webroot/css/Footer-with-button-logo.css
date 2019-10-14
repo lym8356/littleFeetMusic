@@ -1,5 +1,5 @@
 #myFooter {
-    background-color: #3ac18c;
+    background-color: #fdbc5e;
     color: white;
     padding-top: 30px;
 }
@@ -19,7 +19,11 @@
     margin-top: 45px;
     height: 65px;
 }*/
-
+.col-sm-3 img{
+    height:150px;
+    width: 200px;
+    float:left;
+}
 #myFooter .footer-copyright p {
     margin: 10px;
     color: #ccc;
@@ -44,13 +48,14 @@
     color: #fff;
 }
 
+
 #myFooter a {
     color: #f5f5f5;
     text-decoration: none;
 }
 
 #myFooter .contact{
-	color: #f5f5f5;
+	color: white;
 }
 
 #myFooter a:hover,
@@ -67,7 +72,7 @@
 
 #myFooter .social-networks a {
     font-size: 32px;
-    color: #f9f9f9;
+    color: white;
     padding: 10px;
     transition: 0.2s;
 }

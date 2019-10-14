@@ -29,4 +29,5 @@ class BookingController extends AppController
 
     }
 
+
 }

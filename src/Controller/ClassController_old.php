@@ -33,9 +33,5 @@ class ClassController extends AppController
 
     }
 
-    public function enroll()
-    {
-
-    }
 
 }

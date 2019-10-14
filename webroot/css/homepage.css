@@ -11,39 +11,59 @@ body{
     margin:0;
 
 }
+
 img {
     width: 100%;
     height: auto;
 }
-.flex-container {
-    display: flex;
-    flex-wrap: nowrap;
-    background-color: white;
+.headpic{
+    background-color:#CCE8E0 ;
 }
 
-.flex-container .box {
-    background-color: #f1f1f1;
-    width: 50%;
-    margin: 10px;
-    text-align: center;
-    line-height: 75px;
-    font-size: 15px;
-}
-.flex-container .box2{
-    background-image: url("http://static.wpe.au.syrahost.com/var/m_e/e2/e2c/39538/389997-8b.jpg");
-    background-size: cover;
-    width: 50%;
-    margin: 10px;
-    line-height: 75px;
-    object-fit: cover;
+#LFM-about-us {
+    display: inline;
+    float: left;
+    width: 100%;
+
 }
 
+.LFM-about-us-area {
+    display: inline;
+    float: left;
+    width: 100%;
+}
 
-.clearfix::after {
-    content: "";
-    clear: both;
-    display: table;
+.LFM-about-us-right {
+    display: inline;
+    float: left;
+    margin-top: 20px;
+    padding-top: 30px;
+    padding-left: 80px;
+    width: 100%;
+}
 
+.LFM-about-us-right ul {
+    margin-bottom: 20px;
+    padding-left: 25px;
+}
+
+.LFM-about-us-right ul li {
+    line-height: 24px;
+    margin-bottom: 10px;
+}
+
+
+
+.LFM-about-us-left {
+    display: inline;
+    float: left;
+    margin-top: 20px;
+    padding-top: 30px;
+    padding-right: 15px;
+    width: 100%;
+}
+.LFM-about-us-left ul li:before {
+    margin-right: 10px;
 }
 
 
@@ -65,7 +85,7 @@ img {
 }
 
 .EnrollBtn:hover{
-    background-color:#bf55ec;
+    background-color:#fdbc5e;
 
 }
 
@@ -78,7 +98,7 @@ img {
 }
 
 .TrailBtn:hover{
-    background-color:#bf55ec;
+    background-color:#fdbc5e;
 
 }
 
@@ -88,29 +108,74 @@ img {
 
 
 .testimonial {
-    float: left;
-    width: 33.33%;
-    padding: 50px;
-    color: black;
-    background-color:#FFFFFF
-}
+    margin: 40px;
+   background-color: #CCE8E0;
 
-.testimonial-info{
+}
+.testimonial h1{
     text-align: center;
+    font-weight: bold;
+    color: #808080;
+    padding-bottom: 10px;
+    text-transform: uppercase;
+}
+.testimonial h1::after{
+    content: '';
+    background: #fdbc5e;
+    display: block;
+    height: 3px;
+    width:170px;
+    margin: 20px auto 5px;
+
 }
 
-.clearfix::after {
-    content: "";
-    clear: both;
-    display: table;
+.testimonial.row{
+    margin-top: 30px;
+}
+.col-md-4{
+    margin:40px auto;
+}
+.testimonial-info{
+    padding: 10px 10px;
+    background-color: #EFEFEF;
+}
+blockquote{
+    font-size:20px;
+    line-height: 30px;
+}
+blockquote::before{
+    content: open-quote;
+    font-size: 50px;
+    position: relative;
+    color:#fdbc5e;
+    line-height: 20px;
+    bottom:-15px;
+    right: 130px;
+}
+blockquote:after {
+    content: close-quote;
+    font-size: 50px;
+    position: relative;
+    color:#fdbc5e;
+    line-height: 20px;
+    bottom:-15px;
+    left:130px;
 
 }
+
+.testimonial-info:hover{
+    box-shadow: 0 0 15px 5px rgba(0,0,0,0.2);
+}
+
+
+
 .sub-footer{
 background-color:#f1f1f1 ;
     height: 100px;
     text-align: center;
     font-size: 30px;
     font-weight: bold;
+
 
 }
 
@@ -126,14 +191,11 @@ background-color:#f1f1f1 ;
 }
 
 .classbtn:hover{
-    background-color:#bf55ec;
+    background-color:#fdbc5e;
     text-decoration: none;
 
 }
-.imgbox{
-    height: auto;
-    width: 100%;
-}
+
 
 
 
