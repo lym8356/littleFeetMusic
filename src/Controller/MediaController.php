@@ -4,7 +4,7 @@
 namespace App\Controller;
 
 
-class MeidaController extends AppController
+class MediaController extends AppController
 {
     public function index()
 {

@@ -48,7 +48,7 @@ $cakeDescription = 'User Panel';
                 <li class="nav-item">
                     <?= $this->Html->link('<i class="fas fa-shopping-cart"></i> Shop<span class="sr-only">(current)</span>', '/Shopping', ['class' => 'nav-link', 'escape' => false]); ?>
                 <li class="nav-item">
-                    <?= $this->Html->link('<i class="fas fa-photo-video"></i> News & Videos<span class="sr-only">(current)</span>', '/Meida', ['class' => 'nav-link', 'escape' => false]); ?>
+                    <?= $this->Html->link('<i class="fas fa-photo-video"></i> News & Videos<span class="sr-only">(current)</span>', '/Media', ['class' => 'nav-link', 'escape' => false]); ?>
                 <li class="nav-item">
                     <?= $this->Html->link('<i class="fas fa-phone-alt"></i> Contact us<span class="sr-only">(current)</span>', '/Contact', ['class' => 'nav-link', 'escape' => false]); ?>
 
