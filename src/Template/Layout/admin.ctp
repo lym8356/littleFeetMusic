@@ -72,11 +72,11 @@ $action=$this->request->params['action'];
                     <use xlink:href="#stroked-female-user"></use>
                 </svg> Manage User', '/admin/users/index',
                 ['escape' => false]); ?></li>
-        <li class="sidebar_item"><a href="#">
-                <svg class="glyph stroked table">
-                    <use xlink:href="#stroked-table"></use>
-                </svg>
-                Manage Staff</a></li>
+<!--        <li class="sidebar_item"><a href="#">-->
+<!--                <svg class="glyph stroked table">-->
+<!--                    <use xlink:href="#stroked-table"></use>-->
+<!--                </svg>-->
+<!--                Manage Staff</a></li>-->
 
         <li class="sidebar_item <?php echo ($controller=='Locations')?'active':'';?>">
             <?= $this->Html->link('<svg class="glyph stroked app window with content">
