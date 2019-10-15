@@ -1,4 +1,4 @@
-<<<<<<< HEAD
+4<<<<<<< HEAD
 =======
 <?php
 /**
@@ -74,17 +74,14 @@
     <section>
 
         <div class="container">
-            <h1>Just Random texts about all classes</h1>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Morbi tincidunt augue interdum velit euismod in. Massa id neque aliquam vestibulum. Neque volutpat ac tincidunt vitae semper. Eget duis at tellus at urna. Non diam phasellus vestibulum lorem sed risus ultricies tristique nulla. Vulputate ut pharetra sit amet aliquam. Quam lacus suspendisse faucibus interdum posuere. Convallis aenean et tortor at risus viverra adipiscing. Porttitor lacus luctus accumsan tortor posuere ac. Vulputate sapien nec sagittis aliquam malesuada bibendum. Lobortis scelerisque fermentum dui faucibus in ornare quam viverra. At urna condimentum mattis pellentesque id nibh tortor id. Tellus cras adipiscing enim eu turpis egestas pretium aenean. Lectus magna fringilla urna porttitor rhoncus dolor purus. Eros in cursus turpis massa tincidunt dui ut ornare. Est pellentesque elit ullamcorper dignissim. Urna id volutpat lacus laoreet non curabitur gravida arcu.</p>
+            <h1>Why Little Feet Music?</h1>
+            <p>The music is all live; it’s not just prancing around to CDs.  Everyone loves live music!  It's interactive, fun, engaging and educational! .</p>
 
-            <p>Morbi tristique senectus et netus et malesuada fames. Neque convallis a cras semper. Purus in mollis nunc sed id semper. Lectus mauris ultrices eros in cursus turpis massa. Sit amet consectetur adipiscing elit. Nulla at volutpat diam ut venenatis tellus in. Amet tellus cras adipiscing enim. Maecenas pharetra convallis posuere morbi leo. Aliquam id diam maecenas ultricies mi. Enim eu turpis egestas pretium aenean pharetra. Ipsum dolor sit amet consectetur adipiscing. Pulvinar elementum integer enim neque volutpat ac tincidunt vitae semper. Pretium vulputate sapien nec sagittis aliquam malesuada.</p>
+            <p>The Little Feet Music program is a carefully researched, developmental and sequential music program. It's fun, entertaining and educational. All of our teachers play guitar and sing, so all of the music is live and we use a variety of percussion instruments and fun, colourful props. Each term your child will be given a Little Feet Music song book to keep, which has lots of the songs and activities we'll do in the classes for that term. There are lots of songs you'll know as well as loads more for you to learn!</p>
 
-            <p>Euismod nisi porta lorem mollis aliquam ut porttitor leo. Enim praesent elementum facilisis leo vel fringilla. In hendrerit gravida rutrum quisque. Risus sed vulputate odio ut. Accumsan in nisl nisi scelerisque eu. Dictum non consectetur a erat nam. Vestibulum morbi blandit cursus risus at. Est velit egestas dui id ornare arcu. Vitae justo eget magna fermentum. Tortor dignissim convallis aenean et. Egestas fringilla phasellus faucibus scelerisque eleifend.</p>
+            <p>Through the Little Feet Music program children acquire a knowledge of musical concepts such as beat, rhythm, inner hearing, pitch (high and low), dynamics (loud and soft), timbre (characteristics of sounds), form and tempo (fast and slow) while gaining enhanced social skills and confidence..</p>
 
-            <p>Maecenas sed enim ut sem viverra aliquet eget. Vitae congue mauris rhoncus aenean vel elit. Feugiat scelerisque varius morbi enim nunc. Suspendisse interdum consectetur libero id faucibus nisl tincidunt eget nullam. Duis convallis convallis tellus id interdum velit laoreet. Nullam eget felis eget nunc lobortis mattis aliquam faucibus. Ut enim blandit volutpat maecenas volutpat. Orci nulla pellentesque dignissim enim sit amet venenatis urna cursus. Ut consequat semper viverra nam libero justo laoreet sit amet. Pellentesque elit eget gravida cum sociis. Magna eget est lorem ipsum. Cursus metus aliquam eleifend mi in nulla posuere sollicitudin aliquam. Sollicitudin nibh sit amet commodo nulla facilisi. Habitant morbi tristique senectus et netus et.</p>
-
-            <p>Netus et malesuada fames ac turpis egestas sed tempus urna. Tempor nec feugiat nisl pretium fusce id velit ut tortor. Rhoncus aenean vel elit scelerisque mauris pellentesque pulvinar. Nunc consequat interdum varius sit amet mattis. Volutpat blandit aliquam etiam erat velit scelerisque in dictum. Adipiscing elit ut aliquam purus. Potenti nullam ac tortor vitae purus faucibus. Massa id neque aliquam vestibulum morbi blandit cursus risus. Nulla pellentesque dignissim enim sit amet venenatis. Ac tortor vitae purus faucibus ornare. Lectus nulla at volutpat diam. Viverra tellus in hac habitasse. Turpis massa sed elementum tempus egestas sed sed. Mattis rhoncus urna neque viverra justo nec ultrices dui.</p>
-        </div>
+            <p>Little Feet Music is LOTS of fun and the best way for children to learn is by having fun! Children bring the music home to rest of their family through the Little Feet Music song book. Many of the children pretend to be the music teacher for the rest of the family and parents are encouraged to read the Little Feet Music song book and sing the songs at home.</p>
     </section>
     <br><br><br>
     <section>
@@ -115,7 +112,15 @@
                     <div class="col-sm">
                         <span id="specifyClass">
                             <h2>Generic text about classes</h2>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Morbi tincidunt augue interdum velit euismod in. Massa id neque aliquam vestibulum. Neque volutpat ac tincidunt vitae semper. Eget duis at tellus at urna. Non diam phasellus vestibulum lorem sed risus ultricies tristique nulla. Vulputate ut pharetra sit amet aliquam. Quam lacus suspendisse faucibus interdum posuere. Convallis aenean et tortor at risus viverra adipiscing. Porttitor lacus luctus accumsan tortor posuere ac. Vulputate sapien nec sagittis aliquam malesuada bibendum. Lobortis scelerisque fermentum dui faucibus in ornare quam viverra. At urna condimentum mattis pellentesque id nibh tortor id. Tellus cras adipiscing enim eu turpis egestas pretium aenean. Lectus magna fringilla urna porttitor rhoncus dolor purus. Eros in cursus turpis massa tincidunt dui ut ornare. Est pellentesque elit ullamcorper dignissim. Urna id volutpat lacus laoreet non curabitur gravida arcu.</p>
+                            <p>Fun, cool, creative and interactive music classes for kids aged six months to five years!
+
+Rachel Parkinson has been running children's music programs for over fifteen years, so has a plethora of experience with children and with music!
+
+Rachel completed a Preschool Music Teacher Training Course (Level 1) through the Kodaly Music Education Institute of Australia in 2006 and is a full writer member of the Australasian Performing Right Association (APRA).  Rachel has also been a member of the Australian Recording Industry Association (ARIA) since 2011.
+
+Rachel is continually updating her skills by attending workshops and courses.  She's been involved in the entertainment industry since the early 90s, having played drums, guitar and sung in original touring pub and club bands from the tender age of 16.
+
+</p>
                         </span>
                     </div>
                     <div class="col-sm">
@@ -174,7 +179,7 @@
         function viewClass(){
             var a = document.getElementById("btn1").value;
             if (a=="1"){
-                document.getElementById("specifyClass").innerHTML= "<h2>Text about class of age group 0-1 </h2><p>Morbi tristique senectus et netus et malesuada fames. Neque convallis a cras semper. Purus in mollis nunc sed id semper. Lectus mauris ultrices eros in cursus turpis massa. Sit amet consectetur adipiscing elit. Nulla at volutpat diam ut venenatis tellus in. Amet tellus cras adipiscing enim. Maecenas pharetra convallis posuere morbi leo. Aliquam id diam maecenas ultricies mi. Enim eu turpis egestas pretium aenean pharetra. Ipsum dolor sit amet consectetur adipiscing. Pulvinar elementum integer enim neque volutpat ac tincidunt vitae semper. Pretium vulputate sapien nec sagittis aliquam malesuada.</p>";
+                document.getElementById("specifyClass").innerHTML= "<h2>Text about class of age group 0-1 </h2><p>Children and adults participate in songs, dances and playing percussion instruments.  Fun, colourful puppets and simple instruments are used and there are lots of finger and lap plays.  These sessions are great for child/parent bonding and for giving parents and carers musical ideas to use at home.</p>";
                 //document.getElementById("clsimage").innerHTML = "<?php echo $this->Html->image('cls-baby.jpg'); ?>";
             }
         }
@@ -182,25 +187,25 @@
         function viewClass1() {
             var b = document.getElementById("btn2").value;
             if (b=="1"){
-                document.getElementById("specifyClass").innerHTML= "<h2>Text about class of age group 1-2 </h2><p>Euismod nisi porta lorem mollis aliquam ut porttitor leo. Enim praesent elementum facilisis leo vel fringilla. In hendrerit gravida rutrum quisque. Risus sed vulputate odio ut. Accumsan in nisl nisi scelerisque eu. Dictum non consectetur a erat nam. Vestibulum morbi blandit cursus risus at. Est velit egestas dui id ornare arcu. Vitae justo eget magna fermentum. Tortor dignissim convallis aenean et. Egestas fringilla phasellus faucibus scelerisque eleifend.</p>";
+                document.getElementById("specifyClass").innerHTML= "<h2>Text about class of age group 1-2 </h2><p>Listening skills are enhanced - children start to learn how to identify changes in music (e.g., start and stop) and musical elements such as dynamics (loud and quiet), tempo (fast and slow) and timbre (characteristics of sounds).  There’s lots of singing, dancing, clapping and jumping!</p>";
             }
         }
         function viewClass2(){
             var c = document.getElementById("btn3").value;
             if (c=="1"){
-                document.getElementById("specifyClass").innerHTML= "<h2>Text about class of age group 2-3 </h2><p>Maecenas sed enim ut sem viverra aliquet eget. Vitae congue mauris rhoncus aenean vel elit. Feugiat scelerisque varius morbi enim nunc. Suspendisse interdum consectetur libero id faucibus nisl tincidunt eget nullam. Duis convallis convallis tellus id interdum velit laoreet. Nullam eget felis eget nunc lobortis mattis aliquam faucibus. Ut enim blandit volutpat maecenas volutpat. Orci nulla pellentesque dignissim enim sit amet venenatis urna cursus. Ut consequat semper viverra nam libero justo laoreet sit amet. Pellentesque elit eget gravida cum sociis. Magna eget est lorem ipsum. Cursus metus aliquam eleifend mi in nulla posuere sollicitudin aliquam. Sollicitudin nibh sit amet commodo nulla facilisi. Habitant morbi tristique senectus et netus et.</p>";
+                document.getElementById("specifyClass").innerHTML= "<h2>Text about class of age group 2-3 </h2><p>There’s dancing, jumping and wriggling, playing musical games, learning about taking it in turns, meeting some interesting and friendly puppets, learning colours and counting through music and generally having a great fun time.  Listening and social skills are developed and nurtured.</p>";
             }
         }
         function viewClass3(){
             var d = document.getElementById("btn4").value;
             if (d=="1"){
-                document.getElementById("specifyClass").innerHTML= "<h2>Text about class of age group 3-4 </h2><p>Netus et malesuada fames ac turpis egestas sed tempus urna. Tempor nec feugiat nisl pretium fusce id velit ut tortor. Rhoncus aenean vel elit scelerisque mauris pellentesque pulvinar. Nunc consequat interdum varius sit amet mattis. Volutpat blandit aliquam etiam erat velit scelerisque in dictum. Adipiscing elit ut aliquam purus. Potenti nullam ac tortor vitae purus faucibus. Massa id neque aliquam vestibulum morbi blandit cursus risus. Nulla pellentesque dignissim enim sit amet venenatis. Ac tortor vitae purus faucibus ornare. Lectus nulla at volutpat diam. Viverra tellus in hac habitasse. Turpis massa sed elementum tempus egestas sed sed. Mattis rhoncus urna neque viverra justo nec ultrices dui.</p>";
+                document.getElementById("specifyClass").innerHTML= "<h2>Text about class of age group 3-4 </h2><p>Children develop conscious learning of beat, tempo, dynamics and pitch through stimulating games, directed movement, songs and rhymes.  Musical elements are expanded on and the focus is on having fun while gaining an understanding of music. </p>";
             }
         }
         function viewClass4(){
             var e = document.getElementById("btn5").value;
             if (e=="1"){
-                document.getElementById("specifyClass").innerHTML= "<h2>Text about class of age group 4-5 </h2>";
+                document.getElementById("specifyClass").innerHTML= "<h2>Text about class of age group 4-5 </h2><p>Children learn some of the symbols which represent musical sounds and rests and learn how to play simple songs/melodies on the chime bars.  Simple notation and the concept of reading from left to right are built upon. There’s lots of structured musical game playing and solo singing opportunities in a relaxed and friendly environment.  Children who participate in Little Feet Music’s 4-5 year old program can confidently move onto learning a musical instrument.</p>";
             }
         }
         function viewClass5(){
@@ -219,4 +224,5 @@
     </div>
 </div>
 
->>>>>>> 7e3f08ea3adacd7c8bfa9d9bc811d9bd43da9a08
+
+
