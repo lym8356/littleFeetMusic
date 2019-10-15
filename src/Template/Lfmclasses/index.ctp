@@ -87,31 +87,46 @@
     <br><br><br>
     <section>
         <div class="row container">
-            <div class="col-sm-5" id="left-col">
-                <div class="row p-3 mt-3">
+            <div class="col-sm-3" id="left-col">
+                <div class="row ">
                     <div class="col-sm">
-                        <button class="btn btn-outline-success btn-block btn-lg " id="btn1" value="1" onclick="viewClass()"> 0-1 years</button></div>
+                        <button class="btn btn-outline-success btn-block btn-lg p-4 mt-3" id="btn1" value="1" onclick="viewClass()"> 0-1 years</button></div>
                     <div class="col-sm">
-                        <button class="btn btn-outline-success btn-block btn-lg " id="btn2" value="1" onclick="viewClass1()"> 1-2 years</button></div>
+                        <button class="btn btn-outline-success btn-block btn-lg p-4 mt-3" id="btn2" value="1" onclick="viewClass1()"> 1-2 years</button></div>
                 </div>
-                <div class="row p-3 mt-3">
+                <div class="row">
                     <div class="col-sm">
-                        <button class="btn btn-outline-success btn-block btn-lg" id="btn3" value="1" onclick="viewClass2()"> 2-3 years</button></div>
+                        <button class="btn btn-outline-success btn-block btn-lg p-4 mt-3" id="btn3" value="1" onclick="viewClass2()"> 2-3 years</button></div>
                     <div class="col-sm">
-                        <button class="btn btn-outline-success btn-block btn-lg" id="btn4" value="1" onclick="viewClass3()"> 3-4 years</button></div>
+                        <button class="btn btn-outline-success btn-block btn-lg p-4 mt-3" id="btn4" value="1" onclick="viewClass3()"> 3-4 years</button></div>
                 </div>  
-                <div class="row p-3 mt-3">
+                <div class="row">
                     <div class="col-sm">
-                        <button class="btn btn-outline-success btn-block btn-lg" id="btn5" value="1" onclick="viewClass4()"> 4-5 years</button></div>
+                        <button class="btn btn-outline-success btn-block btn-lg p-4 mt-3" id="btn5" value="1" onclick="viewClass4()"> 4-5 years</button></div>
                     <div class="col-sm">
+
                     </div>
                 </div>              
             </div>
-            <div class="col-sm" id="mid-col" style="background-color: #CCE8E0">
-                <span id="specifyClass">
-                    <h2>Generic text about classes</h2>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Morbi tincidunt augue interdum velit euismod in. Massa id neque aliquam vestibulum. Neque volutpat ac tincidunt vitae semper. Eget duis at tellus at urna. Non diam phasellus vestibulum lorem sed risus ultricies tristique nulla. Vulputate ut pharetra sit amet aliquam. Quam lacus suspendisse faucibus interdum posuere. Convallis aenean et tortor at risus viverra adipiscing. Porttitor lacus luctus accumsan tortor posuere ac. Vulputate sapien nec sagittis aliquam malesuada bibendum. Lobortis scelerisque fermentum dui faucibus in ornare quam viverra. At urna condimentum mattis pellentesque id nibh tortor id. Tellus cras adipiscing enim eu turpis egestas pretium aenean. Lectus magna fringilla urna porttitor rhoncus dolor purus. Eros in cursus turpis massa tincidunt dui ut ornare. Est pellentesque elit ullamcorper dignissim. Urna id volutpat lacus laoreet non curabitur gravida arcu.</p>
-                </span>                
+            <div class="col-sm" id="right-col" style="background-color: #CCE8E0">
+                <div class="row">
+                    <div class="col-sm">
+                        <span id="specifyClass">
+                            <h2>Generic text about classes</h2>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Morbi tincidunt augue interdum velit euismod in. Massa id neque aliquam vestibulum. Neque volutpat ac tincidunt vitae semper. Eget duis at tellus at urna. Non diam phasellus vestibulum lorem sed risus ultricies tristique nulla. Vulputate ut pharetra sit amet aliquam. Quam lacus suspendisse faucibus interdum posuere. Convallis aenean et tortor at risus viverra adipiscing. Porttitor lacus luctus accumsan tortor posuere ac. Vulputate sapien nec sagittis aliquam malesuada bibendum. Lobortis scelerisque fermentum dui faucibus in ornare quam viverra. At urna condimentum mattis pellentesque id nibh tortor id. Tellus cras adipiscing enim eu turpis egestas pretium aenean. Lectus magna fringilla urna porttitor rhoncus dolor purus. Eros in cursus turpis massa tincidunt dui ut ornare. Est pellentesque elit ullamcorper dignissim. Urna id volutpat lacus laoreet non curabitur gravida arcu.</p>
+                        </span>
+                    </div>
+                    <div class="col-sm">
+<!--                        <div class="container mt-3"><?php echo $this->Html->image('cls2.jpg'); ?></div> -->
+                        <div class="container mt-3"><span id="clsimage"><?php echo $this->Html->image('cls2.jpg'); ?></span></div>
+                        <div class="mr-5 p-5 ">
+                            <a href="#" class="btn btn-warning btn-lg" >Enroll</a>
+                            <a href="#" class="btn btn-warning btn-lg">Enquiry</a>
+                        </div>
+
+                    </div>
+                    
+                </div>
             </div>
         </div>
     </section>
@@ -158,6 +173,7 @@
             var a = document.getElementById("btn1").value;
             if (a=="1"){
                 document.getElementById("specifyClass").innerHTML= "<h2>Text about class of age group 0-1 </h2><p>Morbi tristique senectus et netus et malesuada fames. Neque convallis a cras semper. Purus in mollis nunc sed id semper. Lectus mauris ultrices eros in cursus turpis massa. Sit amet consectetur adipiscing elit. Nulla at volutpat diam ut venenatis tellus in. Amet tellus cras adipiscing enim. Maecenas pharetra convallis posuere morbi leo. Aliquam id diam maecenas ultricies mi. Enim eu turpis egestas pretium aenean pharetra. Ipsum dolor sit amet consectetur adipiscing. Pulvinar elementum integer enim neque volutpat ac tincidunt vitae semper. Pretium vulputate sapien nec sagittis aliquam malesuada.</p>";
+                //document.getElementById("clsimage").innerHTML = "<?php echo $this->Html->image('cls-baby.jpg'); ?>";
             }
         }
 
@@ -183,6 +199,12 @@
             var e = document.getElementById("btn5").value;
             if (e=="1"){
                 document.getElementById("specifyClass").innerHTML= "<h2>Text about class of age group 4-5 </h2>";
+            }
+        }
+        function viewClass5(){
+            var f = document.getElementById("btn6").value;
+            if (f=="1"){
+                document.getElementById("specifyClass").innerHTML= "<h2>Text about family CLass</h2>";
             }
         }
 
