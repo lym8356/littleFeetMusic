@@ -147,7 +147,7 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
                     Discover our classes and find more!
                 </div>
                 <div class="col-sm-4">
-                    <p class="mt-10"><a href="GetClassInfo" class="classbtn">Class Info Here<i class="fa fa-arrow-right pl-20"></i></a></p>
+                    <p class="mt-10"><a href="Class" class="classbtn">Class Info Here<i class="fa fa-arrow-right pl-20"></i></a></p>
                 </div>
             </div>
         </div>
