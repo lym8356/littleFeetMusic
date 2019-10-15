@@ -13,7 +13,7 @@
     th, td{
         padding: 15px;
         vertical-align: center;
-        text-orientation: left;
+        text-orientation: sideways;
         border: 1px solid black;
     }
 
@@ -25,7 +25,7 @@
 
     }
 
-    
+
     a:hover{
         text-decoration: none;
         color: white;
@@ -122,7 +122,7 @@
                 <td class="actions">
                     <?= $this->Html->link(__('Edit'), ['controller' => 'Classlfm', 'action' => 'edit', $classlfm->id]) ?>
                 </td>
-                <td>
+                <td class="actions">
                     <?= $this->Form->postLink(__('Delete'), ['controller' => 'Classlfm', 'action' => 'delete', $classlfm->id], ['confirm' => __('Are you sure you want to delete # {0}?', $classlfm->id)]) ?>
                 </td>
             </tr>

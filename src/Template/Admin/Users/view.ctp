@@ -4,14 +4,67 @@
  * @var \App\Model\Entity\User $user
  */
 ?>
+<style type="text/css">
+    table{
+        border: 1px solid black;
+        position: center;
+    }
+    th, td{
+        padding: 15px;
+        vertical-align: center;
+        text-align: left;
+        border: 1px solid black;
+    }
+
+    tr:hover{
+        background-color: #f5f5f5;
+    }
+
+    #loc-dt{
+
+    }
+
+
+    a:hover{
+        text-decoration: none;
+        color: white;
+
+    }
+
+    .btn{
+        margin-left: 5px;
+    }
+    .btn:hover{
+        background-color: #4da6ff;
+    }
+
+    .tbn{
+        float: right;
+        margin-right: 5%;
+    }
+
+
+
+</style>
+
 <nav class="large-3 medium-4 columns" id="actions-sidebar">
     <ul class="side-nav">
-        <li class="heading"><?= __('Actions') ?></li>
-        <li><?= $this->Html->link(__('Edit User'), ['action' => 'edit', $user->id]) ?> </li>
-        <li><?= $this->Form->postLink(__('Delete User'), ['action' => 'delete', $user->id], ['confirm' => __('Are you sure you want to delete # {0}?', $user->id)]) ?> </li>
-        <li><?= $this->Html->link(__('List Users'), ['action' => 'index']) ?> </li>
-        <li><?= $this->Html->link(__('New User'), ['action' => 'add']) ?> </li>
+<!--        <li class="heading">--><!--<?//= __('Actions') ?>--><!--</li>-->
+<!--        <li>--><!--<?//= $this->Html->link(__('Edit User'), ['action' => 'edit', $user->id]) ?>--><!-- </li>-->
+<!--        <li>--><!--<?//= $this->Form->postLink(__('Delete User'), ['action' => 'delete', $user->id],
+//                ['confirm' => __('Are you sure you want to delete {0}?', $user->name)]) ?>--><!-- </li>-->
+<!--        <li>--><!--<?//= $this->Html->link(__('List Users'), ['action' => 'index']) ?>--><!-- </li>-->
+<!--        <li>--><!--<?//= $this->Html->link(__('New User'), ['action' => 'add']) ?>--><!-- </li>-->
     </ul>
+    <button><?= $this->Html->link(__('Back to User List'), ['action' => 'index']) ?></button>
+    <button><?= $this->Html->link(__('Edit this User'), ['action' => 'edit', $user->id]) ?> </button>
+    <button><?= $this->Html->link(__('Add a New User'), ['action' => 'add']) ?> </button>
+    <button><?= $this->Form->postLink(
+            __('Delete'),
+            ['action' => 'delete', $user->Id],
+            ['confirm' => __('Are you sure you want to delete {0}?', $user->name)]
+        )
+        ?></button>
 </nav>
 <div class="users view large-9 medium-8 columns content">
     <h3><?= h($user->name) ?></h3>

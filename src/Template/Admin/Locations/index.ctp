@@ -14,7 +14,7 @@
     th, td{
         padding: 15px;
         vertical-align: center;
-        text-orientation: left;
+        text-align: left;
         border: 1px solid black;
     }
 
@@ -62,7 +62,7 @@
                 <th scope="col"><?= $this->Paginator->sort('suburb') ?></th>
                 <th scope="col"><?= $this->Paginator->sort('post_code') ?></th>
                 <th scope="col"><?= $this->Paginator->sort('note') ?></th>
-                <th scope="col" colspan="3" class="actions"><?= __('Actions') ?></th>
+                <th scope="col" colspan="2" class="actions"><?= __('Actions') ?></th>
             </tr>
         </thead>
         <tbody>
@@ -74,7 +74,7 @@
                 <td><?= $this->Number->format($location->post_code) ?></td>
                 <td><?= h($location->note) ?></td>
 <!--                <td class="actions">-->
-<!--                    <?= $this->Html->link(__('View'), ['action' => 'view', $location->Id]) ?>-->
+<!--                <?= $this->Html->link(__('View'), ['action' => 'view', $location->Id]) ?>-->
 <!--                </td>-->
                 <td>
                     <?= $this->Html->link(__('Edit'), ['action' => 'edit', $location->Id]) ?>
