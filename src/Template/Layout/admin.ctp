@@ -46,11 +46,11 @@ $action=$this->request->params['action'];
 ?>
 
 <div id="sidebar-collapse" class="col-sm-3 col-lg-2 sidebar">
-    <form role="search">
-        <div class="form-group">
-            <input type="text" class="form-control" placeholder="Search">
-        </div>
-    </form>
+<!--    <form role="search">-->
+<!--        <div class="form-group">-->
+<!--            <input type="text" class="form-control" placeholder="Search">-->
+<!--        </div>-->
+<!--    </form>-->
     <ul class="nav menu" id="sidebar_nav">
         <li class="sidebar_item <?php echo ($controller=='Admin')?'active':'';?>">
             <?= $this->Html->link('<svg class="glyph stroked dashboard dial">

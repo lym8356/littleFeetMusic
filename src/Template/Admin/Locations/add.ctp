@@ -5,10 +5,9 @@
  */
 ?>
 <nav class="large-3 medium-4 columns" id="actions-sidebar">
-    <ul class="side-nav">
-        <li><?= $this->Html->link(__('Back to list'), ['action' => 'index']) ?></li>
-    </ul>
+    <button><?= $this->Html->link(__('Back to Locations List'), ['action' => 'index']) ?></button>
 </nav>
+<br>
 <div class="locations form large-9 medium-8 columns content">
     <?= $this->Form->create($location) ?>
     <fieldset>

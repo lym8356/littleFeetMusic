@@ -26,7 +26,7 @@
 
     }
 
-    
+
     a:hover{
         text-decoration: none;
 
@@ -73,14 +73,14 @@
                 <td><?= h($location->suburb) ?></td>
                 <td><?= $this->Number->format($location->post_code) ?></td>
                 <td><?= h($location->note) ?></td>
-                <td class="actions">
-                    <?= $this->Html->link(__('View'), ['action' => 'view', $location->Id]) ?>
-                </td>
+<!--                <td class="actions">-->
+<!--                    <?= $this->Html->link(__('View'), ['action' => 'view', $location->Id]) ?>-->
+<!--                </td>-->
                 <td>
                     <?= $this->Html->link(__('Edit'), ['action' => 'edit', $location->Id]) ?>
                 </td>
                 <td>
-                    <?= $this->Form->postLink(__('Delete'), ['action' => 'delete', $location->Id], ['confirm' => __('Are you sure you want to delete # {0}?', $location->Id)]) ?>
+                    <?= $this->Form->postLink(__('Delete'), ['action' => 'delete', $location->Id], ['confirm' => __('Are you sure you want to delete {0}?', $location->name)]) ?>
                 </td>
             </tr>
             <?php endforeach; ?>
