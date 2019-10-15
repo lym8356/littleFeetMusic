@@ -37,7 +37,7 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
     <?= $this->Html->css('/font-awesome/css/all.min.css') ?>
     <?= $this->Html->script('/font-awesome/js/all.min.js') ?>
     <!-- custom css -->
-    <?= $this->Html->css('homepage.css') ?>
+    <?= $this->Html->css('News-and-Videos.css') ?>
 
     <?= $this->fetch('meta') ?>
     <?= $this->fetch('css') ?>
@@ -50,38 +50,42 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
 
 <?php echo $this->element('header') ?>
 
+
+
+
+
+<body>
 <div class="headpic">
     <div class="container">
         <?php echo $this->Html->image('LFM.jpg'); ?>
     </div>
 </div>
-
-
-
-
-
 <section id="LFM-about-us">
     <div class="container">
         <div class="row">
             <div class="col-md-12">
                 <div class="LFM-about-us-area">
-                    <div class="row">
-                        <div class="col-md-6">
-                            <div class="LFM-about-us-left">
-                            </div>
-                        </div>
-                        <div class="col-md-6">
-                            <div class="LFM-about-us-right">
+                    <div class="col-md-6">
+                        <div class="LFM-videolist">
+                            <iframe width="650" height="400" src="https://www.youtube.com/embed/?listType=playlist&list=PL80_B4ZTs44k3im2h12Wt6bvzgKs9-20-" frameborder="0" allowfullscreen></iframe>
 
 
-
-                            </div>
                         </div>
                     </div>
+
+                        <div class="col-md-6">
+                            <div class="LFM-description">
+                                <p>Banjo! It's a song I wrote for the Sandringham Private Kinder Kids about their mascot called Banjo, a numbat who is a sustainability warrior!</p>
+
+                            </div>
+                        </div>
+
                 </div>
             </div>
         </div>
     </div>
+</section>
+
 </section>
 <section class="testimonial">
     <div class="container">
@@ -119,3 +123,5 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
         </div>
     </div>
 </section>
+</body>
+</html>
