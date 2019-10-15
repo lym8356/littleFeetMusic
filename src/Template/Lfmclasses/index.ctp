@@ -1,3 +1,5 @@
+<<<<<<< HEAD
+=======
 <?php
 /**
  * @var \App\View\AppView $this
@@ -99,14 +101,14 @@
                         <button class="btn btn-outline-success btn-block btn-lg p-4 mt-3" id="btn3" value="1" onclick="viewClass2()"> 2-3 years</button></div>
                     <div class="col-sm">
                         <button class="btn btn-outline-success btn-block btn-lg p-4 mt-3" id="btn4" value="1" onclick="viewClass3()"> 3-4 years</button></div>
-                </div>  
+                </div>
                 <div class="row">
                     <div class="col-sm">
                         <button class="btn btn-outline-success btn-block btn-lg p-4 mt-3" id="btn5" value="1" onclick="viewClass4()"> 4-5 years</button></div>
                     <div class="col-sm">
 
                     </div>
-                </div>              
+                </div>
             </div>
             <div class="col-sm" id="right-col" style="background-color: #CCE8E0">
                 <div class="row">
@@ -125,7 +127,7 @@
                         </div>
 
                     </div>
-                    
+
                 </div>
             </div>
         </div>
@@ -216,33 +218,5 @@
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
     </div>
 </div>
-<!--<table class="table table-bordered" style="margin-top: 10px;">
-    <thead>
-    <tr>
-        <th scope="col">#</th>
-        <th scope="col">First</th>
-        <th scope="col">Last</th>
-        <th scope="col">Handle</th>
-    </tr>
-    </thead>
-    <tbody>
-    <tr>
-        <th scope="row">1</th>
-        <td>Mark</td>
-        <td>Otto</td>
-        <td>@mdo</td>
-    </tr>
-    <tr>
-        <th scope="row">2</th>
-        <td>Jacob</td>
-        <td>Thornton</td>
-        <td>@fat</td>
-    </tr>
-    <tr>
-        <th scope="row">3</th>
-        <td colspan="2">Larry the Bird</td>
-        <td>@twitter</td>
-    </tr>
-    </tbody>
-</table>
--->
+
+>>>>>>> 7e3f08ea3adacd7c8bfa9d9bc811d9bd43da9a08

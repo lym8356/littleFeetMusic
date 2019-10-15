@@ -54,12 +54,13 @@ class LfmclassesController extends AppController
         $lfmclass = $this->Lfmclasses->newEntity();
         if ($this->request->is('post')) {
             $lfmclass = $this->Lfmclasses->patchEntity($lfmclass, $this->request->getData());
+            $term_id = $this->request->getData('terms_id');
             if ($this->Lfmclasses->save($lfmclass)) {
-                $this->Flash->success(__('The lfmclass has been saved.'));
+                $this->Flash->success(__('The class has been saved.'));
 
-                return $this->redirect(['action' => 'index']);
+                return $this->redirect(['action' => 'index',$term_id]);
             }
-            $this->Flash->error(__('The lfmclass could not be saved. Please, try again.'));
+            $this->Flash->error(__('The class could not be saved. Please, try again.'));
         }
         $terms = $this->Lfmclasses->Terms->find('list', ['limit' => 200]);
         $this->set(compact('lfmclass', 'terms'));
@@ -100,13 +101,15 @@ class LfmclassesController extends AppController
     public function delete($id = null)
     {
         $this->request->allowMethod(['post', 'delete']);
+
         $lfmclass = $this->Lfmclasses->get($id);
+        $term_id=$lfmclass['terms_id'];
         if ($this->Lfmclasses->delete($lfmclass)) {
             $this->Flash->success(__('The lfmclass has been deleted.'));
         } else {
             $this->Flash->error(__('The lfmclass could not be deleted. Please, try again.'));
         }
 
-        return $this->redirect(['action' => 'index']);
+        return $this->redirect(['action' => 'index',$term_id]);
     }
 }

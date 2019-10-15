@@ -24,12 +24,12 @@
     <?= $this->Html->script('/dashboard/js/lumino.glyphs.js') ?>
 
     <!-- Full Calendar Resources -->
-    <?= $this->Html->css('/full_calendar/css/fullcalendar.min', ['plugin' => true]); ?>
-    <?= $this->Html->css('/full_calendar/css/jquery.qtip.min', ['plugin' => true]); ?>
-    <?= $this->Html->script('/full_calendar/js/lib/moment.min.js', ['plugin' => true]); ?>
-    <?= $this->Html->script('/full_calendar/js/fullcalendar.js', ['plugin' => true]); ?>
-    <?= $this->Html->script('/full_calendar/js/jquery.qtip.min.js', ['plugin' => true]); ?>
-    <?= $this->Html->script('/full_calendar/js/ready.js', ['plugin' => true]); ?>
+    <?= $this->Html->css('/full-calendar/css/fullcalendar.min'); ?>
+    <?= $this->Html->css('/full-calendar/css/jquery.qtip.min'); ?>
+    <?= $this->Html->script('/full-calendar/js/lib/moment.min.js'); ?>
+    <?= $this->Html->script('/full-calendar/js/fullcalendar.js'); ?>
+    <?= $this->Html->script('/full-calendar/js/jquery.qtip.min.js'); ?>
+    <?= $this->Html->script('/full-calendar/js/ready.js'); ?>
 
     <!--    <[if lt IE 9]>-->
     <!--    <script src="js/html5shiv.js"></script>-->

@@ -56,18 +56,16 @@ Router::scope('/', function (RouteBuilder $routes) {
     $routes->connect('/Logout', ['controller' => 'Users', 'action' => 'logout']);
     $routes->connect('/User/Profile', ['controller' => 'Users', 'action' => 'profile']);
 
-    $routes->connect('/Booking/View', ['controller' => 'Booking', 'action' => 'view']);
-    $routes->connect('/Booking/Add', ['controller' => 'Booking', 'action' => 'add']);
-    $routes->connect('/Booking/Manage', ['controller' => 'Booking', 'action' => 'manage']);
-
     $routes->connect('/Class', ['controller' => 'Lfmclasses', 'action' => 'index']);
-    $routes->connect('/Class/Enroll', ['controller' => 'Classlfm', 'action' => 'enroll']);
+    $routes->connect('/Class/Enrol', ['controller' => 'Terms', 'action' => 'enrol']);
 
     /**
      * Admin Panel Routing
      *
      */
 Router::prefix('admin', function($routes){
+
+    $routes->extensions(['json','xml']);
 
     $routes->connect('/', ['controller' => 'Admin', 'action' => 'index']);
     $routes->connect('/:controller/:action/*', ['controller' => 'controller', 'action' => 'action']);

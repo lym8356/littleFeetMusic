@@ -9,7 +9,7 @@ use Cake\Validation\Validator;
 /**
  * Locations Model
  *
- * @property \App\Model\Table\ClasslfmTable&\Cake\ORM\Association\HasMany $Classlfm
+ * @property &\Cake\ORM\Association\HasMany $Terms
  *
  * @method \App\Model\Entity\Location get($primaryKey, $options = [])
  * @method \App\Model\Entity\Location newEntity($data = null, array $options = [])
@@ -36,7 +36,7 @@ class LocationsTable extends Table
         $this->setDisplayField('name');
         $this->setPrimaryKey('Id');
 
-        $this->hasMany('Classlfm', [
+        $this->hasMany('Terms', [
             'foreignKey' => 'location_id'
         ]);
     }

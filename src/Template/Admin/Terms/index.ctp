@@ -19,29 +19,31 @@
     <div class="tab-pane active" id="class-summary" role="tabpanel" aria-labelledby="pills-home-tab">
         <div class="row">
             <div class="col-lg-12">
+                <?= $this->Flash->render(); ?>
                 <h3 class="card-header">Manage Teaching Period</h3>
                 <?php echo $this->Html->link('Add New Term', ['action' => 'add'],
                     ['class' => 'btn btn-lg btn-primary pull-right',
                         'style' => 'margin-bottom: 20px',
                         'escape' => false]) ?>
-                <div class="row col-md-2" style="margin-top: 10px;">
-                    <?= $this->Form->control('search', ['label' => 'Search By Class Name: ', 'class' => '']); ?>
+                <div class="row col-md-2" style="margin:auto;">
+                    <?= $this->Form->control('search', ['label' => 'Search By Age Group: ', 'class' => 'form-control']); ?>
                 </div>
-                <div class="row col-md-2" style="margin-top: 10px;">
+                <div class="row col-md-2" style="margin:auto;">
                     <?= $this->Form->control('location_filter', ['label' => 'Filter By Location: ', 'type' => 'select',
-                        'options' => $location, 'empty' => 'No Filter', 'id' => 'searchLocation']); ?>
+                        'options' => $location, 'empty' => 'No Filter', 'id' => 'searchLocation', 'class' => 'form-control']); ?>
                 </div>
                 <div class="card-body">
-                    <?= $this->Flash->render(); ?>
                     <div class="table-content">
                         <table class="table table-striped table-hover table-bordered">
                             <thead class="thead-dark">
                             <tr>
+                                <th scope="col"><?= $this->Paginator->sort('name') ?></th>
                                 <th scope="col"><?= $this->Paginator->sort('age_group') ?></th>
                                 <th scope="col"><?= $this->Paginator->sort('location_id') ?></th>
                                 <th scope="col"><?= $this->Paginator->sort('start_date') ?></th>
                                 <th scope="col"><?= $this->Paginator->sort('end_date') ?></th>
                                 <th scope="col"><?= $this->Paginator->sort('week_length') ?></th>
+                                <th scope="col"><?= $this->Paginator->sort('class_day') ?></th>
                                 <th scope="col"><?= $this->Paginator->sort('start_time') ?></th>
                                 <th scope="col"><?= $this->Paginator->sort('end_time') ?></th>
                                 <th scope="col"><?= $this->Paginator->sort('duration') ?></th>
@@ -55,11 +57,13 @@
                             <tbody>
                             <?php foreach ($terms as $term): ?>
                                 <tr>
+                                    <td><?= h($term->name) ?></td>
                                     <td><?= h($term->age_group) ?></td>
                                     <td><?= $term->location->name ?></td>
                                     <td><?= h(date('Y-m-d', strtotime($term->start_date))) ?></td>
                                     <td><?= h(date('Y-m-d', strtotime($term->end_date))) ?></td>
                                     <td><?= $this->Number->format($term->week_length) ?></td>
+                                    <td><?= h($term->class_day) ?></td>
                                     <td><?= h(date("G:i", strtotime($term->start_time))) ?></td>
                                     <td><?= h(date("G:i", strtotime($term->end_time))) ?></td>
                                     <td><?= $this->Number->format($term->duration) ?></td>
@@ -74,7 +78,7 @@
                                             <?= $this->Html->link(__('Edit'), ['action' => 'edit', $term->id],
                                                 ['class' => 'btn btn-success']) ?>
                                             <?= $this->Form->postLink(__('Delete'), ['action' => 'delete', $term->id],
-                                                ['confirm' => __('Are you sure you want to delete # {0}?', $term->id),
+                                                ['confirm' => __('Are you sure you want to delete this term?', $term->id),
                                                     'class' => 'btn btn-danger']) ?>
                                         </div>
                                     </td>
@@ -103,17 +107,6 @@
 </div>
 
 <script>
-    // $(document).ready(function () {
-    //     $(".pagination a").on("click", function (event) {
-    //         if(!$(this).attr('href'))
-    //             return false;
-    //         $.ajax({
-    //             dataType:"html",
-    //             success:function (data, textStatus) {$(".table-content").html(data);},
-    //             url:$(this).attr('href')});
-    //         return false;
-    //     });
-    // });
 
     $('document').ready(function () {
         $('#search').keyup(function () {

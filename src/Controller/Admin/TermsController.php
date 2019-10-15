@@ -2,6 +2,7 @@
 namespace App\Controller\Admin;
 
 use App\Controller\AppController;
+use Cake\ORM\Table;
 use Cake\ORM\TableRegistry;
 
 /**
@@ -66,7 +67,12 @@ class TermsController extends AppController
                     $classInfo[$i]['week_no'] = $this->request->getData('week_no')[$i];
                     $classInfo[$i]['price'] = $this->request->getData('price')[$i];
                     $classInfo[$i]['terms_id'] = $termData->id;
-                    $classInfo[$i]['class_date'] = date('Y-m-d', strtotime('+'.$this->request->data['week_no'][$i]." week"));
+
+                    $classInfo[$i]['class_date'] = isset($this->request->data['week_no'][$i]) &&
+                        ($this->request->data['week_no'][$i]>1)?date('Y-m-d',
+                        strtotime($this->request->data['start_date'].' +'. ($this->request->data['week_no'][$i]-1)." week")):date(
+                            'Y-m-d', strtotime($this->request->data['start_date']));
+
                 }
                 $lfmclasses = TableRegistry::getTableLocator()->get('Lfmclasses');
                 $entities = $lfmclasses->newEntities($classInfo);
@@ -105,7 +111,9 @@ class TermsController extends AppController
             }
             $this->Flash->error(__('The term could not be saved. Please, try again.'));
         }
-        $this->set(compact('term'));
+        $locations = $this->Terms->Locations->find('list', ['limit' => 20]);
+        $this->set(compact('term', 'locations'));
+
     }
 
     /**
@@ -172,4 +180,36 @@ class TermsController extends AppController
         $this->set('terms', $this->paginate($query));
         $this->set('_serialize', ['terms']);
     }
+
+    public function feed($id=null){
+
+        $this->viewBuilder()->layout('ajax');
+
+        $vars = $this->request->query([]);
+        $conditions = ['UNIX_TIMESTAMP(start) >=' => $vars['start'], 'UNIX_TIMESTAMP(start) <=' => $vars['end']];
+        $classes = TableRegistry::get('lfmclasses')->find('all', $conditions);
+        foreach($classes as $class) {
+//            if($event->all_day === 1) {
+//                $allday = true;
+//                $end = $event->start;
+//            } else {
+//                $allday = false;
+//                $end = $event->end;
+//            }
+            $json[] = [
+                'id' => $class->id,
+                'title'=> $class->term->name,
+                'start'=> $class->class_date,
+                'end' => $class->class_date,
+                'allDay' => true,
+                'url' => Router::url(['controller' => 'lfmclasses','action' => 'view', $class->id]),
+                'details' => $class->price,
+                'className' => 'Blue'
+            ];
+        }
+        $this->set(compact('json'));
+        $this->set('_serialize', 'json');
+
+    }
+
 }

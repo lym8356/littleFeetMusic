@@ -7,10 +7,12 @@ use Cake\ORM\Entity;
  * Term Entity
  *
  * @property int $id
+ * @property string $name
  * @property string $age_group
  * @property int $location_id
  * @property \Cake\I18n\FrozenDate $start_date
  * @property \Cake\I18n\FrozenDate $end_date
+ * @property string $class_day
  * @property int $week_length
  * @property \Cake\I18n\FrozenTime $start_time
  * @property \Cake\I18n\FrozenTime $end_time
@@ -21,6 +23,7 @@ use Cake\ORM\Entity;
  * @property string|null $note
  *
  * @property \App\Model\Entity\Location $location
+ * @property \App\Model\Entity\Lfmclass[] $lfmclasses
  */
 class Term extends Entity
 {
@@ -34,10 +37,12 @@ class Term extends Entity
      * @var array
      */
     protected $_accessible = [
+        'name' => true,
         'age_group' => true,
         'location_id' => true,
         'start_date' => true,
         'end_date' => true,
+        'class_day' => true,
         'week_length' => true,
         'start_time' => true,
         'end_time' => true,
@@ -46,6 +51,7 @@ class Term extends Entity
         'casual_rate' => true,
         'overflow' => true,
         'note' => true,
-        'location' => true
+        'location' => true,
+        'lfmclasses' => true
     ];
 }

@@ -2,6 +2,7 @@
 namespace App\Controller;
 
 use App\Controller\AppController;
+use Cake\ORM\TableRegistry;
 
 /**
  * Terms Controller
@@ -114,5 +115,11 @@ class TermsController extends AppController
         }
 
         return $this->redirect(['action' => 'index']);
+    }
+
+    public function enrol(){
+
+        $locationData=TableRegistry::get('Locations')->find('all')->contain(['Terms'])->toArray();
+        $this->set(compact('locationData'));
     }
 }

@@ -23,6 +23,7 @@
 <body>
 <div class="row">
     <div class="col-lg-12">
+        <?= $this->Flash->render(); ?>
         <h3 class="card-header">Add New Teaching Period</h3>
         <div class="col-lg-6">
             <?php echo $this->Form->create($term);
@@ -44,6 +45,8 @@
             </table>
             <?php echo $this->Form->control('end_date', ['class' => 'form-control',
                 'id' => 'end_date', 'type' => 'text']); ?>
+            <?php echo $this->Form->control('class_day', ['class' => 'form-control',
+                'id' => 'class_day', 'type' => 'text']); ?>
             <?php echo $this->Html->link('Back', ['action' => 'index'],
                 ['class' => 'btn btn-primary pull-left',
                     'style' => 'margin-top: 10px;',
@@ -52,8 +55,9 @@
         </div>
         <div class="col-lg-6">
             <?php
-            echo $this->Form->control('age_group', ['class' => 'form-control']);
             echo $this->Form->control('location_id', ['class' => 'form-control', 'empty' => 'Please Select']);
+            echo $this->Form->control('age_group', ['class' => 'form-control']);
+            echo $this->Form->control('name', ['class' => 'form-control', 'value' => '']);
             echo $this->Form->control('start_time', ['class' => 'form-control',
                 'id' => 'start_time', 'type' => 'text']);
             echo $this->Form->control('duration', ['class' => 'form-control', 'value' => '0','label' => 'Class Duration (in minutes)',
@@ -61,7 +65,7 @@
             echo $this->Form->control('end_time', ['class' => 'form-control',
                 'id' => 'end_time', 'type' => 'text']);
             echo $this->Form->control('capacity', ['class' => 'form-control']);
-            echo $this->Form->control('casual_rate', ['class' => 'form-control']);
+            echo $this->Form->control('casual_rate', ['class' => 'form-control','type' => 'number']);
             echo $this->Form->control('overflow', ['class' => 'custom-control-input']);
             echo $this->Form->control('note', ['class' => 'form-control', 'type' => 'textarea']);
 
@@ -83,13 +87,37 @@
 
             let days = parseInt($('#week_length').val() * 7);
             let endDate = new Date($('#start_date').val());
-            endDate.setDate(endDate.getDate() + days);
-            //$('#end_date').val( (endDate.getMonth() + 1)+ '/' + endDate.getDate() + '/' + endDate.getFullYear() );
+            endDate.setDate(endDate.getDate() + (days - 7));
             $('#end_date').val( endDate.getFullYear() + '-' + (endDate.getMonth() + 1) + '-' + endDate.getDate() );
+
+            let startDate = new Date($('#start_date').val());
+            let day;
+            switch (startDate.getDay()) {
+                case 0:
+                    day = "Sunday";
+                    break;
+                case 1:
+                    day = "Monday";
+                    break;
+                case 2:
+                    day = "Tuesday";
+                    break;
+                case 3:
+                    day = "Wednesday";
+                    break;
+                case 4:
+                    day = "Thursday";
+                    break;
+                case 5:
+                    day = "Friday";
+                    break;
+                case 6:
+                    day = "Saturday";
+            }
+            $('#class_day').val(day);
         });
-
-
     } );
+
     $( function () {
 
         $('#start_time').timepicker({ 'timeFormat': 'H:i' });

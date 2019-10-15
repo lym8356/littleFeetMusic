@@ -33,7 +33,7 @@ class TermsTable extends Table
         parent::initialize($config);
 
         $this->setTable('terms');
-        $this->setDisplayField('id');
+        $this->setDisplayField('name');
         $this->setPrimaryKey('id');
 
         $this->belongsTo('Locations', [
@@ -42,8 +42,9 @@ class TermsTable extends Table
         ]);
 
         $this->hasMany('Lfmclasses', [
-            'foreignKey' => 'terms.id'
-        ])->setDependent(true);
+            'foreignKey' => 'terms_id',
+            'joinType' => 'INNER'
+        ]);
     }
 
     /**
@@ -57,6 +58,11 @@ class TermsTable extends Table
         $validator
             ->integer('id')
             ->allowEmptyString('id', null, 'create');
+
+        $validator
+            ->scalar('name')
+            ->maxLength('name', 50)
+            ->notEmptyString('name');
 
         $validator
             ->scalar('age_group')
@@ -73,6 +79,11 @@ class TermsTable extends Table
             ->date('end_date')
             ->requirePresence('end_date', 'create')
             ->notEmptyDate('end_date');
+
+        $validator
+            ->scalar('class_day')
+            ->maxLength('class_day', 50)
+            ->notEmptyString('class_day');
 
         $validator
             ->integer('week_length')

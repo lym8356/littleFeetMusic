@@ -4,31 +4,38 @@
  * @var \App\Model\Entity\Lfmclass $lfmclass
  */
 ?>
-<nav class="large-3 medium-4 columns" id="actions-sidebar">
-    <ul class="side-nav">
-        <li class="heading"><?= __('Actions') ?></li>
-        <li><?= $this->Form->postLink(
-                __('Delete'),
-                ['action' => 'delete', $lfmclass->id],
-                ['confirm' => __('Are you sure you want to delete # {0}?', $lfmclass->id)]
-            )
-        ?></li>
-        <li><?= $this->Html->link(__('List Lfmclasses'), ['action' => 'index']) ?></li>
-        <li><?= $this->Html->link(__('List Terms'), ['controller' => 'Terms', 'action' => 'index']) ?></li>
-        <li><?= $this->Html->link(__('New Term'), ['controller' => 'Terms', 'action' => 'add']) ?></li>
-    </ul>
-</nav>
-<div class="lfmclasses form large-9 medium-8 columns content">
-    <?= $this->Form->create($lfmclass) ?>
-    <fieldset>
-        <legend><?= __('Edit Lfmclass') ?></legend>
-        <?php
-            echo $this->Form->control('term_id', ['options' => $terms, 'empty' => true]);
-            echo $this->Form->control('week_no');
-            echo $this->Form->control('price');
-            echo $this->Form->control('class_date', ['empty' => true]);
-        ?>
-    </fieldset>
-    <?= $this->Form->button(__('Submit')) ?>
-    <?= $this->Form->end() ?>
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Add Class</title>
+    <!-- datepicker -->
+    <?= $this->Html->css('/datetimepicker/css/jquery-ui.min.css') ?>
+    <?= $this->Html->script('/datetimepicker/js/jquery-ui.min.js') ?>
+</head>
+<body>
+<div class="row">
+    <div class="col-lg-12">
+        <?= $this->Flash->render(); ?>
+        <h3 class="card-header">Add New Class</h3>
+        <div class="col-lg-4">
+            <?= $this->Form->create($lfmclass) ?>
+            <?php
+            echo $this->Form->control('terms_id', ['options' => $terms, 'empty' => true, 'class' => 'form-control']);
+            echo $this->Form->control('week_no', ['class' => 'form-control']);
+            echo $this->Form->control('price', ['class' => 'form-control']);
+            echo $this->Form->control('class_date', ['empty' => true, 'class' => 'form-control',
+                'id' => 'class_date', 'type' => 'text','value'=>date('Y-m-d',strtotime($lfmclass['class_date']))]);
+            ?>
+            <?= $this->Form->button('Submit', ['class' => 'btn btn-success pull-right', 'style' => 'margin-top:20px;']) ?>
+            <?= $this->Form->end() ?>
+            <?php echo $this->Html->link('Back', ['controller' => 'Terms','action' => 'index', $lfmclass->terms_id],
+                ['class' => 'btn btn-primary pull-left',
+                    'style' => 'margin-top: 20px;']) ?>
+        </div>
+    </div>
 </div>
+</body>
+<script>
+    $("#class_date").datepicker({dateFormat: 'yy-mm-dd'});
+</script>
+</html>

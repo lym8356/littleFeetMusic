@@ -1,6 +1,7 @@
 <table class="table table-striped table-hover table-bordered">
     <thead class="thead-dark">
     <tr>
+        <th scope="col"><?= $this->Paginator->sort('name') ?></th>
         <th scope="col"><?= $this->Paginator->sort('age_group') ?></th>
         <th scope="col"><?= $this->Paginator->sort('location_id') ?></th>
         <th scope="col"><?= $this->Paginator->sort('start_date') ?></th>
@@ -10,7 +11,7 @@
         <th scope="col"><?= $this->Paginator->sort('end_time') ?></th>
         <th scope="col"><?= $this->Paginator->sort('duration') ?></th>
         <th scope="col"><?= $this->Paginator->sort('capacity') ?></th>
-        <th scope="col"><?= $this->Paginator->sort('cost_per_class') ?></th>
+        <th scope="col"><?= $this->Paginator->sort('casual_rate') ?></th>
         <th scope="col"><?= $this->Paginator->sort('overflow') ?></th>
         <th scope="col"><?= $this->Paginator->sort('note') ?></th>
         <th scope="col" class="actions"><?= __('Actions') ?></th>
@@ -19,6 +20,7 @@
     <tbody>
     <?php foreach ($terms as $term): ?>
         <tr>
+            <td><?= h($term->name) ?></td>
             <td><?= h($term->age_group) ?></td>
             <td><?= $term->location->name ?></td>
             <td><?= h(date('Y-m-d', strtotime($term->start_date))) ?></td>
@@ -33,11 +35,13 @@
             <td><?= h($term->note) ?></td>
             <td class="actions">
                 <div class="btn-group" role="group">
+                    <?= $this->Html->link(__('View'), ['controller' => 'lfmclasses','action' => 'index', $term->id],
+                        ['class' => 'btn btn-primary']) ?>
                     <?= $this->Html->link(__('Edit'), ['action' => 'edit', $term->id],
                         ['class' => 'btn btn-success']) ?>
                     <?= $this->Form->postLink(__('Delete'), ['action' => 'delete', $term->id],
                         ['confirm' => __('Are you sure you want to delete # {0}?', $term->id),
-                            'class' => 'btn btn-danger'])?>
+                            'class' => 'btn btn-danger']) ?>
                 </div>
             </td>
         </tr>

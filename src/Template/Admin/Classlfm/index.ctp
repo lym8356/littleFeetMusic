@@ -36,7 +36,7 @@
                         'style' => 'margin-bottom: 20px',
                         'escape' => false]) ?>
                 <div class="row col-md-2" style="margin-top: 10px;">
-                    <?= $this->Form->control('search', ['label' => 'Search By Class Name: ', 'class' => '']); ?>
+                    <?= $this->Form->control('search', ['label' => 'Search By Age Group: ', 'class' => '']); ?>
                 </div>
                 <div class="row col-md-2" style="margin-top: 10px;">
                     <?= $this->Form->control('location_filter', ['label' => 'Filter By Location: ', 'type' => 'select',
@@ -111,18 +111,6 @@
 </div>
 
 <script>
-    // $(document).ready(function () {
-    //     $(".pagination a").on("click", function (event) {
-    //         if(!$(this).attr('href'))
-    //             return false;
-    //         $.ajax({
-    //             dataType:"html",
-    //             success:function (data, textStatus) {$(".table-content").html(data);},
-    //             url:$(this).attr('href')});
-    //         return false;
-    //     });
-    // });
-
     $('document').ready(function () {
         $('#search').keyup(function () {
             var searchkey = $(this).val();
