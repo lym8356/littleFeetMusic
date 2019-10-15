@@ -43,7 +43,11 @@ class UsersController extends AppController
 
                         if ($this->Auth->user('role') == 'admin') {
                             return $this->redirect('/admin');
-                        } else {
+                        }
+                        elseif ($this->Auth->user('role') == 'staff'){
+                            return $this->redirect('/admin');
+                        }
+                        else {
                             return $this->redirect($this->Auth->redirectUrl());
                         }
                         //$this->Flash->success('Login Success.', ['key' => 'message']);
