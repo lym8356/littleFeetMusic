@@ -42,17 +42,15 @@
         margin-right: 5%;
     }
 
-
-
 </style>
 <nav class="large-3 medium-4 columns" id="actions-sidebar">
     <ul class="side-nav">
 <!--        <li class="heading">--><?//= __('Actions') ?><!--</li>-->
     </ul>
-    <button><?= $this->Html->link(__('Add New User'), ['action' => 'add']) ?></button>
 </nav>
 <div class="users index large-9 medium-8 columns content">
     <h3><?= __('Users') ?></h3>
+    <br><button><?= $this->Html->link(__('Add New User'), ['action' => 'add']) ?></button><br><br>
     <table cellpadding="0" cellspacing="0">
         <thead>
             <tr>

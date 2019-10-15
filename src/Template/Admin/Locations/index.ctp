@@ -45,15 +45,12 @@
      }
 
 
-
 </style>
 
-<nav class="large-3 medium-4 columns" id="actions-sidebar">
- <button><?= $this->Html->link(__('Add New Location'), ['action' => 'add']) ?></button>
-</nav>
-<br>
+
 <div class="locations index large-9 medium-8 columns content">
     <h3><?= __('Locations') ?></h3>
+    <br><button><?= $this->Html->link(__('Add New Location'), ['action' => 'add']) ?></button><br><br>
     <table cellpadding="0" cellspacing="0">
         <thead>
             <tr>
@@ -62,7 +59,7 @@
                 <th scope="col"><?= $this->Paginator->sort('suburb') ?></th>
                 <th scope="col"><?= $this->Paginator->sort('post_code') ?></th>
                 <th scope="col"><?= $this->Paginator->sort('note') ?></th>
-                <th scope="col" colspan="2" class="actions"><?= __('Actions') ?></th>
+                <th scope="col" colspan="3" class="actions"><?= __('Actions') ?></th>
             </tr>
         </thead>
         <tbody>
@@ -74,12 +71,12 @@
                 <td><?= $this->Number->format($location->post_code) ?></td>
                 <td><?= h($location->note) ?></td>
 <!--                <td class="actions">-->
-<!--                <?= $this->Html->link(__('View'), ['action' => 'view', $location->Id]) ?>-->
+<!--                <?//= $this->Html->link(__('View'), ['action' => 'view', $location->Id]) ?>-->
 <!--                </td>-->
-                <td>
+                <td class="actions">
                     <?= $this->Html->link(__('Edit'), ['action' => 'edit', $location->Id]) ?>
                 </td>
-                <td>
+                <td class="actions">
                     <?= $this->Form->postLink(__('Delete'), ['action' => 'delete', $location->Id], ['confirm' => __('Are you sure you want to delete {0}?', $location->name)]) ?>
                 </td>
             </tr>

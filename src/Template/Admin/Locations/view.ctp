@@ -90,7 +90,7 @@
     <br><br><br>
     <div class="related">
         <h4 style="text-align:center; text-transform:uppercase;"><?= __('Listed Classes') ?></h4>
-        <?php if (!empty($location->classlfm)): ?>
+        <?php if (!empty($location->terms)): ?>
         <table cellpadding="5" cellspacing="5">
             <tr>
                 <th scope="col"><?= __('Name') ?></th>
@@ -106,30 +106,30 @@
                 <th scope="col"><?= __('Note') ?></th>
                 <th scope="col" class="actions" colspan="2"><?= __('Actions') ?></th>
             </tr>
-            <?php foreach ($location->classlfm as $classlfm): ?>
+            <?php foreach ($location->terms as $terms): ?>
             <tr>
-                <td><?= h($classlfm->name) ?></td>
-                <td><?= h($classlfm->age_group) ?></td>
-                <td><?= h($classlfm->start_date) ?></td>
-                <td><?= h($classlfm->end_date) ?></td>
-                <td><?= h($classlfm->week_length) ?></td>
-                <td><?= h($classlfm->start_time) ?></td>
-                <td><?= h($classlfm->end_time) ?></td>
-                <td><?= h($classlfm->duration) ?></td>
-                <td><?= h($classlfm->capacity) ?></td>
-                <td><?= h($classlfm->cost_per_class) ?></td>
-                <td><?= h($classlfm->note) ?></td>
+                <td><?= h($terms->name) ?></td>
+                <td><?= h($terms->age_group) ?></td>
+                <td><?= h($terms->start_date) ?></td>
+                <td><?= h($terms->end_date) ?></td>
+                <td><?= h($terms->week_length) ?></td>
+                <td><?= h($terms->start_time) ?></td>
+                <td><?= h($terms->end_time) ?></td>
+                <td><?= h($terms->duration) ?></td>
+                <td><?= h($terms->capacity) ?></td>
+                <td><?= h($terms->cost_per_class) ?></td>
+                <td><?= h($terms->note) ?></td>
                 <td class="actions">
-                    <?= $this->Html->link(__('Edit'), ['controller' => 'Classlfm', 'action' => 'edit', $classlfm->id]) ?>
+                    <?= $this->Html->link(__('Edit'), ['controller' => 'Terms', 'action' => 'edit', $terms->id]) ?>
                 </td>
                 <td class="actions">
-                    <?= $this->Form->postLink(__('Delete'), ['controller' => 'Classlfm', 'action' => 'delete', $classlfm->id], ['confirm' => __('Are you sure you want to delete # {0}?', $classlfm->id)]) ?>
-                </td>
+                    <?= $this->Form->postLink(__('Delete'), ['controller' => 'Terms', 'action' => 'delete', $terms->id], ['confirm' => __('Are you sure you want to delete # {0}?', $classlfm->id)]) ?>
+                    $terms
             </tr>
             <?php endforeach; ?>
         </table>
         <br><br><br>
-        <button class="btn tbn"><?= $this->Html->link(__('Add New Class'), ['controller' => 'Classlfm', 'action' => 'add']) ?></button>
+        <button class="btn tbn"><?= $this->Html->link(__('Add New Class'), ['controller' => 'Terms', 'action' => 'add']) ?></button>
          <br><br><br>
 
 
