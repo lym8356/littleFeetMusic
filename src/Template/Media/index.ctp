@@ -73,13 +73,6 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
                         </div>
                     </div>
 
-                        <div class="col-md-6">
-                            <div class="LFM-description">
-                                <p>Banjo! It's a song I wrote for the Sandringham Private Kinder Kids about their mascot called Banjo, a numbat who is a sustainability warrior!</p>
-
-                            </div>
-                        </div>
-
                 </div>
             </div>
         </div>

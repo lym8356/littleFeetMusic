@@ -57,6 +57,7 @@ $cakeDescription = 'User Panel';
                 </li>
 
             </ul>
+
             <ul class="navbar-nav">
                 <li class="nav-item">
                     <?= $this->Html->link('<i class="fa fa-sign-in-alt"></i> Login', '/Login', ['class' => 'nav-link', 'escape' => false]); ?>
@@ -74,5 +75,11 @@ $cakeDescription = 'User Panel';
         </ul>
     </div>
 </header>
+<SCRIPT>
+    $(document).ready(function() {
+        $('li.active').removeClass('active');
+        $('a[href="' + location.pathname + '"]').closest('li').addClass('active');
+    });
+</SCRIPT>
 </body>
 </html>

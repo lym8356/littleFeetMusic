@@ -56,6 +56,7 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
 <body>
 
 
+<section class="map">
 
 <div class="container">
 	<div class="row">
@@ -76,6 +77,7 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
 
     </div>
 </div>
+
 <div class="container">
     <div class="row">
         <div class="col-md-4">
@@ -132,9 +134,8 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
 
     </div>
 </div>
-<div class="TandC">
-    <h5>Terms & Conditions</h5>
-</div>
+</section>
+
 
 <section class="testimonial">
     <div class="container">

@@ -5,6 +5,7 @@ head{
 body{
     margin:0;
 
+
 }
 
 img {
@@ -14,10 +15,7 @@ img {
 .headpic{
     background-color:#CCE8E0 ;
 }
-img {
-    width: 100%;
-    height: auto;
-}
+
 .testimonial {
     margin: 40px;
     background-color: #CCE8E0;

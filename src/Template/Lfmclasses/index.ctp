@@ -1,75 +1,67 @@
-4<<<<<<< HEAD
-=======
 <?php
 /**
- * @var \App\View\AppView $this
- * @var \App\Model\Entity\Lfmclass[]|\Cake\Collection\CollectionInterface $lfmclasses
+ * CakePHP(tm) : Rapid Development Framework (https://cakephp.org)
+ * Copyright (c) Cake Software Foundation, Inc. (https://cakefoundation.org)
+ *
+ * Licensed under The MIT License
+ * For full copyright and license information, please see the LICENSE.txt
+ * Redistributions of files must retain the above copyright notice.
+ *
+ * @copyright     Copyright (c) Cake Software Foundation, Inc. (https://cakefoundation.org)
+ * @link          https://cakephp.org CakePHP(tm) Project
+ * @since         0.10.0
+ * @license       https://opensource.org/licenses/mit-license.php MIT License
  */
+
+$cakeDescription = 'CakePHP: the rapid development php framework';
 ?>
+<!DOCTYPE html>
 <head>
+    <?= $this->Html->charset() ?>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>
+        <?= $cakeDescription ?>:
+        <?= $this->fetch('title') ?>
+    </title>
+    <?= $this->Html->meta('icon') ?>
+
+    <!--    <?//= $this->Html->css('base.css') ?> -->
+    <!--    <?//= $this->Html->css('style.css') ?> -->
+
+    <!-- bootstrap -->
+    <?= $this->Html->css('/bootstrap/css/bootstrap.min.css') ?>
+    <?= $this->Html->script('/bootstrap/js/jquery-3.3.1.slim.min.js') ?>
+    <?= $this->Html->script('/bootstrap/js/bootstrap.min.js') ?>
+    <?= $this->Html->script('/bootstrap/js/popper.min.js') ?>
+    <!-- font awesome -->
+    <?= $this->Html->css('/font-awesome/css/all.min.css') ?>
+    <?= $this->Html->script('/font-awesome/js/all.min.js') ?>
+    <!-- custom css -->
+    <?= $this->Html->css('Class.css') ?>
+
+    <?= $this->fetch('meta') ?>
+    <?= $this->fetch('css') ?>
+    <?= $this->fetch('script') ?>
+
+
 </head>
-<style type="text/css">
-    img {
-        width: 100%;
-        height: auto;
-    }
-    .testimonial {
-        margin: 40px;
-       background-color: #CCE8E0;
 
-    }
-    .testimonial h1{
-        text-align: center;
-        font-weight: bold;
-        color: #808080;
-        padding-bottom: 10px;
-        text-transform: uppercase;
-    }
-    .testimonial.row{
-        margin-top: 30px;
-    }
-    .testimonial-info{
-        padding: 10px 10px;
-        background-color: #EFEFEF;
-    }
-    blockquote{
-        font-size:20px;
-        line-height: 30px;
-    }
-    blockquote::before{
-        content: open-quote;
-        font-size: 50px;
-        position: relative;
-        color:#fdbc5e;
-        line-height: 20px;
-        bottom:-15px;
-        right: 130px;
-    }
-    blockquote:after {
-        content: close-quote;
-        font-size: 50px;
-        position: relative;
-        color:#fdbc5e;
-        line-height: 20px;
-        bottom:-15px;
-        left:130px;
 
-    }
-    .sb{
-        margin:40px auto;
-    }
-</style>
 
+<?php echo $this->element('header') ?>
+
+
+
+
+
+<body>
+<div class="headpic">
+    <div class="container">
+        <?php echo $this->Html->image('LFM.jpg'); ?>
+    </div>
+</div>
 <div class="container">
 
-    <section>
-        <div class=" container">
-            <div class="img-fluid">
-                <?php echo $this->Html->image('LFM.jpg'); ?>
-            </div>
-        </div>
-    </section>
 
     <section>
 

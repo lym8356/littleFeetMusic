@@ -79,8 +79,7 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
                                 </ul>
                                 <p>The Little Feet Music program helps children to develop skills such as strengthened self image and self assurance, improved concentration and listening skills, as well as offering lots of opportunities for social interaction.
                                 </p>
-                                <a href="Enroll" class="btn EnrollBtn" >Enroll</a>
-                                <a href="FreeTrial" class="btn TrailBtn">Book a free trial</a>
+
 
                             </div>
                         </div>
@@ -139,19 +138,6 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
         </div>
     </section>
 
-<div class="sub-footer">
-    <div class="container">
-        <div class="col-md-12">
-            <div class="row">
-                <div class="col-sm-8">
-                    Discover our classes and find more!
-                </div>
-                <div class="col-sm-4">
-                    <p class="mt-10"><a href="GetClassInfo" class="classbtn">Class Info Here<i class="fa fa-arrow-right pl-20"></i></a></p>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
+
 </body>
 

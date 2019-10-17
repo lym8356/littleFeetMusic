@@ -1,22 +1,27 @@
-head{
+
+
+head {
 
 }
-
 body{
-   margin:0;
+    margin:0;
 
 }
-
 img {
     width: 100%;
     height: auto;
 }
+
 .headpic{
     background-color:#CCE8E0 ;
 }
-.TandC{
-    text-align: center;
+.map{
+    padding-top: 30px;
 }
+.map .row{
+    padding-top: 50px;
+}
+
 .testimonial {
     margin: 40px;
     background-color: #CCE8E0;

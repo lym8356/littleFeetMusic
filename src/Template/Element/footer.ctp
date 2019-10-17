@@ -26,15 +26,7 @@
                     <li>Parkdale VIC 3195</li>
                 </ul>
             </div>
-            <div class="col-sm-2">
-                <h5>Get started</h5>
-                <ul>
-                    <li><a href="#">Home</a></li>
-                    <li><a href="#">Sign up</a></li>
-                    <li><a href="#">Downloads</a></li>
-                </ul>
-            </div>
-            <div class="col-sm-2">
+            <div class="col-sm-3">
                 <h5>About us</h5>
                 <ul>
                     <li><a href="#">Company Information</a></li>
@@ -42,7 +34,7 @@
                     <li><a href="#">Reviews</a></li>
                 </ul>
             </div>
-            <div class="col-sm-2">
+            <div class="col-sm-3">
                 <div class="social-networks">
                     <a href="#" class="twitter"><i class="fab fa-twitter"></i></a>
                     <a href="#" class="facebook"><i class="fab fa-facebook-f"></i></a>
