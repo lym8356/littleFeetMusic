@@ -22,6 +22,7 @@ class LfmclassesController extends AppController
         $this->paginate = [
             'contain' => ['Terms']
         ];
+
         $lfmclasses = $this->paginate($this->Lfmclasses);
 
         $this->set(compact('lfmclasses'));

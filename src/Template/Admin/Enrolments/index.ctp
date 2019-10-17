@@ -4,18 +4,61 @@
  * @var \App\Model\Entity\Enrolment[]|\Cake\Collection\CollectionInterface $enrolments
  */
 ?>
+
+<link rel="stylesheet" type="text/css" href="../../../../webroot/css/base.css">
+
+<style type="text/css">
+    table{
+        border: 1px solid black;
+        position: center;
+    }
+    th, td{
+        padding: 15px;
+        vertical-align: center;
+        text-align: left;
+        border: 1px solid black;
+    }
+
+    tr:hover{
+        background-color: #f5f5f5;
+    }
+
+    #loc-dt{
+
+    }
+
+    a:hover{
+        text-decoration: none;
+    }
+
+    .btn{
+        margin-left: 5px;
+    }
+    .btn:hover{
+        background-color: #4da6ff;
+    }
+
+    .tbn{
+        float: right;
+        margin-right: 5%;
+    }
+
+</style>
+
 <nav class="large-3 medium-4 columns" id="actions-sidebar">
     <ul class="side-nav">
-        <li class="heading"><?= __('Actions') ?></li>
-        <li><?= $this->Html->link(__('New Enrolment'), ['action' => 'add']) ?></li>
-        <li><?= $this->Html->link(__('List Lfmclasses'), ['controller' => 'Lfmclasses', 'action' => 'index']) ?></li>
-        <li><?= $this->Html->link(__('New Lfmclass'), ['controller' => 'Lfmclasses', 'action' => 'add']) ?></li>
-        <li><?= $this->Html->link(__('List Childs'), ['controller' => 'Childs', 'action' => 'index']) ?></li>
-        <li><?= $this->Html->link(__('New Child'), ['controller' => 'Childs', 'action' => 'add']) ?></li>
+<!--        <li class="heading">--><?//= __('Actions') ?><!--</li>-->
     </ul>
 </nav>
 <div class="enrolments index large-9 medium-8 columns content">
     <h3><?= __('Enrolments') ?></h3>
+    <br>
+    <button><?= $this->Html->link(__('New Enrolment'), ['action' => 'add']) ?></button>
+    <button><?= $this->Html->link(__('List Lfmclasses'), ['controller' => 'Lfmclasses', 'action' => 'index']) ?></button>
+    <button><?= $this->Html->link(__('New Lfmclass'), ['controller' => 'Lfmclasses', 'action' => 'add']) ?></button>
+<!--    <button>--><!--<?//= $this->Html->link(__('List Childs'), ['controller' => 'Childs', 'action' => 'index']) ?>--><!--</button>-->
+<!--    <button>--><!--<?//= $this->Html->link(__('New Child'), ['controller' => 'Childs', 'action' => 'add']) ?>--><!--</button>-->
+    <br><br>
     <table cellpadding="0" cellspacing="0">
         <thead>
             <tr>

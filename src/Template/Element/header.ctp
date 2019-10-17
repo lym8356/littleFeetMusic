@@ -65,15 +65,13 @@ $cakeDescription = 'User Panel';
                 <li class="nav-item">
                     <?= $this->Html->link('<i class="fa fa-user-plus"></i> Sign Up', '/Signup', ['class' => 'nav-link', 'escape' => false]); ?>
                 </li>
+                <li class="nav-item"><i class="fas fa-envelope-square"></i></li>
+                <li class="nav-item"><i class="fas fa-phone-square"></i></li>
+            </ul>
             </ul>
         </div>
     </nav>
-    <div class="header py-1 fixed-top bg-light" style="margin-top: 90px">
-        <ul class="nav justify-content-end">
-            <li class="nav-item"><i class="fas fa-envelope-square"></i>&nbsp;info@littlefeetmusic.com.au &nbsp;&nbsp;</li>
-            <li class="nav-item"><i class="fas fa-phone-square"></i>&nbsp;0410 600 060&nbsp;</li>
-        </ul>
-    </div>
+
 </header>
 <SCRIPT>
     $(document).ready(function() {
