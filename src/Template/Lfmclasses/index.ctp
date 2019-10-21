@@ -19,6 +19,7 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
 <head>
     <?= $this->Html->charset() ?>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <title>
         <?= $cakeDescription ?>:
         <?= $this->fetch('title') ?>
@@ -60,71 +61,49 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
         <?php echo $this->Html->image('LFM.jpg'); ?>
     </div>
 </div>
-<div class="container">
-
-
+<div class="container" id="div1">
     <section>
-
-        <div class="container">
-            <h1>Why Little Feet Music?</h1>
-            <p>The music is all live; it’s not just prancing around to CDs.  Everyone loves live music!  It's interactive, fun, engaging and educational! .</p>
-
-            <p>The Little Feet Music program is a carefully researched, developmental and sequential music program. It's fun, entertaining and educational. All of our teachers play guitar and sing, so all of the music is live and we use a variety of percussion instruments and fun, colourful props. Each term your child will be given a Little Feet Music song book to keep, which has lots of the songs and activities we'll do in the classes for that term. There are lots of songs you'll know as well as loads more for you to learn!</p>
-
-            <p>Through the Little Feet Music program children acquire a knowledge of musical concepts such as beat, rhythm, inner hearing, pitch (high and low), dynamics (loud and soft), timbre (characteristics of sounds), form and tempo (fast and slow) while gaining enhanced social skills and confidence..</p>
-
-            <p>Little Feet Music is LOTS of fun and the best way for children to learn is by having fun! Children bring the music home to rest of their family through the Little Feet Music song book. Many of the children pretend to be the music teacher for the rest of the family and parents are encouraged to read the Little Feet Music song book and sing the songs at home.</p>
+        <div class="row container">
+            <div class="p-3 ml-4">
+                <button class="btn btn-outline-success btn-block btn-lg p-4 mt-3" id="btn1" value="1" onclick="viewClass()"> 0-1 years</button></div>
+            <div class="p-3">
+                <button class="btn btn-outline-success btn-block btn-lg p-4 mt-3" id="btn2" value="1" onclick="viewClass1()"> 1-2 years</button></div>
+            <div class="p-3">
+                <button class="btn btn-outline-success btn-block btn-lg p-4 mt-3" id="btn3" value="1" onclick="viewClass2()"> 2-3 years</button></div>
+            <div class="p-3">
+                <button class="btn btn-outline-success btn-block btn-lg p-4 mt-3" id="btn4" value="1" onclick="viewClass3()"> 3-4 years</button></div>
+            <div class="p-3">
+                <button class="btn btn-outline-success btn-block btn-lg p-4 mt-3" id="btn5" value="1" onclick="viewClass4()"> 4-5 years</button></div>
+            <div class="p-3">
+                <button class="btn btn-outline-success btn-block btn-lg p-4 mt-3" id="btn6"> Family Class</button></div>
+            </div>           
+        </div>
     </section>
     <br><br><br>
     <section>
-        <div class="row container">
-            <div class="col-sm-3" id="left-col">
-                <div class="row ">
-                    <div class="col-sm">
-                        <button class="btn btn-outline-success btn-block btn-lg p-4 mt-3" id="btn1" value="1" onclick="viewClass()"> 0-1 years</button></div>
-                    <div class="col-sm">
-                        <button class="btn btn-outline-success btn-block btn-lg p-4 mt-3" id="btn2" value="1" onclick="viewClass1()"> 1-2 years</button></div>
-                </div>
+        <div class="container">
+            <div class="col-sm" style="background-color: #CCE8E0">
                 <div class="row">
-                    <div class="col-sm">
-                        <button class="btn btn-outline-success btn-block btn-lg p-4 mt-3" id="btn3" value="1" onclick="viewClass2()"> 2-3 years</button></div>
-                    <div class="col-sm">
-                        <button class="btn btn-outline-success btn-block btn-lg p-4 mt-3" id="btn4" value="1" onclick="viewClass3()"> 3-4 years</button></div>
-                </div>
-                <div class="row">
-                    <div class="col-sm">
-                        <button class="btn btn-outline-success btn-block btn-lg p-4 mt-3" id="btn5" value="1" onclick="viewClass4()"> 4-5 years</button></div>
-                    <div class="col-sm">
-
-                    </div>
-                </div>
-            </div>
-            <div class="col-sm" id="right-col" style="background-color: #CCE8E0">
-                <div class="row">
-                    <div class="col-sm">
+                    <div class="col-sm" id="left-col">
                         <span id="specifyClass">
                             <h2>Generic text about classes</h2>
                             <p>Fun, cool, creative and interactive music classes for kids aged six months to five years!
 
-Rachel Parkinson has been running children's music programs for over fifteen years, so has a plethora of experience with children and with music!
+                                Rachel Parkinson has been running children's music programs for over fifteen years, so has a plethora of experience with children and with music!
 
-Rachel completed a Preschool Music Teacher Training Course (Level 1) through the Kodaly Music Education Institute of Australia in 2006 and is a full writer member of the Australasian Performing Right Association (APRA).  Rachel has also been a member of the Australian Recording Industry Association (ARIA) since 2011.
+                                Rachel completed a Preschool Music Teacher Training Course (Level 1) through the Kodaly Music Education Institute of Australia in 2006 and is a full writer member of the Australasian Performing Right Association (APRA).  Rachel has also been a member of the Australian Recording Industry Association (ARIA) since 2011.
 
-Rachel is continually updating her skills by attending workshops and courses.  She's been involved in the entertainment industry since the early 90s, having played drums, guitar and sung in original touring pub and club bands from the tender age of 16.
-
-</p>
+                                Rachel is continually updating her skills by attending workshops and courses.  She's been involved in the entertainment industry since the early 90s, having played drums, guitar and sung in original touring pub and club bands from the tender age of 16.
+                            </p>
                         </span>
-                    </div>
-                    <div class="col-sm">
-<!--                        <div class="container mt-3"><?php echo $this->Html->image('cls2.jpg'); ?></div> -->
-                        <div class="container mt-3"><span id="clsimage"><?php echo $this->Html->image('cls2.jpg'); ?></span></div>
                         <div class="mr-5 p-5 ">
                             <a href="#" class="btn btn-warning btn-lg" >Enroll</a>
                             <a href="#" class="btn btn-warning btn-lg">Enquiry</a>
                         </div>
-
                     </div>
-
+                    <div class="col-sm mb-4" id="right-col">
+                        <div class="container mt-3"><span id="clsimage"><?php echo $this->Html->image('cls2.jpg'); ?></span></div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -206,6 +185,11 @@ Rachel is continually updating her skills by attending workshops and courses.  S
                 document.getElementById("specifyClass").innerHTML= "<h2>Text about family CLass</h2>";
             }
         }
+        $(document).ready(function(){
+            $("#btn6").click(function(){
+            $("#div1").load("demo_class.php");
+        });
+});
 
     </script>
 
