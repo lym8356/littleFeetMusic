@@ -35,6 +35,17 @@
                 </ul>
             </div>
             <div class="col-sm-3">
+                <h5>Staff Portal</h5>
+                <ul>
+                    <li class="nav-item">
+                        <?= $this->Html->link('<i class="fa fa-sign-in-alt"></i> Login', '/Login', ['class' => 'nav-link', 'escape' => false]); ?>
+                    </li>
+                    <li class="nav-item">
+                        <?= $this->Html->link('<i class="fa fa-user-plus"></i> Sign Up', '/Signup', ['class' => 'nav-link', 'escape' => false]); ?>
+                    </li>
+                </ul>
+            </div>
+            <div class="col-sm-3">
                 <div class="social-networks">
                     <a href="#" class="twitter"><i class="fab fa-twitter"></i></a>
                     <a href="#" class="facebook"><i class="fab fa-facebook-f"></i></a>
