@@ -19,26 +19,34 @@ img {
 .headpic{
     background-color:#CCE8E0 ;
 }
+.advertisement{
+    background-color: #fdbc5e;
+    text-align: center;
+
+}
 
 #LFM-about-us {
     display: inline;
     float: left;
     width: 100%;
+    text-align: center;
 
 }
+
 
 .LFM-about-us-area {
     display: inline;
     float: left;
     width: 100%;
+
 }
 
 .LFM-videolist {
     display: inline;
     float: left;
     margin-top: 20px;
-    padding-top: 30px;
-    padding-left: 0px;
+    padding-top: 20px;
+    padding-left: -10px;
     width: 100%;
 }
 
@@ -59,46 +67,14 @@ img {
 }
 
 
-.btn{
-    display: inline-block;
-    font-weight: lighter;
-    text-decoration: none;
-    text-transform: uppercase;
-    border-radius: 200px;
-    transition: background-color 0.2s, border 0.2s, color 0.2s;
+.scrollable {
+    height: 1000px;
+    overflow: auto;
+    background-color: #EFEFEF;
 }
-
-.EnrollBtn{
-    background-color: #a3e7d6;
-    color: #fff;
-    margin-right: 15px ;
-    border: 1px solid #fff;
-
+.scrollable h2{
+    text-align: center;
 }
-
-.EnrollBtn:hover{
-    background-color:#fdbc5e;
-
-}
-
-.TrailBtn{
-    background-color: #a3e7d6;
-    color: #fff;
-    margin-right: 15px ;
-    border: 1px solid #fff;
-
-}
-
-.TrailBtn:hover{
-    background-color:#fdbc5e;
-
-}
-
-.blink{
-    animation: colorchangemusic 1s infinite;
-}
-
-
 .testimonial {
     margin: 40px;
     background-color: #CCE8E0;

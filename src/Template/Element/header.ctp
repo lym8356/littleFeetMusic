@@ -65,8 +65,10 @@ $cakeDescription = 'User Panel';
                 <li class="nav-item">
                     <?= $this->Html->link('<i class="fa fa-user-plus"></i> Sign Up', '/Signup', ['class' => 'nav-link', 'escape' => false]); ?>
                 </li>
+                <ul class="navbar-nav">
                 <li class="nav-item"><i class="fas fa-envelope-square"></i></li>
                 <li class="nav-item"><i class="fas fa-phone-square"></i></li>
+                </ul>
             </ul>
             </ul>
         </div>

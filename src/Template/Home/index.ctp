@@ -137,23 +137,6 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
         </div>
     </section>
 
-<<<<<<< HEAD
 
-=======
-<div class="sub-footer">
-    <div class="container">
-        <div class="col-md-12">
-            <div class="row">
-                <div class="col-sm-8">
-                    Discover our classes and find more!
-                </div>
-                <div class="col-sm-4">
-                    <p class="mt-10"><a href="Class" class="classbtn">Class Info Here<i class="fa fa-arrow-right pl-20"></i></a></p>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
->>>>>>> 9cc29a7534a6194f8887773f9f01a60a6391d8c4
 </body>
 

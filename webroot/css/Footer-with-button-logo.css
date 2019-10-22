@@ -22,7 +22,7 @@
 .col-sm-3 img{
     height:150px;
     width: 200px;
-    float:left;
+    align-content: center;
 }
 #myFooter .footer-copyright p {
     margin: 10px;

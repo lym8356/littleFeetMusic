@@ -60,7 +60,15 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
         <?php echo $this->Html->image('LFM.jpg'); ?>
     </div>
 </div>
+<section class="ad">
+    <div class="advertisement">
+        <h2>Advertisement</h2>
+        <p>Introduction of running event</p>
+
+    </div>
+</section>
 <section id="LFM-about-us">
+    <h3>Video List</h3>
     <div class="container">
         <div class="row">
             <div class="col-md-12">
@@ -78,6 +86,14 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
         </div>
     </div>
 </section>
+
+</section>
+<section class="news-and-videos">
+    <div class="scrollable">
+        <h2>Blog</h2>
+
+
+    </div>
 
 </section>
 <section class="testimonial">
