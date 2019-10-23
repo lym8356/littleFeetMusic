@@ -29,7 +29,6 @@ img {
     display: inline;
     float: left;
     width: 100%;
-    text-align: center;
 
 }
 
@@ -38,34 +37,43 @@ img {
     display: inline;
     float: left;
     width: 100%;
-
+}
+.LFM-about-us-area h3{
+    text-align: center;
 }
 
-.LFM-videolist {
+.LFM-about-us-right {
     display: inline;
     float: left;
     margin-top: 20px;
-    padding-top: 20px;
-    padding-left: -10px;
+    padding-top: 30px;
+    padding-left: 80px;
     width: 100%;
+}
+
+.LFM-about-us-right ul {
+    margin-bottom: 20px;
+    padding-left: 25px;
+}
+
+.LFM-about-us-right ul li {
+    line-height: 24px;
+    margin-bottom: 10px;
 }
 
 
 
-
-.LFM-description {
+.LFM-about-us-left {
     display: inline;
-    float: right;
+    float: left;
     margin-top: 20px;
     padding-top: 30px;
-    padding-right: 0px;
+    padding-right: 15px;
     width: 100%;
-
 }
-.LFM-description ul li:before {
+.LFM-about-us-left ul li:before {
     margin-right: 10px;
 }
-
 
 .scrollable {
     height: 1000px;

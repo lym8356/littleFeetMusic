@@ -42,13 +42,14 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
     <?= $this->fetch('meta') ?>
     <?= $this->fetch('css') ?>
     <?= $this->fetch('script') ?>
+    <?php echo $this->element('header') ?>
 
 
 </head>
 
 
 
-<?php echo $this->element('header') ?>
+
 
 
 
@@ -67,20 +68,34 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
 
     </div>
 </section>
+
 <section id="LFM-about-us">
-    <h3>Video List</h3>
+
     <div class="container">
         <div class="row">
             <div class="col-md-12">
                 <div class="LFM-about-us-area">
-                    <div class="col-md-6">
-                        <div class="LFM-videolist">
-                            <iframe width="650" height="400" src="https://www.youtube.com/embed/?listType=playlist&list=PL80_B4ZTs44k3im2h12Wt6bvzgKs9-20-" frameborder="0" allowfullscreen></iframe>
+                    <h3>Video list</h3>
+                    <div class="row">
+                        <div class="col-md-4">
+                            <div class="LFM-about-us-left">
+                                <p>Rachel Parkinson runs Little Feet Music - amazingly fun and engaging music and movement classes for babies, toddlers and preschoolers.  Rachel knows HUNDREDS of songs, so it never gets boring!</p>
+                                <p>Services include:</p>
+                                <ul>
+                                    <li>Music classes for child care centres and kindergartens.</li>
+                                    <li>Music workshops for community events and festivals.</li>
+                                    <li>Entertainment for birthday parties, playgroups and parents' groups</li>
+                                    <li>Live shows with a full band plus Bingle the Bear</li>
 
-
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="col-md-8">
+                            <div class="LFM-about-us-right">
+                                <iframe width="650" height="400" src="https://www.youtube.com/embed/?listType=playlist&list=PL80_B4ZTs44k3im2h12Wt6bvzgKs9-20-" frameborder="0" allowfullscreen></iframe>
+                            </div>
                         </div>
                     </div>
-
                 </div>
             </div>
         </div>

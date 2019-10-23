@@ -14,7 +14,7 @@
 <footer id="myFooter">
     <div class="container">
         <div class="row">
-            <div class="col-sm-3">
+            <div class="col-sm-2">
                 <class="logo"><a href="#">
                     <?php echo $this->Html->image('ftLogo.gif'); ?> </a>
             </div>
@@ -26,7 +26,7 @@
                     <li>Parkdale VIC 3195</li>
                 </ul>
             </div>
-            <div class="col-sm-3">
+            <div class="col-sm-2">
                 <h5>About us</h5>
                 <ul>
                     <li><a href="#">Company Information</a></li>
@@ -45,7 +45,7 @@
                     </li>
                 </ul>
             </div>
-            <div class="col-sm-3">
+            <div class="col-sm-2">
                 <div class="social-networks">
                     <a href="#" class="twitter"><i class="fab fa-twitter"></i></a>
                     <a href="#" class="facebook"><i class="fab fa-facebook-f"></i></a>
