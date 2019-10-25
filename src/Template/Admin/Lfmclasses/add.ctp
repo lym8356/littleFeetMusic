@@ -23,14 +23,16 @@
             echo $this->Form->control('terms_id', ['options' => $terms, 'empty' => true, 'class' => 'form-control']);
             echo $this->Form->control('week_no', ['class' => 'form-control']);
             echo $this->Form->control('price', ['class' => 'form-control']);
+            echo $this->Form->control('overflow', ['class' => 'custom-control-input']);
             echo $this->Form->control('class_date', ['empty' => true, 'class' => 'form-control',
                 'id' => 'class_date', 'type' => 'text']);
             ?>
             <?= $this->Form->button('Submit', ['class' => 'btn btn-success pull-right', 'style' => 'margin-top:20px;']) ?>
             <?= $this->Form->end() ?>
-            <?php echo $this->Html->link('Back', ['controller' => 'Terms','action' => 'index', $lfmclass->terms_id],
+            <?php echo $this->Html->link('Back', ['controller' => 'terms','action' => 'index', $lfmclass->terms_id],
                 ['class' => 'btn btn-primary pull-left',
-                    'style' => 'margin-top: 20px;']) ?>
+                    'style' => 'margin-top: 20px;']);
+            ?>
         </div>
     </div>
 </div>

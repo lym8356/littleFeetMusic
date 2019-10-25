@@ -42,7 +42,7 @@ class Term extends Entity
         'location_id' => true,
         'start_date' => true,
         'end_date' => true,
-        'class_day' => true,
+        'day_id' => true,
         'week_length' => true,
         'start_time' => true,
         'end_time' => true,

@@ -21,13 +21,17 @@ class TermsController extends AppController
     public function index()
     {
         $this->paginate= [
-            'contain' => ['Locations'],
+            'contain' => ['Locations','Days'],
             'limit' => '10'
         ];
 
         $terms = $this->paginate($this->Terms);
 
         $locations = $this->Terms->Locations->find('list');
+
+        $days = $this->Terms->Days->find('list');
+
+        $this->set('day', $days);
 
         $this->set('location',$locations);
 
@@ -60,6 +64,7 @@ class TermsController extends AppController
         $term = $this->Terms->newEntity();
         if ($this->request->is('post')) {
             $term = $this->Terms->patchEntity($term, $this->request->getData());
+            //pr($term);die;
             if ($termData=$this->Terms->save($term)) {
 
                 $classInfo = array();
@@ -67,6 +72,7 @@ class TermsController extends AppController
                     $classInfo[$i]['week_no'] = $this->request->getData('week_no')[$i];
                     $classInfo[$i]['price'] = $this->request->getData('price')[$i];
                     $classInfo[$i]['terms_id'] = $termData->id;
+                    $classInfo[$i]['overflow'] = 0;
 
                     $classInfo[$i]['class_date'] = isset($this->request->data['week_no'][$i]) &&
                         ($this->request->data['week_no'][$i]>1)?date('Y-m-d',

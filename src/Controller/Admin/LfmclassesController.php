@@ -56,7 +56,7 @@ class LfmclassesController extends AppController
             $lfmclass = $this->Lfmclasses->patchEntity($lfmclass, $this->request->getData());
             $term_id = $this->request->getData('terms_id');
             if ($this->Lfmclasses->save($lfmclass)) {
-                $this->Flash->success(__('The class has been saved.'));
+                $this->Flash->success(__('One class has been saved.'));
 
                 return $this->redirect(['action' => 'index',$term_id]);
             }
@@ -78,12 +78,13 @@ class LfmclassesController extends AppController
         $lfmclass = $this->Lfmclasses->get($id, [
             'contain' => []
         ]);
+        $term_id=$lfmclass['terms_id'];
         if ($this->request->is(['patch', 'post', 'put'])) {
             $lfmclass = $this->Lfmclasses->patchEntity($lfmclass, $this->request->getData());
             if ($this->Lfmclasses->save($lfmclass)) {
-                $this->Flash->success(__('The lfmclass has been saved.'));
+                $this->Flash->success(__('Your changes have been saved.'));
 
-                return $this->redirect(['action' => 'index']);
+                return $this->redirect(['action' => 'index',$term_id]);
             }
             $this->Flash->error(__('The lfmclass could not be saved. Please, try again.'));
         }
@@ -105,7 +106,7 @@ class LfmclassesController extends AppController
         $lfmclass = $this->Lfmclasses->get($id);
         $term_id=$lfmclass['terms_id'];
         if ($this->Lfmclasses->delete($lfmclass)) {
-            $this->Flash->success(__('The lfmclass has been deleted.'));
+            $this->Flash->success(__('One class has been deleted.'));
         } else {
             $this->Flash->error(__('The lfmclass could not be deleted. Please, try again.'));
         }

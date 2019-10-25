@@ -45,8 +45,11 @@
             </table>
             <?php echo $this->Form->control('end_date', ['class' => 'form-control',
                 'id' => 'end_date', 'type' => 'text']); ?>
-            <?php echo $this->Form->control('class_day', ['class' => 'form-control',
-                'id' => 'class_day', 'type' => 'text']); ?>
+            <?php echo $this->Form->control('day_id', ['class' => 'form-control',
+                'id' => 'day_id', 'type' => 'text', 'label' => 'Class Day']); ?>
+            <div>
+                <p class="form-control-static" id="class_day"></p>
+            </div>
             <?php echo $this->Html->link('Back', ['action' => 'index'],
                 ['class' => 'btn btn-primary pull-left',
                     'style' => 'margin-top: 10px;',
@@ -55,7 +58,7 @@
         </div>
         <div class="col-lg-6">
             <?php
-            echo $this->Form->control('location_id', ['class' => 'form-control', 'empty' => 'Please Select']);
+            echo $this->Form->control('location_id', ['class' => 'form-control', 'empty' => 'Please Select', 'required' => true]);
             echo $this->Form->control('age_group', ['class' => 'form-control']);
             echo $this->Form->control('name', ['class' => 'form-control', 'value' => '']);
             echo $this->Form->control('start_time', ['class' => 'form-control',
@@ -66,9 +69,7 @@
                 'id' => 'end_time', 'type' => 'text']);
             echo $this->Form->control('capacity', ['class' => 'form-control']);
             echo $this->Form->control('casual_rate', ['class' => 'form-control','type' => 'number']);
-            echo $this->Form->control('overflow', ['class' => 'custom-control-input']);
             echo $this->Form->control('note', ['class' => 'form-control', 'type' => 'textarea']);
-
             echo $this->Form->button('Create', ['class' => 'btn btn-success pull-right', 'style' => 'margin-top: 10px; margin-bottom: 100px;']);
             echo $this->Form->end();
             ?>
@@ -114,7 +115,8 @@
                 case 6:
                     day = "Saturday";
             }
-            $('#class_day').val(day);
+            $('#day_id').val(startDate.getDay());
+            $('#class_day').text(day);
         });
     } );
 

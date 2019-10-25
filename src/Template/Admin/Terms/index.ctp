@@ -43,19 +43,18 @@
                                 <th scope="col"><?= $this->Paginator->sort('start_date') ?></th>
                                 <th scope="col"><?= $this->Paginator->sort('end_date') ?></th>
                                 <th scope="col"><?= $this->Paginator->sort('week_length') ?></th>
-                                <th scope="col"><?= $this->Paginator->sort('class_day') ?></th>
+                                <th scope="col"><?= $this->Paginator->sort('day_id') ?></th>
                                 <th scope="col"><?= $this->Paginator->sort('start_time') ?></th>
                                 <th scope="col"><?= $this->Paginator->sort('end_time') ?></th>
                                 <th scope="col"><?= $this->Paginator->sort('duration') ?></th>
                                 <th scope="col"><?= $this->Paginator->sort('capacity') ?></th>
                                 <th scope="col"><?= $this->Paginator->sort('casual_rate') ?></th>
-                                <th scope="col"><?= $this->Paginator->sort('overflow') ?></th>
                                 <th scope="col"><?= $this->Paginator->sort('note') ?></th>
                                 <th scope="col" class="actions"><?= __('Actions') ?></th>
                             </tr>
                             </thead>
                             <tbody>
-                            <?php foreach ($terms as $term): ?>
+                            <?php foreach ($terms as $term):?>
                                 <tr>
                                     <td><?= h($term->name) ?></td>
                                     <td><?= h($term->age_group) ?></td>
@@ -63,13 +62,12 @@
                                     <td><?= h(date('Y-m-d', strtotime($term->start_date))) ?></td>
                                     <td><?= h(date('Y-m-d', strtotime($term->end_date))) ?></td>
                                     <td><?= $this->Number->format($term->week_length) ?></td>
-                                    <td><?= h($term->class_day) ?></td>
+                                    <td><?= $term->day->name ?></td>
                                     <td><?= h(date("G:i", strtotime($term->start_time))) ?></td>
                                     <td><?= h(date("G:i", strtotime($term->end_time))) ?></td>
                                     <td><?= $this->Number->format($term->duration) ?></td>
                                     <td><?= $this->Number->format($term->capacity) ?></td>
                                     <td><?= $this->Number->format($term->cost_per_class) ?></td>
-                                    <td><?= h($term->overflow) ?></td>
                                     <td><?= h($term->note) ?></td>
                                     <td class="actions">
                                         <div class="btn-group" role="group">

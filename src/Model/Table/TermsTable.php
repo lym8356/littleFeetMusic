@@ -41,6 +41,11 @@ class TermsTable extends Table
             'joinType' => 'INNER'
         ]);
 
+        $this->belongsTo('Days', [
+            'foreignKey' => 'day_id',
+            'joinType' => 'INNER'
+        ]);
+
         $this->hasMany('Lfmclasses', [
             'foreignKey' => 'terms_id',
             'joinType' => 'INNER'
@@ -80,10 +85,10 @@ class TermsTable extends Table
             ->requirePresence('end_date', 'create')
             ->notEmptyDate('end_date');
 
-        $validator
-            ->scalar('class_day')
-            ->maxLength('class_day', 50)
-            ->notEmptyString('class_day');
+//        $validator
+//            ->scalar('class_day')
+//            ->maxLength('class_day', 50)
+//            ->notEmptyString('class_day');
 
         $validator
             ->integer('week_length')

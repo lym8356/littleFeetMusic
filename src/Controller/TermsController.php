@@ -2,6 +2,7 @@
 namespace App\Controller;
 
 use App\Controller\AppController;
+use Cake\ORM\Table;
 use Cake\ORM\TableRegistry;
 
 /**
@@ -119,7 +120,38 @@ class TermsController extends AppController
 
     public function enrol(){
 
-        $locationData=TableRegistry::get('Locations')->find('all')->contain(['Terms'])->toArray();
-        $this->set(compact('locationData'));
+        $terms=$this->Terms->find('all')->group('Terms.day_id')->contain(['Locations'])->matching('Lfmclasses', function(\Cake\ORM\Query $q) {
+            $now = date('Y-m-d');
+            return $q->where(["Lfmclasses.class_date>='$now'"]);
+        });
+        $terms = $this->paginate($terms);
+
+        $daysData=TableRegistry::get('Days')->find('all')->contain(['Terms.Locations'])->group('Days.id')->matching('Terms', function(\Cake\ORM\Query $q) {
+            return $q->group(["Terms.Locations.id"]);
+        })->toArray();
+        $locationData=TableRegistry::get('Locations')->find('all')->contain('Terms')->group('Locations.id')->toArray();
+        $termsArray=[];
+
+        foreach($daysData as $key=>$days){
+
+            foreach($locationData as $key1=>$location){
+
+                foreach($location['terms'] as $key2=>$term){
+                    if($term['day_id']==$days['id'] && $location['Id']==$term['location_id']){
+                        $termsArray[$days['name']][$location['name']][$key2]['age_group']=$term['age_group'];
+                        $termsArray[$days['name']][$location['name']][$key2]['location_id']=$term['location_id'];
+                        $termsArray[$days['name']][$location['name']][$key2]['day_id']=$term['day_id'];
+                        $termsArray[$days['name']][$location['name']][$key2]['term_id']=$term['id'];
+
+                        $now = date('Y-m-d');
+                        $lfmdata=TableRegistry::get('Lfmclasses')->find('all',['conditions'=>['Lfmclasses.terms_id'=>$term['id'],"Lfmclasses.class_date>='$now'"]])->order(['class_date'=>'ASC'])->limit(1)->first();
+                        $termsArray[$days['name']][$location['name']][$key2]['price']=$lfmdata['price'];
+
+                    }
+                }
+            }
+        }
+
+        $this->set(compact('termsArray'));
     }
 }

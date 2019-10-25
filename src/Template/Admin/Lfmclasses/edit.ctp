@@ -23,6 +23,7 @@
             echo $this->Form->control('terms_id', ['options' => $terms, 'empty' => true, 'class' => 'form-control']);
             echo $this->Form->control('week_no', ['class' => 'form-control']);
             echo $this->Form->control('price', ['class' => 'form-control']);
+            echo $this->Form->control('overflow', ['class' => 'custom-control-input']);
             echo $this->Form->control('class_date', ['empty' => true, 'class' => 'form-control',
                 'id' => 'class_date', 'type' => 'text','value'=>date('Y-m-d',strtotime($lfmclass['class_date']))]);
             ?>
