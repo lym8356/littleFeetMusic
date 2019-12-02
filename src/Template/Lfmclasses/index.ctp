@@ -76,7 +76,7 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
                 <button class="btn btn-outline-success btn-block btn-lg p-4 mt-3" id="btn5" value="1" onclick="viewClass4()"> 4-5 years</button></div>
             <div class="p-3">
                 <button class="btn btn-outline-success btn-block btn-lg p-4 mt-3" id="btn6"> Family Class</button></div>
-            </div>           
+            </div>
         </div>
     </section>
     <br><br><br>
@@ -97,8 +97,8 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
                             </p>
                         </span>
                         <div class="mr-5 p-5 ">
-                            <a href="#" class="btn btn-warning btn-lg" >Enroll</a>
-                            <a href="#" class="btn btn-warning btn-lg">Enquiry</a>
+                            <a href="/Class/Enrol" class="btn btn-warning btn-lg" >Enroll</a>
+                            <button id="enquiry" class="btn btn-warning btn-lg">Enquiry</button>
                         </div>
                     </div>
                     <div class="col-sm mb-4" id="right-col">
@@ -108,6 +108,7 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
             </div>
         </div>
     </section>
+
 
 
     <section class="testimonial">
@@ -193,6 +194,9 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
 
     </script>
 
+
+
+
     <div>
         <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
@@ -200,5 +204,131 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
     </div>
 </div>
 
+<div id="contact-popup">
+    <form class="contact-form" action="" id="contact-form"
+          method="post" enctype="multipart/form-data">
+        <h1>Contact Us</h1>
+        <div>
+            <div>
+                <label>Name: </label><span id="userName-info"
+                                           class="info"></span>
+            </div>
+            <div>
+                <input type="text" id="userName" name="userName"
+                       class="inputBox" />
+            </div>
+        </div>
+        <div>
+            <div>
+                <label>Email: </label><span id="userEmail-info"
+                                            class="info"></span>
+            </div>
+            <div>
+                <input type="text" id="userEmail" name="userEmail"
+                       class="inputBox" />
+            </div>
+        </div>
+        <div>
+            <div>
+                <label>Subject: </label><span id="subject-info"
+                                              class="info"></span>
+            </div>
+            <div>
+                <input type="text" id="subject" name="subject"
+                       class="inputBox" />
+            </div>
+        </div>
+        <div>
+            <div>
+                <label>Message: </label><span id="userMessage-info"
+                                              class="info"></span>
+            </div>
+            <div>
+                    <textarea id="message" name="message"
+                              class="inputBox"></textarea>
+            </div>
+        </div>
+        <div>
+            <input type="submit" id="send" name="send" value="Send" />
+        </div>
+        <div>
+            <input type="button" id="close" name="close" value="Close"/>
+        </div>
+    </form>
+</div>
+</body>
+
+<script>
+    $(document).ready(function () {
+        $("#enquiry").click(function () {
+            $("#contact-popup").show();
+        });
+
+
+
+        $("#contact-form").on("submit", function () {
+            var valid = true;
+            $(".info").html("");
+            $("inputBox").removeClass("input-error");
+
+            var userName = $("#userName").val();
+            var userEmail = $("#userEmail").val();
+            var subject = $("#subject").val();
+            var message = $("#message").val();
+
+            if (userName == "") {
+                $("#userName-info").html("required.");
+                $("#userName").addClass("input-error");
+            }
+            if (userEmail == "") {
+                $("#userEmail-info").html("required.");
+                $("#userEmail").addClass("input-error");
+                valid = false;
+            }
+            if (!userEmail.match(/^([\w-\.]+@([\w-]+\.)+[\w-]{2,4})?$/))
+            {
+                $("#userEmail-info").html("invalid.");
+                $("#userEmail").addClass("input-error");
+                valid = false;
+            }
+
+            if (subject == "") {
+                $("#subject-info").html("required.");
+                $("#subject").addClass("input-error");
+                valid = false;
+            }
+            if (message == "") {
+                $("#userMessage-info").html("required.");
+                $("#message").addClass("input-error");
+                valid = false;
+            }
+            return valid;
+
+        });
+
+    });
+</script>
+<?php
+if (! empty($_POST["send"])) {
+    $name = filter_var($_POST["userName"], FILTER_SANITIZE_STRING);
+    $email = filter_var($_POST["userEmail"], FILTER_SANITIZE_EMAIL);
+    $subject = filter_var($_POST["subject"], FILTER_SANITIZE_STRING);
+    $message = filter_var($_POST["message"], FILTER_SANITIZE_STRING);
+
+    $toEmail = "info@littlefeetmusic.com.au";
+    $mailHeaders = "From: " . $name . "<" . $email . ">\r\n";
+
+    if (! mail($toEmail, $subject, $message, $mailHeaders)) {
+        ?>
+        <div id="success">Your contact information is received successfully!</div>
+
+        <?php
+    }
+}
+?>
+
+</html>
+
+</body>
 
 

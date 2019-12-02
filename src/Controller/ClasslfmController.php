@@ -110,16 +110,7 @@ class TermController extends AppController
 
         return $this->redirect(['action' => 'index']);
     }
-<<<<<<< HEAD
 
     public function enroll(){
 
-    }
-=======
-    public function enroll()
-    {
-
-    }
-
->>>>>>> 41d9d6c717977b46905383cf836787b2c6042aba
-}
+    }}
