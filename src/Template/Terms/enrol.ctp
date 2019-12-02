@@ -25,7 +25,9 @@
 
                                 ?>
 
-                                <?php echo "<th>".$termd['age_group']."</th>"; ?>
+                                <?php echo "<th><span style='color: mediumseagreen'>".$termd['age_group']."</span>"."<br>First Class Started on: ".date("d-m-Y",strtotime($termd['start_date']))."</br>
+                                   Time: ".date("G:i", strtotime($termd['start_time']))."
+                                   <br>Class Remaining: "."<span style='color: red'>".$termd['remaining_class_count']."</span>"."</th>"; ?>
 
                             <?php }}?>
                     <tr>
@@ -39,7 +41,14 @@
                             <?php $flag=false;foreach($terms_d as $termd){ ?>
                                 <?php for($i=0;$i<count($header);$i++){?>
                                     <?php if($header[$i]==$termd['age_group']){$flag=true;?>
-                                        <td><a href="#"><?php echo $termd['price']; ?></a></td>
+                                        <td>
+                                            <button type="button" class="btn btn-link" data-backdrop="static"
+                                                    data-keyboard="false" data-toggle="modal" data-target="#enrolInfo">
+                                                <?php echo "$".$termd['price']
+
+                                                ?>
+                                            </button>
+                                        </td>
                                         <?php
                                         break;}else{?>
                                         <?php if(!$flag){?>
@@ -59,7 +68,48 @@
 
         <?php endforeach; ?>
     </div>
+    <div class="modal fade" role="dialog" id="enrolInfo">
+        <div class="modal-dialog modal-dialog-centered"">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h6 id="header-title"><strong>Are You A Returning Customer ?</strong></h6>
+                    <button type="button" data-dismiss="modal" class="close">&times;</button>
+                </div>
+                <div class="modal-body">
+                    <div class="container row">
+                        <div class="col-md-6">
+                            <button class="btn btn-primary" id="enrolNew">New <br> Customer</button>
+                        </div>
+                        <div class="col-md-6">
+                            <button class="btn btn-info" id="enrolRet">Returning Customer</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
 </body>
 
+<script>
+    $('.close').click(function () {
+        $("#enrolInfo").modal('hide');
+        $('#header-title').val('Are You A Returning Customer ?');
+        $('.modal-body').html("modal-body");
+    });
+
+    $('#enrolNew').click(function (e) {
+        e.preventDefault();
+        $('#header-title').val('New Customer Enrol Form');
+        $.ajax({
+            method: 'get',
+            url: "<?php echo $this->Url->build(['controller' => 'Users', 'action' => 'signup']); ?>",
+            data: {},
+            success: function (response) {
+                $('.modal-body').html(response);
+            }
+        });
+    });
+
+</script>
 </html>

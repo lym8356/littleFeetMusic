@@ -32,6 +32,7 @@
                         <th scope="col"><?= $this->Paginator->sort('week_no') ?></th>
                         <th scope="col"><?= $this->Paginator->sort('price') ?></th>
                         <th scope="col"><?= $this->Paginator->sort('class_date') ?></th>
+                        <th scope="col"><?= $this->Paginator->sort('capacity') ?></th>
                         <th scope="col"><?= $this->Paginator->sort('overflow') ?></th>
                         <th scope="col" class="actions"><?= __('Actions') ?></th>
                     </tr>
@@ -42,6 +43,7 @@
                             <td><?= $this->Number->format($lfmclass->week_no) ?></td>
                             <td><?= $this->Number->format($lfmclass->price) ?></td>
                             <td><?= h(date('Y-m-d', strtotime($lfmclass->class_date))) ?></td>
+                            <td><?= $this->Number->format($lfmclass->capacity) ?></td>
                             <td><?= h($lfmclass->overflow) ?></td>
                             <td class="actions">
                                 <div class="btn-group" role="group">

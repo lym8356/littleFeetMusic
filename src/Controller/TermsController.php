@@ -142,16 +142,24 @@ class TermsController extends AppController
                         $termsArray[$days['name']][$location['name']][$key2]['location_id']=$term['location_id'];
                         $termsArray[$days['name']][$location['name']][$key2]['day_id']=$term['day_id'];
                         $termsArray[$days['name']][$location['name']][$key2]['term_id']=$term['id'];
+                        $termsArray[$days['name']][$location['name']][$key2]['start_time']=$term['start_time'];
+                        $termsArray[$days['name']][$location['name']][$key2]['start_date']=$term['start_date'];
 
                         $now = date('Y-m-d');
-                        $lfmdata=TableRegistry::get('Lfmclasses')->find('all',['conditions'=>['Lfmclasses.terms_id'=>$term['id'],"Lfmclasses.class_date>='$now'"]])->order(['class_date'=>'ASC'])->limit(1)->first();
+                        $lfmdataQuery=TableRegistry::get('Lfmclasses')->find('all',['conditions'=>['Lfmclasses.terms_id'=>$term['id'],"Lfmclasses.class_date>='$now'"]])
+                            ->order(['class_date'=>'ASC']);
+                        $lfmdata=$lfmdataQuery->limit(1)->first();
+                        $class_count =$lfmdataQuery->count();
                         $termsArray[$days['name']][$location['name']][$key2]['price']=$lfmdata['price'];
+                        $termsArray[$days['name']][$location['name']][$key2]['remaining_class_count']=$class_count;
 
                     }
                 }
             }
         }
-
+        //pr($termsArray);die;
         $this->set(compact('termsArray'));
     }
+
+
 }
