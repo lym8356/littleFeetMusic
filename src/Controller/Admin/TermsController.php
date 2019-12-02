@@ -72,6 +72,7 @@ class TermsController extends AppController
                     $classInfo[$i]['week_no'] = $this->request->getData('week_no')[$i];
                     $classInfo[$i]['price'] = $this->request->getData('price')[$i];
                     $classInfo[$i]['terms_id'] = $termData->id;
+                    $classInfo[$i]['capacity'] = $termData->capacity;
                     $classInfo[$i]['overflow'] = 0;
 
                     $classInfo[$i]['class_date'] = isset($this->request->data['week_no'][$i]) &&
@@ -81,6 +82,7 @@ class TermsController extends AppController
 
                 }
                 $lfmclasses = TableRegistry::getTableLocator()->get('Lfmclasses');
+                pr($classInfo);die;
                 $entities = $lfmclasses->newEntities($classInfo);
                 $results = $lfmclasses->saveMany($entities);
 
