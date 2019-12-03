@@ -64,7 +64,6 @@ class TermsController extends AppController
         $term = $this->Terms->newEntity();
         if ($this->request->is('post')) {
             $term = $this->Terms->patchEntity($term, $this->request->getData());
-            //pr($term);die;
             if ($termData=$this->Terms->save($term)) {
 
                 $classInfo = array();
@@ -82,7 +81,6 @@ class TermsController extends AppController
 
                 }
                 $lfmclasses = TableRegistry::getTableLocator()->get('Lfmclasses');
-                pr($classInfo);die;
                 $entities = $lfmclasses->newEntities($classInfo);
                 $results = $lfmclasses->saveMany($entities);
 

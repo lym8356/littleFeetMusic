@@ -118,7 +118,7 @@ class TermsController extends AppController
         return $this->redirect(['action' => 'index']);
     }
 
-    public function enrol(){
+    public function enrolInfo(){
 
         $terms=$this->Terms->find('all')->group('Terms.day_id')->contain(['Locations'])->matching('Lfmclasses', function(\Cake\ORM\Query $q) {
             $now = date('Y-m-d');
@@ -157,8 +157,27 @@ class TermsController extends AppController
                 }
             }
         }
-        //pr($termsArray);die;
         $this->set(compact('termsArray'));
+    }
+
+    public function enrol(){
+
+        if($this->request->is('ajax')){
+            $data = $this->request->input('json_decode');
+        }
+        $enrolment = TableRegistry::getTableLocator()->get('Enrolments');
+        $enrolment_entity = $enrolment->newEntity();
+        if ($this->request->is('post')) {
+            $enrolment = $this->Enrolments->patchEntity($enrolment, $this->request->getData());
+            if ($this->Enrolments->save($enrolment)) {
+                //$this->Flash->success(__('One has been saved.'));
+
+                //return $this->redirect(['action' => 'index']);
+            }
+            //$this->Flash->error(__('The lfmclass could not be saved. Please, try again.'));
+        }
+        //$terms = $this->Lfmclasses->Terms->find('list', ['limit' => 200]);
+        //$this->set(compact('lfmclass', 'terms'));
     }
 
 

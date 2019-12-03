@@ -57,7 +57,7 @@ Router::scope('/', function (RouteBuilder $routes) {
     $routes->connect('/User/Profile', ['controller' => 'Users', 'action' => 'profile']);
 
     $routes->connect('/Class', ['controller' => 'Lfmclasses', 'action' => 'index']);
-    $routes->connect('/Class/Enrol', ['controller' => 'Terms', 'action' => 'enrol']);
+    $routes->connect('/Class/EnrolInfo', ['controller' => 'Terms', 'action' => 'enrolInfo']);
 
     /**
      * Admin Panel Routing

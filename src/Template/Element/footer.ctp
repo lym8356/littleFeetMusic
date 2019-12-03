@@ -40,9 +40,6 @@
                     <li class="nav-item">
                         <?= $this->Html->link('<i class="fa fa-sign-in-alt"></i> Login', '/Login', ['class' => 'nav-link', 'escape' => false]); ?>
                     </li>
-                    <li class="nav-item">
-                        <?= $this->Html->link('<i class="fa fa-user-plus"></i> Sign Up', '/Signup', ['class' => 'nav-link', 'escape' => false]); ?>
-                    </li>
                 </ul>
             </div>
             <div class="col-sm-2">
