@@ -9,8 +9,7 @@ use Cake\Validation\Validator;
 /**
  * Enrolments Model
  *
- * @property \App\Model\Table\LfmclassesTable&\Cake\ORM\Association\BelongsTo $Lfmclasses
- * @property \App\Model\Table\ChildsTable&\Cake\ORM\Association\BelongsTo $Childs
+ * @property &\Cake\ORM\Association\BelongsTo $Terms
  *
  * @method \App\Model\Entity\Enrolment get($primaryKey, $options = [])
  * @method \App\Model\Entity\Enrolment newEntity($data = null, array $options = [])
@@ -37,11 +36,8 @@ class EnrolmentsTable extends Table
         $this->setDisplayField('id');
         $this->setPrimaryKey('id');
 
-        $this->belongsTo('Lfmclasses', [
-            'foreignKey' => 'lfmclasses_id'
-        ]);
-        $this->belongsTo('Childs', [
-            'foreignKey' => 'child_id'
+        $this->belongsTo('Terms', [
+            'foreignKey' => 'terms_id'
         ]);
     }
 
@@ -91,8 +87,7 @@ class EnrolmentsTable extends Table
      */
     public function buildRules(RulesChecker $rules)
     {
-        $rules->add($rules->existsIn(['lfmclasses_id'], 'Lfmclasses'));
-        $rules->add($rules->existsIn(['child_id'], 'Childs'));
+        $rules->add($rules->existsIn(['terms_id'], 'Terms'));
 
         return $rules;
     }

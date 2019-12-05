@@ -43,7 +43,7 @@
                                     <?php if($header[$i]==$termd['age_group']){$flag=true;?>
                                         <td>
                                             <button type="button" class="btn btn-primary" data-backdrop="static"
-                                                    data-keyboard="false" data-toggle="modal" data-target="#enrolInfo">
+                                                    data-keyboard="false" data-toggle="modal" data-target="#enrolInfo" data-termid= "<?php $termd['term_id']; ?>">
                                                 <?php echo "$".$termd['price']
 
                                                 ?>
@@ -93,7 +93,7 @@
 
 <script>
     $('.close').click(function () {
-
+        location.reload();
     });
 
     $('#enrolNew').click(function (e) {

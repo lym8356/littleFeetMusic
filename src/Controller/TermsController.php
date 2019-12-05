@@ -162,9 +162,9 @@ class TermsController extends AppController
 
     public function enrol(){
 
-        if($this->request->is('ajax')){
-            $data = $this->request->input('json_decode');
-        }
+//        if($this->request->is('ajax')){
+//            $data = $this->request->input('json_decode');
+//        }
         $enrolment = TableRegistry::getTableLocator()->get('Enrolments');
         $enrolment_entity = $enrolment->newEntity();
         if ($this->request->is('post')) {
