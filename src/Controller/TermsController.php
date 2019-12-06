@@ -144,6 +144,7 @@ class TermsController extends AppController
                         $termsArray[$days['name']][$location['name']][$key2]['term_id']=$term['id'];
                         $termsArray[$days['name']][$location['name']][$key2]['start_time']=$term['start_time'];
                         $termsArray[$days['name']][$location['name']][$key2]['start_date']=$term['start_date'];
+                        $termsArray[$days['name']][$location['name']][$key2]['casual_rate']=$term['casual_rate'];
 
                         $now = date('Y-m-d');
                         $lfmdataQuery=TableRegistry::get('Lfmclasses')->find('all',['conditions'=>['Lfmclasses.terms_id'=>$term['id'],"Lfmclasses.class_date>='$now'"]])
@@ -152,6 +153,7 @@ class TermsController extends AppController
                         $class_count =$lfmdataQuery->count();
                         $termsArray[$days['name']][$location['name']][$key2]['price']=$lfmdata['price'];
                         $termsArray[$days['name']][$location['name']][$key2]['remaining_class_count']=$class_count;
+                        $termsArray[$days['name']][$location['name']][$key2]['lfm_primary_key']=$lfmdata['id'];
 
                     }
                 }
@@ -162,9 +164,20 @@ class TermsController extends AppController
 
     public function enrol(){
 
-//        if($this->request->is('ajax')){
-//            $data = $this->request->input('json_decode');
-//        }
+        if($this->request->is('ajax')){
+            $this->layout = 'ajax';
+        }
+        $requestdata = $this->request->getQuery('term_id');
+        $termsArray=explode("-",$requestdata);
+
+        $termid=$termsArray[0];
+        $lfmid=$termsArray[1];
+
+
+        $termData=TableRegistry::get('Terms')->find('all',['conditions'=>['Terms.id'=>$termid]])->contain('Locations')->first();
+
+        $lfmdata=TableRegistry::get('Lfmclasses')->find('all',['conditions'=>['Lfmclasses.id'=>$lfmid]])->first();
+
         $enrolment = TableRegistry::getTableLocator()->get('Enrolments');
         $enrolment_entity = $enrolment->newEntity();
         if ($this->request->is('post')) {
@@ -177,7 +190,7 @@ class TermsController extends AppController
             //$this->Flash->error(__('The lfmclass could not be saved. Please, try again.'));
         }
         //$terms = $this->Lfmclasses->Terms->find('list', ['limit' => 200]);
-        //$this->set(compact('lfmclass', 'terms'));
+        $this->set(compact('enrolment','termData','lfmdata'));
     }
 
 

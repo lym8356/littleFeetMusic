@@ -25,9 +25,9 @@
 
                                 ?>
 
-                                <?php echo "<th><span style='color: mediumseagreen'>".$termd['age_group']."</span>"."<br>First Class Started on: ".date("d-m-Y",strtotime($termd['start_date']))."</br>
+                                <?php echo "<th><span style='color: mediumseagreen'>".$termd['age_group']."</span>"."<br>First Class Starts on: ".date("d-m-Y",strtotime($termd['start_date']))."</br>
                                    Time: ".date("G:i", strtotime($termd['start_time']))."
-                                   <br>Class Remaining: "."<span style='color: red'>".$termd['remaining_class_count']."</span>"."</th>"; ?>
+                                   <br>Week Remaining: "."<span style='color: red'>".$termd['remaining_class_count']."</span>"."</th>"; ?>
 
                             <?php }}?>
                     <tr>
@@ -42,11 +42,15 @@
                                 <?php for($i=0;$i<count($header);$i++){?>
                                     <?php if($header[$i]==$termd['age_group']){$flag=true;?>
                                         <td>
-                                            <button type="button" class="btn btn-primary" data-backdrop="static"
-                                                    data-keyboard="false" data-toggle="modal" data-target="#enrolInfo" data-termid= "<?php $termd['term_id']; ?>">
-                                                <?php echo "$".$termd['price']
-
-                                                ?>
+                                            <strong>Enrol Full Term:</strong>
+                                            <button type="button" class="btn btn-primary term_price_btn" data-backdrop="static"
+                                                    data-keyboard="false" data-toggle="modal" data-target="#enrolInfo" data-termid= "<?php echo $termd['term_id']."-".$termd['lfm_primary_key']; ?>">
+                                                <?php echo "$".$termd['price'] ?>
+                                            </button>
+                                            <strong>Enrol A Causal Class:</strong>
+                                            <button type="button" class="btn btn-info causal_price_btn" data-backdrop="static"
+                                                    data-keyboard="false" data-toggle="modal" data-target="#enrolInfo" data-termid= "<?php echo $termd['term_id']; ?>">
+                                                <?php echo "$".$termd['casual_rate'] ?>
                                             </button>
                                         </td>
                                         <?php
@@ -92,6 +96,13 @@
 </body>
 
 <script>
+
+    let term_id;
+    $('.term_price_btn').click(function () {
+        term_id = $(this).data("termid");
+        //alert(term_id);
+    });
+
     $('.close').click(function () {
         location.reload();
     });
@@ -113,7 +124,7 @@
         $.ajax({
             method: 'get',
             url: "<?php echo $this->Url->build(['controller' => 'Terms', 'action' => 'enrol']); ?>",
-            data: {},
+            data: {term_id},
             success: function (response) {
                 $('.modal-body').html(response);
             }

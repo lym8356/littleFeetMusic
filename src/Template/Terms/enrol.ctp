@@ -9,13 +9,14 @@
             <h3 class="card-header">Class Enrolment</h3>
             <div class="col-lg-6">
                 <?php echo $this->Form->create($enrolment);
-                echo $this->Form->control('start_date', ['class' => 'form-control',
-                    'id' => 'start_date', 'type' => 'text']);
+                echo $this->Form->control('price', ['class' => 'form-control',
+                    'id' => 'start_date','value'=>$lfmdata['price'], 'type' => 'text']);
+                echo $this->Form->control('location', ['class' => 'form-control','value'=>$termData['location']['name'], 'type' => 'text']);
 
                 ?>
             </div>
             <div class="col-lg-6">
-
+                <?php $this->Form->control('location', ['class' => 'form-control','value'=>$termData['location']['name'], 'type' => 'text']); ?>
             </div>
         </div>
     </div>
