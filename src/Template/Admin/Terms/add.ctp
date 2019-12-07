@@ -58,18 +58,22 @@
         </div>
         <div class="col-lg-6">
             <?php
-            echo $this->Form->control('location_id', ['class' => 'form-control', 'empty' => 'Please Select', 'required' => true]);
-            echo $this->Form->control('age_group', ['class' => 'form-control']);
-            echo $this->Form->control('name', ['class' => 'form-control', 'value' => '']);
+            echo $this->Form->control('location_id', ['class' => 'form-control', 'label'=>'Location',
+                    'empty' => 'Please Select', 'required' => true]);
+            echo $this->Form->control('age_group', ['class' => 'form-control', 'label'=>'Age Group','placeholder' => 'Please enter age range',
+                'required'=>true, 'type'=>'text']);
+            echo $this->Form->control('name', ['class' => 'form-control', 'value' => '', 'placeholder'=>'Please enter Term name']);
             echo $this->Form->control('start_time', ['class' => 'form-control',
                 'id' => 'start_time', 'type' => 'text']);
             echo $this->Form->control('duration', ['class' => 'form-control', 'value' => '0','label' => 'Class Duration (in minutes)',
                 'id' => 'duration']);
             echo $this->Form->control('end_time', ['class' => 'form-control',
                 'id' => 'end_time', 'type' => 'text']);
-            echo $this->Form->control('capacity', ['class' => 'form-control']);
+            echo $this->Form->control('capacity', ['class' => 'form-control','type'=>'number',
+                'placeholder'=>'Please enter class capacity']);
             echo $this->Form->control('casual_rate', ['class' => 'form-control','type' => 'number']);
-            echo $this->Form->control('note', ['class' => 'form-control', 'type' => 'textarea']);
+            echo $this->Form->control('note', ['class' => 'form-control', 'type' => 'textarea', 'label'=>'Notes',
+                'placeholder'=>'Add any notes here']);
             echo $this->Form->button('Create', ['class' => 'btn btn-success pull-right', 'style' => 'margin-top: 10px; margin-bottom: 100px;']);
             echo $this->Form->end();
             ?>
