@@ -97,7 +97,7 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
                             </p>
                         </span>
                         <div class="mr-5 p-5 ">
-                            <a href="/Class/Enrol" class="btn btn-warning btn-lg" >Enroll</a>
+                            <a href="/Class/EnrolInfo" class="btn btn-warning btn-lg" >Enroll</a>
                             <button id="enquiry" class="btn btn-warning btn-lg">Enquiry</button>
                         </div>
                     </div>
@@ -266,6 +266,8 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
 
 
 
+
+
         $("#contact-form").on("submit", function () {
             var valid = true;
             $(".info").html("");
@@ -304,9 +306,13 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
             }
             return valid;
 
+
         });
 
+
+
     });
+
 </script>
 <?php
 if (! empty($_POST["send"])) {

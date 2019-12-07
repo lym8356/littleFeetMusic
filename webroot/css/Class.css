@@ -1,10 +1,12 @@
+* {
+    box-sizing: border-box;
+}
 head{
 
  }
 
 body{
-    margin:10px;
-
+    margin:0;
 
 }
 
@@ -13,12 +15,13 @@ img {
     height: auto;
 }
 .headpic{
-    background-color:#CCE8E0 ;
+    background-color:#fdbc5e ;
 }
 
 .testimonial {
-    margin: 40px;
+    margin-top: 20px;
     background-color: #CCE8E0;
+    width: 100%;
 
 }
 .testimonial h1{
@@ -67,11 +70,7 @@ blockquote:after {
 .sb{
     margin:40px auto;
 }
-body {
-    color: #232323;
-    font-size: 0.95em;
-    font-family: arial;
-}
+
 
 div#success {
     text-align: center;

@@ -17,7 +17,7 @@ img {
     height: auto;
 }
 .headpic{
-    background-color:#CCE8E0 ;
+    background-color:#fdbc5e ;
 }
 .advertisement{
     background-color: #fdbc5e;
@@ -84,8 +84,9 @@ img {
     text-align: center;
 }
 .testimonial {
-    margin: 40px;
+    margin-top: 20px;
     background-color: #CCE8E0;
+    width: 100%;
 
 }
 .testimonial h1{

@@ -17,7 +17,7 @@ img {
     height: auto;
 }
 .headpic{
-    background-color:#CCE8E0 ;
+    background-color:#fdbc5e ;
 }
 
 #LFM-about-us {
@@ -67,14 +67,12 @@ img {
 }
 
 
-#contact-form{
-    width: 100%;
-    padding-top: 100px;
-}
+
 
 .testimonial {
-    margin: 40px;
-   background-color: #CCE8E0;
+   margin-top: 20px;
+    background-color: #CCE8E0;
+    width: 100%;
 
 }
 .testimonial h1{

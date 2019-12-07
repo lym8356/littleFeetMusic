@@ -61,13 +61,7 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
         <?php echo $this->Html->image('LFM.jpg'); ?>
     </div>
 </div>
-<section class="ad">
-    <div class="advertisement">
-        <h2>Advertisement</h2>
-        <p>Introduction of running event</p>
 
-    </div>
-</section>
 
 <section id="LFM-about-us">
 

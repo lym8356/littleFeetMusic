@@ -13,7 +13,7 @@ img {
 }
 
 .headpic{
-    background-color:#CCE8E0 ;
+    background-color:#fdbc5e ;
 }
 .map{
     padding-top: 30px;
@@ -23,8 +23,9 @@ img {
 }
 
 .testimonial {
-    margin: 40px;
+    margin-top: 20px;
     background-color: #CCE8E0;
+    width: 100%;
 
 }
 .testimonial h1{
