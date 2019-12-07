@@ -73,23 +73,28 @@
         <?php endforeach; ?>
     </div>
     <div class="modal fade" role="dialog" id="enrolInfo">
-        <div class="modal-dialog modal-dialog-centered"">
+        <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content" id="modal-content">
                 <div class="modal-header">
-                    <h6 id="header-title"><strong>Are You A Returning Customer ?</strong></h6>
+<!--                    <h6 id="header-title"><strong>Are You A Returning Customer ?</strong></h6>-->
+<!--                    <button type="button" data-dismiss="modal" class="close">&times;</button>-->
+                    <h6 id="header-title"><strong>Enrolment Form</strong></h6>
                     <button type="button" data-dismiss="modal" class="close">&times;</button>
                 </div>
                 <div class="modal-body">
-                    <div class="container row">
-                        <div class="col-md-6">
-                            <button class="btn btn-primary" id="enrolNew">New <br> Customer</button>
-                        </div>
-                        <div class="col-md-6">
-                            <button class="btn btn-info" id="enrolRet">Returning Customer</button>
-                        </div>
-                    </div>
+<!--                    <div class="container row">-->
+<!--                        <div class="col-md-6">-->
+<!--                            <button class="btn btn-primary" id="enrolNew">New <br> Customer</button>-->
+<!--                        </div>-->
+<!--                        <div class="col-md-6">-->
+<!--                            <button class="btn btn-info" id="enrolRet">Returning Customer</button>-->
+<!--                        </div>-->
+<!--                    </div>-->
                 </div>
-            </div>
+                <div class="modal-footer">
+
+                </div>
+            </div>>
         </div>
     </div>
 </div>
@@ -100,7 +105,26 @@
     let term_id;
     $('.term_price_btn').click(function () {
         term_id = $(this).data("termid");
-        //alert(term_id);
+
+        //$.ajax({
+        //    method: 'get',
+        //    url: "<?php //echo $this->Url->build(['controller'=> 'Terms', 'action' => 'modal']); ?>//",
+        //    data: {},
+        //    success: function(response){
+        //        $('#modal-content').html(response);
+        //    }
+        //})
+
+        $('#header-title').html('<h5>Enrolment Form</h5>');
+        $.ajax({
+            method: 'get',
+            url: "<?php echo $this->Url->build(['controller' => 'Terms', 'action' => 'enrol']); ?>",
+            data: {term_id},
+            success: function (response) {
+                $('.modal-body').html(response);
+
+            }
+        });
     });
 
     $('.close').click(function () {
@@ -108,7 +132,8 @@
     });
 
     $('#enrolNew').click(function (e) {
-        e.preventDefault();
+
+        //e.preventDefault();
         $.ajax({
             method: 'get',
             url: "<?php echo $this->Url->build(['controller' => 'Users', 'action' => 'signup']); ?>",
@@ -120,13 +145,18 @@
     });
 
     $('#enrolRet').click(function (e) {
-        e.preventDefault();
+        //e.preventDefault();
+        $('#header-title').html('<h5>Enrolment Form</h5>');
         $.ajax({
             method: 'get',
             url: "<?php echo $this->Url->build(['controller' => 'Terms', 'action' => 'enrol']); ?>",
             data: {term_id},
             success: function (response) {
                 $('.modal-body').html(response);
+                // let m_content = $(response).filter("#login_content");
+                // let m_footer = $(response).filter("#m_footer");
+                // $('.modal-body').html(m_content);
+                // $('.modal-footer').html(m_footer);
             }
         });
     });

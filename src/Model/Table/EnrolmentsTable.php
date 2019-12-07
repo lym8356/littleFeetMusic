@@ -9,7 +9,7 @@ use Cake\Validation\Validator;
 /**
  * Enrolments Model
  *
- * @property &\Cake\ORM\Association\BelongsTo $Terms
+ * @property \App\Model\Table\TermsTable&\Cake\ORM\Association\BelongsTo $Terms
  *
  * @method \App\Model\Entity\Enrolment get($primaryKey, $options = [])
  * @method \App\Model\Entity\Enrolment newEntity($data = null, array $options = [])
@@ -74,6 +74,26 @@ class EnrolmentsTable extends Table
         $validator
             ->numeric('enrolment_cost')
             ->allowEmptyString('enrolment_cost');
+
+        $validator
+            ->scalar('customer_name')
+            ->maxLength('customer_name', 50)
+            ->allowEmptyString('customer_name');
+
+        $validator
+            ->scalar('customer_phone')
+            ->maxLength('customer_phone', 50)
+            ->allowEmptyString('customer_phone');
+
+        $validator
+            ->scalar('customer_email')
+            ->maxLength('customer_email', 50)
+            ->allowEmptyString('customer_email');
+
+        $validator
+            ->scalar('child_name')
+            ->maxLength('child_name', 50)
+            ->allowEmptyString('child_name');
 
         return $validator;
     }

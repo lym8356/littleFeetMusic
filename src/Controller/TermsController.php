@@ -2,6 +2,7 @@
 namespace App\Controller;
 
 use App\Controller\AppController;
+use Cake\Event\Event;
 use Cake\ORM\Table;
 use Cake\ORM\TableRegistry;
 
@@ -23,7 +24,15 @@ class TermsController extends AppController
     public function initialize()
     {
         parent::initialize();
-        $this->Auth->allow('index');
+        $this-> loadComponent('Security');
+        $this-> loadComponent('Csrf');
+        //$this->Auth->allow('index');
+    }
+
+    public function beforeFilter(Event $event)
+    {
+        parent::beforeFilter($event);
+        $this->Security->config('unlockedActions', ['enrol']);
     }
 
     public function index()
@@ -164,9 +173,6 @@ class TermsController extends AppController
 
     public function enrol(){
 
-        if($this->request->is('ajax')){
-            $this->layout = 'ajax';
-        }
         $requestdata = $this->request->getQuery('term_id');
         $termsArray=explode("-",$requestdata);
 
@@ -177,20 +183,35 @@ class TermsController extends AppController
         $termData=TableRegistry::get('Terms')->find('all',['conditions'=>['Terms.id'=>$termid]])->contain('Locations')->first();
 
         $lfmdata=TableRegistry::get('Lfmclasses')->find('all',['conditions'=>['Lfmclasses.id'=>$lfmid]])->first();
+//
+//
+//
+//        $enrolment = TableRegistry::getTableLocator()->get('Enrolments');
+//        $enrolment_entity = $enrolment->newEntity();
+//        $this->autoRender = false;
+//        if($this->request->is('ajax')){
+//            $this->layout = 'ajax';
 
-        $enrolment = TableRegistry::getTableLocator()->get('Enrolments');
-        $enrolment_entity = $enrolment->newEntity();
-        if ($this->request->is('post')) {
-            $enrolment = $this->Enrolments->patchEntity($enrolment, $this->request->getData());
-            if ($this->Enrolments->save($enrolment)) {
-                //$this->Flash->success(__('One has been saved.'));
-
-                //return $this->redirect(['action' => 'index']);
-            }
-            //$this->Flash->error(__('The lfmclass could not be saved. Please, try again.'));
-        }
+//            $enrolment_entity = $this->Enrolments->patchEntity($enrolment, $this->request->getData());
+//            pr($this->request->getData());die;
+//        }
+//        if ($this->request->is('post')) {
+//            $enrolment = $this->Enrolments->patchEntity($enrolment, $this->request->getData());
+//            if ($this->Enrolments->save($enrolment)) {
+//                //$this->Flash->success(__('One has been saved.'));
+//
+//                //return $this->redirect(['action' => 'index']);
+//            }
+//            //$this->Flash->error(__('The lfmclass could not be saved. Please, try again.'));
+//        }
         //$terms = $this->Lfmclasses->Terms->find('list', ['limit' => 200]);
-        $this->set(compact('enrolment','termData','lfmdata'));
+
+        //$terms = $this->Lfmclasses->Terms->find('list', ['limit' => 200]);
+        $this->set(compact('termData','lfmdata'));
+    }
+
+    public function modal(){
+
     }
 
 
