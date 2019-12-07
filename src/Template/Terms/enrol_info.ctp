@@ -47,7 +47,7 @@
                                                     data-keyboard="false" data-toggle="modal" data-target="#enrolInfo" data-termid= "<?php echo $termd['term_id']."-".$termd['lfm_primary_key']; ?>">
                                                 <?php echo "$".$termd['price'] ?>
                                             </button>
-                                            <strong>Enrol A Causal Class:</strong>
+                                            <strong>Enrol A Casual Class:</strong>
                                             <button type="button" class="btn btn-info causal_price_btn" data-backdrop="static"
                                                     data-keyboard="false" data-toggle="modal" data-target="#enrolInfo" data-termid= "<?php echo $termd['term_id']; ?>">
                                                 <?php echo "$".$termd['casual_rate'] ?>

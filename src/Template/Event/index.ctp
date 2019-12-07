@@ -19,6 +19,8 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
 <head>
     <?= $this->Html->charset() ?>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script>var csrfToken = <?= json_encode($this->request->getParam('_csrfToken')) ?>;
+        </script>
     <title>
         <?= $cakeDescription ?>:
         <?= $this->fetch('title') ?>
@@ -188,9 +190,7 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
                               class="inputBox"></textarea>
             </div>
         </div>
-        <div>
-            <input type="submit" id="send" name="send" value="Send" />
-        </div>
+
         <div>
             <input type="button" id="close" name="close" value="Close"/>
         </div>
@@ -246,31 +246,21 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
                 $("#message").addClass("input-error");
                 valid = false;
             }
+
             return valid;
 
         });
+        $(`.close`).click(function () {
+            $("#contact-popup").hidden;
+        });
 
     });
+
+
 </script>
-<?php
-if (! empty($_POST["send"])) {
-    $name = filter_var($_POST["userFName+userLName"], FILTER_SANITIZE_STRING);
-    $email = filter_var($_POST["userEmail"], FILTER_SANITIZE_EMAIL);
-    $need = filter_var($_POST["need"], FILTER_SANITIZE_STRING);
-    $message = filter_var($_POST["message"], FILTER_SANITIZE_STRING);
-
-    $toEmail = "info@littlefeetmusic.com.au";
-    $mailHeaders = "From: " . $name . "<" . $email . ">\r\n";
-
-    if (! mail($toEmail, $need, $message, $mailHeaders)) {
-        ?>
-        <div id="success">Your contact information is received successfully!</div>
-
-        <?php
-    }
-}
-?>
 
 </html>
 
 </body>
+
+

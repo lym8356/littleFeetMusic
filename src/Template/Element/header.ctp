@@ -25,14 +25,14 @@ $cakeDescription = 'User Panel';
 <header>
 
     <nav class="navbar navbar-expand-lg fixed-top navbar-light bg-light">
-        <a class="navbar-brand" href="#"> <?php echo $this->Html->image('Logo.gif'); ?></a>
+        <a class="navbar-brand d-flex w-40 mr-0" href="/"> <?php echo $this->Html->image('Logo.gif'); ?></a>
         <button class="navbar-toggler" type="button"
                 data-toggle="collapse" data-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false"
                 aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
-        <div class="collpse navbar-collapse" id="navbarColor01">
-            <ul class="navbar-nav mr-auto">
+        <div class="collpse navbar-collapse w-120" id="navbarColor01">
+            <ul class="navbar-nav mx-auto text-center">
                 <li class="nav-item active">
                     <?= $this->Html->link('<i class="fa fa-home"></i> Home<span class="sr-only">(current)</span>', '/', ['class' => 'nav-link', 'escape' => false]); ?>
                     <!--                    <a class="nav-link" href="#">Home<span class="sr-only">(current)</span></a>-->
@@ -43,7 +43,7 @@ $cakeDescription = 'User Panel';
                 <li class="nav-item">
                     <?= $this->Html->link('<i class="fas fa-chalkboard-teacher"></i> Class<span class="sr-only">(current)</span>', '/Class', ['class' => 'nav-link', 'escape' => false]); ?>
                 </li>
-                <li class="nav-item">
+                <li class="nav-item" >
                     <?= $this->Html->link('<i class="fas fa-birthday-cake"></i> Book us<span class="sr-only">(current)</span>', '/Event', ['class' => 'nav-link', 'escape' => false]); ?>
                 </li>
                 <li class="nav-item">
@@ -57,6 +57,8 @@ $cakeDescription = 'User Panel';
                 </li>
 
             </ul>
+            <div class="d-flex w-40">
+            </div>
 
             <ul class="navbar-nav">
                 <ul class="navbar-nav">

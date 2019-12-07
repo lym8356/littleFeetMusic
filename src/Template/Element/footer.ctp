@@ -15,13 +15,13 @@
     <div class="container">
         <div class="row">
             <div class="col-sm-2">
-                <class="logo"><a href="#">
+                <class="logo"> <a class="footlogo" href="/">
                     <?php echo $this->Html->image('ftLogo.gif'); ?> </a>
             </div>
             <div class="col-sm-3">
                 <h5>Contact Info</h5>
                 <ul class="contact">
-                    <li><a href="#">info@littlefeetmusic.com.au</a></li>
+                    <li><a href="mailto:info@littlefeetmusic.com.au">info@littlefeetmusic.com.au</a></li>
                     <li>PH 0410 600 060</li>
                     <li>Parkdale VIC 3195</li>
                 </ul>
@@ -29,9 +29,9 @@
             <div class="col-sm-2">
                 <h5>About us</h5>
                 <ul>
-                    <li><a href="/">Company Information</a></li>
+                    <li><a href="/">About us</a></li>
                     <li><a href="/Contact">Contact us</a></li>
-                    <li><a href="#">Reviews</a></li>
+                    <li><a href="#">Privacy</a></li>
                 </ul>
             </div>
             <div class="col-sm-3">
@@ -44,10 +44,10 @@
             </div>
             <div class="col-sm-2">
                 <div class="social-networks">
-                    <a href="#" class="twitter"><i class="fab fa-twitter"></i></a>
-                    <a href="#" class="facebook"><i class="fab fa-facebook-f"></i></a>
-                    <a href="#" class="instagram"><i class="fab fa-instagram"></i></a>
-                    <a href="#" class="youtube"><i class="fab fa-youtube"></i></a>
+                    <a href="https://twitter.com/intent/follow?source=followbutton&variant=1.0&screen_name=littlefeetmusic" class="twitter"><i class="fab fa-twitter"></i></a>
+                    <a href="https://www.facebook.com/LittleFeetMusic/" class="facebook"><i class="fab fa-facebook-f"></i></a>
+                    <a href="https://open.spotify.com/artist/7HDv1OKuA3SSEJ0gybb3Y5" class="spotify"><i class="fab fa-spotify"></i></a>
+                    <a href="https://www.youtube.com/user/LittleFeetMusic" class="youtube"><i class="fab fa-youtube"></i></a>
                 </div>
             </div>
         </div>
