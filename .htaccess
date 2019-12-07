@@ -9,5 +9,5 @@
     RewriteRule    ^(\.well-known/.*)$ $1 [L]
     RewriteRule    ^$    webroot/    [L]
     RewriteRule    (.*) webroot/$1    [L]
-    ErrorDocument  src/Template/Error/404.ctp
+    #ErrorDocument  404 src/Template/Error/404.ctp
 </IfModule>
