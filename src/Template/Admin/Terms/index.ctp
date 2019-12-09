@@ -16,7 +16,7 @@
 </ul>
 
 <div class="tab-content" id="pills-tabContent">
-    <div class="tab-pane active" id="class-summary" role="tabpanel" aria-labelledby="pills-home-tab">
+    <div class="tab-pane fade in active" id="class-summary" role="tabpanel" aria-labelledby="pills-home-tab">
         <div class="row">
             <div class="col-lg-12">
                 <?= $this->Flash->render(); ?>
@@ -70,7 +70,7 @@
                                     <td><?= $this->Number->format($term->cost_per_class) ?></td>
                                     <td><?= h($term->note) ?></td>
                                     <td class="actions">
-                                        <div class="btn-group" role="group">
+                                        <div class="btn" role="group">
                                             <?= $this->Html->link(__('View'), ['controller' => 'lfmclasses','action' => 'index', $term->id],
                                                 ['class' => 'btn btn-primary']) ?>
                                             <?= $this->Html->link(__('Edit'), ['action' => 'edit', $term->id],
@@ -99,7 +99,7 @@
             </div> <!-- col-lg-12 -->
         </div> <!-- row -->
     </div>
-    <div class="tab-pane" id="class-calendar" role="tabpanel" aria-labelledby="pills-profile-tab">
+    <div class="tab-pane fade" id="class-calendar" role="tabpanel" aria-labelledby="pills-profile-tab">
         <div id="calendar"></div>
     </div>
 </div>

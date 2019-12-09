@@ -118,7 +118,7 @@
         $('#header-title').html('<h5>Enrolment Form</h5>');
         $.ajax({
             method: 'get',
-            url: "<?php echo $this->Url->build(['controller' => 'Terms', 'action' => 'enrol']); ?>",
+            url: "<?php echo $this->Url->build(['controller' => 'Terms', 'action' => 'formPrefill']); ?>",
             data: {term_id},
             success: function (response) {
                 $('.modal-body').html(response);

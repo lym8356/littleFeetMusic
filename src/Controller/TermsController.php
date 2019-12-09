@@ -24,16 +24,16 @@ class TermsController extends AppController
     public function initialize()
     {
         parent::initialize();
-        $this-> loadComponent('Security');
+        //$this-> loadComponent('Security');
         $this-> loadComponent('Csrf');
         //$this->Auth->allow('index');
     }
 
-    public function beforeFilter(Event $event)
-    {
-        parent::beforeFilter($event);
-        $this->Security->config('unlockedActions', ['enrol']);
-    }
+//    public function beforeFilter(Event $event)
+//    {
+//        parent::beforeFilter($event);
+//        $this->Security->config('unlockedActions', ['enrol']);
+//    }
 
     public function index()
     {
@@ -171,7 +171,7 @@ class TermsController extends AppController
         $this->set(compact('termsArray'));
     }
 
-    public function enrol(){
+    public function formPrefill(){
 
         $requestdata = $this->request->getQuery('term_id');
         $termsArray=explode("-",$requestdata);
@@ -183,18 +183,19 @@ class TermsController extends AppController
         $termData=TableRegistry::get('Terms')->find('all',['conditions'=>['Terms.id'=>$termid]])->contain('Locations')->first();
 
         $lfmdata=TableRegistry::get('Lfmclasses')->find('all',['conditions'=>['Lfmclasses.id'=>$lfmid]])->first();
-//
-//
-//
+
+
+
 //        $enrolment = TableRegistry::getTableLocator()->get('Enrolments');
 //        $enrolment_entity = $enrolment->newEntity();
 //        $this->autoRender = false;
-//        if($this->request->is('ajax')){
-//            $this->layout = 'ajax';
+        //pr($this->request->getData());
+        if($this->request->is('ajax')){
+            $this->layout = 'ajax';
 
-//            $enrolment_entity = $this->Enrolments->patchEntity($enrolment, $this->request->getData());
-//            pr($this->request->getData());die;
-//        }
+            //$enrolment_entity = $this->Enrolments->patchEntity($enrolment, $this->request->getData());
+
+        }
 //        if ($this->request->is('post')) {
 //            $enrolment = $this->Enrolments->patchEntity($enrolment, $this->request->getData());
 //            if ($this->Enrolments->save($enrolment)) {
@@ -208,6 +209,11 @@ class TermsController extends AppController
 
         //$terms = $this->Lfmclasses->Terms->find('list', ['limit' => 200]);
         $this->set(compact('termData','lfmdata'));
+    }
+
+    public function enrol(){
+        $this->autoRender = false;
+        $this->render('formPrefill');
     }
 
     public function modal(){

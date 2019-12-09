@@ -4,38 +4,24 @@
  * @var \App\Model\Entity\Location $location
  */
 ?>
-<nav class="large-3 medium-4 columns" id="actions-sidebar">
-<!--    <ul class="side-nav">-->
-<!--        <li class="heading">--><?//= __('Actions') ?><!--</li>-->
-<!--        <li>--><!--<?//= $this->Html->link(__('Back to Locations List'), ['action' => 'index']) ?>--><!--</li>-->
-        <button><?= $this->Html->link(__('Back to Locations List'), ['action' => 'index']) ?></button>
-        <button><?= $this->Form->postLink(
-        __('Delete'),
-        ['action' => 'delete', $location->Id],
-        ['confirm' => __('Are you sure you want to delete {0}?', $location->name)]
-        )
-        ?></button>
-<!--        <li>-->
-<!--            <?//= $this->Html->link(__('List Classlfm'), ['controller' => 'Classlfm', 'action' => 'index']) ?>-->
-<!--        </li>-->
-<!--        <li>-->
-<!--            <?//= $this->Html->link(__('New Classlfm'), ['controller' => 'Classlfm', 'action' => 'add']) ?>-->
-<!--        </li>-->
-<!--    </ul>-->
-</nav>
-<br>
-<div class="locations form large-9 medium-8 columns content">
+<div class="users form large-9 medium-8 columns content">
+    <br>
     <?= $this->Form->create($location) ?>
-    <fieldset>
-        <legend><?= __('Edit Location') ?></legend>
-        <?php
-            echo $this->Form->control('name');
-            echo $this->Form->control('street_address');
-            echo $this->Form->control('suburb');
-            echo $this->Form->control('post_code');
-            echo $this->Form->control('note');
+    <div class="row col-lg-6">
+        <fieldset>
+            <legend><?= __('Edit Location') ?></legend>
+            <?php
+            echo $this->Form->control('name', ['class' => 'form-control']);
+            echo $this->Form->control('street_address', ['class' => 'form-control']);
+            echo $this->Form->control('suburb', ['class' => 'form-control']);
+            echo $this->Form->control('post_code', ['class' => 'form-control']);
+            echo $this->Form->control('note', ['class' => 'form-control']);
+            ?>
+        </fieldset>
+        <?= $this->Form->button('Edit', ['class' => 'btn btn-success pull-right', 'style' => 'margin-top: 10px; margin-bottom: 100px;']) ?>
+        <?= $this->Form->end() ?>
+        <?php echo $this->Html->link(__('Back to Location List'), ['action' => 'index'],
+            ['class' => 'btn btn-info pull-right', 'style' => 'margin-top: 10px; margin-right: 5px;'])
         ?>
-    </fieldset>
-    <?= $this->Form->button(__('Submit')) ?>
-    <?= $this->Form->end() ?>
+    </div>
 </div>
