@@ -61,18 +61,15 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
 <div class="container">
 	<div class="row">
         <div class="col-md-4">
-            <h2>Office</h2>
+
             <address>
-                <strong>Ph 0410 600 060</strong><br>
-                info@littlefeetmusic.com.au	<br>
-                PO Box 2020<br>
-                Parkdale Vic 3195<br>
+               <h3><p>PO Box 2020 Parkdale Vic 3195 |<a href="tel:0410 600 060"> 0410 600 060 </a> | <a href="mailto:info@littlefeetmusic.com.au">info@littlefeetmusic.com.au</a></p>
+               </h3>
+                <button id="enquiry" class="btn btn-warning btn-lg">Contact</button>
 
             </address>
         </div>
-        <div class="col-md-8">
-            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d25154.31858920548!2d145.0640328039086!3d-37.993699802074!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6ad66da84852492d%3A0x5045675218cfa40!2sParkdale%20VIC%203195!5e0!3m2!1sen!2sau!4v1571041840378!5m2!1sen!2sau" width=100% height="250" frameborder="0" style="border:0;" allowfullscreen=""></iframe>
-    	</div>
+
 
 
     </div>
@@ -84,6 +81,7 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
             <h2>Albert Park</h2>
             <address>
                 <strong>Gasworks Arts Park </strong><br>
+                <a href=""> Click here to see the map</a><br>
                 21 Graham St​<br>
                 Albert Park Vic 3206<br>
 
@@ -140,7 +138,7 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
 <section class="testimonial">
     <div class="container">
         <h1>Testimonial</h1>
-        <p class="text-center"> from our customers</p>
+
         <div class="row">
             <div class="col-md-4 text-center">
                 <div class="testimonial-info">

@@ -67,11 +67,49 @@ img {
 }
 
 
+.btn{
+    display: inline-block;
+    font-weight: lighter;
+    text-decoration: none;
+    text-transform: uppercase;
+    border-radius: 200px;
+    transition: background-color 0.2s, border 0.2s, color 0.2s;
+}
+
+.EnrollBtn{
+    background-color: #a3e7d6;
+    color: #fff;
+    margin-right: 15px ;
+    border: 1px solid #fff;
+
+}
+
+.EnrollBtn:hover{
+    background-color:#fdbc5e;
+
+}
+
+.TrailBtn{
+    background-color: #a3e7d6;
+    color: #fff;
+    margin-right: 15px ;
+    border: 1px solid #fff;
+
+}
+
+.TrailBtn:hover{
+    background-color:#fdbc5e;
+
+}
+
+.blink{
+    animation: colorchangemusic 1s infinite;
+}
 
 
 .testimonial {
-   margin-top: 20px;
-    background-color: #CCE8E0;
+    margin-top: 20px;
+   background-color: #CCE8E0;
     width: 100%;
 
 }
@@ -132,9 +170,33 @@ blockquote:after {
 
 
 
+.sub-footer{
+background-color:#f1f1f1 ;
+    height: 100px;
+    text-align: center;
+    font-size: 30px;
+    font-weight: bold;
 
 
+}
 
+.classbtn{
+    background-color:#a3e7d6 ;
+    color: #fff;
+    font-size: 25px;
+    border: 1px solid #fff;
+    text-transform: uppercase;
+    border-radius: 200px;
+    transition: background-color 0.2s, border 0.2s, color 0.2s;
+
+
+}
+
+.classbtn:hover{
+    background-color:#fdbc5e;
+    text-decoration: none;
+
+}
 
 
 

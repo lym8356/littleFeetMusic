@@ -114,7 +114,7 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
     <section class="testimonial">
         <div class="container">
             <h1>Testimonial</h1>
-            <p class="text-center"> from our customers</p>
+
         <div class="row">
             <div class="col-md-4 text-center sb ">
                <div class="testimonial-info">

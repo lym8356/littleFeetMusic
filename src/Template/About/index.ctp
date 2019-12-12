@@ -69,25 +69,18 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
         <div class="row">
             <div class="col-md-12">
                 <div class="LFM-about-us-area">
-                    <h3>Video list</h3>
                     <div class="row">
-                        <div class="col-md-4">
-                            <div class="LFM-about-us-left">
-                                <p>Rachel Parkinson runs Little Feet Music - amazingly fun and engaging music and movement classes for babies, toddlers and preschoolers.  Rachel knows HUNDREDS of songs, so it never gets boring!</p>
-                                <p>Services include:</p>
-                                <ul>
-                                    <li>Music classes for child care centres and kindergartens.</li>
-                                    <li>Music workshops for community events and festivals.</li>
-                                    <li>Entertainment for birthday parties, playgroups and parents' groups</li>
-                                    <li>Live shows with a full band plus Bingle the Bear</li>
+                        <div class="LFM">
+                            <h1>About</h1>
+                            <h2>Rachel Parkinson is Little Feet Music</h2>
 
-                                </ul>
-                            </div>
-                        </div>
-                        <div class="col-md-8">
-                            <div class="LFM-about-us-right">
-                                <iframe width="650" height="400" src="https://www.youtube.com/embed/?listType=playlist&list=PL80_B4ZTs44k3im2h12Wt6bvzgKs9-20-" frameborder="0" allowfullscreen></iframe>
-                            </div>
+
+                            <h4>The early years</h4>
+                            <p>Rachel Parkinson began playing drums in an all-girl band as a teenager.  That band toured Australia, reached number 15 in the Australian Alternative Charts, sold EPs in the USA, and performed about 200 shows.  Rachel then formed The Amazing Rachel Parkinson Band who supported The Animals on the Melbourne leg of their Australian tour.
+                            </p>
+
+                            <h4>Children’s Music</h4>
+                            <p>In 2005 Rachel started playing and writing for children, formed Little Feet Music, which began as music and movement classes for children and their parent or carer, then branched out to include incursions in early learning centres, and now includes parties, workshops, community events and festivals and a live band.  At Little Feet Music the live shows are ALL LIVE!  Rachel has performed at shows, classes, workshops and parties about 1200 per year for the last 14 years.   There are over 8000 children who have attended weekly Little Feet Music classes.  Rachel has written over 200 songs, and has three amazing albums played by real musicians (no loops or samples here!), which have been played on Virgin, Qantas, Singapore Airlines, Air Vanuatu and Malaysia Airlines inflight entertainment and on ABC Kids Listen every day!</p>
                         </div>
                     </div>
                 </div>

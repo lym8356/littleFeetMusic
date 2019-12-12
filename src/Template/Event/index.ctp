@@ -19,8 +19,6 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
 <head>
     <?= $this->Html->charset() ?>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script>var csrfToken = <?= json_encode($this->request->getParam('_csrfToken')) ?>;
-        </script>
     <title>
         <?= $cakeDescription ?>:
         <?= $this->fetch('title') ?>
@@ -71,15 +69,26 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
                     <div class="row">
                         <div class="col-md-6">
                             <div class="LFM-about-us-left">
-                                <p>Want a musical party? Rachel will come to your house or venue!  Parties are suitable for kids aged 6 months to 6 years, and are fun, fun, fun!
-                                </p>
-                                <p>What is included:</p>
+                                <h3><p>At Little Feet Music the music is all LIVE!
+                                    </p></h3>
+                                <p>Services included:</p>
+                                <ul>
+                                    <li>Creative and cool music classes for children with parent or carer</li>
+                                    <li>Music incursions and classes for early learning centres and primary schools </li>
+                                    <li>Interactive workshops and live shows for community events and festivals</li>
+                                    <li>Entertainment for birthday parties, playgroups and parents' groups</li>
+                                    <li>Live shows with a full band plus Bingle the Bear</li>
+
+                                </ul>
+                                <p>Rachel will come to your house or venue!</p>
+                                <p>What can be included:</p>
                                 <ul>
                                     <li>Rachel and her guitar!</li>
-                                    <li>Percussion instruments for the kids to play!</li>
+                                    <li>Percussion instruments for the kids (and adults) to play!</li>
                                     <li>Colourful puppets and props!</li>
                                     <li>Loads of singing, jumping, dancing and fun!</li>
-
+                                    <li>Bingle the Bear!</li>
+                                    <li>A live band!</li>
                                 </ul>
                                 <p>What we need:</p>
                                 <p>A space to party in (your house or a venue)</p>
@@ -106,11 +115,9 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
 
 
 
-
 <section class="testimonial">
     <div class="container">
         <h1>Testimonial</h1>
-        <p class="text-center"> from our customers</p>
         <div class="row">
             <div class="col-md-4 text-center">
                 <div class="testimonial-info">
@@ -246,21 +253,14 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
                 $("#message").addClass("input-error");
                 valid = false;
             }
-
             return valid;
 
         });
-        $(`.close`).click(function () {
-            $("#contact-popup").hidden;
-        });
 
     });
-
-
 </script>
+
 
 </html>
 
 </body>
-
-

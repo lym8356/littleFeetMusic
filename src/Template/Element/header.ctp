@@ -34,26 +34,29 @@ $cakeDescription = 'User Panel';
         <div class="collpse navbar-collapse w-120" id="navbarColor01">
             <ul class="navbar-nav mx-auto text-center">
                 <li class="nav-item active">
-                    <?= $this->Html->link('<i class="fa fa-home"></i> Home<span class="sr-only">(current)</span>', '/', ['class' => 'nav-link', 'escape' => false]); ?>
+                    <?= $this->Html->link(' Home<span class="sr-only">(current)</span>', '/', ['class' => 'nav-link', 'escape' => false]); ?>
                     <!--                    <a class="nav-link" href="#">Home<span class="sr-only">(current)</span></a>-->
                 </li>
                 <li class="nav-item">
-                    <?= $this->Html->link('<i class="fas fa-graduation-cap"></i> Enrol<span class="sr-only">(current)</span>', '/Class/EnrolInfo', ['class' => 'nav-link', 'escape' => false]); ?>
+                    <?= $this->Html->link(' Enrol<span class="sr-only">(current)</span>', '/Class/EnrolInfo', ['class' => 'nav-link', 'escape' => false]); ?>
                 </li>
                 <li class="nav-item">
-                    <?= $this->Html->link('<i class="fas fa-chalkboard-teacher"></i> Class<span class="sr-only">(current)</span>', '/Class', ['class' => 'nav-link', 'escape' => false]); ?>
+                    <?= $this->Html->link(' Class<span class="sr-only">(current)</span>', '/Class', ['class' => 'nav-link', 'escape' => false]); ?>
                 </li>
                 <li class="nav-item" >
-                    <?= $this->Html->link('<i class="fas fa-birthday-cake"></i> Book us<span class="sr-only">(current)</span>', '/Event', ['class' => 'nav-link', 'escape' => false]); ?>
+                    <?= $this->Html->link(' Book us<span class="sr-only">(current)</span>', '/Event', ['class' => 'nav-link', 'escape' => false]); ?>
                 </li>
                 <li class="nav-item">
-                    <?= $this->Html->link('<i class="fas fa-shopping-cart"></i> Shop<span class="sr-only">(current)</span>', '/Shopping', ['class' => 'nav-link', 'escape' => false]); ?>
+                    <?= $this->Html->link(' Shop<span class="sr-only">(current)</span>', '/Shopping', ['class' => 'nav-link', 'escape' => false]); ?>
                 </li>
                 <li class="nav-item">
-                    <?= $this->Html->link('<i class="fas fa-photo-video"></i> News & Videos<span class="sr-only">(current)</span>', '/Media', ['class' => 'nav-link', 'escape' => false]); ?>
+                    <?= $this->Html->link(' News & Videos<span class="sr-only">(current)</span>', '/Media', ['class' => 'nav-link', 'escape' => false]); ?>
                 </li>
                 <li class="nav-item">
-                    <?= $this->Html->link('<i class="fas fa-phone-alt"></i> Contact us<span class="sr-only">(current)</span>', '/Contact', ['class' => 'nav-link', 'escape' => false]); ?>
+                    <?= $this->Html->link(' About<span class="sr-only">(current)</span>', 'About', ['class' => 'nav-link', 'escape' => false]); ?>
+                </li>
+                <li class="nav-item">
+                    <?= $this->Html->link(' Contact <span class="sr-only">(current)</span>', '/Contact', ['class' => 'nav-link', 'escape' => false]); ?>
                 </li>
 
             </ul>
