@@ -24,8 +24,7 @@ class EnrolmentsTableTest extends TestCase
      */
     public $fixtures = [
         'app.Enrolments',
-        'app.Lfmclasses',
-        'app.Childs'
+        'app.Terms'
     ];
 
     /**

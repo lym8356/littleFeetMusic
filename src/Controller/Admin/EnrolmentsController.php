@@ -20,7 +20,7 @@ class EnrolmentsController extends AppController
     public function index()
     {
         $this->paginate = [
-            'contain' => ['Lfmclasses', 'Childs']
+            'contain' => ['Terms']
         ];
         $enrolments = $this->paginate($this->Enrolments);
 
@@ -37,7 +37,7 @@ class EnrolmentsController extends AppController
     public function view($id = null)
     {
         $enrolment = $this->Enrolments->get($id, [
-            'contain' => ['Lfmclasses', 'Childs']
+            'contain' => ['Terms']
         ]);
 
         $this->set('enrolment', $enrolment);
@@ -60,9 +60,8 @@ class EnrolmentsController extends AppController
             }
             $this->Flash->error(__('The enrolment could not be saved. Please, try again.'));
         }
-        $lfmclasses = $this->Enrolments->Lfmclasses->find('list', ['limit' => 200]);
-        $childs = $this->Enrolments->Childs->find('list', ['limit' => 200]);
-        $this->set(compact('enrolment', 'lfmclasses', 'childs'));
+        $terms = $this->Enrolments->Terms->find('list', ['limit' => 200]);
+        $this->set(compact('enrolment', 'terms'));
     }
 
     /**
@@ -86,9 +85,8 @@ class EnrolmentsController extends AppController
             }
             $this->Flash->error(__('The enrolment could not be saved. Please, try again.'));
         }
-        $lfmclasses = $this->Enrolments->Lfmclasses->find('list', ['limit' => 200]);
-        $childs = $this->Enrolments->Childs->find('list', ['limit' => 200]);
-        $this->set(compact('enrolment', 'lfmclasses', 'childs'));
+        $terms = $this->Enrolments->Terms->find('list', ['limit' => 200]);
+        $this->set(compact('enrolment', 'terms'));
     }
 
     /**

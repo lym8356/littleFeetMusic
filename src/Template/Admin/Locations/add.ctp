@@ -4,22 +4,19 @@
  * @var \App\Model\Entity\Location $location
  */
 ?>
-<nav class="large-3 medium-4 columns" id="actions-sidebar">
-    <button><?= $this->Html->link(__('Back to Locations List'), ['action' => 'index']) ?></button>
-</nav>
 <br>
-<div class="locations form large-9 medium-8 columns content">
+<div class="row col-lg-4">
     <?= $this->Form->create($location) ?>
-    <fieldset>
-        <legend><?= __('Add Location') ?></legend>
         <?php
-            echo $this->Form->control('name');
-            echo $this->Form->control('street_address');
-            echo $this->Form->control('suburb');
-            echo $this->Form->control('post_code');
-            echo $this->Form->control('note');
+            echo $this->Form->control('name', ['class' => 'form-control']);
+            echo $this->Form->control('street_address', ['class' => 'form-control']);
+            echo $this->Form->control('suburb', ['class' => 'form-control']);
+            echo $this->Form->control('post_code', ['class' => 'form-control']);
+            echo $this->Form->control('note', ['class' => 'form-control']);
         ?>
-    </fieldset>
-    <?= $this->Form->button(__('Submit')) ?>
+    <?= $this->Form->button('Create', ['class' => 'btn btn-success pull-right', 'style' => 'margin-top: 10px; margin-bottom: 100px;']) ?>
     <?= $this->Form->end() ?>
+    <?php echo $this->Html->link(__('Back to Users'), ['action' => 'index'],
+    ['class' => 'btn btn-info pull-right', 'style' => 'margin-top: 10px; margin-right: 5px;'])
+    ?>
 </div>

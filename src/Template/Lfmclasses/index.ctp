@@ -97,7 +97,7 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
                             </p>
                         </span>
                         <div class="mr-5 p-5 ">
-                            <a href="/Class/EnrolInfo" class="btn btn-warning btn-lg" >Enroll</a>
+                            <a href="#" class="btn btn-warning btn-lg">Enrol</a>
                             <button id="enquiry" class="btn btn-warning btn-lg">Enquiry</button>
                         </div>
                     </div>

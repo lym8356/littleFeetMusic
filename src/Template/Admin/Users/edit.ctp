@@ -4,43 +4,35 @@
  * @var \App\Model\Entity\User $user
  */
 ?>
-<nav class="large-3 medium-4 columns" id="actions-sidebar">
-<!--    <ul class="side-nav">-->
-<!--        <li class="heading">--><!--<?//= __('Actions') ?>--><!--</li>-->
-<!--        <li>--><!--<?//= $this->Form->postLink(
-//                __('Delete'),
-//                ['action' => 'delete', $user->id],
-//                ['confirm' => __('Are you sure you want to delete {0}?', $user->name)]
-//            )
-//        ?>--><!--</li>-->
-<!--        <li>--><!--<?//= $this->Html->link(__('List Users'), ['action' => 'index']) ?>--><!--</li>-->
-<!--    </ul>-->
-    <button><?= $this->Html->link(__('Back to User List'), ['action' => 'index']) ?></button>
-    <button><?= $this->Form->postLink(
-            __('Delete'),
-            ['action' => 'delete', $user->Id],
-            ['confirm' => __('Are you sure you want to delete {0}?', $user->name)]
-        )
-        ?></button>
-</nav>
+<head>
+    <?= $this->Html->css('/datetimepicker/css/jquery-ui.min.css') ?>
+    <?= $this->Html->script('/datetimepicker/js/jquery-ui.min.js') ?>
+</head>
 
 <div class="users form large-9 medium-8 columns content">
     <br>
     <?= $this->Form->create($user) ?>
-    <fieldset>
-        <legend><?= __('Edit User') ?></legend>
-        <?php
-            echo $this->Form->control('name');
-            echo $this->Form->control('username');
-            echo $this->Form->control('password');
-            echo $this->Form->control('email');
-            echo $this->Form->control('phone');
-            echo $this->Form->control('birthdate', ['empty' => true]);
-            echo $this->Form->control('zipcode');
-            echo $this->Form->control('role');
+    <div class="row col-lg-6">
+        <fieldset>
+            <legend><?= __('Edit User') ?></legend>
+            <?php
+            echo $this->Form->control('name', ['class' => 'form-control']);
+            echo $this->Form->control('username', ['class' => 'form-control']);
+            echo $this->Form->control('password', ['class' => 'form-control']);
+            echo $this->Form->control('email', ['class' => 'form-control']);
+            echo $this->Form->control('phone', ['class' => 'form-control']);
+            echo $this->Form->control('birthdate', ['class' => 'form-control','id' => 'bd', 'type' => 'text']);
+            echo $this->Form->control('zipcode', ['class' => 'form-control']);
+            echo $this->Form->control('role', ['class' => 'form-control']);
+            ?>
+        </fieldset>
+        <?= $this->Form->button('Edit', ['class' => 'btn btn-success pull-right', 'style' => 'margin-top: 10px; margin-bottom: 100px;']) ?>
+        <?= $this->Form->end() ?>
+        <?php echo $this->Html->link(__('Back to Users'), ['action' => 'index'],
+            ['class' => 'btn btn-info pull-right', 'style' => 'margin-top: 10px; margin-right: 5px;'])
         ?>
-    </fieldset>
-    <br>
-    <?= $this->Form->button(__('Submit')) ?>
-    <?= $this->Form->end() ?>
+    </div>
 </div>
+<script>
+    $( "#bd" ).datepicker({dateFormat:'yy-mm-dd'});
+</script>

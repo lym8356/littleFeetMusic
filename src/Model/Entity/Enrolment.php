@@ -13,9 +13,12 @@ use Cake\ORM\Entity;
  * @property string|null $enrolment_status
  * @property float|null $enrolment_cost
  * @property int|null $terms_id
+ * @property string|null $customer_name
+ * @property string|null $customer_phone
+ * @property string|null $customer_email
+ * @property string|null $child_name
  *
- * @property \App\Model\Entity\Lfmclass $lfmclass
- * @property \App\Model\Entity\Child $child
+ * @property \App\Model\Entity\Term $term
  */
 class Enrolment extends Entity
 {
@@ -35,7 +38,10 @@ class Enrolment extends Entity
         'enrolment_status' => true,
         'enrolment_cost' => true,
         'terms_id' => true,
-        'lfmclass' => true,
-        'child' => true
+        'customer_name' => true,
+        'customer_phone' => true,
+        'customer_email' => true,
+        'child_name' => true,
+        'term' => true
     ];
 }

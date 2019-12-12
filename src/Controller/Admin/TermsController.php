@@ -167,7 +167,6 @@ class TermsController extends AppController
             $this->layout = 'ajax';
         }
 
-        //$this->request->allowMethod('ajax');
 
         $conditions = array();
         $this->paginate = [

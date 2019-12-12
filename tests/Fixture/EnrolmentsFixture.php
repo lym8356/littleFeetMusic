@@ -22,6 +22,10 @@ class EnrolmentsFixture extends TestFixture
         'enrolment_status' => ['type' => 'string', 'length' => 20, 'null' => true, 'default' => null, 'collate' => 'utf8mb4_general_ci', 'comment' => '', 'precision' => null, 'fixed' => null],
         'enrolment_cost' => ['type' => 'float', 'length' => null, 'precision' => null, 'unsigned' => false, 'null' => true, 'default' => null, 'comment' => ''],
         'terms_id' => ['type' => 'integer', 'length' => 11, 'unsigned' => false, 'null' => true, 'default' => null, 'comment' => '', 'precision' => null, 'autoIncrement' => null],
+        'customer_name' => ['type' => 'string', 'length' => 50, 'null' => true, 'default' => null, 'collate' => 'utf8mb4_general_ci', 'comment' => '', 'precision' => null, 'fixed' => null],
+        'customer_phone' => ['type' => 'string', 'length' => 50, 'null' => true, 'default' => null, 'collate' => 'utf8mb4_general_ci', 'comment' => '', 'precision' => null, 'fixed' => null],
+        'customer_email' => ['type' => 'string', 'length' => 50, 'null' => true, 'default' => null, 'collate' => 'utf8mb4_general_ci', 'comment' => '', 'precision' => null, 'fixed' => null],
+        'child_name' => ['type' => 'string', 'length' => 50, 'null' => true, 'default' => null, 'collate' => 'utf8mb4_general_ci', 'comment' => '', 'precision' => null, 'fixed' => null],
         '_indexes' => [
             'enrol_terms_id' => ['type' => 'index', 'columns' => ['terms_id'], 'length' => []],
         ],
@@ -45,12 +49,16 @@ class EnrolmentsFixture extends TestFixture
         $this->records = [
             [
                 'id' => 1,
-                'enrolment_date' => '2019-12-03',
-                'enrolment_time' => '04:27:41',
+                'enrolment_date' => '2019-12-07',
+                'enrolment_time' => '09:29:54',
                 'enrolment_type' => 'Lorem ipsum dolor ',
                 'enrolment_status' => 'Lorem ipsum dolor ',
                 'enrolment_cost' => 1,
-                'terms_id' => 1
+                'terms_id' => 1,
+                'customer_name' => 'Lorem ipsum dolor sit amet',
+                'customer_phone' => 'Lorem ipsum dolor sit amet',
+                'customer_email' => 'Lorem ipsum dolor sit amet',
+                'child_name' => 'Lorem ipsum dolor sit amet'
             ],
         ];
         parent::init();
