@@ -37,7 +37,7 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
     <?= $this->Html->css('/font-awesome/css/all.min.css') ?>
     <?= $this->Html->script('/font-awesome/js/all.min.js') ?>
     <!-- custom css -->
-    <?= $this->Html->css('News-and-Videos.css') ?>
+    <?= $this->Html->css('homepage.css') ?>
 
     <?= $this->fetch('meta') ?>
     <?= $this->fetch('css') ?>
@@ -46,15 +46,6 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
 
 
 </head>
-
-
-
-
-
-
-
-
-
 <body>
 <div class="headpic">
     <div class="container">
@@ -69,7 +60,6 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
         <div class="row">
             <div class="col-md-12">
                 <div class="LFM-about-us-area">
-                    <h3>Video list</h3>
                     <div class="row">
                         <div class="col-md-4">
                             <div class="LFM-about-us-left">
@@ -100,7 +90,6 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
 <section class="testimonial">
     <div class="container">
         <h1>Testimonial</h1>
-        <p class="text-center"> from our customers</p>
         <div class="row">
             <div class="col-md-4 text-center">
                 <div class="testimonial-info">

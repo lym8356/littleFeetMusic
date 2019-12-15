@@ -16,8 +16,16 @@ img {
     width: 100%;
     height: auto;
 }
+.btn{
+    display: inline-block;
+    font-weight: lighter;
+    text-decoration: none;
+    text-transform: uppercase;
+    border-radius: 200px;
+    transition: background-color 0.2s, border 0.2s, color 0.2s;
+}
 .headpic{
-    background-color:#fdbc5e ;
+    background-color:white;
 }
 
 #LFM-about-us {
@@ -73,6 +81,7 @@ img {
     margin-top: 20px;
     background-color: #CCE8E0;
     width: 100%;
+    margin-bottom: -150px;
 
 }
 .testimonial h1{
@@ -127,15 +136,6 @@ blockquote:after {
 }
 
 
-div#success {
-    text-align: center;
-    box-shadow: 1px 1px 5px #455644;
-    background: #bae8ba;
-    padding: 10px;
-    border-radius: 3px;
-    margin: 0 auto;
-    width: 350px;
-}
 
 .inputBox {
     width: 100%;
@@ -177,7 +177,7 @@ div#success {
     padding-left: 5px;
 }
 
-#send {
+#submit {
     background-color: #CCE8E0;
     border: 1px solid white;
     font-family: Arial;

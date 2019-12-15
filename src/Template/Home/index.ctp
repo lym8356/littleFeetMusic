@@ -51,14 +51,10 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
 <?php echo $this->element('header') ?>
 
 <div class="headpic">
-<div class="container">
-            <?php echo $this->Html->image('LFM.jpg'); ?>
+    <div class="container">
+        <?php echo $this->Html->image('LFM.jpg'); ?>
+    </div>
 </div>
-</div>
-
-
-
-
 
 <section id="LFM-about-us">
     <div class="container">
@@ -71,14 +67,27 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
                                 <p>Rachel Parkinson runs Little Feet Music - amazingly fun and engaging music and movement classes for babies, toddlers and preschoolers.  Rachel knows HUNDREDS of songs, so it never gets boring!</p>
                                 <p>Services include:</p>
                                 <ul>
-                                    <li>Music classes for child care centres and kindergartens.</li>
-                                    <li>Music workshops for community events and festivals.</li>
+                                    <li>Creative and cool music classes for children with parent or carer</li>
+                                    <li>Music incursions and classes for early learning centres and primary schools</li>
+                                    <li>Interactive workshops and live shows for community events and festivals</li>
                                     <li>Entertainment for birthday parties, playgroups and parents' groups</li>
-                                    <li>Live shows with a full band plus Bingle the Bear</li>
+                                    <li>Live shows with a full band plus Bingle the crazy dancing the Bear</li>
 
                                 </ul>
-                                <p>The Little Feet Music program helps children to develop skills such as strengthened self image and self assurance, improved concentration and listening skills, as well as offering lots of opportunities for social interaction.
+                                <p>Children who participate in preschool music develop better learning skills that carry on throughout their educational life.
                                 </p>
+                                <p>Little Feet Music helps children to develop skills such as strengthened self image and self assurance, improved concentration and listening skills, as well as offering lots of opportunities for social interaction.
+                                </p>
+                                <p>Children have a natural love for singing, moving to music, dancing, jumping, clapping and tapping. We use these skills to develop their brains and creativity through entertaining, fun and educational music.
+                                </p>
+                                <p>There have been over 8000 children attend Little Feet Music classes!  Rachel has performed at around 500 parties, festivals, schools and community events.  There have been over a thousand Little Feet Music classes per year since 2005.
+                                </p>
+                                <p>There are three amazingly engaging Little Feet Music albums, and they've been played on inflight entertainment systems with Qantas, Virgin, Singapore Airlines, Malaysia Airlines, Air Vanuatu, and on ABC Kids!  Listen here!
+                                </p>
+                                <p>Contact Little Feet Music now, and unlock that door to your child's creativity!
+                                </p>
+                                <a href="/Class/EnrolInfo" class="btn btn-warning btn-lg" >Enrol</a>
+                                <button id="enquiry" class="btn btn-warning btn-lg">Enquiry</button>
 
                             </div>
                         </div>
@@ -103,7 +112,6 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
     <section class="testimonial">
         <div class="container">
             <h1>Testimonial</h1>
-            <p class="text-center"> from our customers</p>
         <div class="row">
             <div class="col-md-4 text-center">
                <div class="testimonial-info">
@@ -136,6 +144,161 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
         </div>
         </div>
     </section>
+<div id="contact-popup">
+    <form class="contact-form" action="" id="contact-form"
+          method="post" enctype="multipart/form-data">
+        <button type="button" data-dismiss="modal" class="close">&times;</button>
+        <h1>Contact Us</h1>
+        <div>
+            <div>
+                <label>Name *: </label><span id="userName-info"
+                                             class="info"></span>
+            </div>
+            <div>
+                <input type="text" id="userName" name="userName"
+                       class="inputBox" />
+            </div>
+        </div>
+        <div>
+            <div>
+                <label>Email *: </label><span id="userEmail-info"
+                                              class="info"></span>
+            </div>
+            <div>
+                <input type="text" id="userEmail" name="userEmail"
+                       class="inputBox" />
+            </div>
+        </div>
+        <div>
+            <div>
+                <label>Please specify your need *</label><span id="userNeed-info" class="info"></span>
+            </div>
+            <div>
+                <select id="userNeed"  name="userNeed" class="inputBox"/>
+                <option value=""></option>
+                <option value="Classes">Classes</option>
+                <option value="Concert">Concert/Event</option>
+                <option value="Party">Party</option>
+                <option value="Incursion">Incursion</option>
+                <option value="Workshop">Workshop</option>
+                <option value="Other">Other</option>
+                </select>
+            </div>
+        </div>
+        <div>
+            <div>
+                <label>Message *: </label><span id="userMessage-info"
+                                                class="info"></span>
+            </div>
+            <div>
+                    <textarea id="message" name="message"
+                              class="inputBox"></textarea>
+            </div>
+        </div>
+        <div>
+            <input type="submit" id="submit" name="submit" value="submit"/>
+            <input type="hidden" name="_csrfToken" value="<?= $this->request->getParam('_csrfToken'); ?>" />
+        </div>
+    </form>
+</div>
+</body>
+
+<script>
+    $(document).ready(function () {
+        $("#enquiry").click(function () {
+            $("#contact-popup").show();
+        });
+
+        $("#contact-form").on("submit", function () {
+            var valid = true;
+            $(".info").html("");
+            $("inputBox").removeClass("input-error");
+
+            var userName = $("#userName").val();
+            var userEmail = $("#userEmail").val();
+            var subject = $("#subject").val();
+            var message = $("#message").val();
+
+            if (userName == "") {
+                $("#userName-info").html("Required.");
+                $("#userName").addClass("input-error");
+            }
+            if (userEmail == "") {
+                $("#userEmail-info").html("Required.");
+                $("#userEmail").addClass("input-error");
+                valid = false;
+            }
+            if (!userEmail.match(/^([\w-\.]+@([\w-]+\.)+[\w-]{2,4})?$/))
+            {
+                $("#userEmail-info").html("Invalid email address");
+                $("#userEmail").addClass("input-error");
+                valid = false;
+            }
+
+            if (subject == "") {
+                $("#subject-info").html("Required");
+                $("#subject").addClass("input-error");
+                valid = false;
+            }
+            if (message == "") {
+                $("#userMessage-info").html("Required");
+                $("#message").addClass("input-error");
+                valid = false;
+            }
+            return valid;
+
+
+        });
+        $('.close').click(function () {
+            $("#contact-popup").hide();
+        });
+
+
+
+    });
+
+</script>
+<?php
+if(isset($_POST['submit'])) {
+    require 'vendor/phpmailer/phpmailer/src/PHPMailer.php';
+    require 'vendor/phpmailer/phpmailer/src/SMTP.php';
+
+
+
+
+
+    $mail = new PHPMailer\PHPMailer\PHPMailer();
+    $mail->IsSmtp();
+
+    $mail->Host='smtp.gmail.com';
+    $mail->Port=587;
+    $mail->SMTPDebug = 0;
+    $mail->SMTPAuth=true;
+    $mail->SMTPSecure='tls';
+    $mail->Username='team117bluewater@gmail.com';
+    $mail->Password='M0nash123';
+
+
+
+    $mail->From=$_POST['userEmail'];
+    $mail->FromName=$_POST['userName'];
+    $mail->addAddress('team117bluewater@gmail.com', 'Little Feet Music');
+    $mail->Subject=$_POST['userNeed'];
+    $mail->Body=($_POST['message']);
+    if(!$mail->send())
+    {
+        echo "Mailer Error: " . $mail->ErrorInfo;
+    }
+    else
+    {
+
+        return true;
+    }
+
+
+
+}
+?>
 
 
 </body>

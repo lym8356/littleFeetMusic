@@ -11,3 +11,4 @@
     RewriteRule    (.*) webroot/$1    [L]
     #ErrorDocument  404 src/Template/Error/404.ctp
 </IfModule>
+

@@ -1,5 +1,6 @@
 #myFooter {
-    background-color: #fdbc5e;
+    /*background-color: #fdbc5e;*/
+    background-color: #ff9900;
     color: white;
     padding-top: 30px;
 }
@@ -23,6 +24,10 @@
     height:125px;
     width: 175px;
     align-content: center;
+}
+.col-sm-5{
+    text-align: center;
+
 }
 #myFooter .footer-copyright p {
     margin: 10px;

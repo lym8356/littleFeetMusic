@@ -26,7 +26,7 @@
     </div>
 </div>
 <div class="Heading container mt-10">
-    <h2><b>Term 2 Starts on  2nd January 2020 and Finishes on 3rd april 2020</b></h2>
+    <h2><b>Term 2 Starts on  2nd January 2020 and Finishes on 3rd april 2020</b></h2>    
 
 
 
@@ -188,4 +188,3 @@
 
 </script>
 </html>
-
