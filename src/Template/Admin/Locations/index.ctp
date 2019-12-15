@@ -9,7 +9,7 @@
         <div class="row">
             <div class="col-lg-12">
                 <?= $this->Flash->render(); ?>
-                <h3 class="card-header">Manage Teaching Period</h3>
+                <h3 class="card-header">Manage Location</h3>
                 <?php echo $this->Html->link('Add New Location', ['action' => 'add'],
                     ['class' => 'btn btn-lg btn-primary pull-right',
                         'style' => 'margin-bottom: 20px',

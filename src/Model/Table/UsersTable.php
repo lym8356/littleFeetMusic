@@ -9,6 +9,8 @@ use Cake\Validation\Validator;
 /**
  * Users Model
  *
+ * @property &\Cake\ORM\Association\BelongsToMany $Childs
+ *
  * @method \App\Model\Entity\User get($primaryKey, $options = [])
  * @method \App\Model\Entity\User newEntity($data = null, array $options = [])
  * @method \App\Model\Entity\User[] newEntities(array $data, array $options = [])
@@ -37,6 +39,12 @@ class UsersTable extends Table
         $this->setPrimaryKey('id');
 
         $this->addBehavior('Timestamp');
+
+        $this->belongsToMany('Childs', [
+            'foreignKey' => 'user_id',
+            'targetForeignKey' => 'child_id',
+            'joinTable' => 'users_childs'
+        ]);
     }
 
     /**
@@ -52,9 +60,14 @@ class UsersTable extends Table
             ->allowEmptyString('id', null, 'create');
 
         $validator
-            ->scalar('name')
-            ->maxLength('name', 50)
-            ->allowEmptyString('name');
+            ->scalar('f_name')
+            ->maxLength('f_name', 50)
+            ->allowEmptyString('f_name');
+
+        $validator
+            ->scalar('l_name')
+            ->maxLength('l_name', 50)
+            ->allowEmptyString('l_name');
 
         $validator
             ->scalar('username')
@@ -76,13 +89,13 @@ class UsersTable extends Table
             ->allowEmptyString('phone');
 
         $validator
-            ->date('birthdate')
-            ->allowEmptyDate('birthdate');
+            ->date('birthday')
+            ->allowEmptyDate('birthday');
 
         $validator
-            ->scalar('zipcode')
-            ->maxLength('zipcode', 20)
-            ->allowEmptyString('zipcode');
+            ->scalar('postcode')
+            ->maxLength('postcode', 20)
+            ->allowEmptyString('postcode');
 
         $validator
             ->scalar('role')

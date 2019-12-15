@@ -49,8 +49,8 @@ class EnrolmentsFixture extends TestFixture
         $this->records = [
             [
                 'id' => 1,
-                'enrolment_date' => '2019-12-07',
-                'enrolment_time' => '09:29:54',
+                'enrolment_date' => '2019-12-09',
+                'enrolment_time' => '12:00:01',
                 'enrolment_type' => 'Lorem ipsum dolor ',
                 'enrolment_status' => 'Lorem ipsum dolor ',
                 'enrolment_cost' => 1,

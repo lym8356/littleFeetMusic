@@ -9,8 +9,7 @@ use Cake\Validation\Validator;
 /**
  * Childs Model
  *
- * @property \App\Model\Table\EnrolmentsTable&\Cake\ORM\Association\HasMany $Enrolments
- * @property \App\Model\Table\RelationsTable&\Cake\ORM\Association\HasMany $Relations
+ * @property &\Cake\ORM\Association\BelongsToMany $Users
  *
  * @method \App\Model\Entity\Child get($primaryKey, $options = [])
  * @method \App\Model\Entity\Child newEntity($data = null, array $options = [])
@@ -37,11 +36,10 @@ class ChildsTable extends Table
         $this->setDisplayField('id');
         $this->setPrimaryKey('id');
 
-        $this->hasMany('Enrolments', [
-            'foreignKey' => 'child_id'
-        ]);
-        $this->hasMany('Relations', [
-            'foreignKey' => 'child_id'
+        $this->belongsToMany('Users', [
+            'foreignKey' => 'child_id',
+            'targetForeignKey' => 'user_id',
+            'joinTable' => 'users_childs'
         ]);
     }
 
@@ -75,9 +73,9 @@ class ChildsTable extends Table
             ->notEmptyDate('dob');
 
         $validator
-            ->scalar('Note')
-            ->maxLength('Note', 50)
-            ->allowEmptyString('Note');
+            ->scalar('note')
+            ->maxLength('note', 50)
+            ->allowEmptyString('note');
 
         return $validator;
     }

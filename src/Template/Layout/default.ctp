@@ -38,9 +38,7 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
     <!-- font awesome -->
     <?= $this->Html->css('/font-awesome/css/all.min.css') ?>
     <?= $this->Html->script('/font-awesome/js/all.min.js') ?>
-    <!-- date picker -->
-    <?= $this->Html->css('/datepicker/css/bootstrap-datetimepicker.min.css') ?>
-    <?= $this->Html->script('/datepicker/js/bootstrap-datetimepicker.min.js') ?>
+
     <!-- custom css -->
     <?= $this->Html->css('global-style.css') ?>
 

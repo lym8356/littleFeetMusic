@@ -10,7 +10,7 @@ use Cake\ORM\Entity;
  * @property string $first_name
  * @property string $last_name
  * @property \Cake\I18n\FrozenDate $dob
- * @property string|null $Note
+ * @property string|null $note
  *
  * @property \App\Model\Entity\Enrolment[] $enrolments
  * @property \App\Model\Entity\Relation[] $relations
@@ -30,7 +30,7 @@ class Child extends Entity
         'first_name' => true,
         'last_name' => true,
         'dob' => true,
-        'Note' => true,
+        'note' => true,
         'enrolments' => true,
         'relations' => true
     ];
