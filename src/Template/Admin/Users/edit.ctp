@@ -16,7 +16,8 @@
         <fieldset>
             <legend><?= __('Edit User') ?></legend>
             <?php
-            echo $this->Form->control('name', ['class' => 'form-control']);
+            echo $this->Form->control('name', ['class' => 'form-control',
+                'placeholder' => 'Enter Name', 'value'=>'', 'required' => false]);
             echo $this->Form->control('username', ['class' => 'form-control',
                 'placeholder' => 'Enter username', 'label'=>'Username *', 'required' => true]);
             echo $this->Form->control('password', ['class' => 'form-control',
@@ -25,8 +26,10 @@
                 'placeholder' => 'Enter email', 'label'=>'Email *']);
             echo $this->Form->control('phone', ['class' => 'form-control',
                 'placeholder' => 'Enter phone number', 'label'=>'Phone *', 'required' => true]);
-            echo $this->Form->control('birthdate', ['class' => 'form-control','id' => 'bd', 'type' => 'text']);
-            echo $this->Form->control('zipcode', ['class' => 'form-control']);
+            echo $this->Form->control('birthdate', ['class' => 'form-control','id' => 'bd', 'type' => 'text',
+                'placeholder' => 'Enter Birthdate', 'value'=>'', 'required' => false]);
+            echo $this->Form->control('zipcode', ['class' => 'form-control',
+                'placeholder' => 'Enter Zipcode', 'value'=>'', 'required' => false]);
             echo $this->Form->control('role', ['class' => 'form-control',
                 'placeholder' => 'Enter staff, admin, teacher or user', 'label'=>'Role *', 'required' => true]);
             ?>
