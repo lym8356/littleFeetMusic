@@ -282,7 +282,7 @@ if(isset($_POST['submit'])) {
 
     $mail->Host='smtp.gmail.com';
     $mail->Port=587;
-    $mail->SMTPDebug = 1;
+    $mail->SMTPDebug = 0;
     $mail->SMTPAuth=true;
     $mail->SMTPSecure='tls';
     $mail->Username='team117bluewater@gmail.com';

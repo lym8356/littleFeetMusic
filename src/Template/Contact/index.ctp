@@ -232,8 +232,7 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
 
 <script>
     $(document).ready(function () {
-        let csrf_token = $('[name="_csrfToken"]').val();
-        $("#Book").click(function () {
+        $("#enquiry").click(function () {
             $("#contact-popup").show();
         });
 
@@ -300,7 +299,7 @@ if(isset($_POST['submit'])) {
 
     $mail->Host='smtp.gmail.com';
     $mail->Port=587;
-    $mail->SMTPDebug = 1;
+    $mail->SMTPDebug = 0;
     $mail->SMTPAuth=true;
     $mail->SMTPSecure='tls';
     $mail->Username='team117bluewater@gmail.com';
