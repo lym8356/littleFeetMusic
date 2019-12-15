@@ -25,7 +25,7 @@ $cakeDescription = 'User Panel';
 <header>
 
     <nav class="navbar navbar-expand-lg fixed-top navbar-light bg-light">
-        <a class="navbar-brand d-flex w-40 mr-0" href="/"> <?php echo $this->Html->image('Logo.gif'); ?></a>
+        <a class="navbar-brand d-flex w-40 mr-0" href="./"> <?php echo $this->Html->image('Logo.gif'); ?></a>
         <button class="navbar-toggler" type="button"
                 data-toggle="collapse" data-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false"
                 aria-label="Toggle navigation">
@@ -53,7 +53,7 @@ $cakeDescription = 'User Panel';
                     <?= $this->Html->link(' News & Videos<span class="sr-only">(current)</span>', '/Media', ['class' => 'nav-link', 'escape' => false]); ?>
                 </li>
                 <li class="nav-item">
-                    <?= $this->Html->link(' About<span class="sr-only">(current)</span>', 'About', ['class' => 'nav-link', 'escape' => false]); ?>
+                    <?= $this->Html->link(' About<span class="sr-only">(current)</span>', '/About', ['class' => 'nav-link', 'escape' => false]); ?>
                 </li>
                 <li class="nav-item">
                     <?= $this->Html->link(' Contact <span class="sr-only">(current)</span>', '/Contact', ['class' => 'nav-link', 'escape' => false]); ?>
