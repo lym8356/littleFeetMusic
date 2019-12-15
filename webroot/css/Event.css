@@ -16,6 +16,14 @@ img {
     width: 100%;
     height: auto;
 }
+.btn{
+    display: inline-block;
+    font-weight: lighter;
+    text-decoration: none;
+    text-transform: uppercase;
+    border-radius: 200px;
+    transition: background-color 0.2s, border 0.2s, color 0.2s;
+}
 .headpic{
     background-color:white;
 }

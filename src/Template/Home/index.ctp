@@ -285,9 +285,16 @@ if(isset($_POST['submit'])) {
     $mail->addAddress('team117bluewater@gmail.com', 'Little Feet Music');
     $mail->Subject=$_POST['userNeed'];
     $mail->Body=($_POST['message']);
-    $mail->send();
-
-
+    if(!$mail->send())
+    {
+        echo "Mailer Error: " . $mail->ErrorInfo;
+    }
+    else
+    {
+        echo
+        "Message has been sent";
+        return true;
+    }
 
 
 
