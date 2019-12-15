@@ -1,0 +1,158 @@
+* {
+    box-sizing: border-box;
+}
+head{
+
+ }
+
+body{
+    margin:0;
+
+}
+
+img {
+    width: 100%;
+    height: auto;
+}
+.headpic{
+    background-color:white;
+}
+
+.testimonial {
+    margin-top: 20px;
+    background-color: #CCE8E0;
+    width: 100%;
+    margin-bottom: -150px;
+
+}
+.testimonial h1{
+    text-align: center;
+    font-weight: bold;
+    color: #808080;
+    padding-bottom: 10px;
+    text-transform: uppercase;
+}
+.testimonial.row{
+    margin-top: 30px;
+}
+.testimonial-info{
+    padding: 10px 10px;
+    background-color: #EFEFEF;
+}
+blockquote{
+    font-size:20px;
+    line-height: 30px;
+}
+blockquote::before{
+    content: open-quote;
+    font-size: 50px;
+    position: relative;
+    color:#fdbc5e;
+    line-height: 20px;
+    bottom:-15px;
+    right: 130px;
+}
+blockquote:after {
+    content: close-quote;
+    font-size: 50px;
+    position: relative;
+    color:#fdbc5e;
+    line-height: 20px;
+    bottom:-15px;
+    left:130px;
+
+}
+.btn btn-warning btn-lg{
+    position: fixed;
+
+
+}
+.fixedsize{
+    min-width: 142px;
+    max-width: 142px;
+}
+
+.sb{
+    margin:40px auto;
+}
+
+
+div#success {
+    text-align: center;
+    box-shadow: 1px 1px 5px #455644;
+    background: #bae8ba;
+    padding: 10px;
+    border-radius: 3px;
+    margin: 0 auto;
+    width: 350px;
+}
+
+.inputBox {
+    width: 100%;
+    margin: 5px 0px 15px 0px;
+    border: #dedede 1px solid;
+    box-sizing: border-box;
+    padding: 15px;
+}
+
+#contact-popup {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    height: 100%;
+    width: 100%;
+    display: none;
+    color: #676767;
+    padding-top: 700px;
+}
+
+.contact-form {
+    width: 500px;
+    background-color: white;
+    font-family: Arial;
+    position: relative;
+    left: 50%;
+    top: 50%;
+    margin-left: -250px;
+    margin-top: -255px;
+    box-shadow: 1px 1px 5px #444444;
+    padding: 40px 40px 40px 40px;
+}
+
+
+
+.info {
+    color: #d30a0a;
+    letter-spacing: 2px;
+    padding-left: 5px;
+}
+
+#submit {
+    background-color: #CCE8E0;
+    border: 1px solid white;
+    font-family: Arial;
+    color: white;
+    width: 100%;
+    padding: 10px;
+    cursor: pointer;
+}
+#close {
+    background-color:#fdbc5e;
+    border: 1px solid white;
+    font-family: Arial;
+    color: white;
+    width: 100%;
+    padding: 10px;
+    cursor: pointer;
+    text-align: center;
+}
+
+#contact-popup h1 {
+    font-weight: normal;
+    text-align: center;
+    margin: 10px 0px 20px 0px;
+}
+
+.input-error {
+    border: #e66262 1px solid;
+}
