@@ -22,7 +22,7 @@
             <div class="col-sm-4">
                 <h5>Contact <?=$this->Html->link('Info', '/Login', ['escape' => false]); ?></h5>
                 <ul class="contact">
-                    <li><a href="mailto:info@littlefeetmusic.com.au">team117bluewater@gmail.com</a></li>
+                    <li><a href="mailto:team117bluewater@gmail.com">team117bluewater@gmail.com</a></li>
                     <li>PH: <a href="tel:0410 600 060"> 0410 600 060 </a></li>
                 </ul>
             </div>

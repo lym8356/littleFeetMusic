@@ -63,7 +63,7 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
         <div class="col-md-4">
 
             <address>
-               <h3><p>PO Box 2020 Parkdale Vic 3195 |<a href="tel:0410 600 060"> 0410 600 060 </a> | <a href="mailto:info@littlefeetmusic.com.au">info@littlefeetmusic.com.au</a></p>
+               <h3><p>PO Box 2020 Parkdale Vic 3195 |<a href="tel:0410 600 060"> 0410 600 060 </a> | <a href="mailto:team117bluewater@gmail.com">team117bluewater@gmail.com</a></p>
                </h3>
                 <button id="enquiry" class="btn btn-warning btn-lg">Contact</button>
 
