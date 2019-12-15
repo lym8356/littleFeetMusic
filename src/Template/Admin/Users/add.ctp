@@ -15,17 +15,22 @@
     <div class="col-lg-4">
         <?php
         echo $this->Form->control('name', ['class' => 'form-control']);
-        echo $this->Form->control('username', ['class' => 'form-control']);
-        echo $this->Form->control('password', ['class' => 'form-control']);
-        echo $this->Form->control('email', ['class' => 'form-control']);
+        echo $this->Form->control('username', ['class' => 'form-control',
+            'placeholder' => 'Enter username', 'value'=>'', 'label'=>'Username *', 'required' => true]);
+        echo $this->Form->control('password', ['class' => 'form-control',
+            'placeholder' => 'Enter password', 'value'=>'', 'label'=>'Password *', 'required' => true]);
+        echo $this->Form->control('email', ['class' => 'form-control',
+            'placeholder' => 'Enter email', 'value'=>'', 'label'=>'Email *', 'required' => true]);
         ?>
     </div>
     <div class="col-lg-4">
         <?php
-        echo $this->Form->control('phone', ['class' => 'form-control']);
+        echo $this->Form->control('phone', ['class' => 'form-control',
+            'placeholder' => 'Enter phone number', 'value'=>'', 'label'=>'Phone *', 'required' => true]);
         echo $this->Form->control('birthdate', ['class' => 'form-control', 'id' => 'bd', 'type' => 'text']);
         echo $this->Form->control('zipcode', ['class' => 'form-control']);
-        echo $this->Form->control('role', ['class' => 'form-control']);
+        echo $this->Form->control('role', ['class' => 'form-control',
+            'placeholder' => 'Enter staff, admin, teacher or user', 'value'=>'', 'label'=>'Role *', 'required' => true]);
         ?>
         <?= $this->Form->button('Create', ['class' => 'btn btn-success pull-right', 'style' => 'margin-top: 10px;']); ?>
         <?= $this->Form->end(); ?>

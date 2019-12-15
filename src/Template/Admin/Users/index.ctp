@@ -25,7 +25,7 @@
                             <tr>
                                 <th scope="col"><?= $this->Paginator->sort('name') ?></th>
                                 <th scope="col"><?= $this->Paginator->sort('username') ?></th>
-                                <!--                <th scope="col">--><!--<?//= $this->Paginator->sort('password') ?>--><!--</th>-->
+                                               <!--<th scope="col">--><!--<?//*= $this->Paginator->sort('password') */?>--><!--</th>-->
                                 <th scope="col"><?= $this->Paginator->sort('email') ?></th>
                                 <th scope="col"><?= $this->Paginator->sort('phone') ?></th>
                                 <!--                <th scope="col">--><!--<?//= $this->Paginator->sort('birthdate') ?>--><!--</th>-->
@@ -41,6 +41,7 @@
                                 <tr>
                                     <td><?= h($user->name) ?></td>
                                     <td><?= h($user->username) ?></td>
+                                    <!--<td><?/*= h($user->password) */?></td>-->
                                     <td><?= h($user->email) ?></td>
                                     <td><?= h($user->phone) ?></td>
                                     <td><?= h($user->zipcode) ?></td>

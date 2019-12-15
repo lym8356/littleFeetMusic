@@ -47,6 +47,9 @@ class UsersController extends AppController
                         elseif ($this->Auth->user('role') == 'staff'){
                             return $this->redirect('/admin');
                         }
+                        elseif ($this->Auth->user('role') == 'teacher'){
+                            return $this->redirect('/admin');
+                        }
                         else {
                             return $this->redirect($this->Auth->redirectUrl());
                         }
