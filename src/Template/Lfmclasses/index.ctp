@@ -63,23 +63,23 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
 </div>
 <div class="container" id="div1">
     <section>
-        <div class="row container">
-            <div class="p-3 ml-4">
-                <button class="btn btn-outline-success btn-block btn-lg p-4 mt-3" id="btn1" value="1" onclick="viewClass()"> 0-1 years</button></div>
-            <div class="p-3">
-                <button class="btn btn-outline-success btn-block btn-lg p-4 mt-3" id="btn2" value="1" onclick="viewClass1()"> 1-2 years</button></div>
-            <div class="p-3">
-                <button class="btn btn-outline-success btn-block btn-lg p-4 mt-3" id="btn3" value="1" onclick="viewClass2()"> 2-3 years</button></div>
-            <div class="p-3">
-                <button class="btn btn-outline-success btn-block btn-lg p-4 mt-3" id="btn4" value="1" onclick="viewClass3()"> 3-4 years</button></div>
-            <div class="p-3">
-                <button class="btn btn-outline-success btn-block btn-lg p-4 mt-3" id="btn5" value="1" onclick="viewClass4()"> 4-5 years</button></div>
-            <div class="p-3">
-                <button class="btn btn-outline-success btn-block btn-lg p-4 mt-3" id="btn6"> Family Class</button></div>
-            </div>
+        <div class="row container ml-2 mt-3 mb-3">
+            <div class="p-1">
+                <button class="btn btn-outline-success fixedsize p-1" id="btn1" value="1" onclick="viewClass()"> Babies </button></div>
+            <div class="p-1">
+                <button class="btn btn-outline-success fixedsize p-1" id="btn2" value="1" onclick="viewClass1()"> Toddlers</button></div>
+            <div class="p-1">
+                <button class="btn btn-outline-success fixedsize p-1" id="btn3" value="1" onclick="viewClass2()"> Preschoolers</button></div>
+            <div class="p-1">
+                <button class="btn btn-outline-success fixedsize p-1" id="btn6"> Family Class</button></div>
+            <div class="p-1">
+                <button class="btn btn-outline-success fixedsize p-1" id="btn4" value="1" onclick="viewClass3()">FAQ</button></div>
+            <div class="p-1">
+                <a href="/Class/EnrolInfo" class="btn btn-outline-success fixedsize p-1" >Enrol</a></div>
+            <div class="p-1">
+                <button class="btn btn-outline-success fixedsize p-1" id="enquiry" value="1" onclick="viewClass3()"> Enquiry</button></div>
         </div>
     </section>
-    <br><br><br>
     <section>
         <div class="container">
             <div class="col-sm" style="background-color: #CCE8E0">
@@ -96,10 +96,6 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
                                 Rachel is continually updating her skills by attending workshops and courses.  She's been involved in the entertainment industry since the early 90s, having played drums, guitar and sung in original touring pub and club bands from the tender age of 16.
                             </p>
                         </span>
-                        <div class="mr-5 p-5 ">
-                            <a href="#" class="btn btn-warning btn-lg">Enrol</a>
-                            <button id="enquiry" class="btn btn-warning btn-lg">Enquiry</button>
-                        </div>
                     </div>
                     <div class="col-sm mb-4" id="right-col">
                         <div class="container mt-3"><span id="clsimage"><?php echo $this->Html->image('cls2.jpg'); ?></span></div>

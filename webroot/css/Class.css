@@ -66,6 +66,10 @@ blockquote:after {
 
 
 }
+.fixedsize{
+    min-width: 142px;
+    max-width: 142px;
+}
 
 .sb{
     margin:40px auto;
