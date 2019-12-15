@@ -15,7 +15,7 @@
     <div class="container">
         <div class="row">
             <div class="col-sm-2">
-                <class="logo"> <a class="footlogo" href="./">
+                <class="logo"> <a class="footlogo" href="/Home">
                     <?php echo $this->Html->image('ftLogo.gif'); ?> </a>
             </div>
             <div class="col-sm-2"></div>

@@ -118,6 +118,7 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
 <section class="testimonial">
     <div class="container">
         <h1>Testimonial</h1>
+        <p class="text-center"> from our customers</p>
         <div class="row">
             <div class="col-md-4 text-center">
                 <div class="testimonial-info">
@@ -151,115 +152,161 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
     </div>
 </section>
 
+
 <div id="contact-popup">
     <form class="contact-form" action="" id="contact-form"
           method="post" enctype="multipart/form-data">
+        <button type="button" data-dismiss="modal" class="close">&times;</button>
         <h1>Contact Us</h1>
-        <div class="row">
-            <div class="col-md-6">
-                <label>First name *: </label><span id="userFName-info"
-                                           class="info"></span>
-                <input type="text" id="userFName" name="userFName"
-                       class="inputBox" />
+        <div>
+            <div>
+                <label>Name *: </label><span id="userName-info"
+                                             class="info"></span>
             </div>
-            <div class="col-md-6">
-                <label>Last name *: </label><span id="userLName-info"
-                                                 class="info"></span>
-                <input type="text" id="userLName" name="userLName"
+            <div>
+                <input type="text" id="userName" name="userName"
                        class="inputBox" />
             </div>
         </div>
-        <div class="row">
-            <div class="col-md-6">
+        <div>
+            <div>
                 <label>Email *: </label><span id="userEmail-info"
-                                            class="info"></span>
+                                              class="info"></span>
+            </div>
+            <div>
                 <input type="text" id="userEmail" name="userEmail"
                        class="inputBox" />
             </div>
-            <div class="col-md-6">
+        </div>
+        <div>
+            <div>
                 <label>Please specify your need *</label><span id="userNeed-info" class="info"></span>
+            </div>
+            <div>
                 <select id="userNeed"  name="userNeed" class="inputBox"/>
-                    <option value=""></option>
-                    <option value="Book Concert">Book Concert</option>
-                    <option value="Book Party">Book Party</option>
+                <option value=""></option>
+                <option value="Classes">Classes</option>
+                <option value="Concert">Concert/Event</option>
+                <option value="Party">Party</option>
+                <option value="Incursion">Incursion</option>
+                <option value="Workshop">Workshop</option>
+                <option value="Other">Other</option>
                 </select>
-
             </div>
         </div>
-
         <div>
             <div>
                 <label>Message *: </label><span id="userMessage-info"
-                                              class="info"></span>
+                                                class="info"></span>
             </div>
             <div>
                     <textarea id="message" name="message"
                               class="inputBox"></textarea>
             </div>
         </div>
-
         <div>
-            <input type="button" id="close" name="close" value="Close"/>
+            <input type="submit" id="submit" name="submit" value="submit"/>
+            <input type="hidden" name="_csrfToken" value="<?= $this->request->getParam('_csrfToken'); ?>" />
         </div>
     </form>
 </div>
+</body>
 
 <script>
     $(document).ready(function () {
+        let csrf_token = $('[name="_csrfToken"]').val();
         $("#Book").click(function () {
             $("#contact-popup").show();
         });
-
-
 
         $("#contact-form").on("submit", function () {
             var valid = true;
             $(".info").html("");
             $("inputBox").removeClass("input-error");
 
-            var userFName = $("#userFName").val();
-            var userLName= $("#userLName").val();
+            var userName = $("#userName").val();
             var userEmail = $("#userEmail").val();
-            var userNeed = $("#userNeed").val();
+            var subject = $("#subject").val();
             var message = $("#message").val();
 
-            if (userFName == "") {
-                $("#userFName-info").html("required.");
-                $("#userFName").addClass("input-error");
-            }
-            if (userLName == "") {
-                $("#userLName-info").html("required.");
-                $("#userLName").addClass("input-error");
+            if (userName == "") {
+                $("#userName-info").html("Required.");
+                $("#userName").addClass("input-error");
             }
             if (userEmail == "") {
-                $("#userEmail-info").html("required.");
+                $("#userEmail-info").html("Required.");
                 $("#userEmail").addClass("input-error");
                 valid = false;
             }
             if (!userEmail.match(/^([\w-\.]+@([\w-]+\.)+[\w-]{2,4})?$/))
             {
-                $("#userEmail-info").html("invalid.");
+                $("#userEmail-info").html("Invalid email address");
                 $("#userEmail").addClass("input-error");
                 valid = false;
             }
 
-            if (userNeed == "") {
-                $("#userNeed-info").html("required.");
-                $("#userNeed-info").addClass("input-error");
+            if (subject == "") {
+                $("#subject-info").html("Required");
+                $("#subject").addClass("input-error");
                 valid = false;
             }
             if (message == "") {
-                $("#userMessage-info").html("required.");
+                $("#userMessage-info").html("Required");
                 $("#message").addClass("input-error");
                 valid = false;
             }
             return valid;
 
+
+        });
+        $('.close').click(function () {
+            $("#contact-popup").hide();
         });
 
-    });
-</script>
 
+
+    });
+
+</script>
+<?php
+if(isset($_POST['submit'])) {
+    require 'vendor/phpmailer/phpmailer/src/PHPMailer.php';
+    require 'vendor/phpmailer/phpmailer/src/SMTP.php';
+
+
+
+
+
+    $mail = new PHPMailer\PHPMailer\PHPMailer();
+    $mail->IsSmtp();
+
+    $mail->Host='smtp.gmail.com';
+    $mail->Port=587;
+    $mail->SMTPDebug = 1;
+    $mail->SMTPAuth=true;
+    $mail->SMTPSecure='tls';
+    $mail->Username='team117bluewater@gmail.com';
+    $mail->Password='M0nash123';
+
+
+
+    $mail->setFrom($_POST['userEmail'], $_POST['userName']);
+    $mail->addAddress('team117bluewater@gmail.com', 'Little Feet Music');
+    $mail->Subject=$_POST['userNeed'];
+    $mail->Body=($_POST['message']);
+    $mail->send();
+
+    if(!$mail->Send()) {
+        echo "Mailer Error: " . $mail->ErrorInfo;
+        return false;
+    } else {
+        echo "Message has been sent";
+        return true;
+    }
+
+
+}
+?>
 
 </html>
 
