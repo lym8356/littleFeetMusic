@@ -11,6 +11,13 @@
 
 </head>
 <body>
+
+<div class="headpic">
+    <div class="container">
+        <?php echo $this->Html->image('LFM.jpg'); ?>
+    </div>
+</div>
+
 <div class="row">
     <div class="container">
         <?php foreach ($termsArray as $key=>$location_d): ?>

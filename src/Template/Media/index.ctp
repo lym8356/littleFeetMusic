@@ -37,7 +37,7 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
     <?= $this->Html->css('/font-awesome/css/all.min.css') ?>
     <?= $this->Html->script('/font-awesome/js/all.min.js') ?>
     <!-- custom css -->
-    <?= $this->Html->css('News-and-Videos.css') ?>
+    <?= $this->Html->css('homepage.css') ?>
 
     <?= $this->fetch('meta') ?>
     <?= $this->fetch('css') ?>
