@@ -33,7 +33,7 @@ $cakeDescription = 'User Panel';
                 aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
-        <div class="collpse navbar-collapse w-120" id="navbarColor01">
+        <div class="collapse navbar-collapse w-120" id="navbarColor01">
             <ul class="navbar-nav mx-auto text-center">
                 <li class="nav-item active">
                     <?= $this->Html->link(' Home<span class="sr-only">(current)</span>', '/Home', ['class' => 'nav-link', 'escape' => false]); ?>
