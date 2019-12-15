@@ -71,9 +71,9 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
             <div class="p-1">
                 <button class="btn btn-outline-success fixedsize p-1" id="btn3" value="1" onclick="viewClass2()"> Preschoolers</button></div>
             <div class="p-1">
-                <button class="btn btn-outline-success fixedsize p-1" id="btn6"> Family Class</button></div>
+                <button class="btn btn-outline-success fixedsize p-1" id="btn4" value="1" onclick="viewClass3()"> Family Class</button></div>
             <div class="p-1">
-                <button class="btn btn-outline-success fixedsize p-1" id="btn4" value="1" onclick="viewClass3()">FAQ</button></div>
+                <button class="btn btn-outline-success fixedsize p-1" id="btn5" value="1" >FAQ</button></div>
             <div class="p-1">
                 <a href="/Class/EnrolInfo" class="btn btn-outline-success fixedsize p-1" >Enrol</a></div>
             <div class="p-1">
@@ -149,7 +149,7 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
         function viewClass(){
             var a = document.getElementById("btn1").value;
             if (a=="1"){
-                document.getElementById("specifyClass").innerHTML= "<h2>Information about class of age group 0-1 </h2><p>Children and adults participate in songs, dances and playing percussion instruments.  Fun, colourful puppets and simple instruments are used and there are lots of finger and lap plays.  These sessions are great for child/parent bonding and for giving parents and carers musical ideas to use at home.</p>";
+                document.getElementById("specifyClass").innerHTML= "<h2>Information about class of Babes </h2><p>Live music, singing, dancing and playing percussion instruments. Loads of songs you know, and heaps of new ones to learn! Fun, colourful puppets, finger and lap plays. These classes are great for child/parent bonding and for giving parents and carers musical ideas for home. You'll know loads of the songs, and there are loads of new ones to learn! Term fee includes a Little Feet Music song book!\n</p>";
                 //document.getElementById("clsimage").innerHTML = "<?php echo $this->Html->image('cls-baby.jpg'); ?>";
             }
         }
@@ -157,37 +157,35 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
         function viewClass1() {
             var b = document.getElementById("btn2").value;
             if (b=="1"){
-                document.getElementById("specifyClass").innerHTML= "<h2>Information about class of age group 1-2 </h2><p>Listening skills are enhanced - children start to learn how to identify changes in music (e.g., start and stop) and musical elements such as dynamics (loud and quiet), tempo (fast and slow) and timbre (characteristics of sounds).  There’s lots of singing, dancing, clapping and jumping!</p>";
+                document.getElementById("specifyClass").innerHTML= "<h2>Information about class of Toddlers</h2><p> Live music where listening skills are enhanced - children start to learn how to identify changes in music (e.g., start and stop) and musical elements such as dynamics (loud and quiet), tempo (fast and slow) and timbre (characteristics of sounds). Learn about taking it in turns, meet some interesting and friendly puppets, learn colours and counting through music, and have a great fun time. Listening and social skills are developed and nurtured. Term fee includes a Little Feet Music song book!</p>";
             }
         }
         function viewClass2(){
             var c = document.getElementById("btn3").value;
             if (c=="1"){
-                document.getElementById("specifyClass").innerHTML= "<h2>Information about class of age group 2-3 </h2><p>There’s dancing, jumping and wriggling, playing musical games, learning about taking it in turns, meeting some interesting and friendly puppets, learning colours and counting through music and generally having a great fun time.  Listening and social skills are developed and nurtured.</p>";
+                document.getElementById("specifyClass").innerHTML= "<h2>Information about class of Preschoolers </h2><p>Live music! Cool, creative and fun! Singing and conscious learning of beat, tempo, dynamics and pitch through fabulously fun and stimulating games, movement, songs and rhymes. Musical elements are expanded on and the focus is on having fun while gaining an understanding of music. Simple notation and the concept of reading from left to right are developed. There’s lots of structured musical game playing and solo singing opportunities in a relaxed and friendly environment. Children who continue on for the 4-5 year old program learn some of the symbols which represent musical sounds and rests and how to play simple songs/melodies on the chime bars. Term fee includes a Little Feet Music song book!\n</p>";
             }
         }
         function viewClass3(){
             var d = document.getElementById("btn4").value;
             if (d=="1"){
-                document.getElementById("specifyClass").innerHTML= "<h2>Information about class of age group 3-4 </h2><p>Children develop conscious learning of beat, tempo, dynamics and pitch through stimulating games, directed movement, songs and rhymes.  Musical elements are expanded on and the focus is on having fun while gaining an understanding of music. </p>";
+                document.getElementById("specifyClass").innerHTML= "<h2>Information about class of Family Class </h2><p>It's like a BIG PARTY every week! Live music, songs, dances and playing percussion instruments. Fun, colourful puppets and simple instruments. These sessions are great for child/parent bonding and for giving parents and carers musical ideas to use at home. Dancing, jumping and wriggling, playing musical games, learning about taking it in turns, meeting some interesting puppets, learning colours and counting through music, and having a great fun time. Listening and social skills are developed and nurtured. Term fee includes a Little Feet Music song book!\n</p>";
             }
         }
-        function viewClass4(){
-            var e = document.getElementById("btn5").value;
-            if (e=="1"){
-                document.getElementById("specifyClass").innerHTML= "<h2>Information about class of age group 4-5 </h2><p>Children learn some of the symbols which represent musical sounds and rests and learn how to play simple songs/melodies on the chime bars.  Simple notation and the concept of reading from left to right are built upon. There’s lots of structured musical game playing and solo singing opportunities in a relaxed and friendly environment.  Children who participate in Little Feet Music’s 4-5 year old program can confidently move onto learning a musical instrument.</p>";
-            }
-        }
-        function viewClass5(){
-            var f = document.getElementById("btn6").value;
-            if (f=="1"){
-                document.getElementById("specifyClass").innerHTML= "<h2>Informationabout family CLass</h2><p>Family Class</p>";
-            }
-        }
+
         $(document).ready(function(){
             $("#btn6").click(function(){
             $("#div1").load("demo_class.php");
         });
+            $(document).ready(function(){
+                $("#btn5").click(function(){
+                    $("#FAQs-popup").show();
+                });
+                $('.close').click(function () {
+                    $("#FAQs-popup").hide();
+                });
+
+            });
 });
 
     </script>
@@ -200,6 +198,36 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
     </div>
+</div>
+<div id="FAQs-popup">
+    <form class="faq-form" action="" id="contact-form"
+          method="post" enctype="multipart/form-data">
+        <button type="button" data-dismiss="modal" class="close">&times;</button>
+    <h1 >WHAT TO EXPECT</h1>
+       <h4> <p>I have a young baby - can I bring him/her along too?</p></h4>
+
+    <p> Attendance of babies is welcomed.  From when they start to join in or at twelve months of age (whichever comes earlier) then a generous discount of 25% is available for the second child.
+    </p>
+        <h4><p>  My older child is attending - can I bring him/her along?</p></h4>
+
+      <p>  If a sibling under 6 years of age is attending a one-off session, the fee is $20 per class.  If you'd like to enrol them in for the term, then they'll get a 25% discount on the term fee.  If child other than a sibling is attending a one-off session, the fee is $26 per class.
+      </p>
+       <h4> <p> Is there a discount for bringing more than one child to the classes?</p></h4>
+
+        <p> There is a 25% discount for the second child when siblings come to the same class.</p>
+
+        <h4><p> What happens if we miss a class?</p></h4>
+
+        <p>If you miss a class, please contact us by email or phone prior to 9am on the day of the class that you will miss.  To make up for the missed class you can either;</p>
+        <ul>
+            <li>attend a class on another day, or</li>
+            <li>send a friend along to the class in your place, or</li>
+            <li>bring a friend along to another class with you</li>
+        </ul>
+        as long as it is within the term you have paid for.  Make sure you confirm with the office before making up the missed class to avoid the situation where there are too many children in one class.  Refunds are not possible for missed classes.  There are no refunds or transfers to another term in the event that you are unable to attend part of or the whole term.
+
+    </p>
+    </form>
 </div>
 
 <div id="contact-popup">
@@ -347,7 +375,7 @@ if(isset($_POST['submit'])) {
         echo "Mailer Error: " . $mail->ErrorInfo;
         return false;
     } else {
-        echo "Message has been sent";
+
         return true;
     }
 

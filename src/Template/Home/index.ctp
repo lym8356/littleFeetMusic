@@ -291,8 +291,7 @@ if(isset($_POST['submit'])) {
     }
     else
     {
-        echo
-        "Message has been sent";
+
         return true;
     }
 

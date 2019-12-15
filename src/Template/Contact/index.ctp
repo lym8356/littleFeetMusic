@@ -317,7 +317,7 @@ if(isset($_POST['submit'])) {
         echo "Mailer Error: " . $mail->ErrorInfo;
         return false;
     } else {
-        echo "Message has been sent";
+
         return true;
     }
 
