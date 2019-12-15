@@ -11,6 +11,7 @@
     <!-- bootstrap -->
     <?= $this->Html->css('/bootstrap/css/bootstrap.min.css') ?>
     <?= $this->Html->script('/bootstrap/js/jquery-3.3.1.slim.min.js') ?>
+    <?= $this->Html->script('/bootstrap/js/jquery-3.4.1.min.js') ?>
     <?= $this->Html->script('/bootstrap/js/bootstrap.min.js') ?>
     <?= $this->Html->script('/bootstrap/js/popper.min.js') ?>
     <!-- font awesome -->
@@ -98,23 +99,14 @@
         <?php endforeach; ?>
     </div>
     <div class="modal fade" role="dialog" id="enrolInfo">
-        <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-dialog modal-xl modal-dialog-centered">
             <div class="modal-content" id="modal-content">
                 <div class="modal-header">
-                    <!--                    <h6 id="header-title"><strong>Are You A Returning Customer ?</strong></h6>-->
-                    <!--                    <button type="button" data-dismiss="modal" class="close">&times;</button>-->
                     <h6 id="header-title"><strong>Enrolment Form</strong></h6>
                     <button type="button" data-dismiss="modal" class="close">&times;</button>
                 </div>
                 <div class="modal-body">
-                    <!--                    <div class="container row">-->
-                    <!--                        <div class="col-md-6">-->
-                    <!--                            <button class="btn btn-primary" id="enrolNew">New <br> Customer</button>-->
-                    <!--                        </div>-->
-                    <!--                        <div class="col-md-6">-->
-                    <!--                            <button class="btn btn-info" id="enrolRet">Returning Customer</button>-->
-                    <!--                        </div>-->
-                    <!--                    </div>-->
+
                 </div>
                 <div class="modal-footer">
 
@@ -131,19 +123,10 @@
     $('.term_price_btn').click(function () {
         term_id = $(this).data("termid");
 
-        //$.ajax({
-        //    method: 'get',
-        //    url: "<?php //echo $this->Url->build(['controller'=> 'Terms', 'action' => 'modal']); ?>//",
-        //    data: {},
-        //    success: function(response){
-        //        $('#modal-content').html(response);
-        //    }
-        //})
-
         $('#header-title').html('<h5>Enrolment Form</h5>');
         $.ajax({
             method: 'get',
-            url: "<?php echo $this->Url->build(['controller' => 'Terms', 'action' => 'formPrefill']); ?>",
+            url: "<?php echo $this->Url->build(['controller' => 'Enrolments', 'action' => 'add']); ?>",
             data: {term_id},
             success: function (response) {
                 $('.modal-body').html(response);
@@ -156,35 +139,6 @@
         location.reload();
     });
 
-    $('#enrolNew').click(function (e) {
-
-        //e.preventDefault();
-        $.ajax({
-            method: 'get',
-            url: "<?php echo $this->Url->build(['controller' => 'Users', 'action' => 'signup']); ?>",
-            data: {},
-            success: function (response) {
-                $('.modal-body').html(response);
-            }
-        });
-    });
-
-    $('#enrolRet').click(function (e) {
-        //e.preventDefault();
-        $('#header-title').html('<h5>Enrolment Form</h5>');
-        $.ajax({
-            method: 'get',
-            url: "<?php echo $this->Url->build(['controller' => 'Terms', 'action' => 'enrol']); ?>",
-            data: {term_id},
-            success: function (response) {
-                $('.modal-body').html(response);
-                // let m_content = $(response).filter("#login_content");
-                // let m_footer = $(response).filter("#m_footer");
-                // $('.modal-body').html(m_content);
-                // $('.modal-footer').html(m_footer);
-            }
-        });
-    });
 
 </script>
 </html>
