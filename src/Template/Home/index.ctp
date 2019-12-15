@@ -51,14 +51,10 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
 <?php echo $this->element('header') ?>
 
 <div class="headpic">
-<div class="container">
-            <?php echo $this->Html->image('LFM.jpg'); ?>
+    <div class="container">
+        <?php echo $this->Html->image('LFM.jpg'); ?>
+    </div>
 </div>
-</div>
-
-
-
-
 
 <section id="LFM-about-us">
     <div class="container">

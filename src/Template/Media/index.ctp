@@ -46,15 +46,6 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
 
 
 </head>
-
-
-
-
-
-
-
-
-
 <body>
 <div class="headpic">
     <div class="container">
