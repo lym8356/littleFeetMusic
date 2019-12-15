@@ -1,8 +1,11 @@
-* {
+ {
     box-sizing: border-box;
 }
 
-
+ .fixedsize{
+     min-width: 142px;
+     max-width: 142px;
+ }
 
 head {
 
@@ -17,7 +20,7 @@ img {
     height: auto;
 }
 .headpic{
-    background-color:#fdbc5e ;
+    background-color:white;
 }
 
 #LFM-about-us {

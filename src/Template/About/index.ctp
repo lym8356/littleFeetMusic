@@ -37,7 +37,7 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
     <?= $this->Html->css('/font-awesome/css/all.min.css') ?>
     <?= $this->Html->script('/font-awesome/js/all.min.js') ?>
     <!-- custom css -->
-    <?= $this->Html->css('News-and-Videos.css') ?>
+    <?= $this->Html->css('homepage.css') ?>
 
     <?= $this->fetch('meta') ?>
     <?= $this->fetch('css') ?>
@@ -73,12 +73,9 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
                         <div class="LFM">
                             <h1>About</h1>
                             <h2>Rachel Parkinson is Little Feet Music</h2>
-
-
                             <h4>The early years</h4>
                             <p>Rachel Parkinson began playing drums in an all-girl band as a teenager.  That band toured Australia, reached number 15 in the Australian Alternative Charts, sold EPs in the USA, and performed about 200 shows.  Rachel then formed The Amazing Rachel Parkinson Band who supported The Animals on the Melbourne leg of their Australian tour.
                             </p>
-
                             <h4>Children’s Music</h4>
                             <p>In 2005 Rachel started playing and writing for children, formed Little Feet Music, which began as music and movement classes for children and their parent or carer, then branched out to include incursions in early learning centres, and now includes parties, workshops, community events and festivals and a live band.  At Little Feet Music the live shows are ALL LIVE!  Rachel has performed at shows, classes, workshops and parties about 1200 per year for the last 14 years.   There are over 8000 children who have attended weekly Little Feet Music classes.  Rachel has written over 200 songs, and has three amazing albums played by real musicians (no loops or samples here!), which have been played on Virgin, Qantas, Singapore Airlines, Air Vanuatu and Malaysia Airlines inflight entertainment and on ABC Kids Listen every day!</p>
                         </div>
