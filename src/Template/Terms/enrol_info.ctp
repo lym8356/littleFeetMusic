@@ -1,34 +1,6 @@
 <!DOCTYPE html>
 <html>
 <head>
-
-    <?= $this->Html->charset() ?>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>
-        <?= $cakeDescription ?>:
-        <?= $this->fetch('title') ?>
-    </title>
-    <?= $this->Html->meta('icon') ?>
-
-    <!--    <?//= $this->Html->css('base.css') ?> -->
-    <!--    <?//= $this->Html->css('style.css') ?> -->
-
-    <!-- bootstrap -->
-    <?= $this->Html->css('/bootstrap/css/bootstrap.min.css') ?>
-    <?= $this->Html->script('/bootstrap/js/jquery-3.3.1.slim.min.js') ?>
-    <?= $this->Html->script('/bootstrap/js/bootstrap.min.js') ?>
-    <?= $this->Html->script('/bootstrap/js/popper.min.js') ?>
-    <!-- font awesome -->
-    <?= $this->Html->css('/font-awesome/css/all.min.css') ?>
-    <?= $this->Html->script('/font-awesome/js/all.min.js') ?>
-    <!-- custom css -->
-    <?= $this->Html->css('homepage.css') ?>
-
-    <?= $this->fetch('meta') ?>
-    <?= $this->fetch('css') ?>
-    <?= $this->fetch('script') ?>
-
-
     <style>
         table, th, td {
             border: 2px solid mediumseagreen !important;
@@ -36,37 +8,6 @@
     </style>
 </head>
 <body>
-    <div class="headpic">
-    <div class="container">
-        <?php echo $this->Html->image('LFM.jpg'); ?>
-    </div>
-        <?= $this->Html->charset() ?>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>
-        <?= $cakeDescription ?>:
-        <?= $this->fetch('title') ?>
-    </title>
-    <?= $this->Html->meta('icon') ?>
-
-    <!--    <?//= $this->Html->css('base.css') ?> -->
-    <!--    <?//= $this->Html->css('style.css') ?> -->
-
-    <!-- bootstrap -->
-    <?= $this->Html->css('/bootstrap/css/bootstrap.min.css') ?>
-    <?= $this->Html->script('/bootstrap/js/jquery-3.3.1.slim.min.js') ?>
-    <?= $this->Html->script('/bootstrap/js/bootstrap.min.js') ?>
-    <?= $this->Html->script('/bootstrap/js/popper.min.js') ?>
-    <!-- font awesome -->
-    <?= $this->Html->css('/font-awesome/css/all.min.css') ?>
-    <?= $this->Html->script('/font-awesome/js/all.min.js') ?>
-    <!-- custom css -->
-    <?= $this->Html->css('homepage.css') ?>
-
-    <?= $this->fetch('meta') ?>
-    <?= $this->fetch('css') ?>
-    <?= $this->fetch('script') ?>
-
-</div>
 <div class="row">
     <div class="container">
         <?php foreach ($termsArray as $key=>$location_d): ?>
@@ -136,20 +77,20 @@
         <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content" id="modal-content">
                 <div class="modal-header">
-<!--                    <h6 id="header-title"><strong>Are You A Returning Customer ?</strong></h6>-->
-<!--                    <button type="button" data-dismiss="modal" class="close">&times;</button>-->
+                    <!--                    <h6 id="header-title"><strong>Are You A Returning Customer ?</strong></h6>-->
+                    <!--                    <button type="button" data-dismiss="modal" class="close">&times;</button>-->
                     <h6 id="header-title"><strong>Enrolment Form</strong></h6>
                     <button type="button" data-dismiss="modal" class="close">&times;</button>
                 </div>
                 <div class="modal-body">
-<!--                    <div class="container row">-->
-<!--                        <div class="col-md-6">-->
-<!--                            <button class="btn btn-primary" id="enrolNew">New <br> Customer</button>-->
-<!--                        </div>-->
-<!--                        <div class="col-md-6">-->
-<!--                            <button class="btn btn-info" id="enrolRet">Returning Customer</button>-->
-<!--                        </div>-->
-<!--                    </div>-->
+                    <!--                    <div class="container row">-->
+                    <!--                        <div class="col-md-6">-->
+                    <!--                            <button class="btn btn-primary" id="enrolNew">New <br> Customer</button>-->
+                    <!--                        </div>-->
+                    <!--                        <div class="col-md-6">-->
+                    <!--                            <button class="btn btn-info" id="enrolRet">Returning Customer</button>-->
+                    <!--                        </div>-->
+                    <!--                    </div>-->
                 </div>
                 <div class="modal-footer">
 
