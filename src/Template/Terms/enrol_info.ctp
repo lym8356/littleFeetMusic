@@ -8,6 +8,14 @@
     </style>
     <!-- custom css -->
     <?= $this->Html->css('homepage.css') ?>
+    <!-- bootstrap -->
+    <?= $this->Html->css('/bootstrap/css/bootstrap.min.css') ?>
+    <?= $this->Html->script('/bootstrap/js/jquery-3.3.1.slim.min.js') ?>
+    <?= $this->Html->script('/bootstrap/js/bootstrap.min.js') ?>
+    <?= $this->Html->script('/bootstrap/js/popper.min.js') ?>
+    <!-- font awesome -->
+    <?= $this->Html->css('/font-awesome/css/all.min.css') ?>
+    <?= $this->Html->script('/font-awesome/js/all.min.js') ?>
 
 </head>
 <body>
@@ -17,16 +25,22 @@
         <?php echo $this->Html->image('LFM.jpg'); ?>
     </div>
 </div>
+<div class="Heading container mt-10">
+    <h2><b>Term 2 Starts on  2nd January 2020 and Finishes on 3rd april 2020</b></h2>    
+
+
+
+</div>
 
 <div class="row">
     <div class="container">
         <?php foreach ($termsArray as $key=>$location_d): ?>
             <?php if(count($termsArray)>0){?>
-                <div style="margin-top: 30px;font-weight:bold;color:#3a945b;font-size: larger;"><?php echo $key; ?></div>
+                <div class="" style="margin-top: 30px;font-weight:bold;color:#3a945b;font-size: larger;"><?php echo $key; ?></div>
                 <table style="margin-top: 10px;" class="table table-bordered">
-                    <thead>
-                    <tr>
-                        <th>Location</th>
+                    <thead class="col-sm-2">
+                    <tr >
+                        <th class="">Location</th>
                         <?php $header=[];foreach ($location_d as $key1=>$terms_d){ ?>
 
                             <?php
@@ -35,7 +49,7 @@
 
                                 ?>
 
-                                <?php echo "<th><span style='color: mediumseagreen'>".$termd['age_group']."</span>"."<br>First Class Starts on: ".date("d-m-Y",strtotime($termd['start_date']))."</br>
+                                <?php echo "<th><span style='color: mediumseagreen'>".$termd['age_group']."</span>"."<br>Start:".date("d-m-Y",strtotime($termd['start_date']))."</br>
                                    Time: ".date("G:i", strtotime($termd['start_time']))."
                                    <br>Week Remaining: "."<span style='color: red'>".$termd['remaining_class_count']."</span>"."</th>"; ?>
 
@@ -53,16 +67,15 @@
                                     <?php if($header[$i]==$termd['age_group']){$flag=true;?>
                                         <td>
                                             <strong>Enrol:</strong>
-                                            <button type="button" class="btn btn-primary term_price_btn mt-2 fixedsize" data-backdrop="static"
+                                            <button type="button" class="btn btn-primary term_price_btn mt-2 fixedsize p-1" data-backdrop="static"
                                                     data-keyboard="false" data-toggle="modal" data-target="#enrolInfo" data-termid= "<?php echo $termd['term_id']."-".$termd['lfm_primary_key']; ?>">
                                                 <?php echo "$".$termd['price'] ?>
                                             </button>
 
                                             <!--<strong>Casual:</strong>-->
-                                            <button type="button" class="btn btn-info causal_price_btn ml-5 mt-2 fixedsize" data-backdrop="static"
+                                            <button type="button" class="btn btn-info causal_price_btn ml-5 mt-2 fixedsize p-1" data-backdrop="static"
                                                     data-keyboard="false" data-toggle="modal" data-target="#enrolInfo" data-termid= "<?php echo $termd['term_id']; ?>">
-                                                <!--<?php echo "$".$termd['casual_rate'] ?>-->
-                                                Casual
+                                                <!--<?php echo "$".$termd['casual_rate'] ?>-->Casual
                                             </button>
                                         </td>
                                         <?php

@@ -6,6 +6,11 @@
      min-width: 142px;
      max-width: 142px;
  }
+  .fixtd{
+    min-width: 100px;
+    max-width: 100px;
+ }
+
 
 head {
 
