@@ -90,7 +90,7 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
                                 </p>
                                 <p>Contact Little Feet Music now, and unlock that door to your child's creativity!
                                 </p>
-                                <a href="/Class/EnrolInfo" class="btn btn-warning btn-lg" >Enroll</a>
+                                <a href="/Class/EnrolInfo" class="btn btn-warning btn-lg" >Enrol</a>
                                 <button id="enquiry" class="btn btn-warning btn-lg">Enquiry</button>
 
                             </div>
