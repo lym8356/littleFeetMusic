@@ -6,6 +6,9 @@
             border: 2px solid mediumseagreen !important;
         }
     </style>
+    <!-- custom css -->
+    <?= $this->Html->css('homepage.css') ?>
+
 </head>
 <body>
 <div class="row">
@@ -42,16 +45,17 @@
                                 <?php for($i=0;$i<count($header);$i++){?>
                                     <?php if($header[$i]==$termd['age_group']){$flag=true;?>
                                         <td>
-                                            <strong>Enrol Full Term:</strong>
-                                            <button type="button" class="btn btn-primary term_price_btn" data-backdrop="static"
+                                            <strong>Enrol:</strong>
+                                            <button type="button" class="btn btn-primary term_price_btn mt-2 fixedsize" data-backdrop="static"
                                                     data-keyboard="false" data-toggle="modal" data-target="#enrolInfo" data-termid= "<?php echo $termd['term_id']."-".$termd['lfm_primary_key']; ?>">
                                                 <?php echo "$".$termd['price'] ?>
                                             </button>
-                                            <br>
-                                            <strong>Enrol A Casual Class:</strong>
-                                            <button type="button" class="btn btn-info causal_price_btn" data-backdrop="static"
+
+                                            <!--<strong>Casual:</strong>-->
+                                            <button type="button" class="btn btn-info causal_price_btn ml-5 mt-2 fixedsize" data-backdrop="static"
                                                     data-keyboard="false" data-toggle="modal" data-target="#enrolInfo" data-termid= "<?php echo $termd['term_id']; ?>">
-                                                <?php echo "$".$termd['casual_rate'] ?>
+                                                <!--<?php echo "$".$termd['casual_rate'] ?>-->
+                                                Casual
                                             </button>
                                         </td>
                                         <?php
