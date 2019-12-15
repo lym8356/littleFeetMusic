@@ -73,6 +73,7 @@ img {
     margin-top: 20px;
     background-color: #CCE8E0;
     width: 100%;
+    margin-bottom: -150px;
 
 }
 .testimonial h1{
@@ -127,15 +128,6 @@ blockquote:after {
 }
 
 
-div#success {
-    text-align: center;
-    box-shadow: 1px 1px 5px #455644;
-    background: #bae8ba;
-    padding: 10px;
-    border-radius: 3px;
-    margin: 0 auto;
-    width: 350px;
-}
 
 .inputBox {
     width: 100%;
@@ -177,7 +169,7 @@ div#success {
     padding-left: 5px;
 }
 
-#send {
+#submit {
     background-color: #CCE8E0;
     border: 1px solid white;
     font-family: Arial;
