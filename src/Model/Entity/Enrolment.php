@@ -7,18 +7,18 @@ use Cake\ORM\Entity;
  * Enrolment Entity
  *
  * @property int $id
- * @property \Cake\I18n\FrozenDate|null $enrolment_date
- * @property \Cake\I18n\FrozenTime|null $enrolment_time
  * @property string|null $enrolment_type
  * @property string|null $enrolment_status
  * @property float|null $enrolment_cost
- * @property int|null $terms_id
- * @property string|null $customer_name
- * @property string|null $customer_phone
- * @property string|null $customer_email
- * @property string|null $child_name
+ * @property int $lfmclasses_id
+ * @property int $guardian_id
+ * @property \Cake\I18n\FrozenTime|null $created
+ * @property \Cake\I18n\FrozenTime|null $modified
+ * @property int $child_id
  *
- * @property \App\Model\Entity\Term $term
+ * @property \App\Model\Entity\Class $class
+ * @property \App\Model\Entity\User $user
+ * @property \App\Model\Entity\Child $child
  */
 class Enrolment extends Entity
 {
@@ -32,16 +32,16 @@ class Enrolment extends Entity
      * @var array
      */
     protected $_accessible = [
-        'enrolment_date' => true,
-        'enrolment_time' => true,
         'enrolment_type' => true,
         'enrolment_status' => true,
         'enrolment_cost' => true,
-        'terms_id' => true,
-        'customer_name' => true,
-        'customer_phone' => true,
-        'customer_email' => true,
-        'child_name' => true,
-        'term' => true
+        'lfmclasses_id' => true,
+        'guardian_id' => true,
+        'created' => true,
+        'modified' => true,
+        'child_id' => true,
+        'class' => true,
+        'user' => true,
+        'child' => true
     ];
 }

@@ -14,8 +14,12 @@
             )
         ?></li>
         <li><?= $this->Html->link(__('List Enrolments'), ['action' => 'index']) ?></li>
-        <li><?= $this->Html->link(__('List Terms'), ['controller' => 'Terms', 'action' => 'index']) ?></li>
-        <li><?= $this->Html->link(__('New Term'), ['controller' => 'Terms', 'action' => 'add']) ?></li>
+        <li><?= $this->Html->link(__('List Lfmclasses'), ['controller' => 'Lfmclasses', 'action' => 'index']) ?></li>
+        <li><?= $this->Html->link(__('New Lfmclass'), ['controller' => 'Lfmclasses', 'action' => 'add']) ?></li>
+        <li><?= $this->Html->link(__('List Users'), ['controller' => 'Users', 'action' => 'index']) ?></li>
+        <li><?= $this->Html->link(__('New User'), ['controller' => 'Users', 'action' => 'add']) ?></li>
+        <li><?= $this->Html->link(__('List Childs'), ['controller' => 'Childs', 'action' => 'index']) ?></li>
+        <li><?= $this->Html->link(__('New Child'), ['controller' => 'Childs', 'action' => 'add']) ?></li>
     </ul>
 </nav>
 <div class="enrolments form large-9 medium-8 columns content">
@@ -23,16 +27,12 @@
     <fieldset>
         <legend><?= __('Edit Enrolment') ?></legend>
         <?php
-            echo $this->Form->control('enrolment_date', ['empty' => true]);
-            echo $this->Form->control('enrolment_time', ['empty' => true]);
             echo $this->Form->control('enrolment_type');
             echo $this->Form->control('enrolment_status');
             echo $this->Form->control('enrolment_cost');
-            echo $this->Form->control('terms_id', ['options' => $terms, 'empty' => true]);
-            echo $this->Form->control('customer_name');
-            echo $this->Form->control('customer_phone');
-            echo $this->Form->control('customer_email');
-            echo $this->Form->control('child_name');
+            echo $this->Form->control('lfmclasses_id', ['options' => $lfmclasses]);
+            echo $this->Form->control('guardian_id', ['options' => $users]);
+            echo $this->Form->control('child_id', ['options' => $childs]);
         ?>
     </fieldset>
     <?= $this->Form->button(__('Submit')) ?>

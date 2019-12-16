@@ -143,7 +143,8 @@
                         </div>
                         <div class="col-12 col-sm-6 mt-4 mt-sm-0">
                             <?php echo $this->Form->control('relation[]', ['class' => 'form-control',
-                                'label' => 'Relation To Child', 'type' => 'select', 'options' => array('Parent','Grandparent','Carer','Nanny','Other')]); ?>
+                                'label' => 'Relation To Child', 'type' => 'select', 'options' => array('Parent'=>'Parent','Grandparent'=>'Grandparent',
+                                    'Carer'=>'Carer','Nanny'=>'Nanny','Other'=>'Other')]); ?>
                         </div>
                     </div>
                     <span class="input-group-btn">
@@ -188,6 +189,7 @@
                         <div class="col-12 col-sm-6">
                             <?php echo $this->Form->control('price', ['class' => 'form-control', 'label' => 'Total Price', 'disabled']); ?>
                             <?php echo $this->Form->control('class_time', ['class' => 'form-control', 'label' => 'Class Time', 'disabled']); ?>
+                            <?php echo $this->Form->control('price', ['label' => '', 'hidden']); ?>
                         </div>
                         <div class="col-12 col-sm-6 mt-4 mt-sm-0">
                             <?php echo $this->Form->control('location', ['class' => 'form-control', 'label' => 'Location', 'disabled']); ?>

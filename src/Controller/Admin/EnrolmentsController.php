@@ -2,6 +2,8 @@
 namespace App\Controller\Admin;
 
 use App\Controller\AppController;
+use Cake\ORM\Table;
+use Cake\ORM\TableRegistry;
 
 /**
  * Enrolments Controller
@@ -20,11 +22,14 @@ class EnrolmentsController extends AppController
     public function index()
     {
         $this->paginate = [
-            'contain' => ['Terms']
+            'contain' => ['Lfmclasses', 'Users', 'Childs']
         ];
+
+        //get all terms with the day_id = 1
+        $terms = TableRegistry::getTableLocator()->get('Terms')->find()->where(['day_id' => 1])->contain(['Days','Lfmclasses']);
         $enrolments = $this->paginate($this->Enrolments);
 
-        $this->set(compact('enrolments'));
+        $this->set(compact('enrolments','terms'));
     }
 
     /**
@@ -37,7 +42,7 @@ class EnrolmentsController extends AppController
     public function view($id = null)
     {
         $enrolment = $this->Enrolments->get($id, [
-            'contain' => ['Terms']
+            'contain' => ['Lfmclasses', 'Users', 'Childs']
         ]);
 
         $this->set('enrolment', $enrolment);
@@ -60,8 +65,10 @@ class EnrolmentsController extends AppController
             }
             $this->Flash->error(__('The enrolment could not be saved. Please, try again.'));
         }
-        $terms = $this->Enrolments->Terms->find('list', ['limit' => 200]);
-        $this->set(compact('enrolment', 'terms'));
+        $lfmclasses = $this->Enrolments->Lfmclasses->find('list', ['limit' => 200]);
+        $users = $this->Enrolments->Users->find('list', ['limit' => 200]);
+        $childs = $this->Enrolments->Childs->find('list', ['limit' => 200]);
+        $this->set(compact('enrolment', 'lfmclasses', 'users', 'childs'));
     }
 
     /**
@@ -85,8 +92,10 @@ class EnrolmentsController extends AppController
             }
             $this->Flash->error(__('The enrolment could not be saved. Please, try again.'));
         }
-        $terms = $this->Enrolments->Terms->find('list', ['limit' => 200]);
-        $this->set(compact('enrolment', 'terms'));
+        $lfmclasses = $this->Enrolments->Lfmclasses->find('list', ['limit' => 200]);
+        $users = $this->Enrolments->Users->find('list', ['limit' => 200]);
+        $childs = $this->Enrolments->Childs->find('list', ['limit' => 200]);
+        $this->set(compact('enrolment', 'lfmclasses', 'users', 'childs'));
     }
 
     /**

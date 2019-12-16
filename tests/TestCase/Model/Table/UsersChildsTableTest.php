@@ -1,21 +1,21 @@
 <?php
 namespace App\Test\TestCase\Model\Table;
 
-use App\Model\Table\EnrolmentsTable;
+use App\Model\Table\UsersChildsTable;
 use Cake\ORM\TableRegistry;
 use Cake\TestSuite\TestCase;
 
 /**
- * App\Model\Table\EnrolmentsTable Test Case
+ * App\Model\Table\UsersChildsTable Test Case
  */
-class EnrolmentsTableTest extends TestCase
+class UsersChildsTableTest extends TestCase
 {
     /**
      * Test subject
      *
-     * @var \App\Model\Table\EnrolmentsTable
+     * @var \App\Model\Table\UsersChildsTable
      */
-    public $Enrolments;
+    public $UsersChilds;
 
     /**
      * Fixtures
@@ -23,10 +23,9 @@ class EnrolmentsTableTest extends TestCase
      * @var array
      */
     public $fixtures = [
-        'app.Enrolments',
-        'app.Classes',
-        'app.Users',
-        'app.Childs'
+        'app.UsersChilds',
+        'app.Childs',
+        'app.Users'
     ];
 
     /**
@@ -37,8 +36,8 @@ class EnrolmentsTableTest extends TestCase
     public function setUp()
     {
         parent::setUp();
-        $config = TableRegistry::getTableLocator()->exists('Enrolments') ? [] : ['className' => EnrolmentsTable::class];
-        $this->Enrolments = TableRegistry::getTableLocator()->get('Enrolments', $config);
+        $config = TableRegistry::getTableLocator()->exists('UsersChilds') ? [] : ['className' => UsersChildsTable::class];
+        $this->UsersChilds = TableRegistry::getTableLocator()->get('UsersChilds', $config);
     }
 
     /**
@@ -48,7 +47,7 @@ class EnrolmentsTableTest extends TestCase
      */
     public function tearDown()
     {
-        unset($this->Enrolments);
+        unset($this->UsersChilds);
 
         parent::tearDown();
     }

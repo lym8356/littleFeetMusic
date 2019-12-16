@@ -21,7 +21,9 @@ class EnrolmentsControllerTest extends TestCase
      */
     public $fixtures = [
         'app.Enrolments',
-        'app.Terms'
+        'app.Lfmclasses',
+        'app.Users',
+        'app.Childs'
     ];
 
     /**

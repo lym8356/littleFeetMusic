@@ -44,6 +44,29 @@ class EnrolmentsController extends AppController
         $this->set('enrolment', $enrolment);
     }
 
+    private function saveEnrollment($user_id,$term_id,$price){
+
+        $now = date('Y-m-d');
+        $lfmdataQuery=TableRegistry::get('Lfmclasses')->find('all',['conditions'=>['Lfmclasses.terms_id'=>$term_id,"Lfmclasses.class_date>='$now'"]])
+            ->order(['class_date'=>'ASC'])->toArray();
+
+        foreach($lfmdataQuery as $lfm){
+
+            $user_child_data=TableRegistry::getTableLocator()->get('users_childs')->find('all',['conditions'=>['users_childs.user_id'=>$user_id]])->toArray();
+            $enrolmentdata=[];
+            foreach($user_child_data as $userchild){
+                $enrolmetTable=TableRegistry::getTableLocator()->get('enrolments');
+                $enrolmentdata['lfmclasses_id']=$lfm->id;
+                $enrolmentdata['guardian_id']=$user_id;
+                $enrolmentdata['enrolment_cost']=$price;
+                $enrolmentdata['child_id']=$userchild->child_id;
+                $enrolmententity = $enrolmetTable->newEntity($enrolmentdata);
+                $enrolmetTable->save($enrolmententity);
+            }
+        }
+
+    }
+
     /**
      * Add method
      *
@@ -67,11 +90,10 @@ class EnrolmentsController extends AppController
             $this->request->data['term_id'] = $termid;
         }else{
 
-            pr($this->request->getData());die;
             $userArray = array();
             $userArray['f_name'] = $this->request->getData(['user_first_name']);
             $userArray['l_name'] = $this->request->getData(['user_last_name']);
-            $userArray['birthday'] = $this->request->getData(['user_dob']);
+            $userArray['birthday'] = date("Y-m-d",strtotime($this->request->getData(['user_dob'])));
             $userArray['email'] = $this->request->getData(['user_email']);
             $userArray['phone'] = $this->request->getData(['user_phone']);
             $userArray['postcode'] = $this->request->getData(['user_postcode']);
@@ -79,38 +101,38 @@ class EnrolmentsController extends AppController
             $usersTable = TableRegistry::getTableLocator()->get('users');
             $user_entity = $usersTable->newEntity($userArray);
             $user_results = $usersTable->save($user_entity);
-            //$user_results->id;
 
             $childArray = array();
             for($i=0;$i<count($this->request->getData(['child_first_name']));$i++){
-                $childArray[$i]['first_name'] = $this->request->getData(['child_first_name'])[$i];
-                $childArray[$i]['last_name'] = $this->request->getData(['child_last_name'])[$i];
-                $childArray[$i]['dob'] = $this->request->getData(['child_DOB'])[$i];
-                $childArray[$i]['note'] = $this->request->getData(['child_note'])[$i];
+                $childTable = TableRegistry::getTableLocator()->get('childs');
+                $childArray['first_name'] = $this->request->getData(['child_first_name'])[$i];
+                $childArray['last_name'] = $this->request->getData(['child_last_name'])[$i];
+                $childArray['dob'] = date("Y-m-d",strtotime($this->request->getData(['child_DOB'])[$i]));
+                $childArray['note'] = $this->request->getData(['child_note'])[$i];
+
+                $child_entity = $childTable->newEntity($childArray);
+                $child_results = $childTable->save($child_entity);
+
+                $user_child_relation=[];
+                $user_child_relation['user_id']=$user_results->id;
+                $user_child_relation['child_id']=$child_results->id;
+                $user_child_relation['relationship']=$this->request->getData(['relation'])[$i];
+                // pr($user_child_relation);die;
+                $user_childTable = TableRegistry::getTableLocator()->get('users_childs');
+                $user_child_entity = $user_childTable->newEntity($user_child_relation);
+
+                $user_child_result = $user_childTable->save($user_child_entity);
+
 
             }
 
+            $this->saveEnrollMent($user_results->id,$this->request->getData('term_id'),$this->request->getData('price'));
 
+            return $this->redirect(['action' => 'success']);
 
-            $enrolment = $this->Enrolments->newEntity();
-            $this->set(compact('enrolment'));
         }
 
-
-//        ajay.rawal@monash.edu
-//        if ($this->request->is('ajax')) {
-//            $enrolment = $this->Enrolments->patchEntity($enrolment, $this->request->getData());
-//            if ($this->Enrolments->save($enrolment)) {
-                //$this->Flash->success(__('The enrolment has been saved.'));
-
-                //return $this->redirect(['action' => 'index']);
-//            }
-//        }
-        //$terms = $this->Enrolments->Terms->find('list', ['limit' => 200]);
-        //$this->set(compact('enrolment', 'terms'));
-
     }
-
 
     /**
      * Edit method
@@ -155,5 +177,9 @@ class EnrolmentsController extends AppController
         }
 
         return $this->redirect(['action' => 'index']);
+    }
+
+    public function success(){
+
     }
 }

@@ -16,22 +16,24 @@ class EnrolmentsFixture extends TestFixture
     // @codingStandardsIgnoreStart
     public $fields = [
         'id' => ['type' => 'integer', 'length' => 11, 'unsigned' => false, 'null' => false, 'default' => null, 'comment' => '', 'autoIncrement' => true, 'precision' => null],
-        'enrolment_date' => ['type' => 'date', 'length' => null, 'null' => true, 'default' => null, 'comment' => '', 'precision' => null],
-        'enrolment_time' => ['type' => 'time', 'length' => null, 'null' => true, 'default' => null, 'comment' => '', 'precision' => null],
         'enrolment_type' => ['type' => 'string', 'length' => 20, 'null' => true, 'default' => null, 'collate' => 'utf8mb4_general_ci', 'comment' => '', 'precision' => null, 'fixed' => null],
         'enrolment_status' => ['type' => 'string', 'length' => 20, 'null' => true, 'default' => null, 'collate' => 'utf8mb4_general_ci', 'comment' => '', 'precision' => null, 'fixed' => null],
         'enrolment_cost' => ['type' => 'float', 'length' => null, 'precision' => null, 'unsigned' => false, 'null' => true, 'default' => null, 'comment' => ''],
-        'terms_id' => ['type' => 'integer', 'length' => 11, 'unsigned' => false, 'null' => true, 'default' => null, 'comment' => '', 'precision' => null, 'autoIncrement' => null],
-        'customer_name' => ['type' => 'string', 'length' => 50, 'null' => true, 'default' => null, 'collate' => 'utf8mb4_general_ci', 'comment' => '', 'precision' => null, 'fixed' => null],
-        'customer_phone' => ['type' => 'string', 'length' => 50, 'null' => true, 'default' => null, 'collate' => 'utf8mb4_general_ci', 'comment' => '', 'precision' => null, 'fixed' => null],
-        'customer_email' => ['type' => 'string', 'length' => 50, 'null' => true, 'default' => null, 'collate' => 'utf8mb4_general_ci', 'comment' => '', 'precision' => null, 'fixed' => null],
-        'child_name' => ['type' => 'string', 'length' => 50, 'null' => true, 'default' => null, 'collate' => 'utf8mb4_general_ci', 'comment' => '', 'precision' => null, 'fixed' => null],
+        'lfmclasses_id' => ['type' => 'integer', 'length' => 11, 'unsigned' => false, 'null' => false, 'default' => null, 'comment' => '', 'precision' => null, 'autoIncrement' => null],
+        'guardian_id' => ['type' => 'integer', 'length' => 11, 'unsigned' => false, 'null' => false, 'default' => null, 'comment' => '', 'precision' => null, 'autoIncrement' => null],
+        'created' => ['type' => 'datetime', 'length' => null, 'null' => true, 'default' => null, 'comment' => '', 'precision' => null],
+        'modified' => ['type' => 'datetime', 'length' => null, 'null' => true, 'default' => null, 'comment' => '', 'precision' => null],
+        'child_id' => ['type' => 'integer', 'length' => 11, 'unsigned' => false, 'null' => false, 'default' => null, 'comment' => '', 'precision' => null, 'autoIncrement' => null],
         '_indexes' => [
-            'enrol_terms_id' => ['type' => 'index', 'columns' => ['terms_id'], 'length' => []],
+            'enrolments_users__fk' => ['type' => 'index', 'columns' => ['guardian_id'], 'length' => []],
         ],
         '_constraints' => [
             'primary' => ['type' => 'primary', 'columns' => ['id'], 'length' => []],
-            'enrol_terms_id' => ['type' => 'foreign', 'columns' => ['terms_id'], 'references' => ['terms', 'id'], 'update' => 'restrict', 'delete' => 'restrict', 'length' => []],
+            'enrol_terms_id' => ['type' => 'unique', 'columns' => ['lfmclasses_id'], 'length' => []],
+            'enrolments_child-id_uindex' => ['type' => 'unique', 'columns' => ['child_id'], 'length' => []],
+            'enrolments_childs__fk' => ['type' => 'foreign', 'columns' => ['child_id'], 'references' => ['childs', 'id'], 'update' => 'restrict', 'delete' => 'restrict', 'length' => []],
+            'enrolments_lfmclasses_fk' => ['type' => 'foreign', 'columns' => ['lfmclasses_id'], 'references' => ['lfmclasses', 'id'], 'update' => 'restrict', 'delete' => 'restrict', 'length' => []],
+            'enrolments_users__fk' => ['type' => 'foreign', 'columns' => ['guardian_id'], 'references' => ['users', 'id'], 'update' => 'restrict', 'delete' => 'restrict', 'length' => []],
         ],
         '_options' => [
             'engine' => 'InnoDB',
@@ -49,16 +51,14 @@ class EnrolmentsFixture extends TestFixture
         $this->records = [
             [
                 'id' => 1,
-                'enrolment_date' => '2019-12-09',
-                'enrolment_time' => '12:00:01',
                 'enrolment_type' => 'Lorem ipsum dolor ',
                 'enrolment_status' => 'Lorem ipsum dolor ',
                 'enrolment_cost' => 1,
-                'terms_id' => 1,
-                'customer_name' => 'Lorem ipsum dolor sit amet',
-                'customer_phone' => 'Lorem ipsum dolor sit amet',
-                'customer_email' => 'Lorem ipsum dolor sit amet',
-                'child_name' => 'Lorem ipsum dolor sit amet'
+                'lfmclasses_id' => 1,
+                'guardian_id' => 1,
+                'created' => '2019-12-16 05:42:28',
+                'modified' => '2019-12-16 05:42:28',
+                'child_id' => 1
             ],
         ];
         parent::init();

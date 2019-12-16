@@ -9,7 +9,9 @@ use Cake\Validation\Validator;
 /**
  * Enrolments Model
  *
- * @property \App\Model\Table\TermsTable&\Cake\ORM\Association\BelongsTo $Terms
+ * @property &\Cake\ORM\Association\BelongsTo $Lfmclasses
+ * @property \App\Model\Table\UsersTable&\Cake\ORM\Association\BelongsTo $Users
+ * @property \App\Model\Table\ChildsTable&\Cake\ORM\Association\BelongsTo $Childs
  *
  * @method \App\Model\Entity\Enrolment get($primaryKey, $options = [])
  * @method \App\Model\Entity\Enrolment newEntity($data = null, array $options = [])
@@ -19,6 +21,8 @@ use Cake\Validation\Validator;
  * @method \App\Model\Entity\Enrolment patchEntity(\Cake\Datasource\EntityInterface $entity, array $data, array $options = [])
  * @method \App\Model\Entity\Enrolment[] patchEntities($entities, array $data, array $options = [])
  * @method \App\Model\Entity\Enrolment findOrCreate($search, callable $callback = null, $options = [])
+ *
+ * @mixin \Cake\ORM\Behavior\TimestampBehavior
  */
 class EnrolmentsTable extends Table
 {
@@ -36,8 +40,19 @@ class EnrolmentsTable extends Table
         $this->setDisplayField('id');
         $this->setPrimaryKey('id');
 
-        $this->belongsTo('Terms', [
-            'foreignKey' => 'terms_id'
+        $this->addBehavior('Timestamp');
+
+        $this->belongsTo('Lfmclasses', [
+            'foreignKey' => 'lfmclasses_id',
+            'joinType' => 'INNER'
+        ]);
+        $this->belongsTo('Users', [
+            'foreignKey' => 'guardian_id',
+            'joinType' => 'INNER'
+        ]);
+        $this->belongsTo('Childs', [
+            'foreignKey' => 'child_id',
+            'joinType' => 'INNER'
         ]);
     }
 
@@ -54,14 +69,6 @@ class EnrolmentsTable extends Table
             ->allowEmptyString('id', null, 'create');
 
         $validator
-            ->date('enrolment_date')
-            ->allowEmptyDate('enrolment_date');
-
-        $validator
-            ->time('enrolment_time')
-            ->allowEmptyTime('enrolment_time');
-
-        $validator
             ->scalar('enrolment_type')
             ->maxLength('enrolment_type', 20)
             ->allowEmptyString('enrolment_type');
@@ -75,26 +82,6 @@ class EnrolmentsTable extends Table
             ->numeric('enrolment_cost')
             ->allowEmptyString('enrolment_cost');
 
-        $validator
-            ->scalar('customer_name')
-            ->maxLength('customer_name', 50)
-            ->allowEmptyString('customer_name');
-
-        $validator
-            ->scalar('customer_phone')
-            ->maxLength('customer_phone', 50)
-            ->allowEmptyString('customer_phone');
-
-        $validator
-            ->scalar('customer_email')
-            ->maxLength('customer_email', 50)
-            ->allowEmptyString('customer_email');
-
-        $validator
-            ->scalar('child_name')
-            ->maxLength('child_name', 50)
-            ->allowEmptyString('child_name');
-
         return $validator;
     }
 
@@ -107,7 +94,9 @@ class EnrolmentsTable extends Table
      */
     public function buildRules(RulesChecker $rules)
     {
-        $rules->add($rules->existsIn(['terms_id'], 'Terms'));
+        $rules->add($rules->existsIn(['lfmclasses_id'], 'Lfmclasses'));
+        $rules->add($rules->existsIn(['child_id'], 'Childs'));
+        $rules->add($rules->existsIn(['guardian_id'], 'Users'));
 
         return $rules;
     }

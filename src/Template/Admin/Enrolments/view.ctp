@@ -11,8 +11,12 @@
         <li><?= $this->Form->postLink(__('Delete Enrolment'), ['action' => 'delete', $enrolment->id], ['confirm' => __('Are you sure you want to delete # {0}?', $enrolment->id)]) ?> </li>
         <li><?= $this->Html->link(__('List Enrolments'), ['action' => 'index']) ?> </li>
         <li><?= $this->Html->link(__('New Enrolment'), ['action' => 'add']) ?> </li>
-        <li><?= $this->Html->link(__('List Terms'), ['controller' => 'Terms', 'action' => 'index']) ?> </li>
-        <li><?= $this->Html->link(__('New Term'), ['controller' => 'Terms', 'action' => 'add']) ?> </li>
+        <li><?= $this->Html->link(__('List Lfmclasses'), ['controller' => 'Lfmclasses', 'action' => 'index']) ?> </li>
+        <li><?= $this->Html->link(__('New Lfmclass'), ['controller' => 'Lfmclasses', 'action' => 'add']) ?> </li>
+        <li><?= $this->Html->link(__('List Users'), ['controller' => 'Users', 'action' => 'index']) ?> </li>
+        <li><?= $this->Html->link(__('New User'), ['controller' => 'Users', 'action' => 'add']) ?> </li>
+        <li><?= $this->Html->link(__('List Childs'), ['controller' => 'Childs', 'action' => 'index']) ?> </li>
+        <li><?= $this->Html->link(__('New Child'), ['controller' => 'Childs', 'action' => 'add']) ?> </li>
     </ul>
 </nav>
 <div class="enrolments view large-9 medium-8 columns content">
@@ -27,24 +31,16 @@
             <td><?= h($enrolment->enrolment_status) ?></td>
         </tr>
         <tr>
-            <th scope="row"><?= __('Term') ?></th>
-            <td><?= $enrolment->has('term') ? $this->Html->link($enrolment->term->name, ['controller' => 'Terms', 'action' => 'view', $enrolment->term->id]) : '' ?></td>
+            <th scope="row"><?= __('Lfmclass') ?></th>
+            <td><?= $enrolment->has('lfmclass') ? $this->Html->link($enrolment->lfmclass->id, ['controller' => 'Lfmclasses', 'action' => 'view', $enrolment->lfmclass->id]) : '' ?></td>
         </tr>
         <tr>
-            <th scope="row"><?= __('Customer Name') ?></th>
-            <td><?= h($enrolment->customer_name) ?></td>
+            <th scope="row"><?= __('User') ?></th>
+            <td><?= $enrolment->has('user') ? $this->Html->link($enrolment->user->name, ['controller' => 'Users', 'action' => 'view', $enrolment->user->id]) : '' ?></td>
         </tr>
         <tr>
-            <th scope="row"><?= __('Customer Phone') ?></th>
-            <td><?= h($enrolment->customer_phone) ?></td>
-        </tr>
-        <tr>
-            <th scope="row"><?= __('Customer Email') ?></th>
-            <td><?= h($enrolment->customer_email) ?></td>
-        </tr>
-        <tr>
-            <th scope="row"><?= __('Child Name') ?></th>
-            <td><?= h($enrolment->child_name) ?></td>
+            <th scope="row"><?= __('Child') ?></th>
+            <td><?= $enrolment->has('child') ? $this->Html->link($enrolment->child->id, ['controller' => 'Childs', 'action' => 'view', $enrolment->child->id]) : '' ?></td>
         </tr>
         <tr>
             <th scope="row"><?= __('Id') ?></th>
@@ -55,12 +51,12 @@
             <td><?= $this->Number->format($enrolment->enrolment_cost) ?></td>
         </tr>
         <tr>
-            <th scope="row"><?= __('Enrolment Date') ?></th>
-            <td><?= h($enrolment->enrolment_date) ?></td>
+            <th scope="row"><?= __('Created') ?></th>
+            <td><?= h($enrolment->created) ?></td>
         </tr>
         <tr>
-            <th scope="row"><?= __('Enrolment Time') ?></th>
-            <td><?= h($enrolment->enrolment_time) ?></td>
+            <th scope="row"><?= __('Modified') ?></th>
+            <td><?= h($enrolment->modified) ?></td>
         </tr>
     </table>
 </div>
