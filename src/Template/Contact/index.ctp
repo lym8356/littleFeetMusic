@@ -301,13 +301,15 @@ if(isset($_POST['submit'])) {
     $mail->Port=587;
     $mail->SMTPDebug = 0;
     $mail->SMTPAuth=true;
-    $mail->SMTPSecure='tls';
+    $mail->SMTPSecure='false';
     $mail->Username='team117bluewater@gmail.com';
     $mail->Password='M0nash123';
 
 
 
-    $mail->setFrom($_POST['userEmail'], $_POST['userName']);
+    $mail->From=$_POST['userEmail'];
+    $mail->FromName=$_POST['userName'];
+    $mail->AddReplyTo($_POST['userEmail'], $_POST['userName']);
     $mail->addAddress('team117bluewater@gmail.com', 'Little Feet Music');
     $mail->Subject=$_POST['userNeed'];
     $mail->Body=($_POST['message']);

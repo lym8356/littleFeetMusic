@@ -75,7 +75,7 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
             <div class="p-1">
                 <button class="btn btn-outline-success fixedsize p-1" id="btn5" value="1" >FAQ</button></div>
             <div class="p-1">
-                <a href="/Class/EnrolInfo" class="btn btn-outline-success fixedsize p-1" >Enrol</a></div>
+                <a href='/Class/EnrolInfo' class="btn btn-outline-success fixedsize p-1" >Enrol</a></div>
             <div class="p-1">
                 <button class="btn btn-outline-success fixedsize p-1" id="enquiry" value="1" onclick="viewClass3()"> Enquiry</button></div>
         </div>
@@ -359,13 +359,15 @@ if(isset($_POST['submit'])) {
     $mail->Port=587;
     $mail->SMTPDebug = 0;
     $mail->SMTPAuth=true;
-    $mail->SMTPSecure='tls';
+    $mail->SMTPSecure='false';
     $mail->Username='team117bluewater@gmail.com';
     $mail->Password='M0nash123';
 
 
 
-    $mail->setFrom($_POST['userEmail'], $_POST['userName']);
+    $mail->From=$_POST['userEmail'];
+    $mail->FromName=$_POST['userName'];
+    $mail->AddReplyTo($_POST['userEmail'], $_POST['userName']);
     $mail->addAddress('team117bluewater@gmail.com', 'Little Feet Music');
     $mail->Subject=$_POST['userNeed'];
     $mail->Body=($_POST['message']);
