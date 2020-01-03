@@ -13,7 +13,7 @@ use Cake\ORM\Entity;
  * @property string|null $note
  *
  * @property \App\Model\Entity\Enrolment[] $enrolments
- * @property \App\Model\Entity\Relation[] $relations
+ * @property \App\Model\Entity\User[] $users
  */
 class Child extends Entity
 {
@@ -32,6 +32,6 @@ class Child extends Entity
         'dob' => true,
         'note' => true,
         'enrolments' => true,
-        'relations' => true
+        'users' => true
     ];
 }

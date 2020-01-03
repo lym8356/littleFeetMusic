@@ -68,15 +68,15 @@ $action=$this->request->params['action'];
                 </svg> Manage Enrolment', '/admin/enrolments/index',
                 ['escape' => false]); ?></li>
         <li class="sidebar_item <?php echo ($controller=='Users')?'active':'';?>">
-            <?= $this->Html->link('<svg class="glyph stroked female-user">)                
-                    <use xlink:href="#stroked-female-user"></use>
+            <?= $this->Html->link('<svg class="glyph stroked male-user">
+                <use xlink:href="#stroked-male-user"></use>
                 </svg> Manage User', '/admin/users/index',
                 ['escape' => false]); ?></li>
-<!--        <li class="sidebar_item"><a href="#">-->
-<!--                <svg class="glyph stroked table">-->
-<!--                    <use xlink:href="#stroked-table"></use>-->
-<!--                </svg>-->
-<!--                Manage Staff</a></li>-->
+        <li class="sidebar_item <?php echo ($controller=='Childs')?'active':'';?>">
+            <?= $this->Html->link('<svg class="glyph stroked female-user">)
+                    <use xlink:href="#stroked-female-user"></use>
+                </svg> Manage Child', '/admin/childs/index',
+                ['escape' => false]); ?></li>
 
         <li class="sidebar_item <?php echo ($controller=='Locations')?'active':'';?>">
             <?= $this->Html->link('<svg class="glyph stroked app window with content">
@@ -86,10 +86,11 @@ $action=$this->request->params['action'];
 
         <li role="presentation" class="divider"></li>
         <li>
-            <?= $this->Html->link('<svg class="glyph stroked male-user">
-                <use xlink:href="#stroked-male-user"></use>
+            <?= $this->Html->link('<svg class="glyph stroked chevron left">
+                 <use xlink:href="#stroked-chevron-left"></use>
             </svg> Logout', '/Logout',
                 ['escape' => false]); ?></li>
+
     </ul>
 
 </div><!--/.sidebar-->

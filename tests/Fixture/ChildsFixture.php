@@ -41,7 +41,7 @@ class ChildsFixture extends TestFixture
                 'id' => 1,
                 'first_name' => 'Lorem ipsum dolor sit amet',
                 'last_name' => 'Lorem ipsum dolor sit amet',
-                'dob' => '2019-12-14',
+                'dob' => '2020-01-02',
                 'note' => 'Lorem ipsum dolor sit amet'
             ],
         ];

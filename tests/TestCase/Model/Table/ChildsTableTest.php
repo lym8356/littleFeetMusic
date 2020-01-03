@@ -25,7 +25,7 @@ class ChildsTableTest extends TestCase
     public $fixtures = [
         'app.Childs',
         'app.Enrolments',
-        'app.Relations'
+        'app.Users'
     ];
 
     /**
