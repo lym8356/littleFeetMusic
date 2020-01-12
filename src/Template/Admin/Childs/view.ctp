@@ -4,6 +4,45 @@
  * @var \App\Model\Entity\Child $child
  */
 ?>
+<style type="text/css">
+    table{
+        border: 1px solid black;
+        position: center;
+    }
+    th, td{
+        padding: 15px;
+        vertical-align: center;
+        text-align: left;
+        border: 1px solid black;
+    }
+
+    tr:hover{
+        background-color: #f5f5f5;
+    }
+
+    #loc-dt{
+
+    }
+
+
+    a:hover{
+        text-decoration: none;
+        color: white;
+
+    }
+
+    .btn{
+        margin-left: 5px;
+    }
+    .btn:hover{
+        background-color: #4da6ff;
+    }
+
+    .tbn{
+        float: right;
+        margin-right: 5%;
+    }
+</style>
 <nav class="large-3 medium-4 columns" id="actions-sidebar">
     <ul class="side-nav">
         <li class="heading"><?= __('Actions') ?></li>
@@ -27,57 +66,44 @@
         <tr>
             <th scope="row"><?= __('Last Name') ?></th>
             <td><?= h($child->last_name) ?></td>
-        </tr>
+        </tr>c
         <tr>
             <th scope="row"><?= __('Note') ?></th>
             <td><?= h($child->note) ?></td>
-        </tr>
-        <tr>
-            <th scope="row"><?= __('Id') ?></th>
-            <td><?= $this->Number->format($child->id) ?></td>
         </tr>
         <tr>
             <th scope="row"><?= __('Dob') ?></th>
             <td><?= h($child->dob) ?></td>
         </tr>
     </table>
+    <div>
+        <br\>
+        <?= $this->Form->button('Edit', ['class' => 'btn btn-success pull-right', 'style' => 'margin-top: 10px; margin-bottom: 100px;'],['action' => 'edit', $child->id]) ?>
+        <button><?= $this->Html->link(__('Edit Child'), ['action' => 'edit', $child->id],['class' => 'btn btn-success']) ?></button>
+        <?php echo $this->Html->link(__('Back'), ['action' => 'index'],
+            ['class' => 'btn btn-info pull-right', 'style' => 'margin-top: 10px; margin-right: 5px;'])
+        ?>
+        <br\>
+    </div>
     <div class="related">
         <h4><?= __('Related Users') ?></h4>
         <?php if (!empty($child->users)): ?>
         <table cellpadding="0" cellspacing="0">
             <tr>
-                <th scope="col"><?= __('Id') ?></th>
-                <th scope="col"><?= __('F Name') ?></th>
-                <th scope="col"><?= __('L Name') ?></th>
-                <th scope="col"><?= __('Username') ?></th>
-                <th scope="col"><?= __('Password') ?></th>
+                <th scope="col"><?= __('First Name') ?></th>
+                <th scope="col"><?= __('Last Name') ?></th>
                 <th scope="col"><?= __('Email') ?></th>
                 <th scope="col"><?= __('Phone') ?></th>
-                <th scope="col"><?= __('Birthday') ?></th>
-                <th scope="col"><?= __('Postcode') ?></th>
-                <th scope="col"><?= __('Role') ?></th>
-                <th scope="col"><?= __('Created') ?></th>
-                <th scope="col"><?= __('Modified') ?></th>
                 <th scope="col" class="actions"><?= __('Actions') ?></th>
             </tr>
             <?php foreach ($child->users as $users): ?>
             <tr>
-                <td><?= h($users->id) ?></td>
                 <td><?= h($users->f_name) ?></td>
                 <td><?= h($users->l_name) ?></td>
-                <td><?= h($users->username) ?></td>
-                <td><?= h($users->password) ?></td>
                 <td><?= h($users->email) ?></td>
                 <td><?= h($users->phone) ?></td>
-                <td><?= h($users->birthday) ?></td>
-                <td><?= h($users->postcode) ?></td>
-                <td><?= h($users->role) ?></td>
-                <td><?= h($users->created) ?></td>
-                <td><?= h($users->modified) ?></td>
                 <td class="actions">
                     <?= $this->Html->link(__('View'), ['controller' => 'Users', 'action' => 'view', $users->id]) ?>
-                    <?= $this->Html->link(__('Edit'), ['controller' => 'Users', 'action' => 'edit', $users->id]) ?>
-                    <?= $this->Form->postLink(__('Delete'), ['controller' => 'Users', 'action' => 'delete', $users->id], ['confirm' => __('Are you sure you want to delete # {0}?', $users->id)]) ?>
                 </td>
             </tr>
             <?php endforeach; ?>
