@@ -71,7 +71,7 @@
     <table class="vertical-table">
         <tr>
             <th scope="row"><?= __('Name') ?></th>
-            <td><?= h($user->name) ?></td>
+            <td><?= h($user->f_name) ?></td>
         </tr>
         <tr>
             <th scope="row"><?= __('Username') ?></th>
@@ -90,8 +90,8 @@
             <td><?= h($user->phone) ?></td>
         </tr>
         <tr>
-            <th scope="row"><?= __('Zipcode') ?></th>
-            <td><?= h($user->zipcode) ?></td>
+            <th scope="row"><?= __('Postcode') ?></th>
+            <td><?= h($user->postcode) ?></td>
         </tr>
         <tr>
             <th scope="row"><?= __('Role') ?></th>
@@ -103,7 +103,7 @@
         </tr>
         <tr>
             <th scope="row"><?= __('Birthdate') ?></th>
-            <td><?= h($user->birthdate) ?></td>
+            <td><?= h($user->birthday) ?></td>
         </tr>
         <tr>
             <th scope="row"><?= __('Created') ?></th>

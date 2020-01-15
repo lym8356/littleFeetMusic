@@ -28,8 +28,8 @@
                 'placeholder' => 'Enter phone number', 'label'=>'Phone *', 'required' => true]);
             echo $this->Form->control('birthdate', ['class' => 'form-control','id' => 'bd', 'type' => 'text',
                 'placeholder' => 'Enter Birthdate', 'value'=>'', 'required' => false]);
-            echo $this->Form->control('zipcode', ['class' => 'form-control',
-                'placeholder' => 'Enter Zipcode', 'value'=>'', 'required' => false]);
+            echo $this->Form->control('postcode', ['class' => 'form-control',
+                'placeholder' => 'Enter Postcode', 'value'=>'', 'required' => false]);
             echo $this->Form->control('role', ['class' => 'form-control',
                 'placeholder' => 'Enter staff, admin, teacher or user', 'label'=>'Role *', 'required' => true]);
             ?>

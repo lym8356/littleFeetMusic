@@ -29,7 +29,7 @@
                                 <th scope="col"><?= $this->Paginator->sort('email') ?></th>
                                 <th scope="col"><?= $this->Paginator->sort('phone') ?></th>
                                 <!--                <th scope="col">--><!--<?//= $this->Paginator->sort('birthdate') ?>--><!--</th>-->
-                                <th scope="col"><?= $this->Paginator->sort('zipcode') ?></th>
+                                <th scope="col"><?= $this->Paginator->sort('postcode') ?></th>
                                 <th scope="col"><?= $this->Paginator->sort('role') ?></th>
                                 <th scope="col"><?= $this->Paginator->sort('created') ?></th>
                                 <th scope="col"><?= $this->Paginator->sort('modified') ?></th>
@@ -39,12 +39,12 @@
                             <tbody>
                             <?php foreach ($users as $user): ?>
                                 <tr>
-                                    <td><?= h($user->name) ?></td>
+                                    <td><?= h($user->f_name) ?></td>
                                     <td><?= h($user->username) ?></td>
                                     <!--<td><?/*= h($user->password) */?></td>-->
                                     <td><?= h($user->email) ?></td>
                                     <td><?= h($user->phone) ?></td>
-                                    <td><?= h($user->zipcode) ?></td>
+                                    <td><?= h($user->postcode) ?></td>
                                     <td><?= h($user->role) ?></td>
                                     <td><?= h($user->created) ?></td>
                                     <td><?= h($user->modified) ?></td>
