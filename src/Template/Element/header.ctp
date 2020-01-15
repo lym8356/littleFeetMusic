@@ -38,7 +38,7 @@ $cakeDescription = 'User Panel';
                     <?= $this->Html->link(' Home<span class="sr-only">(current)</span>', '/Home', ['class' => 'nav-link', 'escape' => false]); ?>
                     <!--                    <a class="nav-link" href="#">Home<span class="sr-only">(current)</span></a>-->
                 </li>
-                
+
                 <li class="nav-item">
                     <?= $this->Html->link(' Class Info<span class="sr-only">(current)</span>', '/Class', ['class' => 'nav-link', 'escape' => false]); ?>
                 </li>
