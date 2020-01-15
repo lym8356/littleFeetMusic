@@ -15,13 +15,18 @@
     <fieldset>
         <legend><?= __('Add Article') ?></legend>
         <?php
-            echo $this->Form->control('user_id');
-            echo $this->Form->control('title');
-            echo $this->Form->control('slug');
-            echo $this->Form->control('body');
-            echo $this->Form->control('published');
+            echo $this->Form->control('user_id', ['class' => 'form-control', 'label'=>'User',
+                    'empty' => 'Please Select', 'required' => true]);
+            echo $this->Form->control('title', ['class' => 'form-control']);
+            echo $this->Form->control('slug', ['class' => 'form-control']);
+            echo $this->Form->control('body', ['class' => 'form-control']);
+            echo $this->Form->control('published', ['class' => 'form-control']);
+            echo $this->Form->control('tags._ids', ['class' => 'form-control' , 'options' => $tags]);
         ?>
     </fieldset>
     <?= $this->Form->button(__('Submit')) ?>
-    <?= $this->Form->end() ?>
+    <?= $this->Form->end() 
+
+    ?>
+
 </div>

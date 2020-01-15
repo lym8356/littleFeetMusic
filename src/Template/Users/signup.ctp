@@ -6,7 +6,7 @@
         $this->Form->setTemplates([
             'inputContainer' => '<div class="form-group{{required}}">
                         {{content}} <span class="help">{{help}}</span></div>',
-            'input' => '<input type="{{type}}" name="{{name}}" 
+            'input' => '<input type="{{type}}" name="{{name}}"
                         class="form-control form-control-danger" {{attrs}}/>',
             'inputContainerError' => '<div class="form-group has has-danger
                     {{type}}{{required}} error">{{content}}{{error}}</div>',
@@ -29,7 +29,7 @@
             'class' => 'form-control-label']);
         echo $this->Form->control('email',['required' => false, 'placeholder' => 'Enter Email',
             'class' => 'form-control-label']);
-        echo $this->Form->control('zipcode',['required' => false, 'placeholder' => 'Enter Zipcode',
+        echo $this->Form->control('postcode',['required' => false, 'placeholder' => 'Enter Postcode',
             'class' => 'form-control-label']);
         echo $this->Form->button('<i class="fa fa-user-plus"></i> Sign Up',
             ['class'=> 'btn btn-success btn-block ']);

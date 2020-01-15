@@ -7,7 +7,7 @@
                 $this->Form->setTemplates([
                     'inputContainer' => '<div class="form-group{{required}}">
                         {{content}} <span class="help">{{help}}</span></div>',
-                    'input' => '<input type="{{type}}" name="{{name}}" 
+                    'input' => '<input type="{{type}}" name="{{name}}"
                         class="form-control form-control-danger" {{attrs}}/>',
                     'inputContainerError' => '<div class="form-group has has-danger
                     {{type}}{{required}} error">{{content}}{{error}}</div>',
@@ -29,7 +29,7 @@
                         'label' => ['class' => 'form-control-label']],
                     'phone' => ['required' => false, 'placeholder' => 'Enter Phone Number',
                         'label' => ['class' => 'form-control-label']],
-                    'zipcode' => ['required' => false, 'placeholder' => 'Enter Zipcode',
+                    'postcode' => ['required' => false, 'placeholder' => 'Enter Postcode',
                         'label' => ['class' => 'form-control-label']],
 
                 ],

@@ -59,8 +59,8 @@
                                     <td><?= h($term->name) ?></td>
                                     <td><?= h($term->age_group) ?></td>
                                     <td><?= $term->location->name ?></td>
-                                    <td><?= h(date('Y-m-d', strtotime($term->start_date))) ?></td>
-                                    <td><?= h(date('Y-m-d', strtotime($term->end_date))) ?></td>
+                                    <td><?= h(date('d-m-Y', strtotime($term->start_date))) ?></td>
+                                    <td><?= h(date('d-m-Y', strtotime($term->end_date))) ?></td>
                                     <td><?= $this->Number->format($term->week_length) ?></td>
                                     <td><?= $term->day->name ?></td>
                                     <td><?= h(date("G:i", strtotime($term->start_time))) ?></td>

@@ -67,7 +67,7 @@ class UsersController extends AppController
                 $sign_up->password = $this->request->getData('password');
                 $sign_up->email = $this->request->getData('email');
                 $sign_up->phone = $this->request->getData('phone');
-                $sign_up->zipcode = $this->request->getData('zipcode');
+                $sign_up->postcode = $this->request->getData('postcode');
                 $sign_up->role = 'user';
 
                 if ($this->Users->save($sign_up)) {
@@ -111,8 +111,8 @@ class UsersController extends AppController
                     $this->request->getSession()->write('Auth.User.name', $user_data['name']);
                     $this->request->getSession()->write('Auth.User.email', $user_data['email']);
                     $this->request->getSession()->write('Auth.User.phone', $user_data['phone']);
-                    $this->request->getSession()->write('Auth.User.zipcode', $user_data['zipcode']);
-                    $this->request->getSession()->write('Auth.User.birthdate', $user_data['birthdate']);
+                    $this->request->getSession()->write('Auth.User.postcode', $user_data['postcode']);
+                    $this->request->getSession()->write('Auth.User.birthday', $user_data['birthday']);
                     $this->redirect('/User/Profile');
                     $this->Flash->success('User Profile Has Been Updated.');
                 } else {

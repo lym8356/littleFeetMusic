@@ -149,7 +149,7 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
         function viewClass(){
             var a = document.getElementById("btn1").value;
             if (a=="1"){
-                document.getElementById("specifyClass").innerHTML= "<h2>Information about class of Babes </h2><p>Live music, singing, dancing and playing percussion instruments. Loads of songs you know, and heaps of new ones to learn! Fun, colourful puppets, finger and lap plays. These classes are great for child/parent bonding and for giving parents and carers musical ideas for home. You'll know loads of the songs, and there are loads of new ones to learn! Term fee includes a Little Feet Music song book!\n</p>";
+                document.getElementById("specifyClass").innerHTML= "<h2>Information about class for Babes </h2><p>Live music, singing, dancing and playing percussion instruments. Loads of songs you know, and heaps of new ones to learn! Fun, colourful puppets, finger and lap plays. These classes are great for child/parent bonding and for giving parents and carers musical ideas for home. You'll know loads of the songs, and there are loads of new ones to learn! Term fee includes a Little Feet Music song book!\n</p>";
                 //document.getElementById("clsimage").innerHTML = "<?php echo $this->Html->image('cls-baby.jpg'); ?>";
             }
         }
@@ -157,19 +157,19 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
         function viewClass1() {
             var b = document.getElementById("btn2").value;
             if (b=="1"){
-                document.getElementById("specifyClass").innerHTML= "<h2>Information about class of Toddlers</h2><p> Live music where listening skills are enhanced - children start to learn how to identify changes in music (e.g., start and stop) and musical elements such as dynamics (loud and quiet), tempo (fast and slow) and timbre (characteristics of sounds). Learn about taking it in turns, meet some interesting and friendly puppets, learn colours and counting through music, and have a great fun time. Listening and social skills are developed and nurtured. Term fee includes a Little Feet Music song book!</p>";
+                document.getElementById("specifyClass").innerHTML= "<h2>Information about class for Toddlers</h2><p> Live music where listening skills are enhanced - children start to learn how to identify changes in music (e.g., start and stop) and musical elements such as dynamics (loud and quiet), tempo (fast and slow) and timbre (characteristics of sounds). Learn about taking it in turns, meet some interesting and friendly puppets, learn colours and counting through music, and have a great fun time. Listening and social skills are developed and nurtured. Term fee includes a Little Feet Music song book!</p>";
             }
         }
         function viewClass2(){
             var c = document.getElementById("btn3").value;
             if (c=="1"){
-                document.getElementById("specifyClass").innerHTML= "<h2>Information about class of Preschoolers </h2><p>Live music! Cool, creative and fun! Singing and conscious learning of beat, tempo, dynamics and pitch through fabulously fun and stimulating games, movement, songs and rhymes. Musical elements are expanded on and the focus is on having fun while gaining an understanding of music. Simple notation and the concept of reading from left to right are developed. There’s lots of structured musical game playing and solo singing opportunities in a relaxed and friendly environment. Children who continue on for the 4-5 year old program learn some of the symbols which represent musical sounds and rests and how to play simple songs/melodies on the chime bars. Term fee includes a Little Feet Music song book!\n</p>";
+                document.getElementById("specifyClass").innerHTML= "<h2>Information about class for Preschoolers </h2><p>Live music! Cool, creative and fun! Singing and conscious learning of beat, tempo, dynamics and pitch through fabulously fun and stimulating games, movement, songs and rhymes. Musical elements are expanded on and the focus is on having fun while gaining an understanding of music. Simple notation and the concept of reading from left to right are developed. There’s lots of structured musical game playing and solo singing opportunities in a relaxed and friendly environment. Children who continue on for the 4-5 year old program learn some of the symbols which represent musical sounds and rests and how to play simple songs/melodies on the chime bars. Term fee includes a Little Feet Music song book!\n</p>";
             }
         }
         function viewClass3(){
             var d = document.getElementById("btn4").value;
             if (d=="1"){
-                document.getElementById("specifyClass").innerHTML= "<h2>Information about class of Family Class </h2><p>It's like a BIG PARTY every week! Live music, songs, dances and playing percussion instruments. Fun, colourful puppets and simple instruments. These sessions are great for child/parent bonding and for giving parents and carers musical ideas to use at home. Dancing, jumping and wriggling, playing musical games, learning about taking it in turns, meeting some interesting puppets, learning colours and counting through music, and having a great fun time. Listening and social skills are developed and nurtured. Term fee includes a Little Feet Music song book!\n</p>";
+                document.getElementById("specifyClass").innerHTML= "<h2>Information about class for Family Class </h2><p>It's like a BIG PARTY every week! Live music, songs, dances and playing percussion instruments. Fun, colourful puppets and simple instruments. These sessions are great for child/parent bonding and for giving parents and carers musical ideas to use at home. Dancing, jumping and wriggling, playing musical games, learning about taking it in turns, meeting some interesting puppets, learning colours and counting through music, and having a great fun time. Listening and social skills are developed and nurtured. Term fee includes a Little Feet Music song book!\n</p>";
             }
         }
 

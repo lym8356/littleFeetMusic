@@ -28,10 +28,10 @@
         <?php
         echo $this->Form->control('phone', ['class' => 'form-control',
             'placeholder' => 'Enter phone number', 'value'=>'', 'label'=>'Phone *', 'required' => true]);
-        echo $this->Form->control('birthdate', ['class' => 'form-control', 'id' => 'bd', 'type' => 'text',
-            'placeholder' => 'Enter Birthdate', 'value'=>'', 'required' => false]);
-        echo $this->Form->control('zipcode', ['class' => 'form-control',
-            'placeholder' => 'Enter Zipcode', 'value'=>'', 'required' => false]);
+        echo $this->Form->control('birthday', ['class' => 'form-control', 'id' => 'bd', 'type' => 'text',
+            'placeholder' => 'Enter Birthday', 'value'=>'', 'required' => false]);
+        echo $this->Form->control('postcode', ['class' => 'form-control',
+            'placeholder' => 'Enter Postcode', 'value'=>'', 'required' => false]);
         echo $this->Form->control('role', ['class' => 'form-control',
             'placeholder' => 'Enter staff, admin, teacher or user', 'value'=>'', 'label'=>'Role *', 'required' => true]);
         ?>

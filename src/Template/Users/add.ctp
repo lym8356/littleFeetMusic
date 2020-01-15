@@ -20,8 +20,8 @@
             echo $this->Form->control('password');
             echo $this->Form->control('email');
             echo $this->Form->control('phone');
-            echo $this->Form->control('birthdate', ['empty' => true]);
-            echo $this->Form->control('zipcode');
+            echo $this->Form->control('birthday', ['empty' => true]);
+            echo $this->Form->control('postcode');
             echo $this->Form->control('role');
         ?>
     </fieldset>

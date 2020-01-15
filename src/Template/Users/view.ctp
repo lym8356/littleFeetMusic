@@ -37,8 +37,8 @@
             <td><?= h($user->phone) ?></td>
         </tr>
         <tr>
-            <th scope="row"><?= __('Zipcode') ?></th>
-            <td><?= h($user->zipcode) ?></td>
+            <th scope="row"><?= __('Postcode') ?></th>
+            <td><?= h($user->postcode) ?></td>
         </tr>
         <tr>
             <th scope="row"><?= __('Role') ?></th>
