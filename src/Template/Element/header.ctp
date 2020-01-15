@@ -24,10 +24,9 @@ $cakeDescription = 'User Panel';
 <body>
 <header>
 
-    <nav class="navbar navbar-expand-lg fixed-top navbar-dark">
-        <a class="navbar-brand d-flex w-40 mr-0" href="./Home"> <?php echo $this->Html->image('Logo.gif'); ?></a>
+
     <nav class="navbar navbar-expand-lg fixed-top navbar-dark" style="background-color: #AD33FF;">
-        <a class="navbar-brand d-flex w-40 mr-0" href="./Home"> <?php echo $this->Html->image('Logo.gif'); ?></a>
+        <a class="navbar-brand d-flex w-40 mr-0" href="/Home"> <?php echo $this->Html->image('Logo.gif'); ?></a>
         <button class="navbar-toggler" type="button"
                 data-toggle="collapse" data-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false"
                 aria-label="Toggle navigation">
@@ -39,9 +38,7 @@ $cakeDescription = 'User Panel';
                     <?= $this->Html->link(' Home<span class="sr-only">(current)</span>', '/Home', ['class' => 'nav-link', 'escape' => false]); ?>
                     <!--                    <a class="nav-link" href="#">Home<span class="sr-only">(current)</span></a>-->
                 </li>
-                <li class="nav-item">
-                    <?= $this->Html->link(' Enrol<span class="sr-only">(current)</span>', '/Class/EnrolInfo', ['class' => 'nav-link', 'escape' => false]); ?>
-                </li>
+                
                 <li class="nav-item">
                     <?= $this->Html->link(' Class<span class="sr-only">(current)</span>', '/Class', ['class' => 'nav-link', 'escape' => false]); ?>
                 </li>
@@ -75,11 +72,12 @@ $cakeDescription = 'User Panel';
     </nav>
 
 </header>
+
+</body>
 <SCRIPT>
     $(document).ready(function() {
         $('li.active').removeClass('active');
         $('a[href="' + location.pathname + '"]').closest('li').addClass('active');
     });
 </SCRIPT>
-</body>
 </html>
