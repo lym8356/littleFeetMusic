@@ -46,20 +46,27 @@ class ArticlesController extends AppController
      * @return \Cake\Http\Response|null Redirects on successful add, renders view otherwise.
      */
     public function add()
-    {
-        $article = $this->Articles->newEntity();
-        if ($this->request->is('post')) {
-            $article = $this->Articles->patchEntity($article, $this->request->getData());
-            if ($this->Articles->save($article)) {
-                $this->Flash->success(__('The article has been saved.'));
-
-                return $this->redirect(['action' => 'index']);
-            }
-            $this->Flash->error(__('The article could not be saved. Please, try again.'));
-        }
-        $this->set(compact('article'));
-    }
-
+	{
+		$article = $this->Articles->newEntity();
+		if ($this->request->is('post')) {
+		$article = $this->Articles->patchEntity($article, $this->request->
+		˓→getData());
+		// Hardcoding the user_id is temporary, and will be removed later
+		// when we build authentication out.
+		$article->user_id = 1;
+		if ($this->Articles->save($article)) {
+		$this->Flash->success(__('Your article has been saved.'));
+		return $this->redirect(['action' => 'index']);
+		}
+			$this->Flash->error(__('Unable to add your article.'));
+		}
+		// Get a list of tags.
+		$tags = $this->Articles->Tags->find('list');
+		// Set tags to the view context
+		$this->set('tags', $tags);
+		$this->set('article', $article);
+	}
+		// Other actions
     /**
      * Edit method
      *
@@ -67,22 +74,27 @@ class ArticlesController extends AppController
      * @return \Cake\Http\Response|null Redirects on successful edit, renders view otherwise.
      * @throws \Cake\Datasource\Exception\RecordNotFoundException When record not found.
      */
-    public function edit($id = null)
-    {
-        $article = $this->Articles->get($id, [
-            'contain' => []
-        ]);
-        if ($this->request->is(['patch', 'post', 'put'])) {
-            $article = $this->Articles->patchEntity($article, $this->request->getData());
-            if ($this->Articles->save($article)) {
-                $this->Flash->success(__('The article has been saved.'));
 
-                return $this->redirect(['action' => 'index']);
-            }
-            $this->Flash->error(__('The article could not be saved. Please, try again.'));
-        }
-        $this->set(compact('article'));
-    }
+    public function edit($slug)
+	{
+		$article = $this->Articles
+		->findBySlug($slug)
+		->contain('Tags') // load associated Tags
+		->firstOrFail();
+		if ($this->request->is(['post', 'put'])) {
+		$this->Articles->patchEntity($article, $this->request->getData());
+		if ($this->Articles->save($article)) {
+		$this->Flash->success(__('Your article has been updated.'));
+		return $this->redirect(['action' => 'index']);
+		}
+		$this->Flash->error(__('Unable to update your article.'));
+		}
+		// Get a list of tags.
+		$tags = $this->Articles->Tags->find('list');
+		// Set tags to the view context
+		$this->set('tags', $tags);
+		$this->set('article', $article);
+	}
 
     /**
      * Delete method
