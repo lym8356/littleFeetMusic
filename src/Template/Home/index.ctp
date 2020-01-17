@@ -63,7 +63,7 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
                 <div class="LFM-about-us-area">
                     <div class="row">
                         <div class="col-md-6">
-                            <div class="LFM-about-us-left">
+                            <div class="LFM-about-us-left text-dark">
                                 <p>Rachel Parkinson runs Little Feet Music - amazingly fun and engaging music and movement classes for babies, toddlers and preschoolers.  Rachel knows HUNDREDS of songs, so it never gets boring!</p>
                                 <p>Services include:</p>
                                 <ul>

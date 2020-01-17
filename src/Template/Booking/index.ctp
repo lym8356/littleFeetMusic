@@ -62,7 +62,7 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
         <?php echo $this->Html->image('LFM.jpg'); ?>
     </div>
 </div>
-<section class="testimonial">
+<section class="testimonial text-dark">
     <div class="container">
         <h1>Testimonial</h1>
         <div class="row">

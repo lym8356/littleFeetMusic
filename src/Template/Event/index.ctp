@@ -62,15 +62,15 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
 <body>
 
 <section id="LFM-about-us">
-    <div class="container">
+    <div class="container text-dark">
         <div class="row">
             <div class="col-md-12">
                 <div class="LFM-about-us-area">
                     <div class="row">
                         <div class="col-md-6">
                             <div class="LFM-about-us-left">
-                                <h3><p>At Little Feet Music the music is all LIVE!
-                                    </p></h3>
+                                <h3 class="text-dark"><b>At Little Feet Music the music is all LIVE!
+                                    </b></h3>
                                 <p>Services included:</p>
                                 <ul>
                                     <li>Creative and cool music classes for children with parent or carer</li>
@@ -115,7 +115,7 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
 
 
 
-<section class="testimonial">
+<section class="testimonial text-dark">
     <div class="container">
         <div class="row">
             <div class="text-center">

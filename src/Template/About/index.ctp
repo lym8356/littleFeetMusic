@@ -47,15 +47,7 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
 
 </head>
 
-
-
-
-
-
-
-
-
-<body>
+<body class = "text-dark">
 <div class="headpic">
         <?php echo $this->Html->image('LFM.jpg'); ?>
 
@@ -64,7 +56,7 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
 
 <section id="LFM-about-us">
 
-    <div class="container">
+    <div class="container text-dark">
         <div class="row">
             <div class="col-md-12">
                 <div class="LFM-about-us-area">

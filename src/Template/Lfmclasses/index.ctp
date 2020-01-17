@@ -46,17 +46,10 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
 
 
 </head>
-
-
-
 <?php echo $this->element('header') ?>
-
-
-
-
-
 <body>
-<div class="headpic">
+    <div class= "text-dark">
+        <div class="headpic">
     <div class="container">
         <?php echo $this->Html->image('LFM.jpg'); ?>
     </div>
@@ -73,11 +66,11 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
             <div class="p-1">
                 <button class="btn btn-outline-success fixedsize p-1" id="btn4" value="1" onclick="viewClass3()"> Family Class</button></div>
             <div class="p-1">
-                <button class="btn btn-outline-success fixedsize p-1" id="btn5" value="1" >FAQ</button></div>
+                <button class="btn btn-outline-success fixedsize p-1" id="btn5" value="1" onclick="viewFAQ()">FAQ</button></div>
             <div class="p-1">
                 <a href='/Class/EnrolInfo' class="btn btn-outline-success fixedsize p-1" >Enrol</a></div>
             <div class="p-1">
-                <button class="btn btn-outline-success fixedsize p-1" id="enquiry" value="1" onclick="viewClass3()"> Enquiry</button></div>
+                <button class="btn btn-outline-success fixedsize p-1" id="enquiry" value="1"> Enquiry</button></div>
         </div>
     </section>
     <section>
@@ -134,6 +127,13 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
             }
         }
 
+        function viewFAQ() {
+            var b = document.getElementById("btn5").value;
+            if (b=="1"){
+                document.getElementById("specifyClass").innerHTML= "<h1>WHAT TO EXPECT</h1><h4> <p>I have a young baby - can I bring him/her along too?</p></h4><p> Attendance of babies is welcomed.  From when they start to join in or at twelve months of age (whichever comes earlier) then a generous discount of 25% is available for the second child.</p><h4><p>  My older child is attending - can I bring him/her along?</p></h4><p>  If a sibling under 6 years of age is attending a one-off session, the fee is $20 per class.  If you'd like to enrol them in for the term, then they'll get a 25% discount on the term fee.  If child other than a sibling is attending a one-off session, the fee is $26 per class.</p><h4> <p> Is there a discount for bringing more than one child to the classes?</p></h4><p> There is a 25% discount for the second child when siblings come to the same class.</p><h4><p> What happens if we miss a class?</p></h4><p>If you miss a class, please contact us by email or phone prior to 9am on the day of the class that you will miss.  To make up for the missed class you can either;</p><ul><li>attend a class on another day, or</li><li>send a friend along to the class in your place, or</li><li>bring a friend along to another class with you</li></ul><p>as long as it is within the term you have paid for.  Make sure you confirm with the office before making up the missed class to avoid the situation where there are too many children in one class.  Refunds are not possible for missed classes.  There are no refunds or transfers to another term in the event that you are unable to attend part of or the whole term.</p><p><button class='btn btn-outline-success fixedsize p-1'>T&C</button>";
+            }
+        }
+
         $(document).ready(function(){
             $("#btn6").click(function(){
             $("#div1").load("demo_class.php");
@@ -160,7 +160,8 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
     </div>
 </div>
-<div id="FAQs-popup">
+
+<!-- <div id="FAQs-popup">
     <form class="faq-form" action="" id="contact-form"
           method="post" enctype="multipart/form-data">
         <button type="button" data-dismiss="modal" class="close">&times;</button>
@@ -189,7 +190,7 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
 
     </p>
     </form>
-</div>
+</div> -->
 
 <div id="contact-popup">
     <form class="contact-form" action="" id="contact-form"
@@ -360,6 +361,8 @@ if(isset($_POST['submit'])) {
         </div>
     </div>
 </section>
+
+    </div>
 
 </body>
 

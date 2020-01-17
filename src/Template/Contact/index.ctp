@@ -54,25 +54,25 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
 </div>
 
 <body>
-
+<div class = "text-dark">
 
 <section class="map">
 
 <div class="container">
 	<div class="row">
-        <div class="col-md-4">
-
+        <div class="col-md-1"></div>
+        <div class="text-center">
             <address>
-               <h3><p>PO Box 2020 Parkdale Vic 3195 |<a href="tel:0410 600 060"> 0410 600 060 </a> | <a href="mailto:team117bluewater@gmail.com">team117bluewater@gmail.com</a></p>
-               </h3>
+               <h3><p>PO Box 2020, Parkdale Vic 3195</h3>
+                <h2>
+                <a href="tel:0410 600 060"> 0410 600 060 </a> ||
+                <a href="mailto:team117bluewater@gmail.com">team117bluewater@gmail.com</a></p>
+                </h2>
                 <button id="enquiry" class="btn btn-warning btn-lg">Contact</button>
 
             </address>
         </div>
-
-
-
-    </div>
+</div>
 </div>
 
 <div class="container">
@@ -302,6 +302,7 @@ if(isset($_POST['submit'])) {
         </div>
     </div>
 </section>
+</div>
 </body>
 
 </html>
