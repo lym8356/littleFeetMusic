@@ -106,45 +106,6 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
             </div>
         </div>
     </section>
-
-
-
-    <section class="testimonial">
-        <div class="container">
-            <h1>Testimonial</h1>
-
-        <div class="row">
-            <div class="col-md-4 text-center sb ">
-               <div class="testimonial-info">
-               <blockquote>
-                   <p> My kid enjoyed the class.</p>
-               </blockquote>
-               <h5> -John Smith</h5>
-               <h7>Little Feet Music Parent</h7>
-               </div>
-           </div>
-            <div class="col-md-4 text-center sb">
-                <div class="testimonial-info">
-                    <blockquote>
-                        <p> My child likes the class so much.</p>
-                    </blockquote>
-                    <h5> -Paul Frank</h5>
-                    <h7>Little Feet Music Parent</h7>
-                </div>
-            </div>
-            <div class="col-md-4 text-center sb">
-                <div class="testimonial-info">
-                    <blockquote>
-                        <p> Really nice class and teacher.</p>
-                    </blockquote>
-                    <h5> -Sarah Jane</h5>
-                    <h7>Little Feet Music Parent</h7>
-                </div>
-            </div>
-
-        </div>
-        </div>
-    </section>
     <script type="text/javascript">
         function viewClass(){
             var a = document.getElementById("btn1").value;
@@ -387,6 +348,18 @@ if(isset($_POST['submit'])) {
 
 
 </html>
+
+<section class="testimonial">
+    <div class="container">
+        <div class="row">
+            <div class="text-center">
+                <div >
+                    <p> <i>How awesome is these Albums???? These are a must-have in the car, keeps my little ones entertained and singing along every single time! Love these, and recommend to anyone with kids!!!</i></p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
 
 </body>
 

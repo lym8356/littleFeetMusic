@@ -66,42 +66,17 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
         </div>
     </div>
 </section>
-
-
 <section class="testimonial">
     <div class="container">
-        <h1>Testimonial</h1>
         <div class="row">
-            <div class="col-md-4 text-center">
-                <div class="testimonial-info">
-                    <blockquote>
-                        <p> My kid enjoyed the class.</p>
-                    </blockquote>
-                    <h5> -John Smith</h5>
-                    <h7>Little Feet Music Parent</h7>
+            <div class="text-center">
+                <div >
+                    <p> <i>Hi Rachel, Zac and Bianca have both been singing various Little Feet music songs on and off all day….Zac is particularly stoked with Andy Pandy….even told his Dad about it tonight! He keeps on saying Andy Pandy Sugar and Candy, then bursts out laughing, like it’s the funniest thing.</i></p>
                 </div>
             </div>
-            <div class="col-md-4 text-center">
-                <div class="testimonial-info">
-                    <blockquote>
-                        <p> My child likes the class so much.</p>
-                    </blockquote>
-                    <h5> -Paul Frank</h5>
-                    <h7>Little Feet Music Parent</h7>
-                </div>
-            </div>
-            <div class="col-md-4 text-center">
-                <div class="testimonial-info">
-                    <blockquote>
-                        <p> Really nice class and teacher.</p>
-                    </blockquote>
-                    <h5> -Sarah Jane</h5>
-                    <h7>Little Feet Music Parent</h7>
-                </div>
-            </div>
-
         </div>
     </div>
 </section>
+
 </body>
 </html>

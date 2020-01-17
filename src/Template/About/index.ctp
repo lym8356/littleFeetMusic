@@ -85,39 +85,15 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
     </div>
 </section>
 
-
 <section class="testimonial">
     <div class="container">
-        <h1>Testimonial</h1>
         <div class="row">
-            <div class="col-md-4 text-center">
-                <div class="testimonial-info">
-                    <blockquote>
-                        <p> My kid enjoyed the class.</p>
-                    </blockquote>
-                    <h5> -John Smith</h5>
-                    <h7>Little Feet Music Parent</h7>
+            <div class="text-center">
+                <div >
+                    <p> <i>So much fun - all the kids love the music and singing by Rachel!
+                    Get around this everyone!!!! This woman is awsome!!!</i></p>
                 </div>
             </div>
-            <div class="col-md-4 text-center">
-                <div class="testimonial-info">
-                    <blockquote>
-                        <p> My child likes the class so much.</p>
-                    </blockquote>
-                    <h5> -Paul Frank</h5>
-                    <h7>Little Feet Music Parent</h7>
-                </div>
-            </div>
-            <div class="col-md-4 text-center">
-                <div class="testimonial-info">
-                    <blockquote>
-                        <p> Really nice class and teacher.</p>
-                    </blockquote>
-                    <h5> -Sarah Jane</h5>
-                    <h7>Little Feet Music Parent</h7>
-                </div>
-            </div>
-
         </div>
     </div>
 </section>
