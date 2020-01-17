@@ -81,7 +81,7 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
             <h2>Albert Park</h2>
             <address>
                 <strong>Gasworks Arts Park </strong><br>
-                <a href=""> Click here to see the map</a><br>
+                <a href="img/GLS.jpg" data-fancybox="gal">Click here to see the map</a><br>
                 21 Graham St​<br>
                 Albert Park Vic 3206<br>
 
@@ -255,7 +255,7 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
                 $("#userEmail").addClass("input-error");
                 valid = false;
             }
-            if (!userEmail.match(/^([\w-\.]+@([\w-]+\.)+[\w-]{2,4})?$/))
+            if (!filter_var($userEmail, FILTER_VALIDATE_EMAIL))
             {
                 $("#userEmail-info").html("Invalid email address");
                 $("#userEmail").addClass("input-error");
@@ -299,7 +299,7 @@ if(isset($_POST['submit'])) {
 
     $mail->Host='smtp.gmail.com';
     $mail->Port=587;
-    $mail->SMTPDebug = 0;
+    $mail->SMTPDebug = 1;
     $mail->SMTPAuth=true;
     $mail->SMTPSecure='false';
     $mail->Username='team117bluewater@gmail.com';

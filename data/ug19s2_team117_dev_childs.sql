@@ -1,0 +1,18 @@
+INSERT INTO ug19s2_team117_dev.childs (id, first_name, last_name, dob, note) VALUES (1, 'harry', 'potter', '2015-09-05', 'abc');
+INSERT INTO ug19s2_team117_dev.childs (id, first_name, last_name, dob, note) VALUES (2, 'ronald', 'wisley', '2017-09-20', '123');
+INSERT INTO ug19s2_team117_dev.childs (id, first_name, last_name, dob, note) VALUES (3, 'harmion', 'granger', '2017-09-20', null);
+INSERT INTO ug19s2_team117_dev.childs (id, first_name, last_name, dob, note) VALUES (4, 'penelope', 'clearwater', '2015-09-29', null);
+INSERT INTO ug19s2_team117_dev.childs (id, first_name, last_name, dob, note) VALUES (5, 'klaus', 'mike', '2016-11-22', null);
+INSERT INTO ug19s2_team117_dev.childs (id, first_name, last_name, dob, note) VALUES (6, 'Elijah', 'mike', '2015-10-18', '');
+INSERT INTO ug19s2_team117_dev.childs (id, first_name, last_name, dob, note) VALUES (7, 'Finn', 'mike', '2014-02-04', null);
+INSERT INTO ug19s2_team117_dev.childs (id, first_name, last_name, dob, note) VALUES (8, 'kol', 'mike', '2018-07-19', null);
+INSERT INTO ug19s2_team117_dev.childs (id, first_name, last_name, dob, note) VALUES (9, 'rebekah', 'tatia', '2017-01-01', null);
+INSERT INTO ug19s2_team117_dev.childs (id, first_name, last_name, dob, note) VALUES (10, 'Freya', 'tatia', '2013-01-07', null);
+INSERT INTO ug19s2_team117_dev.childs (id, first_name, last_name, dob, note) VALUES (11, 'tony', 'stark', '2017-04-01', null);
+INSERT INTO ug19s2_team117_dev.childs (id, first_name, last_name, dob, note) VALUES (12, 'thor', 'odinson', '2015-03-08', null);
+INSERT INTO ug19s2_team117_dev.childs (id, first_name, last_name, dob, note) VALUES (13, 'marcel ', 'Gerard', '2019-01-04', null);
+INSERT INTO ug19s2_team117_dev.childs (id, first_name, last_name, dob, note) VALUES (14, 'Daliah', 'tatia', '2019-12-04', null);
+INSERT INTO ug19s2_team117_dev.childs (id, first_name, last_name, dob, note) VALUES (34, 'h', 'h', '1970-01-01', '');
+INSERT INTO ug19s2_team117_dev.childs (id, first_name, last_name, dob, note) VALUES (35, 'j', 'j', '1970-01-01', '');
+INSERT INTO ug19s2_team117_dev.childs (id, first_name, last_name, dob, note) VALUES (36, 'yang', 'yuan', '1970-01-01', 'yy_ocean@foxmail.com');
+INSERT INTO ug19s2_team117_dev.childs (id, first_name, last_name, dob, note) VALUES (37, 'new ', 'child', '2019-03-08', '');

@@ -26,11 +26,10 @@
         <?php echo $this->Html->image('LFM.jpg'); ?>
     </div>
 </div>
+
 <div class="Heading container mt-10">
-    <h2><b>Term 2 Starts on  2nd January 2020 and Finishes on 3rd april 2020</b></h2>
 
-
-
+    <h2><b>Term 2 Starts on 2nd January 2020 and Finishes on 3rd April 2020</b></h2>
 </div>
 
 <div class="row">
@@ -50,7 +49,7 @@
 
                                 ?>
 
-                                <?php echo "<th><span style='color: mediumseagreen'>".$termd['age_group']."</span>"."<br>Start:".date("d-m-Y",strtotime($termd['start_date']))."</br>
+                                <?php echo "<th><span style='color: mediumseagreen'>".$termd['age_group']."</span>"."<br>Start: ".date("d-m-Y",strtotime($termd['start_date']))."</br>
                                    Time: ".date("G:i", strtotime($termd['start_time']))."
                                    <br>Week Remaining: "."<span style='color: red'>".$termd['remaining_class_count']."</span>"."</th>"; ?>
 

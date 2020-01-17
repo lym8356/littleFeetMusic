@@ -3,29 +3,24 @@
  * @var \App\View\AppView $this
  * @var \App\Model\Entity\Child $child
  */
+
 ?>
-<nav class="large-3 medium-4 columns" id="actions-sidebar">
-    <ul class="side-nav">
-        <li class="heading"><?= __('Actions') ?></li>
-        <li><?= $this->Html->link(__('List Childs'), ['action' => 'index']) ?></li>
-        <li><?= $this->Html->link(__('List Enrolments'), ['controller' => 'Enrolments', 'action' => 'index']) ?></li>
-        <li><?= $this->Html->link(__('New Enrolment'), ['controller' => 'Enrolments', 'action' => 'add']) ?></li>
-        <li><?= $this->Html->link(__('List Users'), ['controller' => 'Users', 'action' => 'index']) ?></li>
-        <li><?= $this->Html->link(__('New User'), ['controller' => 'Users', 'action' => 'add']) ?></li>
-    </ul>
-</nav>
-<div class="childs form large-9 medium-8 columns content">
+<br>
+<div class="row col-lg-4">
     <?= $this->Form->create($child) ?>
-    <fieldset>
-        <legend><?= __('Add Child') ?></legend>
         <?php
-            echo $this->Form->control('first_name');
-            echo $this->Form->control('last_name');
-            echo $this->Form->control('dob');
-            echo $this->Form->control('note');
-            echo $this->Form->control('users._ids', ['options' => $users]);
+            echo $this->Form->control('first_name', ['class' => 'form-control',
+                'placeholder' => 'Please enter first name', 'required' => true]);
+            echo $this->Form->control('last_name', ['class' => 'form-control mt-2',
+                'placeholder' => 'Please enter last name', 'required' => true]);
+            echo $this->Form->control('dob', ['class' => 'form-control',
+                'placeholder' => 'Please enter Date of birth', 'required' => true]);
+            echo $this->Form->control('note', ['class' => 'form-control',
+                'placeholder' => 'Any additional note', 'required' => false])
         ?>
-    </fieldset>
-    <?= $this->Form->button(__('Submit')) ?>
+    <?= $this->Form->button('Create', ['class' => 'btn btn-success pull-right', 'style' => 'margin-top: 10px; margin-bottom: 100px;']) ?>
     <?= $this->Form->end() ?>
+    <?php echo $this->Html->link(__('Back to child'), ['action' => 'index'],
+    ['class' => 'btn btn-info pull-right', 'style' => 'margin-top: 10px; margin-right: 5px;'])
+    ?>
 </div>
