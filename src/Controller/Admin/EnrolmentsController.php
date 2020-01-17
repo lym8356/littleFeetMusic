@@ -27,6 +27,11 @@ class EnrolmentsController extends AppController
 
         //get all terms with the day_id = 1
         $terms = TableRegistry::getTableLocator()->get('Terms')->find()->where(['day_id' => 1])->contain(['Days','Lfmclasses']);
+        $enrolment = $this->Enrolments->find()->contain('Lfmclasses.Terms')->where(['lfmclasses.terms_id' => 97]);
+//        foreach($enrolment as $en):
+//            pr($en->id);
+//        endforeach;
+
         $enrolments = $this->paginate($this->Enrolments);
 
         $this->set(compact('enrolments','terms'));

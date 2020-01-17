@@ -35,6 +35,7 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
     <?= $this->Html->script('/bootstrap/js/bootstrap.min.js') ?>
     <?= $this->Html->script('/bootstrap/js/popper.min.js') ?>
     <?= $this->Html->script('/bootstrap/js/jquery-3.4.1.min.js') ?>
+
     <!-- font awesome -->
     <?= $this->Html->css('/font-awesome/css/all.min.css') ?>
     <?= $this->Html->script('/font-awesome/js/all.min.js') ?>

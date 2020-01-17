@@ -152,6 +152,7 @@ class TermsController extends AppController
                         $termsArray[$days['name']][$location['name']][$key2]['day_id']=$term['day_id'];
                         $termsArray[$days['name']][$location['name']][$key2]['term_id']=$term['id'];
                         $termsArray[$days['name']][$location['name']][$key2]['start_time']=$term['start_time'];
+                        $termsArray[$days['name']][$location['name']][$key2]['end_time']=$term['end_time'];
                         $termsArray[$days['name']][$location['name']][$key2]['start_date']=$term['start_date'];
                         $termsArray[$days['name']][$location['name']][$key2]['casual_rate']=$term['casual_rate'];
 
@@ -169,5 +170,6 @@ class TermsController extends AppController
             }
         }
         $this->set(compact('termsArray'));
+        $this->set(compact('locationData'));
     }
 }
