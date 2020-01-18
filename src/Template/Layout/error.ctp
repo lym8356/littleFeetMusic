@@ -70,6 +70,7 @@
                 </div>
                 <div id="content">
                     <?= $this->Flash->render() ?>
+                    <?php echo $this->Html->image('error.jpg'); ?>
 
                     <?= $this->fetch('content') ?>
                 </div>
