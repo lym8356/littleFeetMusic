@@ -54,12 +54,13 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
 </div>
 
 <body>
-
+<div class = "text-dark">
 
 <section class="map">
 
 <div class="container">
 	<div class="row">
+<<<<<<< HEAD
         <div class="col-md-4">
             <h2>Little feet music</h2>
             <strong>Headquarter</strong><br>
@@ -67,17 +68,21 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
         </div>
         <div class="col-md-8">
 
+=======
+        <div class="col-md-1"></div>
+        <div class="text-center">
+>>>>>>> 879224bd89cc1cd4de5ba9b3471d28cff40375e2
             <address>
-               <h3><p>PO Box 2020 Parkdale Vic 3195 |<a href="tel:0410 600 060"> 0410 600 060 </a> | <a href="mailto:team117bluewater@gmail.com">team117bluewater@gmail.com</a></p>
-               </h3>
+               <h3><p>PO Box 2020, Parkdale Vic 3195</h3>
+                <h2>
+                <a href="tel:0410 600 060"> 0410 600 060 </a> ||
+                <a href="mailto:team117bluewater@gmail.com">team117bluewater@gmail.com</a></p>
+                </h2>
                 <button id="enquiry" class="btn btn-warning btn-lg">Contact</button>
 
             </address>
         </div>
-
-
-
-    </div>
+</div>
 </div>
 
 <div class="container">
@@ -139,43 +144,6 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
 </div>
 </section>
 
-
-<section class="testimonial">
-    <div class="container">
-        <h1>Testimonial</h1>
-
-        <div class="row">
-            <div class="col-md-4 text-center">
-                <div class="testimonial-info">
-                    <blockquote>
-                        <p> My kid enjoyed the class.</p>
-                    </blockquote>
-                    <h5> -John Smith</h5>
-                    <h7>Little Feet Music Parent</h7>
-                </div>
-            </div>
-            <div class="col-md-4 text-center">
-                <div class="testimonial-info">
-                    <blockquote>
-                        <p> My child likes the class so much.</p>
-                    </blockquote>
-                    <h5> -Paul Frank</h5>
-                    <h7>Little Feet Music Parent</h7>
-                </div>
-            </div>
-            <div class="col-md-4 text-center">
-                <div class="testimonial-info">
-                    <blockquote>
-                        <p> Really nice class and teacher.</p>
-                    </blockquote>
-                    <h5> -Sarah Jane</h5>
-                    <h7>Little Feet Music Parent</h7>
-                </div>
-            </div>
-
-        </div>
-    </div>
-</section>
 <div id="contact-popup">
     <form class="contact-form" action="" id="contact-form"
           method="post" enctype="multipart/form-data">
@@ -331,6 +299,20 @@ if(isset($_POST['submit'])) {
 
 }
 ?>
+
+<section class="testimonial">
+    <div class="container">
+        <div class="row">
+            <div class="text-center">
+                <div >
+                    <p> <i>So much fun - all the kids love the music and singing by Rachel!
+                    Get around this everyone!!!! This woman is awsome!!!</i></p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+</div>
 </body>
 
 </html>

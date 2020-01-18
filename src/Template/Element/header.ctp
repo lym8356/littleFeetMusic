@@ -23,8 +23,6 @@ $cakeDescription = 'User Panel';
 
 <body>
 <header>
-
-
     <nav class="navbar navbar-expand-lg fixed-top navbar-dark" style="background-color: #AD33FF;">
         <a class="navbar-brand d-flex w-40 mr-0" href="/Home"> <?php echo $this->Html->image('Logo.gif'); ?></a>
         <button class="navbar-toggler" type="button"
@@ -38,7 +36,6 @@ $cakeDescription = 'User Panel';
                     <?= $this->Html->link(' Home<span class="sr-only">(current)</span>', '/Home', ['class' => 'nav-link', 'escape' => false]); ?>
                     <!--                    <a class="nav-link" href="#">Home<span class="sr-only">(current)</span></a>-->
                 </li>
-
                 <li class="nav-item">
                     <?= $this->Html->link(' Class Info<span class="sr-only">(current)</span>', '/Class', ['class' => 'nav-link', 'escape' => false]); ?>
                 </li>
@@ -57,10 +54,7 @@ $cakeDescription = 'User Panel';
                 <li class="nav-item">
                     <?= $this->Html->link(' Contact <span class="sr-only">(current)</span>', '/Contact', ['class' => 'nav-link', 'escape' => false]); ?>
                 </li>
-
             </ul>
-
-
             <ul class="navbar-nav">
                 <ul class="navbar-nav">
 <!--                <li class="nav-item"><i class="fas fa-envelope-square"></i></li>-->

@@ -53,7 +53,7 @@ class ArticlesController extends AppController
 		˓→getData());
 		// Hardcoding the user_id is temporary, and will be removed later
 		// when we build authentication out.
-		$article->user_id = 1;
+		$article->user_id = 67;
 		if ($this->Articles->save($article)) {
 		$this->Flash->success(__('Your article has been saved.'));
 		return $this->redirect(['action' => 'index']);

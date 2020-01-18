@@ -62,15 +62,15 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
 <body>
 
 <section id="LFM-about-us">
-    <div class="container">
+    <div class="container text-dark">
         <div class="row">
             <div class="col-md-12">
                 <div class="LFM-about-us-area">
                     <div class="row">
                         <div class="col-md-6">
                             <div class="LFM-about-us-left">
-                                <h3><p>At Little Feet Music the music is all LIVE!
-                                    </p></h3>
+                                <h3 class="text-dark"><b>At Little Feet Music the music is all LIVE!
+                                    </b></h3>
                                 <p>Services included:</p>
                                 <ul>
                                     <li>Creative and cool music classes for children with parent or carer</li>
@@ -115,39 +115,14 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
 
 
 
-<section class="testimonial">
+<section class="testimonial text-dark">
     <div class="container">
-        <h1>Testimonial</h1>
-        <p class="text-center"> from our customers</p>
         <div class="row">
-            <div class="col-md-4 text-center">
-                <div class="testimonial-info">
-                    <blockquote>
-                        <p> My kid enjoyed the class.</p>
-                    </blockquote>
-                    <h5> -John Smith</h5>
-                    <h7>Little Feet Music Parent</h7>
+            <div class="text-center">
+                <div >
+                    <p> <i>The best! Rachel is funny, fun, entertaining and energetic. The kids all love her. So do the adults!</i></p>
                 </div>
             </div>
-            <div class="col-md-4 text-center">
-                <div class="testimonial-info">
-                    <blockquote>
-                        <p> My child likes the class so much.</p>
-                    </blockquote>
-                    <h5> -Paul Frank</h5>
-                    <h7>Little Feet Music Parent</h7>
-                </div>
-            </div>
-            <div class="col-md-4 text-center">
-                <div class="testimonial-info">
-                    <blockquote>
-                        <p> Really nice class and teacher.</p>
-                    </blockquote>
-                    <h5> -Sarah Jane</h5>
-                    <h7>Little Feet Music Parent</h7>
-                </div>
-            </div>
-
         </div>
     </div>
 </section>

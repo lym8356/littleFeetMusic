@@ -2,7 +2,7 @@
 <html>
 <head>
     <style>
-        table, th, td {
+        .enrol_info_table, .enrol_info_table th, .enrol_info_table td{
             border: 2px solid mediumseagreen !important;
         }
     </style>
@@ -36,8 +36,8 @@
     <div class="container">
         <?php foreach ($termsArray as $key=>$location_d): ?>
             <?php if(count($termsArray)>0){?>
-                <div class="" style="margin-top: 30px;font-weight:bold;color:#3a945b;font-size: larger;"><?php echo $key; ?></div>
-                <table style="margin-top: 10px;" class="table table-bordered">
+                <div class="" style="margin-top: 30px;font-weight:bold;color:#3a945b;font-size: larger;"><?php echo $key;?></div>
+                <table style="margin-top: 10px;" class="enrol_info_table table table-bordered">
                     <thead class="col-sm-2">
                     <tr >
                         <th class="">Location</th>

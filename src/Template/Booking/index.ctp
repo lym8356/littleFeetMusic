@@ -62,12 +62,11 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
         <?php echo $this->Html->image('LFM.jpg'); ?>
     </div>
 </div>
-<section class="testimonial">
+<section class="testimonial text-dark">
     <div class="container">
         <h1>Testimonial</h1>
-        <p class="text-center"> from our customers</p>
         <div class="row">
-            <div class="col-md-4 text-center sb ">
+            <div class="col-md-4 text-center">
                 <div class="testimonial-info">
                     <blockquote>
                         <p> My kid enjoyed the class.</p>
@@ -76,7 +75,7 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
                     <h7>Little Feet Music Parent</h7>
                 </div>
             </div>
-            <div class="col-md-4 text-center sb">
+            <div class="col-md-4 text-center">
                 <div class="testimonial-info">
                     <blockquote>
                         <p> My child likes the class so much.</p>
@@ -85,7 +84,7 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
                     <h7>Little Feet Music Parent</h7>
                 </div>
             </div>
-            <div class="col-md-4 text-center sb">
+            <div class="col-md-4 text-center">
                 <div class="testimonial-info">
                     <blockquote>
                         <p> Really nice class and teacher.</p>
