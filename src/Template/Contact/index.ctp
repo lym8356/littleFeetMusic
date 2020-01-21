@@ -308,7 +308,7 @@ if(isset($_POST['submit'])) {
             <div class="text-center">
                 <div >
                     <p> <i>So much fun - all the kids love the music and singing by Rachel!
-                    Get around this everyone!!!! This woman is awsome!!!</i></p>
+                    Get around this everyone!!!! This woman is awesome!!!</i></p>
                 </div>
             </div>
         </div>
