@@ -1,5 +1,10 @@
 <?php
 /**
+ * @var \App\View\AppView $this
+ * @var \App\Model\Entity\About[]|\Cake\Collection\CollectionInterface $about
+ */
+
+/**
  * CakePHP(tm) : Rapid Development Framework (https://cakephp.org)
  * Copyright (c) Cake Software Foundation, Inc. (https://cakefoundation.org)
  *
@@ -12,9 +17,10 @@
  * @since         0.10.0
  * @license       https://opensource.org/licenses/mit-license.php MIT License
  */
-
 $cakeDescription = 'CakePHP: the rapid development php framework';
 ?>
+
+
 <!DOCTYPE html>
 <head>
     <?= $this->Html->charset() ?>
@@ -55,14 +61,13 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
 
 
 <section id="LFM-about-us">
-
     <div class="container text-dark">
         <div class="row">
             <div class="col-md-12">
                 <div class="LFM-about-us-area">
                     <div class="row">
                         <div class="LFM">
-                            <h1>About</h1>
+                            <h1>Try<?= h($about->id) ?></h1>
                             <h2>Rachel Parkinson is Little Feet Music</h2>
                             <h4>The early years</h4>
                             <p>Rachel Parkinson began playing drums in an all-girl band as a teenager.  That band toured Australia, reached number 15 in the Australian Alternative Charts, sold EPs in the USA, and performed about 200 shows.  Rachel then formed The Amazing Rachel Parkinson Band who supported The Animals on the Melbourne leg of their Australian tour.
