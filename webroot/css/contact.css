@@ -111,10 +111,11 @@ blockquote:after {
 }
 
 .contact-form {
+    height:1000px;
     width: 500px;
     background-color: white;
     font-family: Arial;
-    position: relative;
+    position: fixed;
     left: 50%;
     top: 50%;
     margin-left: -250px;
@@ -132,7 +133,7 @@ blockquote:after {
 }
 
 #submit {
-    background-color: #CCE8E0;
+    background-color: #ff9900;
     border: 1px solid white;
     font-family: Arial;
     color: white;
