@@ -111,12 +111,18 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
         function viewClass1() {
             var b = document.getElementById("btn2").value;
             if (b=="1"){
+<<<<<<< HEAD
 
                 document.getElementById("specifyClass").innerHTML= "<h2>Information about class for Toddlers</h2><p> Live music where listening skills are enhanced - children start to learn how to identify changes in music (e.g., start and stop) and musical elements such as dynamics (loud and quiet), tempo (fast and slow) and timbre (characteristics of sounds). Learn about taking it in turns, meet some interesting and friendly puppets, learn colours and counting through music, and have a great fun time. Listening and social skills are developed and nurtured. Term fee includes a Little Feet Music song book!</p>";
                 //document.getElementById("clsimage").innerHTML = "<?php echo $this->Html->image('LFM.jpg'); ?>"
 
                 document.getElementById("specifyClass").innerHTML= "<h2>Toddlers</h2><p> Live music where listening skills are enhanced - children start to learn how to identify changes in music (e.g., start and stop) and musical elements such as dynamics (loud and quiet), tempo (fast and slow) and timbre (characteristics of sounds). Learn about taking it in turns, meet some interesting and friendly puppets, learn colours and counting through music, and have a great fun time. Listening and social skills are developed and nurtured. Term fee includes a Little Feet Music song book!</p>";
 
+=======
+                document.getElementById("specifyClass").innerHTML= "<h2>Information about class for Toddlers</h2><p> Live music where listening skills are enhanced - children start to learn how to identify changes in music (e.g., start and stop) and musical elements such as dynamics (loud and quiet), tempo (fast and slow) and timbre (characteristics of sounds). Learn about taking it in turns, meet some interesting and friendly puppets, learn colours and counting through music, and have a great fun time. Listening and social skills are developed and nurtured. Term fee includes a Little Feet Music song book!</p>";
+                //document.getElementById("clsimage").innerHTML = "<?php echo $this->Html->image('LFM.jpg'); ?>"
+                document.getElementById("specifyClass").innerHTML= "<h2>Toddlers</h2><p> Live music where listening skills are enhanced - children start to learn how to identify changes in music (e.g., start and stop) and musical elements such as dynamics (loud and quiet), tempo (fast and slow) and timbre (characteristics of sounds). Learn about taking it in turns, meet some interesting and friendly puppets, learn colours and counting through music, and have a great fun time. Listening and social skills are developed and nurtured. Term fee includes a Little Feet Music song book!</p>";
+>>>>>>> fc461cedac94b464854475dfcae3a9ea7a8340bd
             }
         }
         function viewClass2(){
