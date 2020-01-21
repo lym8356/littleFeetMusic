@@ -1,8 +1,6 @@
 <?php
 /**
- * @var \App\View\AppView $this
- * @var \App\Model\Entity\About[]|\Cake\Collection\CollectionInterface $about
- */
+
 
 /**
  * CakePHP(tm) : Rapid Development Framework (https://cakephp.org)
