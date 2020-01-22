@@ -86,7 +86,7 @@ $action=$this->request->params['action'];
         <li class="sidebar_item <?php echo ($controller=='Articles')?'active':'';?>">
             <?= $this->Html->link('<svg class="glyph stroked app window with content">
                     <use xlink:href="#stroked-app-window-with-content"></use>
-                </svg> CMS', '/admin/articles/index',
+                </svg> CMS', '/admin/about/index',
                 ['escape' => false]); ?></li>
 
         <li role="presentation" class="divider"></li>

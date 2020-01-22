@@ -86,11 +86,12 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
     </div>
 </section>
 </body>
+
 <section class="testimonial">
     <div class="container">
         <div class="row">
             <div class="text-center">
-                <div >
+                <div>
                     <p> <i>I took my son for about a year  and a half and he loved it. I saw him growing in confidence and being able to participate and have fun. Thanks Rachel for a lovely time.</i></p>
                 </div>
             </div>

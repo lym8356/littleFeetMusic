@@ -1,5 +1,8 @@
 <?php
 /**
+
+
+/**
  * CakePHP(tm) : Rapid Development Framework (https://cakephp.org)
  * Copyright (c) Cake Software Foundation, Inc. (https://cakefoundation.org)
  *
@@ -12,9 +15,10 @@
  * @since         0.10.0
  * @license       https://opensource.org/licenses/mit-license.php MIT License
  */
-
 $cakeDescription = 'CakePHP: the rapid development php framework';
 ?>
+
+
 <!DOCTYPE html>
 <head>
     <?= $this->Html->charset() ?>
@@ -54,24 +58,21 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
 </div>
 
 
-<section id="LFM-about-us">
-
-    <div class="container text-dark">
+<section>
+    <div class=" container text-dark">
         <div class="row">
-            <div class="col-md-12">
-                <div class="LFM-about-us-area">
-                    <div class="row">
-                        <div class="LFM">
-                            <h1>About</h1>
-                            <h2>Rachel Parkinson is Little Feet Music</h2>
-                            <h4>The early years</h4>
-                            <p>Rachel Parkinson began playing drums in an all-girl band as a teenager.  That band toured Australia, reached number 15 in the Australian Alternative Charts, sold EPs in the USA, and performed about 200 shows.  Rachel then formed The Amazing Rachel Parkinson Band who supported The Animals on the Melbourne leg of their Australian tour.
-                            </p>
-                            <h4>Children’s Music</h4>
-                            <p>In 2005 Rachel started playing and writing for children, formed Little Feet Music, which began as music and movement classes for children and their parent or carer, then branched out to include incursions in early learning centres, and now includes parties, workshops, community events and festivals and a live band.  At Little Feet Music the live shows are ALL LIVE!  Rachel has performed at shows, classes, workshops and parties about 1200 per year for the last 14 years.   There are over 8000 children who have attended weekly Little Feet Music classes.  Rachel has written over 200 songs, and has three amazing albums played by real musicians (no loops or samples here!), which have been played on Virgin, Qantas, Singapore Airlines, Air Vanuatu and Malaysia Airlines inflight entertainment and on ABC Kids Listen every day!</p>
-                        </div>
-                    </div>
-                </div>
+            <div class="col-sm-12">
+                <?php foreach ($about as $ab)
+                {
+                ?>
+                    <h1><?php echo $ab->heading ?></h1>
+                    <h2><?php echo $ab->title ;?></h2>
+                    <p><?php echo $ab->body ?></p>
+                    <h2><?php echo $ab->title2 ;?></h2>
+                    <p><?php echo $ab->body2 ?></p>
+                <?php
+                }
+                ?>
             </div>
         </div>
     </div>
@@ -79,11 +80,11 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
 
 <section class="testimonial">
     <div class="container">
-        <div class="row">
-            <div class="text-center">
+        <div class="row text-xs-center">
+            <div>
                 <div >
                     <p> <i>So much fun - all the kids love the music and singing by Rachel!
-                    Get around this everyone!!!! This woman is awsome!!!</i></p>
+                            Get around this everyone!!!! This woman is awesome!!!</i></p>
                 </div>
             </div>
         </div>

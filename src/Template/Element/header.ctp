@@ -24,7 +24,7 @@ $cakeDescription = 'User Panel';
 <body>
 <header>
     <nav class="navbar navbar-expand-lg fixed-top navbar-dark" style="background-color: #AD33FF;">
-        <a class="navbar-brand d-flex w-40 mr-0" href="/Home"> <?php echo $this->Html->image('Logo.gif'); ?></a>
+        <a class="navbar-brand d-flex w-40 mr-0" href="./Home"> <?php echo $this->Html->image('Logo.gif'); ?></a>
         <button class="navbar-toggler" type="button"
                 data-toggle="collapse" data-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false"
                 aria-label="Toggle navigation">
@@ -34,10 +34,9 @@ $cakeDescription = 'User Panel';
             <ul class="navbar-nav mx-auto text-center">
                 <li class="nav-item active">
                     <?= $this->Html->link(' Home<span class="sr-only">(current)</span>', '/Home', ['class' => 'nav-link', 'escape' => false]); ?>
-                    <!--                    <a class="nav-link" href="#">Home<span class="sr-only">(current)</span></a>-->
                 </li>
                 <li class="nav-item">
-                    <?= $this->Html->link(' Class Info<span class="sr-only">(current)</span>', '/Class', ['class' => 'nav-link', 'escape' => false]); ?>
+                    <?= $this->Html->link(' Classes<span class="sr-only">(current)</span>', '/Class', ['class' => 'nav-link', 'escape' => false]); ?>
                 </li>
                 <li class="nav-item" >
                     <?= $this->Html->link(' Book Us<span class="sr-only">(current)</span>', '/Event', ['class' => 'nav-link', 'escape' => false]); ?>
@@ -46,10 +45,10 @@ $cakeDescription = 'User Panel';
                     <?= $this->Html->link(' Shop<span class="sr-only">(current)</span>', '/Shopping', ['class' => 'nav-link', 'escape' => false]); ?>
                 </li>
                 <li class="nav-item">
-                    <?= $this->Html->link(' News & Videos<span class="sr-only">(current)</span>', '/Media', ['class' => 'nav-link', 'escape' => false]); ?>
+                    <?= $this->Html->link(' News and Videos<span class="sr-only">(current)</span>', '/Media', ['class' => 'nav-link', 'escape' => false]); ?>
                 </li>
                 <li class="nav-item">
-                    <?= $this->Html->link(' About Us<span class="sr-only">(current)</span>', '/About', ['class' => 'nav-link', 'escape' => false]); ?>
+                    <?= $this->Html->link(' About<span class="sr-only">(current)</span>', '/About', ['class' => 'nav-link', 'escape' => false]); ?>
                 </li>
                 <li class="nav-item">
                     <?= $this->Html->link(' Contact <span class="sr-only">(current)</span>', '/Contact', ['class' => 'nav-link', 'escape' => false]); ?>

@@ -60,6 +60,7 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
 
 <div class="container">
 	<div class="row">
+<<<<<<< HEAD
 
         <div class="col-md-8">
             <address>
@@ -73,6 +74,18 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
             </address>
         </div>
 </div>
+=======
+        <div class="col-sm-12 text-center">
+        <address>
+           <h3><p>PO Box 2020, Parkdale Vic 3195</h3>
+            <h2>
+            <a href="tel:0410 600 060"> 0410 600 060 </a> ||
+            <a href="mailto:team117bluewater@gmail.com">team117bluewater@gmail.com</a></p>
+            </h2>
+            <button id="enquiry" class="btn btn-warning btn-lg">Contact</button>
+        </address>
+    </div>
+>>>>>>> 9b9ec90c730f5a85a03cead75c0c001c8a94358e
 </div>
 
 <div class="container">
@@ -141,8 +154,8 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
         <h1>Contact Us</h1>
         <div>
             <div>
-                <label>Name *(* means required): </label><span id="userName-info"
-                                                               class="info"></span>
+                <label>Name *: </label><span id="userName-info"
+                                             class="info"></span>
             </div>
             <div>
                 <input type="text" id="userName" name="userName"
@@ -151,8 +164,8 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
         </div>
         <div>
             <div>
-                <label>Email *(* means required): </label><span id="userEmail-info"
-                                                                class="info"></span>
+                <label>Email *: </label><span id="userEmail-info"
+                                              class="info"></span>
             </div>
             <div>
                 <input type="text" id="userEmail" name="userEmail"
@@ -161,7 +174,7 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
         </div>
         <div>
             <div>
-                <label>Please specify your need *(* means required):</label><span id="userNeed-info" class="info"></span>
+                <label>Please specify your need *</label><span id="userNeed-info" class="info"></span>
             </div>
             <div>
                 <select id="userNeed"  name="userNeed" class="inputBox"/>
@@ -177,8 +190,8 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
         </div>
         <div>
             <div>
-                <label>Message *(* means required): </label><span id="userMessage-info"
-                                                                  class="info"></span>
+                <label>Message *: </label><span id="userMessage-info"
+                                                class="info"></span>
             </div>
             <div>
                     <textarea id="message" name="message"
@@ -186,7 +199,7 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
             </div>
         </div>
         <div>
-            <input type="submit" id="submit" name="submit" value="Submit"/>
+            <input type="submit" id="submit" name="submit" value="submit"/>
             <input type="hidden" name="_csrfToken" value="<?= $this->request->getParam('_csrfToken'); ?>" />
         </div>
     </form>
@@ -296,7 +309,7 @@ if(isset($_POST['submit'])) {
             <div class="text-center">
                 <div >
                     <p> <i>So much fun - all the kids love the music and singing by Rachel!
-                    Get around this everyone!!!! This woman is awsome!!!</i></p>
+                    Get around this everyone!!!! This woman is awesome!!!</i></p>
                 </div>
             </div>
         </div>
