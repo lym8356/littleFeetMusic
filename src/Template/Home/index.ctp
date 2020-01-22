@@ -96,10 +96,12 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
                                 <p>There are three amazingly engaging Little Feet Music albums, and they've been played on inflight entertainment systems with Qantas, Virgin, Singapore Airlines, Malaysia Airlines, Air Vanuatu, and on ABC Kids!  Listen here!
                                 </p>
                                 <p>Contact Little Feet Music now, and unlock that door to your child's creativity!
-                                </p>
-                                <a href="./Class/EnrolInfo" class="btn btn-warning btn-lg" >Enrol</a>
-                                <button id="enquiry" class="btn btn-warning btn-lg">Enquiry</button>
-                            </div> -->
+                                </p> -->
+                                <div>
+                                    <a href="./Class/EnrolInfo" class="btn btn-warning btn-lg" >Enrol</a>
+                                    <button id="enquiry" class="btn btn-warning btn-lg">Enquiry</button>
+                                </div>
+<!--                             </div> -->
                         </div>
                         <div class="col-md-6">
                             <div class="LFM-about-us-right">
