@@ -15,6 +15,9 @@ class HomeController extends AppController
 
     public function index()
     {
+        $home = $this->paginate($this->Home);
+
+        $this->set(compact('home'));
 
 
     }

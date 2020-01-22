@@ -27,8 +27,8 @@
                                 <td>1</td>
                                 <td>Home</td>
                                 <td class="actions">
-                                    <?= $this->Html->link(__('View'), ['action' => 'view','/admin/home/index' ], ['class' => 'btn btn-primary']) ?>
-                                    <?= $this->Html->link(__('Edit'), ['action' => 'edit'], ['class' => 'btn btn-success']) ?>
+                                    <?= $this->Html->link(__('View'), ['action' =>'../home/view/1' ], ['class' => 'btn btn-primary']) ?>
+                                    <?= $this->Html->link(__('Edit'), ['action' => '../home/edit/1'], ['class' => 'btn btn-success']) ?>
                                 </td>
                             </tr>
                             <tr>

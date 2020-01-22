@@ -14,43 +14,24 @@
     </ul>
 </nav> -->
 
-<div class=" view col-md-8 large-9 medium-8 columns content">
+<div class=" view col-md-8 content">
     <h2><center>Content of Home Page</center></h2>
     <div>
         <h3><?= h($home->heading) ?></h3>
     </div>
     <div class="row">
-        <h4><?= h($home->title) ?></h3>
+        <h4><?= h($home->p2) ?></h3>
+    </div>
+    <div class="row">
         <?= $this->Text->autoParagraph(h($home->p)); ?>
     </div>
     <div class="row">
-        <?= $this->Text->autoParagraph(h($home->p2)); ?>
+        <div class="col-sm-6"></div>
+        <div class="col-sm-5">
+            <?php echo $this->Html->link(__('Back'), ['action' => '../cms'],
+                ['class' => 'btn btn-info', 'style' => 'margin-right: 5px;'])?>
+            <?= $this->Html->link(__('Edit'), ['action' => 'edit', $home->id], ['class' => 'btn btn-success']) ?>
+        </div>     
     </div>
-    <div class="row">
-        <?= $this->Text->autoParagraph(h($home->p3)); ?>
-    </div>
-        <div class="row">
-        <?= $this->Text->autoParagraph(h($home->p4)); ?>
-    </div>
-        <div class="row">
-        <?= $this->Text->autoParagraph(h($home->p5)); ?>
-    </div>
-        <div class="row">
-        <?= $this->Text->autoParagraph(h($home->p6)); ?>
-    </div>
-        <div class="row">
-        <?= $this->Text->autoParagraph(h($home->p7)); ?>
-    </div>
-        <div class="row">
-        <?= $this->Text->autoParagraph(h($home->p8)); ?>
-    </div>
-        <div class="row">
-        <?= $this->Text->autoParagraph(h($home->p9)); ?>
-    </div>
-        </div>
-        <div class="row">
-        <?= $this->Text->autoParagraph(h($home->p10)); ?>
-    </div>
-    <?= $this->Html->link(__('Edit'), ['action' => 'edit', $home->id], ['class' => 'btn btn-success pull-right']) ?>
 
 </div>
