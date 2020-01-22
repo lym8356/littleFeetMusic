@@ -63,7 +63,18 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
                 <div class="LFM-about-us-area">
                     <div class="row">
                         <div class="col-md-6">
-                            <div class="LFM-about-us-left text-dark">
+                            <div>
+                                <?php foreach ($home as $a)
+                                {
+                                ?>
+                                    <h1><?php echo $a->heading ?></h1>
+                                    <h2><?php echo $a->p2 ;?></h2>
+                                    <p><?php echo $a->p ;?></p>
+                                <?php
+                                }
+                                ?>
+                            </div>   
+<!--                             <div class="LFM-about-us-left text-dark">
                                 <p>Rachel Parkinson runs Little Feet Music - amazingly fun and engaging music and movement classes for babies, toddlers and preschoolers.  Rachel knows HUNDREDS of songs, so it never gets boring!</p>
                                 <p>Services include:</p>
                                 <ul>
@@ -88,14 +99,11 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
                                 </p>
                                 <a href="../Class/EnrolInfo" class="btn btn-warning btn-lg" >Enrol</a>
                                 <button id="enquiry" class="btn btn-warning btn-lg">Enquiry</button>
-
-                            </div>
+                            </div> -->
                         </div>
                         <div class="col-md-6">
                             <div class="LFM-about-us-right">
                                 <?php echo $this->Html->image('sc.jpg'); ?>
-
-
                             </div>
                         </div>
                     </div>
