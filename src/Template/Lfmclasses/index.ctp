@@ -111,16 +111,7 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
         function viewClass1() {
             var b = document.getElementById("btn2").value;
             if (b=="1"){
-<<<<<<< HEAD
-
-                document.getElementById("specifyClass").innerHTML= "<h2>Information about class for Toddlers</h2><p> Live music where listening skills are enhanced - children start to learn how to identify changes in music (e.g., start and stop) and musical elements such as dynamics (loud and quiet), tempo (fast and slow) and timbre (characteristics of sounds). Learn about taking it in turns, meet some interesting and friendly puppets, learn colours and counting through music, and have a great fun time. Listening and social skills are developed and nurtured. Term fee includes a Little Feet Music song book!</p>";
-
-
                 document.getElementById("specifyClass").innerHTML= "<h2>Toddlers</h2><p> Live music where listening skills are enhanced - children start to learn how to identify changes in music (e.g., start and stop) and musical elements such as dynamics (loud and quiet), tempo (fast and slow) and timbre (characteristics of sounds). Learn about taking it in turns, meet some interesting and friendly puppets, learn colours and counting through music, and have a great fun time. Listening and social skills are developed and nurtured. Term fee includes a Little Feet Music song book!</p>";
-
-=======
-                document.getElementById("specifyClass").innerHTML= "<h2>Toddlers</h2><p> Live music where listening skills are enhanced - children start to learn how to identify changes in music (e.g., start and stop) and musical elements such as dynamics (loud and quiet), tempo (fast and slow) and timbre (characteristics of sounds). Learn about taking it in turns, meet some interesting and friendly puppets, learn colours and counting through music, and have a great fun time. Listening and social skills are developed and nurtured. Term fee includes a Little Feet Music song book!</p>";
->>>>>>> 9b9ec90c730f5a85a03cead75c0c001c8a94358e
             }
         }
         function viewClass2(){

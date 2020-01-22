@@ -60,21 +60,6 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
 
 <div class="container">
 	<div class="row">
-<<<<<<< HEAD
-
-        <div class="col-md-8">
-            <address>
-               <h3><p>PO Box 2020, Parkdale Vic 3195</h3>
-                <h2>
-                <a href="tel:0410 600 060"> 0410 600 060 </a> ||
-                <a href="mailto:team117bluewater@gmail.com">team117bluewater@gmail.com</a></p>
-                </h2>
-                <button id="enquiry" class="btn btn-warning btn-lg">Contact</button>
-
-            </address>
-        </div>
-</div>
-=======
         <div class="col-sm-12 text-center">
         <address>
            <h3><p>PO Box 2020, Parkdale Vic 3195</h3>
@@ -85,7 +70,6 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
             <button id="enquiry" class="btn btn-warning btn-lg">Contact</button>
         </address>
     </div>
->>>>>>> 9b9ec90c730f5a85a03cead75c0c001c8a94358e
 </div>
 
 <div class="container">
