@@ -78,10 +78,9 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
             <h2>Albert Park</h2>
             <address>
                 <strong>Gasworks Arts Park </strong><br>
-                <a href="img/GLS.jpg" data-fancybox="gal">Click here to see the map</a><br>
                 21 Graham St​<br>
-                Albert Park Vic 3206<br>
-
+                Albert Park Vic 3206<br><br>
+                <a href="img/GLS.jpg" data-fancybox="gal">Click here to see the map</a><br>
             </address>
         </div>
         <div class="col-md-8">
@@ -291,10 +290,12 @@ if(isset($_POST['submit'])) {
     <div class="container">
         <div class="row">
             <div class="text-center">
-                <div >
+                <div class="col-sm-2"></div>
+                <div class="col p-2">
                     <p> <i>So much fun - all the kids love the music and singing by Rachel!
                     Get around this everyone!!!! This woman is awesome!!!</i></p>
                 </div>
+                <div class="col-sm-1"></div>
             </div>
         </div>
     </div>

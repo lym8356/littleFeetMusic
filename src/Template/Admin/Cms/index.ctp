@@ -67,8 +67,8 @@
                                 <td>6</td>
                                 <td>About</td>
                                 <td class="actions">
-                                    <?= $this->Html->link(__('View'), ['action' => 'view'], ['class' => 'btn btn-primary']) ?>
-                                    <?= $this->Html->link(__('Edit'), ['action' => 'edit'], ['class' => 'btn btn-success']) ?>
+                                    <?= $this->Html->link(__('View'), ['action' => '../about'], ['class' => 'btn btn-primary']) ?>
+                                    <?= $this->Html->link(__('Edit'), ['action' => '../about/edit/1'], ['class' => 'btn btn-success']) ?>
                                 </td>
                             </tr>
                             <tr>

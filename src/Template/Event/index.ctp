@@ -117,12 +117,12 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
 
 <section class="testimonial text-dark">
     <div class="container">
-        <div class="row">
-            <div class="text-center">
-                <div>
-                    <p> <i>The best! Rachel is funny, fun, entertaining and energetic. The kids all love her. So do the adults!</i></p>
-                </div>
+        <div class="row text-center">
+            <div class="col-sm-1"></div>
+            <div class ="col p-2">
+                <p> <i>The best! Rachel is funny, fun, entertaining and energetic. The kids all love her. So do the adults!</i></p>
             </div>
+            <div class="col-sm-1"></div>
         </div>
     </div>
 </section>

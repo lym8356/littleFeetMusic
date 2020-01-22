@@ -80,13 +80,13 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
 
 <section class="testimonial">
     <div class="container">
-        <div class="row text-xs-center">
-            <div>
-                <div >
-                    <p> <i>So much fun - all the kids love the music and singing by Rachel!
-                            Get around this everyone!!!! This woman is awesome!!!</i></p>
-                </div>
+        <div class="row text-center">
+            <div class="col-sm-1"></div>
+            <div class="col">
+                <p class="text-center text-dark p-3"> <i>So much fun - all the kids love the music and singing by Rachel!
+                Get around this everyone!!!! This woman is awesome!!!</i></p>
             </div>
+            <div class="col-sm-1"></div>
         </div>
     </div>
 </section>

@@ -79,7 +79,7 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
                 <div class="row">
                     <div class="col-sm" id="left-col">
                         <span id="specifyClass">
-                            <h2>Information about classes</h2>
+                            <h2>About the Classes</h2>
                             <p>Fun, cool, creative and interactive music classes for kids aged six months to five years!
 
                                 Rachel Parkinson has been running children's music programs for over fifteen years, so has a plethora of experience with children and with music!
@@ -89,8 +89,6 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
                                 Rachel is continually updating her skills by attending workshops and courses.  She's been involved in the entertainment industry since the early 90s, having played drums, guitar and sung in original touring pub and club bands from the tender age of 16.
                             </p>
                         </span>
-
-
                     </div>
                     <div class="col-sm mb-4" id="right-col">
                         <div class="container mt-3"><span id="clsimage"><?php echo $this->Html->image('cls2.jpg'); ?></span></div>
@@ -130,7 +128,13 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
         function viewFAQ() {
             var b = document.getElementById("btn5").value;
             if (b=="1"){
-                document.getElementById("specifyClass").innerHTML= "<h1>WHAT TO EXPECT</h1><h4> <p>I have a young baby - can I bring him/her along too?</p></h4><p> Attendance of babies is welcomed.  From when they start to join in or at twelve months of age (whichever comes earlier) then a generous discount of 25% is available for the second child.</p><h4><p>  My older child is attending - can I bring him/her along?</p></h4><p>  If a sibling under 6 years of age is attending a one-off session, the fee is $20 per class.  If you'd like to enrol them in for the term, then they'll get a 25% discount on the term fee.  If child other than a sibling is attending a one-off session, the fee is $26 per class.</p><h4> <p> Is there a discount for bringing more than one child to the classes?</p></h4><p> There is a 25% discount for the second child when siblings come to the same class.</p><h4><p> What happens if we miss a class?</p></h4><p>If you miss a class, please contact us by email or phone prior to 9am on the day of the class that you will miss.  To make up for the missed class you can either;</p><ul><li>attend a class on another day, or</li><li>send a friend along to the class in your place, or</li><li>bring a friend along to another class with you</li></ul><p>as long as it is within the term you have paid for.  Make sure you confirm with the office before making up the missed class to avoid the situation where there are too many children in one class.  Refunds are not possible for missed classes.  There are no refunds or transfers to another term in the event that you are unable to attend part of or the whole term.</p><p><button class='btn btn-outline-success fixedsize p-1'>T&C</button>";
+                document.getElementById("specifyClass").innerHTML= "<h2>FAQ </h2><h4>Do we join in the classes?</h4><p>Yes!  Children will share the experience of music with their parent or carer, encouraging a beautiful and special bond between the child and the attending adult.  Children will learn more when they see you becoming involved – they’ll discover that music is a natural part of life to be experienced and enjoyed by people of all ages!  Through Little Feet Music many adults rediscover their own pleasure in making music!</p><br><h4>What should my child wear to music classes?</h4><p>Children need to wear something comfortable as there is lots of moving around to the music, i.e., clapping, jumping, wobbling and wiggling.</p><br><h4>I have a young baby - can I bring him/her along too?</h4><p>The program is designed to be a one-on-one music session for you and your child, however attendance of babies is welcomed.  From when they start to join in or at twelve months of age (whichever comes earlier) then a generous discount of 25% is available for the second child.</p><br><h4>My older child is attending - can I bring him/her along?</h4><p>If a sibling under 6 years of age is attending a one-off session, the fee is $20 per class.  If you'd like to enrol them in for the term, then they'll get a 25% discount on the term fee.  If child other than a sibling is attending a one-off session, the fee is $26 per class.</p><br><h4>Is there a discount for bringing more than one child to the classes?</h4><p>There is a 25% discount for the second child when siblings come to the same class.</p><br><h4>What happens if we miss a class?</h4><p>If you miss a class, please contact me by email or phone prior to 9am on the day of the class that you will miss.  To make up for the missed class you can either;</p><br><ul><li>attend a class on another day, or</li><li>send a friend along to the class in your place, or</li><li>bring a friend along to another class with you</li></ul><p>as long as it is within the term you have paid for.  Make sure you confirm before making up the missed class so there are too many children in one class.  Refunds are not possible for missed classes.  There are no refunds or transfers of monies in the event that you are unable to attend part of or the whole term.</p><br><h4>Why Music?</h4>p>Research show 0-2 years is a critical period for brain, speech and music development. In fact, the music part of the brain is VITAL for babies learning to speak. It's also a beautiful way to bond and spend special time together. </p><br><p>Music strengthens self image and self assurance, promotes concentration and focused listening and promotes enhanced social abilities.  Children have a natural love for singing, moving to music and dancing, jumping, clapping and tapping.  Music offers opportunities for social interaction and children learn to express themselves freely through music and movement. The connection betweeen music and mood starts early.  The more we respond to music by moving to it, the more the brain releases dopamine - the feel-good hormone.</p><br><h4>Why Little Feet Music?</h4><p>The Little Feet Music program is a carefully researched, developmental and sequential music program.  It’s interactive, entertaining and educational.  Rachel sings and plays guitar, so all of the music is live!  There are loads of weird and wonderful percussion instruments and fun, colourful props.  Each term your child will be given a Little Feet Music song book to keep, which has lots of the songs and activities we’ll do in the classes for that term.   There are lots of songs you’ll know as well as loads more for you to learn!</p><br><p>Live music is COOL!  The Little Feet Music classes all use voice and guitar, so it's real LIVE music!</p><br><p>Through the Little Feet Music program children acquire a knowledge of musical concepts such as beat, rhythm, inner hearing, pitch (high and low), dynamics (loud and soft), timbre (characteristics of sounds), form and tempo (fast and slow) while gaining enhanced social skills and confidence.</p><br><p>Little Feet Music is LOTS of fun and the best way for children to learn is by having fun!</p><br><p>Observation is participation!</p><p>Many parents find that their children start singing at home the songs they've been learning at Little Feet Music classes  - they have actually been listening and absorbing the music in the classes. Not all children will participate straight away and many children are quiet during class but participate more freely at home between classes. It's totally normal!</p><p><button class='btn btn-outline-success fixedsize p-1' id='btn6' value='1' onclick='viewTC()'>T&C</button>";
+            }
+        }
+        function viewTC() {
+            var b = document.getElementById("btn5").value;
+            if (b=="1"){
+                document.getElementById("specifyClass").innerHTML= "<h1> T&C </h1><h4> <p>I have a young baby - can I bring him/her along too?</p></h4><p> Attendance of babies is welcomed.  From when they start to join in or at twelve months of age (whichever comes earlier) then a generous discount of 25% is available for the second child.</p><h4><p>  My older child is attending - can I bring him/her along?</p></h4><p>  If a sibling under 6 years of age is attending a one-off session, the fee is $20 per class.  If you'd like to enrol them in for the term, then they'll get a 25% discount on the term fee.  If child other than a sibling is attending a one-off session, the fee is $26 per class.</p><h4> <p> Is there a discount for bringing more than one child to the classes?</p></h4><p> There is a 25% discount for the second child when siblings come to the same class.</p><h4><p> What happens if we miss a class?</p></h4><p>If you miss a class, please contact us by email or phone prior to 9am on the day of the class that you will miss.  To make up for the missed class you can either;</p><ul><li>attend a class on another day, or</li><li>send a friend along to the class in your place, or</li><li>bring a friend along to another class with you</li></ul><p>as long as it is within the term you have paid for.  Make sure you confirm with the office before making up the missed class to avoid the situation where there are too many children in one class.  Refunds are not possible for missed classes.  There are no refunds or transfers to another term in the event that you are unable to attend part of or the whole term.</p>";
             }
         }
 
@@ -161,36 +165,6 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
     </div>
 </div>
 
-<!-- <div id="FAQs-popup">
-    <form class="faq-form" action="" id="contact-form"
-          method="post" enctype="multipart/form-data">
-        <button type="button" data-dismiss="modal" class="close">&times;</button>
-    <h1 >WHAT TO EXPECT</h1>
-       <h4> <p>I have a young baby - can I bring him/her along too?</p></h4>
-
-    <p> Attendance of babies is welcomed.  From when they start to join in or at twelve months of age (whichever comes earlier) then a generous discount of 25% is available for the second child.
-    </p>
-        <h4><p>  My older child is attending - can I bring him/her along?</p></h4>
-
-      <p>  If a sibling under 6 years of age is attending a one-off session, the fee is $20 per class.  If you'd like to enrol them in for the term, then they'll get a 25% discount on the term fee.  If child other than a sibling is attending a one-off session, the fee is $26 per class.
-      </p>
-       <h4> <p> Is there a discount for bringing more than one child to the classes?</p></h4>
-
-        <p> There is a 25% discount for the second child when siblings come to the same class.</p>
-
-        <h4><p> What happens if we miss a class?</p></h4>
-
-        <p>If you miss a class, please contact us by email or phone prior to 9am on the day of the class that you will miss.  To make up for the missed class you can either;</p>
-        <ul>
-            <li>attend a class on another day, or</li>
-            <li>send a friend along to the class in your place, or</li>
-            <li>bring a friend along to another class with you</li>
-        </ul>
-        as long as it is within the term you have paid for.  Make sure you confirm with the office before making up the missed class to avoid the situation where there are too many children in one class.  Refunds are not possible for missed classes.  There are no refunds or transfers to another term in the event that you are unable to attend part of or the whole term.
-
-    </p>
-    </form>
-</div> -->
 
 <div id="contact-popup">
     <form class="contact-form" action="" id="contact-form"
@@ -354,9 +328,11 @@ if(isset($_POST['submit'])) {
     <div class="container">
         <div class="row">
             <div class="text-center">
-                <div >
+                <div class="col-sm-1"></div>
+                <div class="col p-3">
                     <p> <i>How awesome is these Albums???? These are a must-have in the car, keeps my little ones entertained and singing along every single time! Love these, and recommend to anyone with kids!!!</i></p>
                 </div>
+                <div class="col-sm-1"></div>
             </div>
         </div>
     </div>

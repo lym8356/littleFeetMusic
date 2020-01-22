@@ -70,9 +70,11 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
     <div class="container">
         <div class="row">
             <div class="text-center">
-                <div >
+                <div class="col-sm-1"></div>
+                <div class="col p-2 text-dark">
                     <p> <i>Hi Rachel, Zac and Bianca have both been singing various Little Feet music songs on and off all day….Zac is particularly stoked with Andy Pandy….even told his Dad about it tonight! He keeps on saying Andy Pandy Sugar and Candy, then bursts out laughing, like it’s the funniest thing.</i></p>
                 </div>
+                <div class="col-sm-1"></div>
             </div>
         </div>
     </div>

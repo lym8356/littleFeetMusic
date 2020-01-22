@@ -57,7 +57,7 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
 </div>
 
 <section id="LFM-about-us">
-    <div class="container">
+    <div class="container text-dark">
         <div class="row">
             <div class="col-md-12">
                 <div class="LFM-about-us-area">
@@ -67,8 +67,8 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
                                 <?php foreach ($home as $a)
                                 {
                                 ?>
-                                    <h1><?php echo $a->heading ?></h1>
-                                    <h2><?php echo $a->p2 ;?></h2>
+                                    <h2><b><?php echo $a->heading ?></b></h2>
+                                    <h5><?php echo $a->p2 ;?></h5>
                                     <p><?php echo $a->p ;?></p>
                                 <?php
                                 }
@@ -275,9 +275,11 @@ if(isset($_POST['submit'])) {
     <div class="container">
         <div class="row">
             <div class="text-center">
-                <div>
+                <div class="col-sm-1"></div>
+                <div class="col p-2">
                     <p> <i>All 3 of my little people have enjoyed Rachel and Little Feet Music. So many favourite songs, so good for their confidence. Thanks Rachel for many fun times :) We highly, highly recommend LFM!!!</i></p>
                 </div>
+                <div class="col-sm-1"></div>
             </div>
         </div>
     </div>
