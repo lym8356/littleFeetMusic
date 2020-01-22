@@ -167,6 +167,7 @@ blockquote:after {
     margin-top: -255px;
     box-shadow: 1px 1px 5px #444444;
     padding: 40px 40px 40px 40px;
+    z-index: 1;
 }
 
 

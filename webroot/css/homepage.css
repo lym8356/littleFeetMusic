@@ -205,14 +205,15 @@ blockquote:after {
     height: 800px;
     background-color: white;
     font-family: Arial;
-    position:absolute;
-    left: 50%;
-    top: 50%;
+    position:fixed;
+    left: 48%;
+    top: 42%;
     margin-left: -250px;
     margin-top: -265px;
     box-shadow: 1px 1px 5px #444444;
     padding: 40px 40px 40px 40px;
     overflow: auto;
+    z-index: 1;
 
 }
 
