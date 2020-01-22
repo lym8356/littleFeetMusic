@@ -111,13 +111,14 @@ blockquote:after {
 }
 
 .contact-form {
-    height:1000px;
+    height:730px;
     width: 500px;
     background-color: white;
     font-family: Arial;
-    position: fixed;
+    position: absolute;
     left: 50%;
     top: 50%;
+    bottom: 10%;
     margin-left: -250px;
     margin-top: -255px;
     box-shadow: 1px 1px 5px #444444;

@@ -33,14 +33,6 @@
                             </tr>
                             <tr>
                                 <td>2</td>
-                                <td>Classes</td>
-                                <td class="actions">
-                                    <?= $this->Html->link(__('View'), ['action' => 'view'], ['class' => 'btn btn-primary']) ?>
-                                    <?= $this->Html->link(__('Edit'), ['action' => 'edit'], ['class' => 'btn btn-success']) ?>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>3</td>
                                 <td>Book Us</td>
                                 <td class="actions">
                                     <?= $this->Html->link(__('View'), ['action' => '../bookus/view/1'], ['class' => 'btn btn-primary']) ?>
@@ -48,15 +40,7 @@
                                 </td>
                             </tr>
                             <tr>
-                                <td>4</td>
-                                <td>Shop</td>
-                                <td class="actions">
-                                    <?= $this->Html->link(__('View'), ['action' => 'view'], ['class' => 'btn btn-primary']) ?>
-                                    <?= $this->Html->link(__('Edit'), ['action' => 'edit'], ['class' => 'btn btn-success']) ?>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>5</td>
+                                <td>3</td>
                                 <td>News & Videos</td>
                                 <td class="actions">
                                     <?= $this->Html->link(__('View'), ['action' => 'view'], ['class' => 'btn btn-primary']) ?>
@@ -64,7 +48,7 @@
                                 </td>
                             </tr>
                             <tr>
-                                <td>6</td>
+                                <td>4</td>
                                 <td>About</td>
                                 <td class="actions">
                                     <?= $this->Html->link(__('View'), ['action' => '../about'], ['class' => 'btn btn-primary']) ?>
@@ -72,7 +56,7 @@
                                 </td>
                             </tr>
                             <tr>
-                                <td>7</td>
+                                <td>5</td>
                                 <td>Contact</td>
                                 <td class="actions">
                                     <?= $this->Html->link(__('View'), ['action' => 'view'], ['class' => 'btn btn-primary']) ?>
@@ -80,7 +64,7 @@
                                 </td>
                             </tr>
                             <tr>
-                                <td>8</td>
+                                <td>6</td>
                                 <td>Hidden: Children's Music Classes Melbourne</td>
                                 <td class="actions">
                                     <?= $this->Html->link(__('View'), ['action' => 'view'], ['class' => 'btn btn-primary']) ?>
@@ -88,7 +72,7 @@
                                 </td>
                             </tr>
                             <tr>
-                                <td>9</td>
+                                <td>7</td>
                                 <td>Hidden: Best Children's Songs</td>
                                 <td class="actions">
                                     <?= $this->Html->link(__('View'), ['action' => 'view'], ['class' => 'btn btn-primary']) ?>
@@ -96,7 +80,7 @@
                                 </td>
                             </tr>
                             <tr>
-                                <td>10</td>
+                                <td>8</td>
                                 <td>Hidden: Facebook Promo</td>
                                 <td class="actions">
                                     <?= $this->Html->link(__('View'), ['action' => 'view'], ['class' => 'btn btn-primary']) ?>
@@ -104,7 +88,7 @@
                                 </td>
                             </tr>
                             <tr>
-                                <td>11</td>
+                                <td>9</td>
                                 <td>Hidden: Promo</td>
                                 <td class="actions">
                                     <?= $this->Html->link(__('View'), ['action' => 'view'], ['class' => 'btn btn-primary']) ?>
