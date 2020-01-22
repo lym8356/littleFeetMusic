@@ -97,7 +97,7 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
                                 </p>
                                 <p>Contact Little Feet Music now, and unlock that door to your child's creativity!
                                 </p>
-                                <a href="../Class/EnrolInfo" class="btn btn-warning btn-lg" >Enrol</a>
+                                <a href="./Class/EnrolInfo" class="btn btn-warning btn-lg" >Enrol</a>
                                 <button id="enquiry" class="btn btn-warning btn-lg">Enquiry</button>
                             </div> -->
                         </div>
@@ -275,7 +275,7 @@ if(isset($_POST['submit'])) {
     <div class="container">
         <div class="row">
             <div class="text-center">
-                <div >
+                <div>
                     <p> <i>All 3 of my little people have enjoyed Rachel and Little Feet Music. So many favourite songs, so good for their confidence. Thanks Rachel for many fun times :) We highly, highly recommend LFM!!!</i></p>
                 </div>
             </div>

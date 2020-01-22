@@ -1,0 +1,54 @@
+{
+    box-sizing: border-box;
+    color: Black;
+}
+
+.fixedsize{
+    min-width: 142px;
+    max-width: 142px;
+}
+.fixtd{
+    min-width: 100px;
+    max-width: 100px;
+}
+
+
+head {
+
+}
+body{
+    padding-top: 100px;
+
+}
+
+img {
+    width: 100%;
+    height: auto;
+}
+.headpic{
+    background-color:white;
+}
+.LFM-about-us-right{
+    display: inline;
+    float: left;
+    margin-top: 20px;
+    padding-top: 30px;
+    padding-left: 80px;
+    width: 100%
+}
+.LFM-about-us-right h1{
+    text-align: center;
+}
+.btn{
+    background-color: red;
+   margin-left: 130px;
+}
+.LFM-about-us-right h4{
+    text-align: center;
+}
+.LFM-about-us-right h6{
+    text-align: center;
+}
+
+
+

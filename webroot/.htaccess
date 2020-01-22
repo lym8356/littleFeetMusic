@@ -2,5 +2,8 @@
     RewriteEngine On
     RewriteCond %{REQUEST_FILENAME} !-f
     RewriteRule ^ index.php [L]
+    RewriteRule ^/ChildrensMusicClassesMelbourne$ /childrens-music-classes-melbourne [L]
+    RewriteRule ^/BestChildrensSongs$ /best-childrens-songs [L]
+    RewriteRule ^/FacebookPromo$ /facebook-promo [L]
 </IfModule>
 
