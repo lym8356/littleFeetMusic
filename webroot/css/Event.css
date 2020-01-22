@@ -160,7 +160,7 @@ blockquote:after {
     width: 500px;
     background-color: white;
     font-family: Arial;
-    position: -ms-device-fixed;
+    position: fixed;
     left: 50%;
     top: 50%;
     margin-left: -250px;

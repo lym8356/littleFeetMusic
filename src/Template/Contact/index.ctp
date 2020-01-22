@@ -60,18 +60,8 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
 
 <div class="container">
 	<div class="row">
-<<<<<<< HEAD
-        <div class="col-md-4">
-            <h2>Little feet music</h2>
-            <strong>Headquarter</strong><br>
 
-        </div>
         <div class="col-md-8">
-
-=======
-        <div class="col-md-1"></div>
-        <div class="text-center">
->>>>>>> 879224bd89cc1cd4de5ba9b3471d28cff40375e2
             <address>
                <h3><p>PO Box 2020, Parkdale Vic 3195</h3>
                 <h2>

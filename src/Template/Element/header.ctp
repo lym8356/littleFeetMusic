@@ -54,6 +54,7 @@ $cakeDescription = 'User Panel';
                 <li class="nav-item">
                     <?= $this->Html->link(' Contact <span class="sr-only">(current)</span>', '/Contact', ['class' => 'nav-link', 'escape' => false]); ?>
                 </li>
+
             </ul>
             <ul class="navbar-nav">
                 <ul class="navbar-nav">

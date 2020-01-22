@@ -267,7 +267,7 @@ if(isset($_POST['submit'])) {
     <div class="container">
         <div class="row">
             <div class="text-center">
-                <div >
+                <div>
                     <p> <i>All 3 of my little people have enjoyed Rachel and Little Feet Music. So many favourite songs, so good for their confidence. Thanks Rachel for many fun times :) We highly, highly recommend LFM!!!</i></p>
                 </div>
             </div>

@@ -119,7 +119,7 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
     <div class="container">
         <div class="row">
             <div class="text-center">
-                <div >
+                <div>
                     <p> <i>The best! Rachel is funny, fun, entertaining and energetic. The kids all love her. So do the adults!</i></p>
                 </div>
             </div>
