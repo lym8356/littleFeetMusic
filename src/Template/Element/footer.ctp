@@ -28,10 +28,10 @@
             </div>
             <div class="col-sm-4">
                 <div class="social-networks">
-                    <a href="https://twitter.com/intent/follow?source=followbutton&variant=1.0&screen_name=littlefeetmusic" class="twitter"><i class="fab fa-twitter"></i></a>
-                    <a href="https://www.facebook.com/LittleFeetMusic/" class="facebook"><i class="fab fa-facebook-f"></i></a><br/>
-                    <a href="https://open.spotify.com/artist/7HDv1OKuA3SSEJ0gybb3Y5" class="spotify"><i class="fab fa-spotify"></i></a>
-                    <a href="https://www.youtube.com/user/LittleFeetMusic" class="youtube"><i class="fab fa-youtube"></i></a>
+                    <a href="https://twitter.com/intent/follow?source=followbutton&variant=1.0&screen_name=littlefeetmusic" class="twitter" target="_blank"><i class="fab fa-twitter"></i></a>
+                    <a href="https://www.facebook.com/LittleFeetMusic/" class="facebook" target="_blank"><i class="fab fa-facebook-f"></i></a><br/>
+                    <a href="https://open.spotify.com/artist/7HDv1OKuA3SSEJ0gybb3Y5" class="spotify" target="_blank"><i class="fab fa-spotify"></i></a>
+                    <a href="https://www.youtube.com/user/LittleFeetMusic" class="youtube" target="_blank"><i class="fab fa-youtube"></i></a>
                 </div>
             </div>
         </div>
