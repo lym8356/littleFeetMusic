@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "4095b2d508405450af001dbda35721e1",
+    "content-hash": "7eb1db6303ccb3573edc703ed2bb9b54",
     "packages": [
         {
             "name": "aura/intl",
@@ -675,6 +675,57 @@
             "time": "2019-07-08T16:59:55+00:00"
         },
         {
+            "name": "square/connect",
+            "version": "2.20191217.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/square/connect-php-sdk.git",
+                "reference": "d56b1194f1940212290d0b0548c539565d29dcbc"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/square/connect-php-sdk/zipball/d56b1194f1940212290d0b0548c539565d29dcbc",
+                "reference": "d56b1194f1940212290d0b0548c539565d29dcbc",
+                "shasum": ""
+            },
+            "require": {
+                "ext-curl": "*",
+                "ext-json": "*",
+                "ext-mbstring": "*",
+                "php": ">=5.3.3"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "~4.0",
+                "satooshi/php-coveralls": "~0.6.1",
+                "squizlabs/php_codesniffer": "~2.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "SquareConnect\\": "lib/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "Apache-2.0"
+            ],
+            "authors": [
+                {
+                    "name": "Square, Inc.",
+                    "homepage": "https://squareup.com/developers"
+                }
+            ],
+            "description": "PHP client library for the Square Connect v2 API",
+            "homepage": "https://github.com/square/connect-php-sdk",
+            "keywords": [
+                "api",
+                "php",
+                "sdk",
+                "swagger"
+            ],
+            "time": "2019-12-19T18:50:51+00:00"
+        },
+        {
             "name": "symfony/config",
             "version": "v4.3.4",
             "source": {
@@ -1215,6 +1266,7 @@
                 "psr",
                 "psr-7"
             ],
+            "abandoned": "laminas/laminas-diactoros",
             "time": "2019-08-06T17:53:53+00:00"
         }
     ],

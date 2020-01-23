@@ -10,7 +10,8 @@
         "cakephp/migrations": "^2.0.0",
         "cakephp/plugin-installer": "^1.0",
         "mobiledetect/mobiledetectlib": "2.*",
-        "phpmailer/phpmailer": "^6.1"
+        "phpmailer/phpmailer": "^6.1",
+        "square/connect": "^2.20191217"
     },
     "require-dev": {
         "cakephp/bake": "^1.9.0",

@@ -9,6 +9,11 @@
 <head>
     <!-- jquery validation -->
     <?= $this->Html->script('/jquery-validation/jquery.validate.js') ?>
+
+    <!-- datepicker -->
+    <?= $this->Html->css('/datetimepicker/css/jquery-ui.min.css') ?>
+    <?= $this->Html->script('/datetimepicker/js/jquery-ui.min.js') ?>
+
     <style>
         .multisteps-form__progress {
             display: grid;
@@ -125,12 +130,12 @@
     <div class="row">
         <div class="col-12 col-lg-8 ml-auto mr-auto mb-4">
             <div class="multisteps-form__progress">
-                <button class="multisteps-form__progress-btn child_progress_btn js-active" type="button" title="Child Info">Child Info
+                <button class="multisteps-form__progress-btn child_progress_btn js-active" type="button" title="Child Info">Child's info
                 </button>
-                <button class="multisteps-form__progress-btn user_progress_btn " type="button" title="Your Contact Details">Your Contact
-                    Details
+                <button class="multisteps-form__progress-btn user_progress_btn " type="button" title="Your Contact Details">Your contact
+                    details
                 </button>
-                <button class="multisteps-form__progress-btn sum_progress_btn " type="button" title="Class Summary">Enrolment Summary
+                <button class="multisteps-form__progress-btn sum_progress_btn " type="button" title="Class Summary">Enrolment summary
                 </button>
                 <button class="multisteps-form__progress-btn payment_progress_btn " type="button" title="Payment">Payment</button>
             </div>
@@ -142,7 +147,7 @@
             <?php echo $this->Form->create('enrolment', ['class' => 'multisteps-form__form', 'id' => 'enrol_form']); ?>
             <!--Child form panel-->
             <div class="multisteps-form__panel shadow p-4 rounded bg-white js-active" data-animation="scaleIn">
-                <h3 class="multisteps-form__title">Child Info</h3>
+                <h3 class="multisteps-form__title">Child's Info</h3>
                 <input type="hidden" name="_csrfToken" value="<?= $this->request->getParam('_csrfToken'); ?>"/>
                 <div class="multisteps-form__content">
                     <label class="text-danger">* Required</label> <br>
@@ -153,12 +158,12 @@
                     <p id="child_validation_error" style="color: red;"></p>
                     <div class="form-row mt-2 child_field">
                         <div class="col-12 col-sm-6">
-                            <?php echo $this->Form->control('child_first_name[]', ['class' => 'form-control', 'label' => 'Child First Name *']); ?>
-                            <?php echo $this->Form->control('child_last_name[]', ['class' => 'form-control', 'label' => 'Child Last Name *']); ?>
+                            <?php echo $this->Form->control('child_first_name[]', ['class' => 'form-control', 'label' => "Child's first name *"]); ?>
+                            <?php echo $this->Form->control('child_last_name[]', ['class' => 'form-control', 'label' => "Child's last name *"]); ?>
                         </div>
                         <div class="col-12 col-sm-6 mt-4 mt-sm-0">
-                            <?php echo $this->Form->control('child_dob[]', ['class' => 'form-control', 'label' => 'Child DOB *']); ?>
-                            <?php echo $this->Form->control('child_note[]', ['class' => 'form-control valid', 'type' => 'text', 'label' => 'Extra Note']); ?>
+                            <?php echo $this->Form->control('child_dob[]', ['class' => 'form-control child_dob', 'label' => "Child's DOB *"]); ?>
+                            <?php echo $this->Form->control('child_note[]', ['class' => 'form-control valid', 'type' => 'text', 'label' => 'Extra note']); ?>
                         </div>
                     </div>
                     <span class="input-group-btn">
@@ -211,18 +216,31 @@
                         Child Info Summary
                     </label>
                     <div id="enrolment_detail_table"></div>
-                    <div class="form-row mt-4">
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" value="" id="chb_tshirt">
+                        <label class="form-check-label h6" for="chb_tshirt">
+                            Can I also get a T-shirt please (+$22)
+                        </label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" value="" id="chb_cd">
+                        <label class="form-check-label h6" for="chb_cd">
+                            I'd like a CD of Rachel's album, I'm Jelly (+$10)
+                        </label>
+                    </div>
+                    <div class="form-row mt-4" style="display:none;">
                         <div class="col-12 col-sm-6">
-                            <?php echo $this->Form->control('price', ['class' => 'form-control', 'id' => 'sub_total', 'label' => '', 'hidden']); ?>
-                            <?php echo $this->Form->control('class_time', ['class' => 'form-control', 'id' => 'class_time', 'label' => '', 'hidden']); ?>
-                            <?php echo $this->Form->control('price', ['label' => '', 'hidden', 'id' => 'class_price']); ?>
+                            <?php echo $this->Form->control('price', ['class' => 'form-control', 'id' => 'sub_total', 'label' => '', 'style'=>'display:none']); ?>
+                            <?php echo $this->Form->control('class_time', ['class' => 'form-control', 'id' => 'class_time', 'label' => '','style'=>'display:none']); ?>
+                            <?php echo $this->Form->control('price', ['label' => '', 'id' => 'class_price', 'hidden']); ?>
                         </div>
                         <div class="col-12 col-sm-6 mt-4 mt-sm-0">
-                            <?php echo $this->Form->control('location', ['class' => 'form-control', 'id' => 'class_location', 'label' => '', 'hidden']); ?>
-                            <?php echo $this->Form->control('age_group', ['class' => 'form-control', 'id' => 'class_ageGroup', 'type' => 'text', 'label' => '', 'hidden']); ?>
-                            <?php echo $this->Form->control('term_id', ['type' => 'text', 'label' => '', 'hidden']); ?>
+                            <?php echo $this->Form->control('location', ['class' => 'form-control', 'id' => 'class_location', 'label' => '','style'=>'display:none']); ?>
+                            <?php echo $this->Form->control('age_group', ['class' => 'form-control', 'id' => 'class_ageGroup', 'type' => 'text', 'label' => '','style'=>'display:none']); ?>
+                            <?php echo $this->Form->control('term_id', ['type' => 'text', 'label' => '','style'=>'display:none']); ?>
                         </div>
                     </div>
+                    <hr>
                     <div class="card">
                         <span class="card-header">Class Information</span>
                         <div class="card-body">
@@ -254,12 +272,6 @@
                                 </td>
                                 <td class="right" id="tb_sub_total"></td>
                             </tr>
-<!--                            <tr>-->
-<!--                                <td class="left">-->
-<!--                                    <strong class="text-dark">GST (10%)</strong>-->
-<!--                                </td>-->
-<!--                                <td class="right" id="gst_price"></td>-->
-<!--                            </tr>-->
                             <tr class="hide_row" id="tb_tshirt_row">
                                 <td class="left" id="t_shirt_price">
                                     <strong class="text-dark">T-Shirt</strong>
@@ -283,44 +295,30 @@
                         </tbody>
                     </table>
                     <hr>
-                    <div class="form-check">
-                        <input class="form-check-input" type="checkbox" value="" id="chb_tshirt">
-                        <label class="form-check-label" for="chb_tshirt">
-                            Can I also get a T-shirt please (+$22)
-                        </label>
-                    </div>
-                    <div class="form-check">
-                        <input class="form-check-input" type="checkbox" value="" id="chb_cd">
-                        <label class="form-check-label" for="chb_cd">
-                            I'd like a CD of Rachel's album, I'm Jelly (+$10)
-                        </label>
-                    </div>
                     <div class="row">
                         <div class="button-row d-flex mt-4 col-12">
                             <button class="btn btn-primary js-btn-prev" type="button" title="Prev">Prev</button>
-                            <?php echo $this->Form->button('Enrol', ['class' => 'btn btn-primary ml-auto js-btn-next',
-                                'id' => 'enrolBtn', 'type' => 'submit']); ?>
-                            <!--                        <button class="btn btn-primary ml-auto js-btn-next" type="button" title="Next">Next</button>-->
+<!--                            --><?php //echo $this->Form->button('Enrol', ['class' => 'btn btn-primary ml-auto js-btn-next',
+//                                'id' => 'enrolBtn', 'type' => 'submit']); ?>
+                            <button class="btn btn-primary ml-auto js-btn-next" id="payment_btn" type="button" title="Next">Next</button>
                         </div>
                     </div>
                 </div>
             </div>
 
-            <!--payment panel-->
-            <!--                <div class="multisteps-form__panel shadow p-4 rounded bg-white" data-animation="scaleIn">-->
-            <!--                    <h3 class="multisteps-form__title">Additional Comments</h3>-->
-            <!--                    <div class="multisteps-form__content">-->
-            <!--                        -->
-            <!--                        <div class="form-row mt-4">-->
-            <!--                    <textarea class="multisteps-form__textarea form-control"-->
-            <!--                              placeholder="Additional Comments and Requirements"></textarea>-->
-            <!--                        </div>-->
-            <!--                        <div class="button-row d-flex mt-4">-->
-            <!--                            <button class="btn btn-primary js-btn-prev" type="button" title="Prev">Prev</button>-->
-            <!--                            <button class="btn btn-success ml-auto" type="button" title="Send">Send</button>-->
-            <!--                        </div>-->
-            <!--                    </div>-->
-            <!--                </div>-->
+<!--            payment panel-->
+            <div class="multisteps-form__panel shadow p-4 rounded bg-white" data-animation="scaleIn">
+                <h3 class="multisteps-form__title">Payment</h3>
+                <div class="multisteps-form__content">
+                    <div class="form-row mt-4" id="payment_render">
+
+                    </div>
+                    <div class="button-row d-flex mt-4">
+                        <button class="btn btn-primary js-btn-prev" type="button" title="Prev">Prev</button>
+                        <button class="btn btn-success ml-auto" type="button" title="Send">Send</button>
+                    </div>
+                </div>
+            </div>
             <?php echo $this->Form->end(); ?>
         </div>
     </div>
@@ -329,12 +327,26 @@
 
 <script>
 
+    // item_array = [];
+    //
+    // item_array.push({name: 'CD', price: 10, qty: 1});
+    // item_array.push({name: 'CD', price: 10, qty: 1});
+    // for(var i=0;i<item_array.length;i++){
+    //     console.log(item_array[i]['name']);
+    // }
+
+    //throw new Error('haha');
+
+    $('[name^="child_dob"]').datepicker({dateFormat:'dd-mm-yy'});
+
     let child_fn_array = [];
     let child_ln_array = [];
     let child_dob_array = [];
     let child_note_array = [];
+
+    let item_array = [];
+
     let glob_sub_total;
-    //let glob_gst;
 
     $('.add_row').click(function (e) {
         if (($('.child_field').length) < 5) {
@@ -345,6 +357,7 @@
         } else {
             alert('You Can Only Enrol 5 Children At Once');
         }
+        $('[name^="child_dob"]').datepicker({dateFormat:'dd-mm-yy'});
     });
     $(".multisteps-form__content").on("click", ".remove_row", function () {
         $(this).parents('.child_field').remove();
@@ -408,11 +421,15 @@
         let discountPrice = normalPrice * 0.75;
         let subTotal = 0;
 
+        item_array = [];
+
         let html = "<table class='table table-borderless'>";
         html += "<thead><tr><th>#</th><th>First Name</th><th>Last Name</th><th>DOB</th><th>Note</th><th>Price</th>";
 
         html += "<tr>" + "<td class='center'>" + 1 + "</td><td class='left'>" + child_fn_array[0] + "</td><td class='left'>" + child_ln_array[0] + "</td><td class='right'>" +
             child_dob_array[0] + "</td><td class='center'>" + child_note_array[0] + "</td><td class='right'>" + normalPrice + "</td>" + "</tr>";
+
+        item_array.push({name: 'Class Enrolment', price: normalPrice*100, qty: 1});
 
         subTotal += normalPrice;
 
@@ -422,6 +439,8 @@
                 child_dob_array[i] + "</td><td>" + child_note_array[i] + "</td><td>" + discountPrice + " <small style='color: red;'>(25% Sibling Discount)</small>" + "</td>";
 
             subTotal += discountPrice;
+
+            item_array.push({name: 'Class Enrolment (Discounted)', price: normalPrice*100, qty: 1});
 
             if (next != child_fn_array.length) {
                 html += "</tr><tr>";
@@ -437,9 +456,6 @@
         $('#tb_sub_total').text("$" + subTotal);
         glob_sub_total = subTotal;
 
-        // let temp_gst = subTotal * 0.1;
-        // glob_gst = temp_gst;
-        // $('#gst_price').text(temp_gst);
         $('#tb_total_price').text(subTotal);
     }
 
@@ -451,7 +467,6 @@
 
     $('#chb_tshirt').click(function(){
         let temp_total = glob_sub_total;
-        //let temp_gst = glob_gst;
         if($(this).prop("checked") == true){
             $('#tb_tshirt_row').removeClass("hide_row");
             if( $('#chb_cd').prop("checked") == true){
@@ -460,6 +475,8 @@
                 temp_total += 22;
             }
             $('#tb_total_price').text("$" + temp_total);
+
+            item_array.push({name: 'T-Shirt', price: 2200, qty: 1});
         }
         else if($(this).prop("checked") == false){
             $('#tb_tshirt_row').addClass("hide_row");
@@ -467,12 +484,17 @@
                 temp_total += 10;
             }
             $('#tb_total_price').text("$" + temp_total);
+
+            for(var i=0; i<item_array.length;i++){
+                if(item_array[i]['name'] == 'T-Shirt'){
+                    item_array.splice(i,1)
+                }
+            }
         }
     });
 
     $('#chb_cd').click(function(){
         let temp_total = glob_sub_total;
-        //let temp_gst = glob_gst;
         if($(this).prop("checked") == true){
             $('#tb_cd_row').removeClass("hide_row");
             if($('#chb_tshirt').prop("checked") == true){
@@ -481,6 +503,8 @@
                 temp_total += 10;
             }
             $('#tb_total_price').text("$" + temp_total);
+
+            item_array.push({name: 'CD', price: 1000, qty: 1});
         }
         else if($(this).prop("checked") == false){
             $('#tb_cd_row').addClass("hide_row");
@@ -488,7 +512,31 @@
                 temp_total += 22;
             }
             $('#tb_total_price').text("$" + temp_total);
+
+            for(var i=0; i<item_array.length;i++){
+                if(item_array[i]['name'] == 'CD'){
+                    item_array.splice(i,1)
+                }
+            }
         }
+    });
+
+    $('#payment_btn').click(function(){
+
+
+        let csrf_token = $('[name="_csrfToken"]').val();
+
+        $.ajax({
+            // beforeSend: function (xhr) {
+            //     xhr.setRequestHeader('X-CSRF-Token', csrf_token);
+            // },
+            method: 'get',
+            url: "<?php echo $this->Url->build(['controller' => 'Payments', 'action' => 'payment']); ?>",
+            data: {item_array},
+            success: function (response) {
+                $('#payment_render').html(response);
+            }
+        })
     });
 
 
@@ -520,6 +568,8 @@
             }
         });
     });
+
+
 
 
     //DOM elements

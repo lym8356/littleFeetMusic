@@ -24,17 +24,35 @@ class EnrolmentsController extends AppController
         $this->paginate = [
             'contain' => ['Lfmclasses', 'Users', 'Childs']
         ];
+        $dataArray = [];
+
 
         //get all terms with the day_id = 1
-        $terms = TableRegistry::getTableLocator()->get('Terms')->find()->where(['day_id' => 1])->contain(['Days','Lfmclasses']);
-        $enrolment = $this->Enrolments->find()->contain('Lfmclasses.Terms')->where(['lfmclasses.terms_id' => 97]);
-//        foreach($enrolment as $en):
-//            pr($en->id);
-//        endforeach;
+        $termsData = TableRegistry::getTableLocator()->get('Terms')->find()->where(['day_id' => 1])->contain(['Days','Lfmclasses']);
+        $now = date('Y-m-d');
+        foreach($termsData as $key1=>$term){
+
+            $classData = TableRegistry::get('Lfmclasses')->find('all',
+                ['conditions' => ['Lfmclasses.terms_id' => $term['id'], "Lfmclasses.class_date>='$now'"]])->order(['class_date' => 'ASC'])->toArray();
+            foreach($classData as $class){
+                $enrolmentData = $enrollment=TableRegistry::get('Enrolments')->find('all',['conditions'=>['Enrolments.lfmclasses_id'=>$class['id']]])
+                    ->toArray();
+                foreach($enrolmentData as $key3=>$enrolment){
+                    $childData = TableRegistry::get('Childs')->find('all',['conditions'=>['Childs.id'=>$enrolment['child_id']]])->toArray();
+                    $guardianData=TableRegistry::get('Users')->find('all',['conditions'=>['Users.id'=>$enrolment['user_id']]])->toArray();
+
+                    //pr($childData);die;
+                    $dataArray[$term['id']][$class['id']][$enrolment['id']]['child']= $childData['first_name'];
+                    $dataArray[$term['id']][$class['id']][$enrolment['id']]['user']= $guardianData['f_name'];
+                }
+            }
+
+        }
+        pr($dataArray);die;
 
         $enrolments = $this->paginate($this->Enrolments);
 
-        $this->set(compact('enrolments','terms'));
+        $this->set(compact('enrolments','dataArray'));
     }
 
     /**
