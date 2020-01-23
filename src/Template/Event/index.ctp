@@ -59,18 +59,18 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
 
 
 
-<body>
+<body class="text-dark">
 
 <section id="LFM-about-us">
-    <div class="container text-dark">
+    <div class="container">
         <div class="row">
             <div class="col-md-12">
                 <div class="LFM-about-us-area">
                     <div class="row">
                         <div class="col-md-6">
-                            <div class="LFM-about-us-left">
-                                <h3 class="text-dark"><b>At Little Feet Music the music is all LIVE!
-                                    </b></h3>
+                            <div class="LFM-about-us-left text-justify">
+                                <h3>At Little Feet Music the music is all LIVE!
+                                    </h3>
                                 <p>Services included:</p>
                                 <ul>
                                     <li>Creative and cool music classes for children with parent or carer</li>
@@ -94,10 +94,12 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
                                 <p>A space to party in (your house or a venue)</p>
 
                             </div>
-                            <button id="Book" class="btn btn-warning btn-lg">Book now</button>
+                            <div class="text-center">
+                                <button id="Book" class="btn btn-warning btn-lg">Book now</button>
+                            </div>
                         </div>
                         <div class="col-md-6">
-                            <div class="LFM-about-us-right">
+                            <div class="LFM-about-us-right ">
                                 <?php echo $this->Html->image('sc.jpg'); ?>
 
 
@@ -192,6 +194,8 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
         let csrf_token = $('[name="_csrfToken"]').val();
         $("#Book").click(function () {
             $("#contact-popup").show();
+            document.body.scrollTop = 0; // For Safari
+            document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
         });
 
         $("#contact-form").on("submit", function () {

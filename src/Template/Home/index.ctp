@@ -77,6 +77,7 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
                             <div class="text-center">
                                 <a href="./Class/EnrolInfo" class="btn btn-warning btn-lg" >Enrol</a>
                                 <button id="enquiry" class="btn btn-warning btn-lg">Enquiry</button>
+                                <button onclick="topFunction()" class="btn btn-warning btn-lg" id="myBtn" title="Go to top">Top</button>
                             </div>
                         </div>
                         <div class="col-md-6 ">
@@ -90,6 +91,21 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
         </div>
     </div>
 </section>
+<div>
+    <script type="text/javascript">
+                //Get the button:
+        mybutton = document.getElementById("myBtn");
+
+        // When the user scrolls down 20px from the top of the document, show the button
+        window.onscroll = function() {scrollFunction()};
+
+        // When the user clicks on the button, scroll to the top of the document
+        function topFunction() {
+          document.body.scrollTop = 0; // For Safari
+          document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
+        }
+    </script>
+</div>
 
 
 
@@ -157,6 +173,8 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
     $(document).ready(function () {
         $("#enquiry").click(function () {
             $("#contact-popup").show();
+            document.body.scrollTop = 0; // For Safari
+            document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
         });
 
         $("#contact-form").on("submit", function () {
