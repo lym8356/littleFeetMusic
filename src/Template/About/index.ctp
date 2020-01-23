@@ -50,45 +50,51 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
 
 
 </head>
+<body class="text-dark">
 
-<body class = "text-dark">
-<div class="headpic">
-        <?php echo $this->Html->image('LFM.jpg'); ?>
-
-</div>
-
-
-<section>
-    <div class=" container text-dark">
-        <div class="row">
-            <div class="col-sm-12">
-                <?php foreach ($about as $ab)
-                {
-                ?>
-                    <h1><?php echo $ab->heading ?></h1>
-                    <h2><?php echo $ab->title ;?></h2>
-                    <p><?php echo $ab->body ?></p>
-                    <h2><?php echo $ab->title2 ;?></h2>
-                    <p><?php echo $ab->body2 ?></p>
-                <?php
-                }
-                ?>
+    <div class= "text-dark">
+        <div class="headpic">
+            <div class="container">
+                <?php echo $this->Html->image('LFM.jpg'); ?>
             </div>
         </div>
     </div>
-</section>
-
-<section class="testimonial">
-    <div class="container">
-        <div class="row text-center">
-            <div class="col-sm-1"></div>
-            <div class="col">
-                <p class="text-center text-dark p-3"> <i>So much fun - all the kids love the music and singing by Rachel!
-                Get around this everyone!!!! This woman is awesome!!!</i></p>
+    <section>
+        <div class="container mt-3">
+            <div class="col-sm" style="background-color: #CCE8E0">
+                <div class="row">
+                    <div class="col-sm text-justify" id="left-col">
+                        <?php foreach ($about as $ab)
+                        {
+                        ?>
+                            <h2><?php echo $ab->heading ?></h2>
+                            <h4><?php echo $ab->title ;?></h4>
+                            <p><?php echo $ab->body ?></p>
+                            <h4><?php echo $ab->title2 ;?></h4>
+                            <p><?php echo $ab->body2 ?></p>
+                        <?php
+                            }
+                        ?>
+                    </div>
+                    <div class="col-sm mb-4" id="right-col">
+                        <div class="container mt-3"><span id="clsimage"><?php echo $this->Html->image('cls-baby.jpg'); ?></span></div>
+                    </div>
+                </div>
             </div>
-            <div class="col-sm-1"></div>
         </div>
-    </div>
-</section>
+    </section>
+
+    <section class="testimonial">
+        <div class="container">
+            <div class="row text-center text-justify text-dark">
+                <div class="col-sm-1"></div>
+                <div class="col">
+                    <p class="text-center text-dark p-3"> <i>So much fun - all the kids love the music and singing by Rachel!
+                    Get around this everyone!!!! This woman is awesome!!!</i></p>
+                </div>
+                <div class="col-sm-1"></div>
+            </div>
+        </div>
+    </section>
 </body>
 </html>

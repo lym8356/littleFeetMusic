@@ -67,45 +67,21 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
                                 <?php foreach ($home as $a)
                                 {
                                 ?>
-                                    <h2><b><?php echo $a->heading ?></b></h2>
-                                    <h5><?php echo $a->p2 ;?></h5>
+                                    <br><h2><b><?php echo $a->heading ?></b></h2>
+                                    <br><p><?php echo $a->p2 ;?></p>
                                     <p><?php echo $a->p ;?></p>
                                 <?php
                                 }
                                 ?>
                             </div>   
-<!--                             <div class="LFM-about-us-left text-dark">
-                                <p>Rachel Parkinson runs Little Feet Music - amazingly fun and engaging music and movement classes for babies, toddlers and preschoolers.  Rachel knows HUNDREDS of songs, so it never gets boring!</p>
-                                <p>Services include:</p>
-                                <ul>
-                                    <li>Creative and cool music classes for children with parent or carer</li>
-                                    <li>Music incursions and classes for early learning centres and primary schools</li>
-                                    <li>Interactive workshops and live shows for community events and festivals</li>
-                                    <li>Entertainment for birthday parties, playgroups and parents' groups</li>
-                                    <li>Live shows with a full band plus Bingle the crazy dancing the Bear</li>
-
-                                </ul>
-                                <p>Children who participate in preschool music develop better learning skills that carry on throughout their educational life.
-                                </p>
-                                <p>Little Feet Music helps children to develop skills such as strengthened self image and self assurance, improved concentration and listening skills, as well as offering lots of opportunities for social interaction.
-                                </p>
-                                <p>Children have a natural love for singing, moving to music, dancing, jumping, clapping and tapping. We use these skills to develop their brains and creativity through entertaining, fun and educational music.
-                                </p>
-                                <p>There have been over 8000 children attend Little Feet Music classes!  Rachel has performed at around 500 parties, festivals, schools and community events.  There have been over a thousand Little Feet Music classes per year since 2005.
-                                </p>
-                                <p>There are three amazingly engaging Little Feet Music albums, and they've been played on inflight entertainment systems with Qantas, Virgin, Singapore Airlines, Malaysia Airlines, Air Vanuatu, and on ABC Kids!  Listen here!
-                                </p>
-                                <p>Contact Little Feet Music now, and unlock that door to your child's creativity!
-                                </p> -->
-                                <div>
-                                    <a href="./Class/EnrolInfo" class="btn btn-warning btn-lg" >Enrol</a>
-                                    <button id="enquiry" class="btn btn-warning btn-lg">Enquiry</button>
-                                </div>
-<!--                             </div> -->
+                            <div class="text-center">
+                                <a href="./Class/EnrolInfo" class="btn btn-warning btn-lg" >Enrol</a>
+                                <button id="enquiry" class="btn btn-warning btn-lg">Enquiry</button>
+                            </div>
                         </div>
-                        <div class="col-md-6">
-                            <div class="LFM-about-us-right">
-                                <?php echo $this->Html->image('sc.jpg'); ?>
+                        <div class="col-md-6 ">
+                            <div class="LFM-about-us-right text-center">
+                                <?php echo $this->Html->image('sc.jpg'); ?>  
                             </div>
                         </div>
                     </div>

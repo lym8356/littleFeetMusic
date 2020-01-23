@@ -289,7 +289,7 @@ if(isset($_POST['submit'])) {
 <section class="testimonial">
     <div class="container">
         <div class="row">
-            <div class="text-center">
+            <div class="text-center text-justify text-dark">
                 <div class="col-sm-2"></div>
                 <div class="col p-2">
                     <p> <i>So much fun - all the kids love the music and singing by Rachel!

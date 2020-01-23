@@ -74,7 +74,7 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
         </div>
     </section>
     <section>
-        <div class="container">
+        <div class="container text-justify">
             <div class="col-sm" style="background-color: #CCE8E0">
                 <div class="row">
                     <div class="col-sm" id="left-col">
