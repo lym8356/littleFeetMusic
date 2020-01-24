@@ -147,22 +147,25 @@ blockquote:after {
 
 #contact-popup {
     position: absolute;
-    top: 0px;
-    left: 0px;
+    margin: 10px 10px 10px 10px;
+    top: 10px;
+    left: 10px;
     height: 100%;
     width: 100%;
     display: none;
     color: #676767;
-    padding-top: 500px;
+    padding-top: 700px;
+    margin-left: 100px;
 }
-
 .contact-form {
-    width: 500px;
+    height:102%;
+    width: auto;
     background-color: white;
     font-family: Arial;
     position: absolute;
     left: 50%;
     top: 50%;
+    bottom: 10%;
     margin-left: -250px;
     margin-top: -255px;
     box-shadow: 1px 1px 5px #444444;

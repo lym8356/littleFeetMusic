@@ -62,7 +62,7 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
 	<div class="row">
         <div class="col-sm-12 text-center">
         <address>
-           <h3><p>PO Box 2020<br/> Parkdale Vic 3195</h3>
+           <h3>PO Box 2020<br/> Parkdale Vic 3195</h3>
             <h2>
             <a href="tel:0410 600 060"> 0410 600 060 </a><br/></h2>
             <h5>
