@@ -73,16 +73,16 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
                                 <?php
                                 }
                                 ?>
-                            </div>   
+                            </div>
                             <div class="text-center">
-                                <a href="./Class/EnrolInfo" class="btn btn-warning btn-lg" >Enrol</a>
+                                <a href="./Enrolments" class="btn btn-warning btn-lg" >Enrol</a>
                                 <button id="enquiry" class="btn btn-warning btn-lg">Enquiry</button>
                                 <button onclick="topFunction()" class="btn btn-warning btn-lg" id="myBtn" title="Go to top">Top</button>
                             </div>
                         </div>
                         <div class="col-md-6 ">
                             <div class="LFM-about-us-right text-center">
-                                <?php echo $this->Html->image('sc.jpg'); ?>  
+                                <?php echo $this->Html->image('sc.jpg'); ?>
                             </div>
                         </div>
                     </div>

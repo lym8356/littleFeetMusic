@@ -68,7 +68,7 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
             <div class="p-1">
                 <button class="btn btn-outline-success fixedsize p-1" id="btn5" value="1" onclick="viewFAQ()">FAQ</button></div>
             <div class="p-1">
-                <a href='./Class/EnrolInfo' class="btn btn-outline-success fixedsize p-1" >Enrol</a></div>
+                <a href='./Enrolments' class="btn btn-outline-success fixedsize p-1" >Enrol</a></div>
             <div class="p-1">
                 <button class="btn btn-outline-success fixedsize p-1" id="enquiry" value="1"> Enquiry</button></div>
         </div>
