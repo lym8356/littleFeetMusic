@@ -64,29 +64,6 @@ img {
     padding: 10px 10px;
     background-color: #EFEFEF;
 }
-blockquote{
-    font-size:20px;
-    line-height: 30px;
-}
-blockquote::before{
-    content: open-quote;
-    font-size: 50px;
-    position: relative;
-    color:#fdbc5e;
-    line-height: 20px;
-    bottom:-15px;
-    right: 130px;
-}
-blockquote:after {
-    content: close-quote;
-    font-size: 50px;
-    position: relative;
-    color:#fdbc5e;
-    line-height: 20px;
-    bottom:-15px;
-    left:130px;
-
-}
 
 .testimonial-info:hover{
     box-shadow: 0 0 15px 5px rgba(0,0,0,0.2);
@@ -101,17 +78,19 @@ blockquote:after {
 
 #contact-popup {
     position: absolute;
-    top: 0px;
-    left: 0px;
+    margin: 10px 10px 10px 10px;
+    top: 10px;
+    left: 10px;
     height: 100%;
     width: 100%;
     display: none;
     color: #676767;
     padding-top: 700px;
+    margin-left: 50px;
 }
 
 .contact-form {
-    height:730px;
+    height:770px;
     width: 500px;
     background-color: white;
     font-family: Arial;
