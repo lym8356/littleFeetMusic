@@ -49,9 +49,8 @@
 
                                 ?>
 
-                                <?php echo "<th><span style='color: mediumseagreen'>".$termd['age_group']."</span>"."<br>Start: ".date("d-m-Y",strtotime($termd['start_date']))."</br>
-                                   Time: ".date("G:i", strtotime($termd['start_time']))."
-                                   <br>Week Remaining: "."<span style='color: red'>".$termd['remaining_class_count']."</span>"."</th>"; ?>
+                                <?php echo "<th><span style='color: mediumseagreen'>".$termd['age_group']."</span>"."<br>".date("h:i A", strtotime($termd['start_time']))."-".date("h:i A", strtotime($termd['end_time']))."
+                                   <br>"."<span style='color: red'>".$termd['remaining_class_count']."</span>"." weeks"."</th>"; ?>
 
                             <?php }}?>
                     <tr>
@@ -66,14 +65,13 @@
                                 <?php for($i=0;$i<count($header);$i++){?>
                                     <?php if($header[$i]==$termd['age_group']){$flag=true;?>
                                         <td>
-                                            <strong>Enrol:</strong>
                                             <button type="button" class="btn btn-primary term_price_btn mt-2 fixedsize p-1" style="background-color:#CC0000;" data-backdrop="static"
                                                     data-keyboard="false" data-toggle="modal" data-target="#enrolInfo" data-termid= "<?php echo $termd['term_id']."-".$termd['lfm_primary_key']; ?>">
-                                                <?php echo "$".$termd['price'] ?>
-                                            </button>
+                                                <b>Enrol:</b><?php echo "$".$termd['price'] ?>
+                                            </button><br>
 
                                             <!--<strong>Casual:</strong>-->
-                                            <button type="button" class="btn btn-info causal_price_btn ml-5 mt-2 fixedsize p-1" style="background-color:orange;" data-backdrop="static"
+                                            <button type="button" class="btn btn-info causal_price_btn mt-2 fixedsize p-1" style="background-color:orange;" data-backdrop="static"
                                                     data-keyboard="false" data-toggle="modal" data-target="#enrolInfo" data-termid= "<?php echo $termd['term_id']; ?>">
                                                 <!--<?php echo "$".$termd['casual_rate'] ?>-->Casual
                                             </button>
