@@ -1,6 +1,6 @@
 <div class="row" style="z-index: 1">
     <div class="col-lg-4"></div>
-    <div class=" mt-5">
+    <div class="col-lg-4 m-5">
 
         <?php
         echo $this->Flash->render('message');
@@ -28,6 +28,7 @@
 
         ?>
     </div>
+    <div class="col-lg-4"></div>    
 
 </div>
 

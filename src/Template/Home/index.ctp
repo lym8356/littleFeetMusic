@@ -77,7 +77,7 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
                             <div class="text-center">
                                 <a href="./Enrolments" class="btn btn-warning btn-lg" >Enrol</a>
                                 <button id="enquiry" class="btn btn-warning btn-lg">Enquiry</button>
-                                <button onclick="topFunction()" class="btn btn-warning btn-lg" id="myBtn" title="Go to top">Top</button>
+                                <button onclick="topFunction()" class="btn btn-warning btn-lg" id="myBtn" title="Go to top"> ^ </button>
                             </div>
                         </div>
                         <div class="col-md-6 ">

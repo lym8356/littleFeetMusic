@@ -47,7 +47,7 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
 
 </head>
 <?php echo $this->element('header') ?>
-<body>
+<body class="text-dark">
     <div class= "text-dark">
         <div class="headpic">
     <div class="container">
