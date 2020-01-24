@@ -22,7 +22,8 @@ $cakeDescription = 'User Panel';
 </head>
 
 <body>
-<header>
+<section>
+    <header>
     <nav class="navbar navbar-expand-lg fixed-top navbar-dark" style="background-color: #AD33FF;">
         <a class="navbar-brand d-flex w-40 mr-0" href="./Home"> <?php echo $this->Html->image('Logo.gif'); ?></a>
         <button class="navbar-toggler" type="button"
@@ -64,9 +65,8 @@ $cakeDescription = 'User Panel';
             </ul>
         </div>
     </nav>
-
-</header>
-
+    </header>
+</section>
 </body>
 <SCRIPT>
     $(document).ready(function() {
