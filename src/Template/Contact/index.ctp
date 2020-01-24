@@ -62,9 +62,9 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
 	<div class="row">
         <div class="col-sm-12 text-center">
         <address>
-           <h3><p>PO Box 2020, Parkdale Vic 3195</h3>
+           <h3><p>PO Box 2020<br/> Parkdale Vic 3195</h3>
             <h2>
-            <a href="tel:0410 600 060"> 0410 600 060 </a> ||
+            <a href="tel:0410 600 060"> 0410 600 060 </a><br/>
             <a href="mailto:team117bluewater@gmail.com">team117bluewater@gmail.com</a></p>
             </h2>
             <button id="enquiry" class="btn btn-warning btn-lg">Contact</button>
@@ -86,8 +86,6 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
         <div class="col-md-8">
             <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d12602.906683432071!2d144.9461685139601!3d-37.84328423248015!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6ad667e9c057cb0d%3A0x997d9948b75df7e6!2s21%20Graham%20St%2C%20Albert%20Park%20VIC%203206!5e0!3m2!1sen!2sau!4v1571043345323!5m2!1sen!2sau" width=100% height="250" frameborder="0" style="border:0;" allowfullscreen=""></iframe>
         </div>
-
-
     </div>
 </div>
 <div class="container">
@@ -113,11 +111,10 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
         <div class="col-md-4">
             <h2>Port Melbourne</h2>
             <address>
-            <strong>Liardet St Community Centre </strong><br>
-            154 Liardet St<br>
-            (Enter via Lalor St)<br>
-            Port Melbourne Vic 3207<br>
-
+                <strong>Liardet St Community Centre </strong><br>
+                154 Liardet St<br>
+                (Enter via Lalor St)<br>
+                Port Melbourne Vic 3207<br>
             </address>
         </div>
         <div class="col-md-8">
@@ -135,6 +132,7 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
           method="post" enctype="multipart/form-data">
         <button type="button" data-dismiss="modal" class="close">&times;</button>
         <h1>Contact Us</h1>
+        <p>* required fields</p>
         <div>
             <div>
                 <label>Name *: </label><span id="userName-info"
