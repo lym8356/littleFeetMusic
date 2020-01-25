@@ -1,0 +1,20 @@
+.column {
+    float: left;
+    width: 33.33%;
+}
+
+/* Clear floats after the columns */
+.row:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+.btn btn-warning btn-lg{
+    padding-left: 100px;
+}
+h3{
+    text-align: center;
+}
+img{
+
+}
