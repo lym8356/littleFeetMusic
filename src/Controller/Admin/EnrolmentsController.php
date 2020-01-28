@@ -48,7 +48,7 @@ class EnrolmentsController extends AppController
             }
 
         }
-        pr($dataArray);die;
+        //pr($dataArray);die;
 
         $enrolments = $this->paginate($this->Enrolments);
 

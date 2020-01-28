@@ -21,7 +21,7 @@
 </head>
 <body>
     <section>
-        
+
 <div class="headpic">
     <div class="container">
         <?php echo $this->Html->image('LFM.jpg'); ?>
@@ -67,7 +67,7 @@
                                         <td>
                                             <button type="button" class="btn btn-primary term_price_btn mt-2 fixedsize p-1" style="background-color:#CC0000;" data-backdrop="static"
                                                     data-keyboard="false" data-toggle="modal" data-target="#enrolInfo" data-termid= "<?php echo $termd['term_id']."-".$termd['lfm_primary_key']; ?>">
-                                                <b>Enrol:</b><?php echo "$".$termd['price'] ?>
+                                                <b>Enrol:</b><?php echo " $".$termd['price'] ?>
                                             </button><br>
 
                                             <!--<strong>Casual:</strong>-->

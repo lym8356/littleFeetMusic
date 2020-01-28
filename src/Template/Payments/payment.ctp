@@ -13,16 +13,20 @@
 
     </div>
     <script>
-        $(document).ready(function(){
-            $.ajax({
-                method : 'get',
-                url: '<?php echo $redirectUrl; ?>',
-                data: {},
-                success: function(response){
-                    $('.container').html(response);
-                }
-            });
-        });
+        let url = '<?php echo $checkoutUrl?>';
+
+        window.location.replace(url);
+
+        //$(document).ready(function(){
+        //    $.ajax({
+        //        method : 'get',
+        //        url: '<?php //echo $checkoutUrl; ?>//',
+        //        data: {},
+        //        success: function(response){
+        //            $('.container').html(response);
+        //        }
+        //    });
+        //});
     </script>
 </body>
 </html>

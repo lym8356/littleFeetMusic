@@ -6,6 +6,7 @@ use App\Controller\AppController;
 use Cake\Event\Event;
 use Cake\ORM\Table;
 use Cake\ORM\TableRegistry;
+use Cake\Routing\Router;
 use SquareConnect\ApiException;
 
 class PaymentsController extends AppController
@@ -13,6 +14,7 @@ class PaymentsController extends AppController
 
     public function payment()
     {
+
         $itemArray = $this->request->getQuery();
 
         $access_token = 'EAAAEHND9hsKev-_M94G0qZAP3N560UizdQ8wzEQeyQSEaBgjzj6wEenwidQWtda';
@@ -76,48 +78,21 @@ class PaymentsController extends AppController
             $checkout = new \SquareConnect\Model\CreateCheckoutRequest();
             $checkout->setIdempotencyKey(uniqid());
             $checkout->setOrder($order);
+            $redirectUrl = Router::url(['controller' => 'Enrolments', 'action' => 'success'], TRUE);
+            $checkout->setRedirectUrl($redirectUrl);
             $response = $checkout_api->createCheckout($location_id, $checkout);
+            $checkoutId = $response->getCheckout()->getId();
 
         } catch (ApiException $e){
             pr($e->getMessage());
             exit();
         }
 
-        $targetUrl = $response->getCheckout()->getCheckoutPageUrl();
+        $checkoutUrl = $response->getCheckout()->getCheckoutPageUrl();
+
         //return $this->redirect($targetUri);
-        //pr($targetUri);die;
-        $this->set('redirectUrl', $targetUrl);
-//        try {
-//            $checkout_api = new \SquareConnect\Api\CheckoutApi($api_client);
-//            $request_body = new \SquareConnect\Model\CreateCheckoutRequest(
-//                [
-//                    "idempotency_key" => uniqid(),
-//                    "order" => [
-//                        "line_items" => [
-//                            [
-//                                "name" => "Test Item A",
-//                                "quantity" => "1",
-//                                "base_price_money" => [
-//                                    "amount" => 500,
-//                                    "currency" => "AUD"
-//                                ]
-//                            ],[
-//                                "name" => "Test Item B",
-//                                "quantity" => "3",
-//                                "base_price_money" => [
-//                                    "amount" => 1000,
-//                                    "currency" => "AUD"
-//                                ]
-//                            ]]
-//                    ]
-//                ]
-//            );
-//            $response = $checkout_api->createCheckout($location_id, $request_body);
-//        } catch (ApiException $e) {
-//            // if an error occurs, output the message
-//            pr ($e->getMessage());
-//            exit();
-//        }
+        $this->set('checkoutUrl', $checkoutUrl);
+
 
     }
 

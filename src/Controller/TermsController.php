@@ -147,24 +147,26 @@ class TermsController extends AppController
 
                 foreach($location['terms'] as $key2=>$term){
                     if($term['day_id']==$days['id'] && $location['Id']==$term['location_id']){
-                        $termsArray[$days['name']][$location['name']][$key2]['age_group']=$term['age_group'];
-                        $termsArray[$days['name']][$location['name']][$key2]['location_id']=$term['location_id'];
-                        $termsArray[$days['name']][$location['name']][$key2]['day_id']=$term['day_id'];
-                        $termsArray[$days['name']][$location['name']][$key2]['term_id']=$term['id'];
-                        $termsArray[$days['name']][$location['name']][$key2]['start_time']=$term['start_time'];
-                        $termsArray[$days['name']][$location['name']][$key2]['end_time']=$term['end_time'];
-                        $termsArray[$days['name']][$location['name']][$key2]['start_date']=$term['start_date'];
-                        $termsArray[$days['name']][$location['name']][$key2]['casual_rate']=$term['casual_rate'];
 
                         $now = date('Y-m-d');
                         $lfmdataQuery=TableRegistry::get('Lfmclasses')->find('all',['conditions'=>['Lfmclasses.terms_id'=>$term['id'],"Lfmclasses.class_date>='$now'"]])
                             ->order(['class_date'=>'ASC']);
                         $lfmdata=$lfmdataQuery->limit(1)->first();
                         $class_count =$lfmdataQuery->count();
-                        $termsArray[$days['name']][$location['name']][$key2]['price']=$lfmdata['price'];
-                        $termsArray[$days['name']][$location['name']][$key2]['remaining_class_count']=$class_count;
-                        $termsArray[$days['name']][$location['name']][$key2]['lfm_primary_key']=$lfmdata['id'];
+                        if($class_count>0){
+                            $termsArray[$days['name']][$location['name']][$key2]['age_group']=$term['age_group'];
+                            $termsArray[$days['name']][$location['name']][$key2]['location_id']=$term['location_id'];
+                            $termsArray[$days['name']][$location['name']][$key2]['day_id']=$term['day_id'];
+                            $termsArray[$days['name']][$location['name']][$key2]['term_id']=$term['id'];
+                            $termsArray[$days['name']][$location['name']][$key2]['start_time']=$term['start_time'];
+                            $termsArray[$days['name']][$location['name']][$key2]['end_time']=$term['end_time'];
+                            $termsArray[$days['name']][$location['name']][$key2]['start_date']=$term['start_date'];
+                            $termsArray[$days['name']][$location['name']][$key2]['casual_rate']=$term['casual_rate'];
 
+                            $termsArray[$days['name']][$location['name']][$key2]['price']=$lfmdata['price'];
+                            $termsArray[$days['name']][$location['name']][$key2]['remaining_class_count']=$class_count;
+                            $termsArray[$days['name']][$location['name']][$key2]['lfm_primary_key']=$lfmdata['id'];
+                        }
                     }
                 }
             }

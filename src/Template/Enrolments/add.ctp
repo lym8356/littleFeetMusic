@@ -298,8 +298,6 @@
                     <div class="row">
                         <div class="button-row d-flex mt-4 col-12">
                             <button class="btn btn-primary js-btn-prev" type="button" title="Prev">Prev</button>
-<!--                            --><?php //echo $this->Form->button('Enrol', ['class' => 'btn btn-primary ml-auto js-btn-next',
-//                                'id' => 'enrolBtn', 'type' => 'submit']); ?>
                             <button class="btn btn-primary ml-auto js-btn-next" id="payment_btn" type="button" title="Next">Next</button>
                         </div>
                     </div>
@@ -327,17 +325,12 @@
 
 <script>
 
-    // item_array = [];
-    //
-    // item_array.push({name: 'CD', price: 10, qty: 1});
-    // item_array.push({name: 'CD', price: 10, qty: 1});
-    // for(var i=0;i<item_array.length;i++){
-    //     console.log(item_array[i]['name']);
-    // }
-
-    //throw new Error('haha');
-
     $('[name^="child_dob"]').datepicker({dateFormat:'dd-mm-yy'});
+
+
+    let datePickerField = 
+    datePickerField.push(document.getElementsByClassName('child_dob'));
+    alert(datePickerField);
 
     let child_fn_array = [];
     let child_ln_array = [];
@@ -352,12 +345,16 @@
         if (($('.child_field').length) < 5) {
             var clone = $('.child_field').first().clone();
             clone.append("<div class='col-sm-12 mt-2'><button type='button' class='btn btn-danger float-right remove_row'>Remove</button></div>");
+
             clone.find('input').val('');
             clone.insertBefore('.add_row');
+
+            $('[name^="child_dob"]').datepicker({dateFormat:'dd-mm-yy'});
         } else {
             alert('You Can Only Enrol 5 Children At Once');
         }
-        $('[name^="child_dob"]').datepicker({dateFormat:'dd-mm-yy'});
+        datePickerField.push(document.getElementsByClassName('child_dob'));
+        alert(datePickerField);
     });
     $(".multisteps-form__content").on("click", ".remove_row", function () {
         $(this).parents('.child_field').remove();
