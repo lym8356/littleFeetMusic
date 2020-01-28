@@ -186,6 +186,20 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
         </div>
     </form>
 </div>
+    <section class="testimonial text-dark">
+        <div class="container">
+            <div class="row">
+                <div class="text-center text-justify text-dark">
+                    <div class="col-sm-2"></div>
+                    <div class="col p-2">
+                        <p> <i>So much fun - all the kids love the music and singing by Rachel!
+                                Get around this everyone!!!! This woman is awesome!!!</i></p>
+                    </div>
+                    <div class="col-sm-1"></div>
+                </div>
+            </div>
+        </div>
+    </section>
 </body>
 
 <script>
@@ -257,7 +271,7 @@ if(isset($_POST['submit'])) {
 
     $mail->Host='smtp.gmail.com';
     $mail->Port=587;
-    $mail->SMTPDebug = 1;
+    $mail->SMTPDebug = 0;
     $mail->SMTPAuth=true;
     $mail->SMTPSecure='false';
     $mail->Username='team117bluewater@gmail.com';
@@ -285,21 +299,5 @@ if(isset($_POST['submit'])) {
 }
 ?>
 
-<section class="testimonial">
-    <div class="container">
-        <div class="row">
-            <div class="text-center text-justify text-dark">
-                <div class="col-sm-2"></div>
-                <div class="col p-2">
-                    <p> <i>So much fun - all the kids love the music and singing by Rachel!
-                    Get around this everyone!!!! This woman is awesome!!!</i></p>
-                </div>
-                <div class="col-sm-1"></div>
-            </div>
-        </div>
-    </div>
-</section>
-</div>
-</body>
 
-</html>
+

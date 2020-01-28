@@ -50,6 +50,8 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
 
 <?php echo $this->element('header') ?>
 
+
+<body>
 <div class="headpic">
     <div class="container">
         <?php echo $this->Html->image('LFM.jpg'); ?>
@@ -91,6 +93,20 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
         </div>
     </div>
 </section>
+<section class="testimonial text-dark">
+    <div class="container">
+        <div class="row">
+            <div class="text-center">
+                <div class="col-sm-1"></div>
+                <div class="col p-2">
+                    <p> <i>All 3 of my little people have enjoyed Rachel and Little Feet Music. So many favourite songs, so good for their confidence. Thanks Rachel for many fun times :) We highly, highly recommend LFM!!!</i></p>
+                </div>
+                <div class="col-sm-1"></div>
+            </div>
+        </div>
+    </div>
+</section>
+
 <div>
     <script type="text/javascript">
                 //Get the button:
@@ -226,7 +242,7 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
     });
 
 </script>
-<div>
+
 <?php
 if(isset($_POST['submit'])) {
     require 'vendor/phpmailer/phpmailer/src/PHPMailer.php';
@@ -267,20 +283,9 @@ if(isset($_POST['submit'])) {
     }
 }
 ?>
-</div>
-<section class="testimonial">
-    <div class="container">
-        <div class="row">
-            <div class="text-center">
-                <div class="col-sm-1"></div>
-                <div class="col p-2">
-                    <p> <i>All 3 of my little people have enjoyed Rachel and Little Feet Music. So many favourite songs, so good for their confidence. Thanks Rachel for many fun times :) We highly, highly recommend LFM!!!</i></p>
-                </div>
-                <div class="col-sm-1"></div>
-            </div>
-        </div>
-    </div>
-</section>
+
+
+
 
 
 

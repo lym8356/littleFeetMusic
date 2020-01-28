@@ -97,6 +97,7 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
             </div>
         </div>
     </section>
+
     <script type="text/javascript">
         function viewClass(){
             var a = document.getElementById("btn1").value;
@@ -210,6 +211,19 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
         </div>
     </form>
 </div>
+        <section class="testimonial text-dark">
+            <div class="container">
+                <div class="row">
+                    <div class="text-center">
+                        <div class="col-sm-1"></div>
+                        <div class="col p-3">
+                            <p> <i>How awesome is these Albums???? These are a must-have in the car, keeps my little ones entertained and singing along every single time! Love these, and recommend to anyone with kids!!!</i></p>
+                        </div>
+                        <div class="col-sm-1"></div>
+                    </div>
+                </div>
+            </div>
+        </section>
 </body>
 
 <script>
@@ -312,24 +326,5 @@ if(isset($_POST['submit'])) {
 ?>
 
 
-</html>
-
-<section class="testimonial">
-    <div class="container">
-        <div class="row">
-            <div class="text-center">
-                <div class="col-sm-1"></div>
-                <div class="col p-3">
-                    <p> <i>How awesome is these Albums???? These are a must-have in the car, keeps my little ones entertained and singing along every single time! Love these, and recommend to anyone with kids!!!</i></p>
-                </div>
-                <div class="col-sm-1"></div>
-            </div>
-        </div>
-    </div>
-</section>
-
-    </div>
-
-</body>
 
 
