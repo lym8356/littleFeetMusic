@@ -48,12 +48,11 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
 </head>
 <?php echo $this->element('header') ?>
 <body class="text-dark">
-    <div class= "text-dark">
-        <div class="headpic">
-    <div class="container">
-        <?php echo $this->Html->image('LFM.jpg'); ?>
+    <div class="headpic">
+        <div class="container">
+            <?php echo $this->Html->image('LFM.jpg'); ?>
+        </div>
     </div>
-</div>
 <div class="container" id="div1">
     <section>
         <div class="row container ml-2 mt-3 mb-3">
@@ -306,12 +305,8 @@ if(isset($_POST['submit'])) {
 
         return true;
     }
-
-
 }
 ?>
-
-
 </html>
 
 <section class="testimonial">
@@ -327,9 +322,6 @@ if(isset($_POST['submit'])) {
         </div>
     </div>
 </section>
-
-    </div>
-
 </body>
 
 

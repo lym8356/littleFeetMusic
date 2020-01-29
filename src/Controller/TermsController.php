@@ -162,6 +162,7 @@ class TermsController extends AppController
                             $termsArray[$days['name']][$location['name']][$key2]['end_time']=$term['end_time'];
                             $termsArray[$days['name']][$location['name']][$key2]['start_date']=$term['start_date'];
                             $termsArray[$days['name']][$location['name']][$key2]['casual_rate']=$term['casual_rate'];
+                            // $termsArray[$days['loc']][$location['name']]=$term['loc'];
 
                             $termsArray[$days['name']][$location['name']][$key2]['price']=$lfmdata['price'];
                             $termsArray[$days['name']][$location['name']][$key2]['remaining_class_count']=$class_count;

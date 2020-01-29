@@ -166,15 +166,15 @@
                         </div>
                     </div>
                     <label class="text-info">
-                        <small><b>Note: You can only enroll a sibling (or more than one) in the same class to get the discount</b></small>
-                    </label>
-                    <span class="input-group-btn">
-                            <button type="button" class="btn btn-info add_row mt-3">Add An Additional Child</button>
-                    </span>
+                    <br><small>Note: You can only enroll a <b>sibling (or siblings)</b> in the same class to get the
+                                discount</small>
                     <div class="button-row d-flex mt-4">
-                        <button class="btn btn-primary ml-auto js-btn-next child-btn-next" id="child_next_btn" type="button"
-                                title="Next">Next
-                        </button>
+                        <section>
+                            <span class="input-group-btn">
+                            <button type="button" class="btn btn-info add_row mt-3">Add Sibling</button>
+                        </span>
+                        </section>
+                        <button class="btn btn-primary ml-auto js-btn-next child-btn-next" id="child_next_btn" type="button" title="Next">Next</button>
                     </div>
                 </div>
             </div>
@@ -193,7 +193,7 @@
                         </div>
                         <div class="col-12 col-sm-6 mt-4 mt-sm-0">
                             <?php echo $this->Form->control('user_email', ['class' => 'form-control', 'type' => 'text', 'label' => 'Email *']); ?>
-                            <?php echo $this->Form->control('user_phone', ['class' => 'form-control', 'label' => 'Phone *(0412345678)']); ?>
+                            <?php echo $this->Form->control('user_phone', ['class' => 'form-control', 'label' => 'Phone *']); ?>
                         </div>
                         <div class="col-12 col-sm-6 mt-4 mt-sm-0">
                             <?php echo $this->Form->control('user_postcode', ['class' => 'form-control', 'type' => 'text', 'label' => 'Postcode']); ?>
@@ -300,6 +300,8 @@
                     <div class="row">
                         <div class="button-row d-flex mt-4 col-12">
                             <button class="btn btn-primary js-btn-prev" type="button" title="Prev">Prev</button>
+<!--                            --><?php //echo $this->Form->button('Enrol', ['class' => 'btn btn-primary ml-auto js-btn-next',
+//                                'id' => 'enrolBtn', 'type' => 'submit']); ?>
                             <button class="btn btn-primary ml-auto js-btn-next" id="payment_btn" type="button" title="Next">Next</button>
                         </div>
                     </div>
@@ -327,12 +329,17 @@
 
 <script>
 
+    // item_array = [];
+    //
+    // item_array.push({name: 'CD', price: 10, qty: 1});
+    // item_array.push({name: 'CD', price: 10, qty: 1});
+    // for(var i=0;i<item_array.length;i++){
+    //     console.log(item_array[i]['name']);
+    // }
+
+    //throw new Error('haha');
+
     $('[name^="child_dob"]').datepicker({dateFormat:'dd-mm-yy'});
-
-
-    let datePickerField = 
-    datePickerField.push(document.getElementsByClassName('child_dob'));
-    alert(datePickerField);
 
     let child_fn_array = [];
     let child_ln_array = [];
@@ -347,16 +354,12 @@
         if (($('.child_field').length) < 5) {
             var clone = $('.child_field').first().clone();
             clone.append("<div class='col-sm-12 mt-2'><button type='button' class='btn btn-danger float-right remove_row'>Remove</button></div>");
-
             clone.find('input').val('');
             clone.insertBefore('.add_row');
-
-            $('[name^="child_dob"]').datepicker({dateFormat:'dd-mm-yy'});
         } else {
             alert('You Can Only Enrol 5 Children At Once');
         }
-        datePickerField.push(document.getElementsByClassName('child_dob'));
-        alert(datePickerField);
+        $('[name^="child_dob"]').datepicker({dateFormat:'dd-mm-yy'});
     });
     $(".multisteps-form__content").on("click", ".remove_row", function () {
         $(this).parents('.child_field').remove();

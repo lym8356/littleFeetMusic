@@ -21,7 +21,7 @@
 </head>
 <body>
     <section>
-
+        
 <div class="headpic">
     <div class="container">
         <?php echo $this->Html->image('LFM.jpg'); ?>
@@ -34,13 +34,13 @@
 
 <div class="row">
     <div class="container">
-        <?php foreach ($termsArray as $key=>$location_d): ?>
+        <?php foreach ($termsArray as $key=>$location_d):?>
             <?php if(count($termsArray)>0){?>
                 <div class="" style="margin-top: 30px;font-weight:bold;color:#3a945b;font-size: larger;"><?php echo $key;?></div>
                 <table style="margin-top: 10px;" class="enrol_info_table table table-bordered">
                     <thead class="col-sm-2">
                     <tr >
-                        <th class="" style="background-color:orange;">Location</th>
+                        <th class="">Location</th>
                         <?php $header=[];foreach ($location_d as $key1=>$terms_d){ ?>
 
                             <?php
@@ -49,7 +49,7 @@
 
                                 ?>
 
-                                <?php echo "<th><span style='color: mediumseagreen;'>".$termd['age_group']."</span>"."<br>".date("h:i a", strtotime($termd['start_time']))."-".date("h:i a", strtotime($termd['end_time']))."
+                                <?php echo "<th><span style='color: mediumseagreen'>".$termd['age_group']."</span>"."<br>".date("h:i A", strtotime($termd['start_time']))."-".date("h:i A", strtotime($termd['end_time']))."
                                    <br>"."<span style='color: red'>".$termd['remaining_class_count']."</span>"." weeks"."</th>"; ?>
 
                             <?php }}?>
@@ -60,14 +60,14 @@
                         // array_column($terms_d,'age_group');
                         ?>
                         <tr>
-                            <td style="background-color: lightgreen;"><b><?php echo $key1 ?></b></td>
+                            <td><b><?php echo $key1 ?></b></td>
                             <?php $flag=false;foreach($terms_d as $termd){ ?>
                                 <?php for($i=0;$i<count($header);$i++){?>
                                     <?php if($header[$i]==$termd['age_group']){$flag=true;?>
                                         <td>
                                             <button type="button" class="btn btn-primary term_price_btn mt-2 fixedsize p-1" style="background-color:#CC0000;" data-backdrop="static"
                                                     data-keyboard="false" data-toggle="modal" data-target="#enrolInfo" data-termid= "<?php echo $termd['term_id']."-".$termd['lfm_primary_key']; ?>">
-                                                <b>Enrol:</b><?php echo " $".$termd['price'] ?>
+                                                <b>Enrol:</b><?php echo "$".$termd['price'] ?>
                                             </button><br>
 
                                             <!--<strong>Casual:</strong>-->

@@ -63,7 +63,7 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
         <div class="container mt-4">
             <div class="col-sm " style="background-color: #CCE8E0">
                 <div class="row">
-                    <div class="col-sm text-justify" id="left-col">
+                    <div class="col-sm" id="left-col">
                         <?php foreach ($about as $ab)
                         {
                         ?>
