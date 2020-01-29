@@ -23,18 +23,21 @@ img {
 .headpic{
     background-color:white;
 }
+
 .map{
     padding-top: 30px;
 }
 .map .row{
-    padding-top: 50px;
+    padding-top: 30px;
 }
 
+
+
 .testimonial {
-    margin-top: 20px;
+    margin-top: 30px;
     background-color: #CCE8E0;
     width: 100%;
-    margin-bottom: -150px;
+    margin-bottom: -200px;
 
 }
 .testimonial h1{
