@@ -290,3 +290,15 @@ blockquote:after {
 
 }
 
+td, th{
+    min-width: 200px;
+    max-width: 200px;
+    padding: 5px 8px;
+}
+#locell{
+    min-width: 160px;
+    max-width: 160px;
+    padding: 2px 2px;
+}
+
+
