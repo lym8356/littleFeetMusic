@@ -44,11 +44,13 @@ $cakeDescription = 'User Panel';
                     </li>
                     <li class="nav-item">
                         <!--<?= $this->Html->link(' Shop<span class="sr-only">(current)</span>', '/Shopping', ['class' => 'nav-link', 'escape' => false]); ?>-->
-                        <?= $this->Html->link(' Shop<span class="sr-only">(current)</span>', 'http://www.littlefeetmusic.com.au/classes#!/Buy-Albums/c/13169068/offset=0&sort=normal', ['class' => 'nav-link', 'escape' => false]); ?>
+                        <?= $this->Html->link(' Shop<span class="sr-only">(current)</span>', 'http://www.littlefeetmusic.com.au/classes#!/Buy-Albums/c/13169068/offset=0&sort=normal',
+                            ['class' => 'nav-link', 'escape' => false, 'target' => "_blank"]); ?>
                     </li>
                     <li class="nav-item">
                         <!--<?= $this->Html->link(' News and Videos<span class="sr-only">(current)</span>', '/Media', ['class' => 'nav-link', 'escape' => false]); ?>-->
-                        <?= $this->Html->link(' News and Videos<span class="sr-only">(current)</span>', 'http://www.littlefeetmusic.com.au/news-videos', ['class' => 'nav-link', 'escape' => false]); ?>
+                        <?= $this->Html->link(' News and Videos<span class="sr-only">(current)</span>', 'http://www.littlefeetmusic.com.au/news-videos',
+                            ['class' => 'nav-link', 'escape' => false, 'target' => "_blank"]); ?>
                     </li>
                     <li class="nav-item">
                         <?= $this->Html->link(' About<span class="sr-only">(current)</span>', '/About', ['class' => 'nav-link', 'escape' => false]); ?>
