@@ -79,7 +79,6 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
                             <div class="text-center">
                                 <a href="./Enrolments" class="btn btn-warning btn-lg" >Enrol</a>
                                 <button id="enquiry" class="btn btn-warning btn-lg">Enquiry</button>
-                               <!--  <button onclick="topFunction()" class="btn btn-warning btn-lg" id="myBtn" title="Go to top"> ^ </button> -->
                             </div>
                         </div>
                         <div class="col-md-6 ">
@@ -94,41 +93,6 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
     </div>
 </section>
 
-<!-- <div>
-=======
-<section class="testimonial text-dark">
-    <div class="container">
-        <div class="row">
-            <div class="text-center">
-                <div class="col-sm-1"></div>
-                <div class="col p-2">
-                    <p> <i>All 3 of my little people have enjoyed Rachel and Little Feet Music. So many favourite songs, so good for their confidence. Thanks Rachel for many fun times :) We highly, highly recommend LFM!!!</i></p>
-                </div>
-                <div class="col-sm-1"></div>
-            </div>
-        </div>
-    </div>
-</section>
-
-<div>
->>>>>>> 34aa43294fcad1803ffbbecd005d29f9588b05a4
-    <script type="text/javascript">
-                //Get the button:
-        mybutton = document.getElementById("myBtn");
-
-        // When the user scrolls down 20px from the top of the document, show the button
-        window.onscroll = function() {scrollFunction()};
-
-        // When the user clicks on the button, scroll to the top of the document
-        function topFunction() {
-          document.body.scrollTop = 0; // For Safari
-          document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
-        }
-    </script>
-</div> -->
-
-
-
 <div id="contact-popup">
     <form class="contact-form" action="" id="contact-form"
           method="post" enctype="multipart/form-data">
@@ -137,12 +101,10 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
         <p>* required fields</p>
         <div>
             <div>
-                <label>Name *: </label><span id="userName-info"
-                                             class="info"></span>
+                <label>Name *: </label><span id="userName-info" class="info"></span>
             </div>
             <div>
-                <input type="text" id="userName" name="userName"
-                       class="inputBox" />
+                <input type="text" id="userName" name="userName" class="inputBox">
             </div>
         </div>
         <div>
@@ -193,8 +155,8 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
     $(document).ready(function () {
         $("#enquiry").click(function () {
             $("#contact-popup").show();
-            document.body.scrollTop = 0; // For Safari
-            document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
+            document.body.scrollTop = 0; // For Safari scroll to top
+            document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera scroll to top
         });
 
         $("#contact-form").on("submit", function () {
@@ -253,10 +215,6 @@ if(isset($_POST['submit'])) {
     require 'vendor/phpmailer/phpmailer/src/SMTP.php';
     require 'vendor/phpmailer/phpmailer/src/Exception.php';
 
-
-
-
-
     $mail = new PHPMailer\PHPMailer\PHPMailer();
     $mail->IsSmtp();
 
@@ -267,8 +225,6 @@ if(isset($_POST['submit'])) {
     $mail->SMTPSecure='false';
     $mail->Username='team117bluewater@gmail.com';
     $mail->Password='M0nash123';
-
-
 
     $mail->From=$_POST['userEmail'];
     $mail->FromName=$_POST['userName'];

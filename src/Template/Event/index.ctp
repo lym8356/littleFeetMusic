@@ -101,8 +101,6 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
                         <div class="col-md-6">
                             <div class="LFM-about-us-right ">
                                 <?php echo $this->Html->image('new.jpg'); ?>
-
-
                             </div>
                         </div>
                     </div>
@@ -282,8 +280,6 @@ if(isset($_POST['submit'])) {
 
         return true;
     }
-
-
 }
 ?>
 
