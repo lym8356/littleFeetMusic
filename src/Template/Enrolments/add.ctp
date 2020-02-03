@@ -330,9 +330,9 @@
     $('[name^="child_dob"]').datepicker({dateFormat:'dd-mm-yy'});
 
 
-    let datePickerField = 
-    datePickerField.push(document.getElementsByClassName('child_dob'));
-    alert(datePickerField);
+    // let datePickerField =
+    // datePickerField.push(document.getElementsByClassName('child_dob'));
+    // alert(datePickerField);
 
     let child_fn_array = [];
     let child_ln_array = [];
@@ -355,8 +355,8 @@
         } else {
             alert('You Can Only Enrol 5 Children At Once');
         }
-        datePickerField.push(document.getElementsByClassName('child_dob'));
-        alert(datePickerField);
+        //datePickerField.push(document.getElementsByClassName('child_dob'));
+        //alert(datePickerField);
     });
     $(".multisteps-form__content").on("click", ".remove_row", function () {
         $(this).parents('.child_field').remove();

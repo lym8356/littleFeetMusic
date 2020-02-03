@@ -21,38 +21,60 @@ class EnrolmentsController extends AppController
      */
     public function index()
     {
-        $this->paginate = [
-            'contain' => ['Lfmclasses', 'Users', 'Childs']
-        ];
+
+
+    }
+
+    public function tab(){
+
+        if($this->request->is('ajax')){
+            $this->layout = 'ajax';
+        }
+
         $dataArray = [];
+        $dayVariable = $this->request->getQuery('dayID') ;
 
-
-        //get all terms with the day_id = 1
-        $termsData = TableRegistry::getTableLocator()->get('Terms')->find()->where(['day_id' => 1])->contain(['Days','Lfmclasses']);
-        $now = date('Y-m-d');
+        $termsData = TableRegistry::getTableLocator()->get('Terms')->find()->where(['day_id' =>$dayVariable])->contain(['Days','Lfmclasses'])->toArray();
+        $staticHeader = ['Child’s name','Adult','DOB', 'Phone', 'Comments'];
         foreach($termsData as $key1=>$term){
+            $localArray=[];
+            $localTermArray = array(
+                "Age group" => $term->age_group,
+                "Day" => $term->day->name,
+                "Time" => date("G:i", strtotime($term->start_time))."-".date("G:i", strtotime($term->end_time)),
+                "Price" => "$".$term->lfmclasses[0]->price
+            );
 
-            $classData = TableRegistry::get('Lfmclasses')->find('all',
-                ['conditions' => ['Lfmclasses.terms_id' => $term['id'], "Lfmclasses.class_date>='$now'"]])->order(['class_date' => 'ASC'])->toArray();
-            foreach($classData as $class){
-                $enrolmentData = $enrollment=TableRegistry::get('Enrolments')->find('all',['conditions'=>['Enrolments.lfmclasses_id'=>$class['id']]])
-                    ->toArray();
-                foreach($enrolmentData as $key3=>$enrolment){
-                    $childData = TableRegistry::get('Childs')->find('all',['conditions'=>['Childs.id'=>$enrolment['child_id']]])->toArray();
-                    $guardianData=TableRegistry::get('Users')->find('all',['conditions'=>['Users.id'=>$enrolment['user_id']]])->toArray();
+            $localArray['termData'] = $localTermArray;
+            $lfmclassesid = array_map(function($e) {
+                return is_object($e) ? $e->id : $e['id'];
+            }, $term['lfmclasses']);
 
-                    //pr($childData);die;
-                    $dataArray[$term['id']][$class['id']][$enrolment['id']]['child']= $childData['first_name'];
-                    $dataArray[$term['id']][$class['id']][$enrolment['id']]['user']= $guardianData['f_name'];
-                }
-            }
+            $lfmDynamicHeader = array_map(function($e) {
+                return is_object($e) ? date('d/m',strtotime($e->class_date)) :date('d/m',strtotime($e['class_date']));
+            }, $term['lfmclasses']);
+
+            $staticHeader=['Child’s name','Adult','DOB', 'Phone', 'Comments'];
+
+            $headerData=array_merge($staticHeader,$lfmDynamicHeader);
+
+
+            $localArray['header']=$headerData;
+
+
+            $enrolmentData = $enrollment=TableRegistry::get('Enrolments')->find('all',['conditions'=>['Enrolments.lfmclasses_id IN'=>$lfmclassesid]])->contain(['Users','Childs'])->toArray();
+
+
+            $localArray['header']=$headerData;
+            $localArray['enrolment']=$enrolmentData;
+            $dataArray[]=$localArray;
+
 
         }
-        //pr($dataArray);die;
 
         $enrolments = $this->paginate($this->Enrolments);
 
-        $this->set(compact('enrolments','dataArray'));
+        $this->set(compact('enrolments','dataArray','staticHeader'));
     }
 
     /**
