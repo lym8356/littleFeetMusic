@@ -150,7 +150,7 @@ class TermsController extends AppController
 
         $keyword = $this->request->getQuery('keyword');
         $query = $this->Terms->find('all',[
-            'contain' => ['Locations'],
+            'contain' => ['Locations','Days'],
             'conditions' => ['Terms.age_group LIKE'=>'%'.$keyword.'%'],
             'order' => ['Terms.id'=>'DESC'],
             'limit' => 10
@@ -177,7 +177,7 @@ class TermsController extends AppController
             $conditions = ['Terms.location_id'=>$keyword];
         }
         $query = $this->Terms->find('all',[
-            'contain' => ['Locations'],
+            'contain' => ['Locations','Days'],
             'conditions' => $conditions,
             'order' => ['Terms.id'=>'DESC']
         ]);
