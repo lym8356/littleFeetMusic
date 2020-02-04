@@ -151,25 +151,22 @@
                 <input type="hidden" name="_csrfToken" value="<?= $this->request->getParam('_csrfToken'); ?>"/>
                 <div class="multisteps-form__content">
                     <label class="text-danger">* Required</label> <br>
-                    <label class="text-info">
-                        <small><b>Note: Siblings must be enrolled in the same class to get the 25% sibling discount.</b></small>
-                    </label>
                     <p id="child_validation_error" style="color: red;"></p>
                     <div class="form-row mt-2 child_field">
                         <div class="col-12 col-sm-6">
-                            <?php echo $this->Form->control('child_first_name[]', ['class' => 'form-control', 'label' => "Child's first name *"]); ?>
+                            <?php echo $this->Form->control('child_first_name[]', ['class' => 'form-control mb-4', 'label' => "Child's first name *"]); ?>
                             <?php echo $this->Form->control('child_last_name[]', ['class' => 'form-control', 'label' => "Child's last name *"]); ?>
                         </div>
-                        <div class="col-12 col-sm-6 mt-4 mt-sm-0">
-                            <?php echo $this->Form->control('child_dob[]', ['class' => 'form-control child_dob', 'label' => "Child's DOB *"]); ?>
+                        <div class="col-12 col-sm-6  mt-sm-0">
+                            <?php echo $this->Form->control('child_dob[]', ['class' => 'form-control mb-4 child_dob', 'label' => "Child's DOB *"]); ?>
                             <?php echo $this->Form->control('child_note[]', ['class' => 'form-control valid', 'type' => 'text', 'label' => 'Extra note']); ?>
                         </div>
                     </div>
-                    <label class="text-info">
-                        <small><b>Note: You can only enroll a sibling (or more than one) in the same class to get the discount</b></small>
+                    <label class="text-info mt-2">
+                        <small><b>Note: Siblings must be enrolled in the same class to get the 25% sibling discount.</b></small>
                     </label>
                     <span class="input-group-btn">
-                            <button type="button" class="btn btn-info add_row mt-3">Add An Additional Child</button>
+                            <button type="button" class="btn btn-info add_row mt-3">Add A Sibling</button>
                     </span>
                     <div class="button-row d-flex mt-4">
                         <button class="btn btn-primary ml-auto js-btn-next child-btn-next" id="child_next_btn" type="button"
@@ -188,18 +185,18 @@
 
                     <div class="form-row mt-4 user_field">
                         <div class="col-12 col-sm-6">
-                            <?php echo $this->Form->control('user_first_name', ['class' => 'form-control', 'label' => 'First Name *']); ?>
+                            <?php echo $this->Form->control('user_first_name', ['class' => 'form-control mb-4', 'label' => 'First Name *']); ?>
                             <?php echo $this->Form->control('user_last_name', ['class' => 'form-control', 'label' => 'Last Name *']); ?>
                         </div>
                         <div class="col-12 col-sm-6 mt-4 mt-sm-0">
-                            <?php echo $this->Form->control('user_email', ['class' => 'form-control', 'type' => 'text', 'label' => 'Email *']); ?>
-                            <?php echo $this->Form->control('user_phone', ['class' => 'form-control', 'label' => 'Phone *(0412345678)']); ?>
+                            <?php echo $this->Form->control('user_email', ['class' => 'form-control mb-4', 'type' => 'text', 'label' => 'Email *']); ?>
+                            <?php echo $this->Form->control('user_phone', ['class' => 'form-control mb-4', 'label' => 'Phone *(10 digits)']); ?>
                         </div>
                         <div class="col-12 col-sm-6 mt-4 mt-sm-0">
-                            <?php echo $this->Form->control('user_postcode', ['class' => 'form-control', 'type' => 'text', 'label' => 'Postcode']); ?>
+                            <?php echo $this->Form->control('user_postcode', ['class' => 'form-control mb-4', 'type' => 'text', 'label' => 'Postcode']); ?>
                         </div>
                         <div class="col-12 col-sm-6 mt-4 mt-sm-0">
-                            <?php echo $this->Form->control('relation', ['class' => 'form-control',
+                            <?php echo $this->Form->control('relation', ['class' => 'form-control mb-4',
                                 'label' => 'Relationship to children *', 'type' => 'select', 'options' => array('Parent' => 'Parent', 'Grandparent' => 'Grandparent',
                                     'Carer' => 'Carer', 'Nanny' => 'Nanny', 'Other' => 'Other')]); ?>
                         </div>

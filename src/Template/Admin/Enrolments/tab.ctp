@@ -22,9 +22,9 @@
         $lengthforspace = count($data['header']) - count($staticHeader);
         ?>
         <tr>
-            <td><?php echo $enrollment['child']['first_name'] . ' ' . $enrollment['last_name']; ?></td>
-            <td><?php echo $enrollment['user']['f_name'] . ' ' . $enrollment['l_name']; ?></td>
-            <td><?php echo date('Y-m-d', strtotime($enrollment['child']['dob'])); ?></td>
+            <td><?php echo $enrollment['child']['first_name'] . ' ' . $enrollment['child']['last_name']; ?></td>
+            <td><?php echo $enrollment['user']['f_name'] . ' ' . $enrollment['user']['l_name']; ?></td>
+            <td><?php echo date('d-m-Y', strtotime($enrollment['child']['dob'])); ?></td>
             <td><?php echo $enrollment['user']['phone']; ?></td>
             <?php for ($i = 0; $i < $lengthforspace; $i++) { ?>
                 <td></td>
