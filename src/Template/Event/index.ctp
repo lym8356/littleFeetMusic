@@ -16,6 +16,7 @@
 $cakeDescription = 'CakePHP: the rapid development php framework';
 ?>
 <!DOCTYPE html>
+<html>
 <head>
     <?= $this->Html->charset() ?>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -185,7 +186,7 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
         </div>
     </form>
 </div>
-</body>
+
 
 <script>
     $(document).ready(function () {
@@ -249,10 +250,7 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
 if(isset($_POST['submit'])) {
     require 'vendor/phpmailer/phpmailer/src/PHPMailer.php';
     require 'vendor/phpmailer/phpmailer/src/SMTP.php';
-
-
-
-
+    require 'vendor/phpmailer/phpmailer/src/Exception.php';
 
     $mail = new PHPMailer\PHPMailer\PHPMailer();
     $mail->IsSmtp();
@@ -261,26 +259,28 @@ if(isset($_POST['submit'])) {
     $mail->Port=587;
     $mail->SMTPDebug = 0;
     $mail->SMTPAuth=true;
-    $mail->SMTPSecure='tls';
+    $mail->SMTPSecure='false';
     $mail->Username='team117bluewater@gmail.com';
     $mail->Password='M0nash123';
 
-
-
-    $mail->setFrom($_POST['userEmail'], $_POST['userName']);
+    $mail->From=$_POST['userEmail'];
+    $mail->FromName=$_POST['userName'];
+    $mail->AddReplyTo($_POST['userEmail'], $_POST['userName']);
     $mail->addAddress('team117bluewater@gmail.com', 'Little Feet Music');
     $mail->Subject=$_POST['userNeed'];
     $mail->Body=($_POST['message']);
-    $mail->send();
-
-    if(!$mail->Send()) {
-        echo "Mailer Error: " . $mail->ErrorInfo;
-        return false;
-    } else {
+    if(!$mail->send())
+    {
+        $msg = "We have received your enquiry, thank you!";
+    }
+    else
+    {
 
         return true;
     }
 }
 ?>
+</body>
+</html>
 
 

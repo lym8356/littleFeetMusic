@@ -16,6 +16,7 @@
 $cakeDescription = 'CakePHP: the rapid development php framework';
 ?>
 <!DOCTYPE html>
+<html>
 <head>
     <?= $this->Html->charset() ?>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -47,6 +48,7 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
 
 </head>
 <?php echo $this->element('header') ?>
+<body>
 <body class="text-dark">
     <div class="headpic">
         <div class="container">
@@ -223,7 +225,7 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
                 </div>
             </div>
         </section>
-</body>
+
 
 <script>
     $(document).ready(function () {
@@ -321,9 +323,9 @@ if(isset($_POST['submit'])) {
     }
 }
 ?>
+</body>
 </html>
 
-</body>
 
 
 

@@ -16,6 +16,7 @@
 $cakeDescription = 'CakePHP: the rapid development php framework';
 ?>
 <!DOCTYPE html>
+<html>
 <head>
     <?= $this->Html->charset() ?>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -46,14 +47,14 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
 
 </head>
 <?php echo $this->element('header') ?>
-
+<body>
 <div class="headpic">
     <div class="container">
         <?php echo $this->Html->image('LFM.jpg'); ?>
     </div>
 </div>
 
-<body>
+
 <div class = "text-dark">
 
 <section class="map">
@@ -84,13 +85,13 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
                 <a href="img/GLS.jpg" data-fancybox="gal">Click here to see the map</a><br>
             </address>
         </div>
-        <div class="col-md-8">
+        <div class="col-md-8" style="padding-bottom: 10px">
             <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d12602.906683432071!2d144.9461685139601!3d-37.84328423248015!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6ad667e9c057cb0d%3A0x997d9948b75df7e6!2s21%20Graham%20St%2C%20Albert%20Park%20VIC%203206!5e0!3m2!1sen!2sau!4v1571043345323!5m2!1sen!2sau" width=100% height="250" frameborder="0" style="border:0;" allowfullscreen=""></iframe>
         </div>
     </div>
 </div>
 <div class="container">
-    <div class="row">
+    <div class="row" style="background-color: #F0F0F0">
         <div class="col-md-4">
             <h2>Mordialloc</h2>
             <address>
@@ -100,7 +101,7 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
 
             </address>
         </div>
-        <div class="col-md-8">
+        <div class="col-md-8" style="padding-bottom: 10px">
             <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d12575.199730077584!2d145.0857013456294!3d-38.00512681723409!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6ad66d98ee7786c1%3A0x9473fc6d779f20e6!2s457%20Main%20St%2C%20Mordialloc%20VIC%203195!5e0!3m2!1sen!2sau!4v1571043050372!5m2!1sen!2sau" width=100% height="250" frameborder="0" style="border:0;" allowfullscreen=""></iframe>
         </div>
 
@@ -108,7 +109,7 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
     </div>
 </div>
 <div class="container">
-    <div class="row">
+    <div class="row" style="background-color:#E0E0E0">
         <div class="col-md-4">
             <h2>Port Melbourne</h2>
             <address>
@@ -118,13 +119,14 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
                 Port Melbourne Vic 3207<br>
             </address>
         </div>
-        <div class="col-md-8">
+        <div class="col-md-8" style="padding-bottom: 10px">
             <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d12603.829983928848!2d144.9415322!3d-37.8378809!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x46e231fe9fd41feb!2sPort%20Melbourne%20Neighbourhood%20Centre!5e0!3m2!1sen!2sau!4v1571042664510!5m2!1sen!2sau" width=100% height="250" frameborder="0" style="border:0;" allowfullscreen=""></iframe>
 
         </div>
 
 
     </div>
+</div>
 </div>
 </section>
 
@@ -200,7 +202,7 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
             </div>
         </div>
     </section>
-</body>
+
 
 <script>
     $(document).ready(function () {
@@ -299,5 +301,7 @@ if(isset($_POST['submit'])) {
 }
 ?>
 
+</body>
+</html>
 
 
