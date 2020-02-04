@@ -1,9 +1,9 @@
 <?php foreach ($dataArray as $data): ?>
-    <table class="table table-bordered table-responsive">
+    <table class="table-bordered table-responsive m">
         <?php foreach ($data['termData'] as $key => $term) { ?>
             <tr>
-                <th scope="col"><?php echo $key ?></th>
-                <td><?php echo $term ?></td>
+                <th class="tb-small" scope="col"><?php echo $key ?></th>
+                <td class="tb-small"><?php echo $term ?></td>
             </tr>
         <?php } ?>
     </table>
@@ -34,4 +34,19 @@
         </tbody>
     </table>
 <?php endforeach; ?>
+
+<style type="text/css">
+    .tb-small{
+        min-width: 150px;
+        max-width: 150px;
+        padding: 2%;
+        background-color: white;
+    }
+    .m{
+        margin-bottom: 1rem;
+    }
+    .table{
+        margin-bottom: 5rem;
+    }
+</style>
 
