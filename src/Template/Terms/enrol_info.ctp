@@ -41,17 +41,7 @@
 
 <div class="row">
     <div class="container">
-<!--         <table class="enrol_info_table table-bordered">
-            <thead>
-                <tr>
-                    <th> Head</th>
-                </tr>
-            </thead>
-                <tr>
-                    <td>td1</td>
-                    <td>td2</td>
-                </tr>
-        </table> -->
+
         <?php foreach ($termsArray as $key=>$location_d): ?>
             <?php if(count($termsArray)>0){?>
 <!--                     <div class="text-center" style="margin-top: 30px;font-weight:bold;color:#3a945b;" width="500"><h3><?php echo $key ." " ;?></h3></div> -->

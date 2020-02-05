@@ -135,7 +135,7 @@
                 <button class="multisteps-form__progress-btn user_progress_btn " type="button" title="Your Contact Details">Your contact
                     details
                 </button>
-                <button class="multisteps-form__progress-btn sum_progress_btn " type="button" title="Class Summary">Enrolment summary
+                <button class="multisteps-form__progress-btn sum_progress_btn" type="button" title="Class Summary">Enrolment summary
                 </button>
                 <button class="multisteps-form__progress-btn payment_progress_btn " type="button" title="Payment">Payment</button>
             </div>
@@ -249,7 +249,6 @@
                                         <th>Location</th>
                                         <th>Age Group</th>
                                         <th>Class Time</th>
-                                        <th>Price</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -257,7 +256,6 @@
                                         <td id="tb_class_location"></td>
                                         <td id="tb_class_ageGroup"></td>
                                         <td id="tb_class_time"></td>
-                                        <td id="tb_class_price"></td>
                                     </tr>
                                 </tbody>
                             </table>
@@ -334,8 +332,6 @@
     let child_fn_array = [];
     let child_ln_array = [];
     let child_dob_array = [];
-    let child_note_array = [];
-
     let item_array = [];
 
     let glob_sub_total;
@@ -382,7 +378,6 @@
         child_fn_array = [];
         child_ln_array = [];
         child_dob_array = [];
-        child_note_array = [];
 
         $('input[name^="child_first_name"]').each(function () {
             let temVar = $(this).val();
@@ -402,14 +397,6 @@
                 child_dob_array.push($(this).val());
             }
         });
-        $('input[name^="child_note"]').each(function () {
-            let temVar = $(this).val();
-            if (temVar == '') {
-                child_note_array.push("");
-            } else {
-                child_note_array.push($(this).val());
-            }
-        });
     }
 
     function createDetailTable() {
@@ -420,10 +407,14 @@
         item_array = [];
 
         let html = "<table class='table table-borderless'>";
-        html += "<thead><tr><th>#</th><th>First Name</th><th>Last Name</th><th>DOB</th><th>Note</th><th>Price</th>";
+        // html += "<thead><tr><th>#</th><th>First Name</th><th>Last Name</th><th>DOB</th><th>Price</th>";
 
-        html += "<tr>" + "<td class='center'>" + 1 + "</td><td class='left'>" + child_fn_array[0] + "</td><td class='left'>" + child_ln_array[0] + "</td><td class='right'>" +
-            child_dob_array[0] + "</td><td class='center'>" + child_note_array[0] + "</td><td class='right'>" + normalPrice + "</td>" + "</tr>";
+        // html += "<tr>" + "<td class='center'>" + 1 + "</td><td class='left'>" + child_fn_array[0] + "</td><td class='left'>" + child_ln_array[0] + "</td><td class='right'>" +
+        //     child_dob_array[0] + "</td><td class='right'>" + "$"+normalPrice + "</td>" + "</tr>";
+        html += "<thead><tr><th>#</th><th>Name</th><th>DOB</th><th>Price</th>";
+
+        html += "<tr>" + "<td class='center'>" + 1 + "</td><td class='left'>" + child_fn_array[0]+" " + child_ln_array[0] + "</td><td class='right'>" +
+            child_dob_array[0] + "</td><td class='right'>" + "$"+normalPrice + "</td>" + "</tr>";
 
         item_array.push({name: 'Class Enrolment', price: normalPrice*100, qty: 1});
 
@@ -431,8 +422,8 @@
 
         for (let i = 1; i < child_fn_array.length; i++) {
             let next = i + 1;
-            html += "<td>" + next + "</td><td>" + child_fn_array[i] + "</td><td>" + child_ln_array[i] + "</td><td>" +
-                child_dob_array[i] + "</td><td>" + child_note_array[i] + "</td><td>" + discountPrice + " <small style='color: red;'>(25% Sibling Discount)</small>" + "</td>";
+            html += "<td>" + next + "</td><td>" + child_fn_array[i] + " " + child_ln_array[i] + "</td><td>" +
+                child_dob_array[i] + "</td><td>" + "$"+discountPrice + " <small style='color: red;'>(25% Sibling Discount)</small>" + "</td>";
 
             subTotal += discountPrice;
 
@@ -452,7 +443,7 @@
         $('#tb_sub_total').text("$" + subTotal);
         glob_sub_total = subTotal;
 
-        $('#tb_total_price').text(subTotal);
+        $('#tb_total_price').text("$"+subTotal);
     }
 
     $(document).on('blur','.child_field :input',function(){
