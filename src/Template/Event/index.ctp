@@ -272,7 +272,8 @@ if(isset($_POST['submit'])) {
     $mail->Body=($_POST['message']);
     if(!$mail->send())
     {
-        $msg = "We have received your enquiry, thank you!";
+        echo "Mailer Error: " . $mail->ErrorInfo;
+        return false;
     }
     else
     {

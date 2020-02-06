@@ -271,6 +271,41 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
     });
 
 </script>
+<?php
+if(isset($_POST['submit'])) {
+    require 'vendor/phpmailer/phpmailer/src/PHPMailer.php';
+    require 'vendor/phpmailer/phpmailer/src/SMTP.php';
+    require 'vendor/phpmailer/phpmailer/src/Exception.php';
+
+    $mail = new PHPMailer\PHPMailer\PHPMailer();
+    $mail->IsSmtp();
+
+    $mail->Host='smtp.gmail.com';
+    $mail->Port=587;
+    $mail->SMTPDebug = 0;
+    $mail->SMTPAuth=true;
+    $mail->SMTPSecure='false';
+    $mail->Username='team117bluewater@gmail.com';
+    $mail->Password='M0nash123';
+
+    $mail->From=$_POST['userEmail'];
+    $mail->FromName=$_POST['userName'];
+    $mail->AddReplyTo($_POST['userEmail'], $_POST['userName']);
+    $mail->addAddress('team117bluewater@gmail.com', 'Little Feet Music');
+    $mail->Subject=$_POST['userNeed'];
+    $mail->Body=($_POST['message']);
+    if(!$mail->send())
+    {
+        echo "Mailer Error: " . $mail->ErrorInfo;
+        return false;
+    }
+    else
+    {
+
+        return true;
+    }
+}
+?>
 </body>
 </html>
 
