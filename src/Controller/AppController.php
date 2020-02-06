@@ -57,10 +57,15 @@ class AppController extends Controller
                 'action' => 'login'
             ],
             'loginRedirect' => [
-                'controller' => 'Users',
-                'action' => 'profile'
+                'controller' => 'Admin',
+                'action' => 'index'
+            ],
+            'logoutRedirect'=>[
+                'controller'=>'users',
+                'action'=>'login'
             ],
             'authError' => 'Authentication Failed.',
+//            'unauthorizedRedirect' => 'home',
             'unauthorizedRedirect' => $this->referer(),
             'storage' => 'Session'
         ]);

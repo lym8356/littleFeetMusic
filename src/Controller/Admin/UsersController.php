@@ -19,9 +19,10 @@ class UsersController extends AppController
      */
     public function index()
     {
-
-        $users = $this->paginate($this->Users);
-        $this->set(compact('users'));
+//This code will search the table for users with role = "user" and exclude them from search
+        $user = $this->Users->find('all',['conditions'=>['Users.role!="user"']]);
+            $users = $this->paginate($user);
+            $this->set(compact('users'));
     }
 
     /**
@@ -36,7 +37,6 @@ class UsersController extends AppController
         $user = $this->Users->get($id, [
             'contain' => []
         ]);
-
         $this->set('user', $user);
     }
 
@@ -106,5 +106,15 @@ class UsersController extends AppController
             $this->Flash->error(__('The user does not have admin privileges.'));
         }
         return $this->redirect(['action' => 'index']);
+    }
+    public function login()
+    {
+        $this->Flash->error(__('The user session timed out!'));
+        return $this->redirect(['controller' => '../Home', 'action' => 'index']);
+    }
+    public function logout()
+    {
+        $this->Auth->logout();
+        return $this->redirect(['controller' => 'Home', 'action' => 'index']);
     }
 }

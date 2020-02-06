@@ -51,7 +51,7 @@
         <h3><?= h($home->heading) ?></h3>
     </div>
     <div class="row">
-        <h4><?= h($home->title) ?></h3>
+        <h4><?= h($home->title) ?></h4>
         <?= $this->Text->autoParagraph(h($home->p)); ?>
     </div>
     <div class="row">
@@ -64,7 +64,7 @@
             <?php echo $this->Html->link(__('Back'), ['action' => '../cms'],
                 ['class' => 'btn btn-info', 'style' => 'margin-right: 5px;'])?>
             <?= $this->Html->link(__('Edit'), ['action' => 'edit', $home->id], ['class' => 'btn btn-success']) ?>
-        </div>     
+        </div>
     </div>
 
 </div>

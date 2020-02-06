@@ -11,8 +11,8 @@
         <div class="row">
             <div class="col-lg-12">
                 <?= $this->Flash->render(); ?>
-                <h3 class="card-header">Manage User</h3>
-                <?php echo $this->Html->link('Add A New User', ['action' => 'add'],
+                <h3 class="card-header">Manage Staff</h3>
+                <?php echo $this->Html->link('Add A New Staff Member', ['action' => 'add'],
                     ['class' => 'btn btn-lg btn-primary pull-right',
                         'style' => 'margin-bottom: 20px',
                         'escape' => false]) ?>
@@ -27,35 +27,37 @@
                                 <th scope="col"><?= $this->Paginator->sort('Last name') ?></th>
                                 <th scope="col"><?= $this->Paginator->sort('email') ?></th>
                                 <th scope="col"><?= $this->Paginator->sort('phone') ?></th>
-                                <th scope="col"><?= $this->Paginator->sort('postcode') ?></th>
+<!--                                <th scope="col"><?//= $this->Paginator->sort('postcode') ?></th>-->
                                 <th scope="col"><?= $this->Paginator->sort('role') ?></th>
-                                <th scope="col"><?= $this->Paginator->sort('created') ?></th>
-                                <th scope="col"><?= $this->Paginator->sort('modified') ?></th>
+<!--                                <th scope="col"><?//= $this->Paginator->sort('created') ?></th>-->
+<!--                                <th scope="col"><?//= $this->Paginator->sort('modified') ?></th>-->
                                 <th scope="col" colspan="3" class="actions"><?= __('Actions') ?></th>
                             </tr>
                             </thead>
                             <tbody>
                             <?php foreach ($users as $user): ?>
-                                <tr>
-<!--                                    <td>--><!--<?//= h($user->f_name),' ', h($user->l_name) ?>--><!--</td>-->
-                                    <td><?= h($user->f_name) ?></td>
-                                    <td><?= h($user->l_name) ?></td>
-                                    <td><?= h($user->email) ?></td>
-                                    <td><?= h($user->phone) ?></td>
-                                    <td><?= h($user->postcode) ?></td>
-                                    <td><?= h($user->role) ?></td>
-                                    <td><?= h($user->created) ?></td>
-                                    <td><?= h($user->modified) ?></td>
-                                    <td class="actions">
-                                        <div class="btn" role="group">
-                                            <?= $this->Html->link(__('Edit'), ['action' => 'edit', $user->id],
-                                                ['class' => 'btn btn-success']) ?>
-                                            <?= $this->Form->postLink(__('Delete'), ['action' => 'delete', $user->id],
-                                                ['confirm' => __('Are you sure you want to delete {0}?', $user->name),
-                                                    'class' => 'btn btn-danger']) ?>
-                                        </div>
-                                    </td>
-                                </tr>
+                                <?php if($user['role']!="user"){?>
+                                    <tr>
+    <!--                                    <td>--><!--<?//= h($user->f_name),' ', h($user->l_name) ?>--><!--</td>-->
+                                        <td><?= h($user->f_name) ?></td>
+                                        <td><?= h($user->l_name) ?></td>
+                                        <td><?= h($user->email) ?></td>
+                                        <td><?= h($user->phone) ?></td>
+<!--                                        <td><?//= h($user->postcode) ?></td>-->
+                                        <td><?= h($user->role) ?></td>
+<!--                                        <td><?//= h($user->created) ?></td>-->
+<!--                                        <td><?//= h($user->modified) ?></td>-->
+                                        <td class="actions">
+                                            <div class="btn" role="group">
+                                                <?= $this->Html->link(__('Edit'), ['action' => 'edit', $user->id],
+                                                    ['class' => 'btn btn-success']) ?>
+                                                <?= $this->Form->postLink(__('Delete'), ['action' => 'delete', $user->id],
+                                                    ['confirm' => __('Are you sure you want to delete {0}?', $user->name),
+                                                        'class' => 'btn btn-danger']) ?>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                <?php } ?>
                             <?php endforeach; ?>
                         </table>
                         <div class="paginator">
