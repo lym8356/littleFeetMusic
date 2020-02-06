@@ -84,7 +84,7 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
                         </div>
                         <div class="col-md-6 ">
                             <div class="LFM-about-us-right text-center">
-                                <?php echo $this->Html->image('sc.jpg'); ?>
+                                <?php echo $this->Html->image('sc.JPG'); ?>
                             </div>
                         </div>
                     </div>
