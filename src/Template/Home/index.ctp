@@ -99,7 +99,7 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
           method="post" enctype="multipart/form-data" style="width: auto">
         <button type="button" data-dismiss="modal" class="close">&times;</button>
         <h1>Contact Us</h1>
-        <p>* required fields</p>
+        <p class="text-danger">* required fields</p>
         <div>
             <div>
                 <label>Name *: </label><span id="userName-info" class="info"></span>
@@ -163,6 +163,23 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
             </div>
         </div>
     </div>
+    <div style="background-color: white; padding: 1rem;">
+        <?php
+        if(isset($_POST['submit'])) {
+            $email_to = "team117bluewater@gmail.com";
+            $email_subject = $_POST['userNeed'];
+            $email_message=$_POST['message'];
+            $email_from=$_POST['userEmail'];
+            $name=$_POST['userName'];
+            $headers=array(
+                'From' => $_POST['userEmail'],
+                'Reply-To' => $_POST['userEmail'],
+                'X-Mailer' => 'PHP/' . phpversion()
+            );
+            mail($email_to,$email_subject,$email_message,$headers);
+        }
+    ?>
+    </div>
 </section>
 
 
@@ -223,22 +240,10 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
     });
 
 </script>
+<section>
 
-<?php
-if(isset($_POST['submit'])) {
-    $email_to = "team117bluewater@gmail.com";
-    $email_subject = $_POST['userNeed'];
-    $email_message=$_POST['message'];
-    $email_from=$_POST['userEmail'];
-    $name=$_POST['userName'];
-    $headers=array(
-        'From' => $_POST['userEmail'],
-        'Reply-To' => $_POST['userEmail'],
-        'X-Mailer' => 'PHP/' . phpversion()
-    );
-    mail($email_to,$email_subject,$email_message,$headers);
-}
-?>
+</section>
+
 
 
 </body>

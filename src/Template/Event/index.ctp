@@ -134,6 +134,7 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
           method="post" enctype="multipart/form-data">
         <button type="button" data-dismiss="modal" class="close">&times;</button>
         <h1>Contact Us</h1>
+        <p class="text-danger">* required fields</p>
         <div>
             <div>
                 <label>Name *: </label><span id="userName-info"

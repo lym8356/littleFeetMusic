@@ -130,7 +130,7 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
           method="post" enctype="multipart/form-data">
         <button type="button" data-dismiss="modal" class="close">&times;</button>
         <h1>Contact Us</h1>
-        <p>* required fields</p>
+        <p class="text-danger">* required fields</p>
         <div>
             <div>
                 <label>Name *: </label><span id="userName-info"
@@ -196,6 +196,23 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
             </div>
         </div>
     </div>
+    <div style="background-color: white; padding: 1rem;">
+        <?php
+            if(isset($_POST['submit'])) {
+                $email_to = "team117bluewater@gmail.com";
+                $email_subject = $_POST['userNeed'];
+                $email_message=$_POST['message'];
+                $email_from=$_POST['userEmail'];
+                $name=$_POST['userName'];
+                $headers=array(
+                    'From' => $_POST['userEmail'],
+                    'Reply-To' => $_POST['userEmail'],
+                    'X-Mailer' => 'PHP/' . phpversion()
+                );
+                mail($email_to,$email_subject,$email_message,$headers);
+            }
+        ?>
+    </div>
 </section>
 
 
@@ -254,48 +271,6 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
     });
 
 </script>
-<?php
-if(isset($_POST['submit'])) {
-    require 'vendor/phpmailer/phpmailer/src/PHPMailer.php';
-    require 'vendor/phpmailer/phpmailer/src/SMTP.php';
-
-
-
-
-
-    $mail = new PHPMailer\PHPMailer\PHPMailer();
-    $mail->IsSmtp();
-
-    $mail->Host='smtp.gmail.com';
-    $mail->Port=587;
-    $mail->SMTPDebug = 0;
-    $mail->SMTPAuth=true;
-    $mail->SMTPSecure='false';
-    $mail->Username='team117bluewater@gmail.com';
-    $mail->Password='M0nash123';
-
-
-
-    $mail->From=$_POST['userEmail'];
-    $mail->FromName=$_POST['userName'];
-    $mail->AddReplyTo($_POST['userEmail'], $_POST['userName']);
-    $mail->addAddress('team117bluewater@gmail.com', 'Little Feet Music');
-    $mail->Subject=$_POST['userNeed'];
-    $mail->Body=($_POST['message']);
-    $mail->send();
-
-    if(!$mail->Send()) {
-        echo "Mailer Error: " . $mail->ErrorInfo;
-        return false;
-    } else {
-
-        return true;
-    }
-
-
-}
-?>
-
 </body>
 </html>
 
