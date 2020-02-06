@@ -59,7 +59,7 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
 
 
 
-
+<body>
 <body class="text-dark">
 
 <section id="LFM-about-us">

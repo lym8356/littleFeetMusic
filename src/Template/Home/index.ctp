@@ -95,7 +95,7 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
 </section>
 
 <div id="contact-popup">
-    <form class="contact-form" action="" id="contact-form"
+    <form class="contact-form" action=" " id="contact-form"
           method="post" enctype="multipart/form-data" style="width: auto">
         <button type="button" data-dismiss="modal" class="close">&times;</button>
         <h1>Contact Us</h1>
@@ -226,36 +226,17 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
 
 <?php
 if(isset($_POST['submit'])) {
-    require 'vendor/phpmailer/phpmailer/src/PHPMailer.php';
-    require 'vendor/phpmailer/phpmailer/src/SMTP.php';
-    require 'vendor/phpmailer/phpmailer/src/Exception.php';
-
-    $mail = new PHPMailer\PHPMailer\PHPMailer();
-    $mail->IsSmtp();
-
-    $mail->Host='smtp.gmail.com';
-    $mail->Port=587;
-    $mail->SMTPDebug = 0;
-    $mail->SMTPAuth=true;
-    $mail->SMTPSecure='false';
-    $mail->Username='team117bluewater@gmail.com';
-    $mail->Password='M0nash123';
-
-    $mail->From=$_POST['userEmail'];
-    $mail->FromName=$_POST['userName'];
-    $mail->AddReplyTo($_POST['userEmail'], $_POST['userName']);
-    $mail->addAddress('team117bluewater@gmail.com', 'Little Feet Music');
-    $mail->Subject=$_POST['userNeed'];
-    $mail->Body=($_POST['message']);
-    if(!$mail->send())
-    {
-        $msg = "We have received your enquiry, thank you!";
-    }
-    else
-    {
-
-        return true;
-    }
+    $email_to = "team117bluewater@gmail.com";
+    $email_subject = $_POST['userNeed'];
+    $email_message=$_POST['message'];
+    $email_from=$_POST['userEmail'];
+    $name=$_POST['userName'];
+    $headers=array(
+        'From' => $_POST['userEmail'],
+        'Reply-To' => $_POST['userEmail'],
+        'X-Mailer' => 'PHP/' . phpversion()
+    );
+    mail($email_to,$email_subject,$email_message,$headers);
 }
 ?>
 
