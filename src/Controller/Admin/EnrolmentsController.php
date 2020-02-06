@@ -62,13 +62,32 @@ class EnrolmentsController extends AppController
             $localArray['header']=$headerData;
 
 
-            $enrolmentData = $enrollment=TableRegistry::get('Enrolments')->find('all',['conditions'=>['Enrolments.lfmclasses_id IN'=>$lfmclassesid]])->contain(['Users','Childs'])->toArray();
+            $enrolment=TableRegistry::get('Enrolments')->find('all',['conditions'=>['Enrolments.lfmclasses_id IN'=>$lfmclassesid]])->
+            contain(['Users','Childs'])->toArray();
 
+            if(sizeof($enrolment)>0){
+                $enrolmentData = [];
+                array_push($enrolmentData,$enrolment[0]);
+                $temp = $enrolment[0]['child_id'];
+
+                foreach($enrolment as $e){
+                    if($e->child_id == $temp){
+                        continue;
+                    }else{
+                        array_push($enrolmentData,$e);
+                        $temp = $e->child_id;
+                    }
+                }
+                $localArray['enrolment'] = $enrolmentData;
+            }else{
+                $enrolmentData = $enrolment;
+                $localArray['enrolment']=$enrolmentData;
+            }
 
             $localArray['header']=$headerData;
-            $localArray['enrolment']=$enrolmentData;
-            $dataArray[]=$localArray;
 
+
+            $dataArray[]=$localArray;
 
         }
 

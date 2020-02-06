@@ -141,10 +141,25 @@
     $('.term_price_btn').click(function () {
         term_id = $(this).data("termid");
 
-        $('#header-title').html('<h5>Enrolment Form</h5>');
+        $('#header-title').html('<h5>Term Enrolment Form</h5>');
         $.ajax({
             method: 'get',
-            url: "<?php echo $this->Url->build(['controller' => 'Enrolments', 'action' => 'add']); ?>",
+            url: "<?php echo $this->Url->build(['controller' => 'Enrolments', 'action' => 'addTerm']); ?>",
+            data: {term_id},
+            success: function (response) {
+                $('.modal-body').html(response);
+
+            }
+        });
+    });
+
+    $('.causal_price_btn').click(function () {
+        term_id = $(this).data("termid");
+
+        $('#header-title').html('<h5>Casual Enrolment Form</h5>');
+        $.ajax({
+            method: 'get',
+            url: "<?php echo $this->Url->build(['controller' => 'Enrolments', 'action' => 'addCasual']); ?>",
             data: {term_id},
             success: function (response) {
                 $('.modal-body').html(response);

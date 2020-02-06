@@ -72,7 +72,7 @@ class EnrolmentsController extends AppController
      *
      * @return \Cake\Http\Response|null Redirects on successful add, renders view otherwise.
      */
-    public function add()
+    public function addTerm()
     {
         if((!empty($this->request->getQuery('term_id')))){
             $requestdata = $this->request->getQuery('term_id');
@@ -108,6 +108,78 @@ class EnrolmentsController extends AppController
                 $childArray['first_name'] = $this->request->getData(['child_first_name'])[$i];
                 $childArray['last_name'] = $this->request->getData(['child_last_name'])[$i];
                 $childArray['dob'] = date("Y-m-d",strtotime($this->request->getData(['child_DOB'])[$i]));
+                $childArray['note'] = $this->request->getData(['child_note'])[$i];
+
+                $child_entity = $childTable->newEntity($childArray);
+                $child_results = $childTable->save($child_entity);
+
+                $user_child_relation=[];
+                $user_child_relation['user_id']=$user_results->id;
+                $user_child_relation['child_id']=$child_results->id;
+                $user_child_relation['relationship']=$this->request->getData(['relation'])[$i];
+                // pr($user_child_relation);die;
+                $user_childTable = TableRegistry::getTableLocator()->get('users_childs');
+                $user_child_entity = $user_childTable->newEntity($user_child_relation);
+
+                $user_child_result = $user_childTable->save($user_child_entity);
+
+
+            }
+
+            $this->saveEnrollMent($user_results->id,$this->request->getData('term_id'),$this->request->getData('price'));
+
+            return $this->redirect(['action' => 'success']);
+
+        }
+
+    }
+
+    public function addCasual(){
+
+        if((!empty($this->request->getQuery('term_id')))){
+            $requestTermID = $this->request->getQuery('term_id');
+            $now = date('Y-m-d');
+            $conditions = array(
+                'Lfmclasses.terms_id' => $requestTermID,
+                "Lfmclasses.class_date>='$now'"
+            );
+
+            $lfmdata = TableRegistry::get('Lfmclasses')->find('all',['conditions' => $conditions]);
+
+            $this->set('classData',$lfmdata);
+
+//            $termsArray=explode("-",$requestdata);
+//
+//            $termid=$termsArray[0];
+//            $lfmid=$termsArray[1];
+//            $termData=TableRegistry::get('Terms')->find('all',['conditions'=>['Terms.id'=>$termid]])->contain('Locations')->first();
+//
+//            $lfmData=TableRegistry::get('Lfmclasses')->find('all',['conditions'=>['Lfmclasses.id'=>$lfmid]])->first();
+//            $this->request->data['price'] = $lfmData['price'];
+//            $this->request->data['class_time'] = date("G:i", strtotime($termData['start_time']));
+//            $this->request->data['location'] = $termData['location']['name'];
+//            $this->request->data['age_group'] = $termData['age_group'];
+//            $this->request->data['term_id'] = $termid;
+        }else{
+
+            $userArray = array();
+            $userArray['f_name'] = $this->request->getData(['user_first_name']);
+            $userArray['l_name'] = $this->request->getData(['user_last_name']);
+            $userArray['birthday'] = date("d-m-Y",strtotime($this->request->getData(['user_dob'])));
+            $userArray['email'] = $this->request->getData(['user_email']);
+            $userArray['phone'] = $this->request->getData(['user_phone']);
+            $userArray['postcode'] = $this->request->getData(['user_postcode']);
+
+            $usersTable = TableRegistry::getTableLocator()->get('users');
+            $user_entity = $usersTable->newEntity($userArray);
+            $user_results = $usersTable->save($user_entity);
+
+            $childArray = array();
+            for($i=0;$i<count($this->request->getData(['child_first_name']));$i++){
+                $childTable = TableRegistry::getTableLocator()->get('childs');
+                $childArray['first_name'] = $this->request->getData(['child_first_name'])[$i];
+                $childArray['last_name'] = $this->request->getData(['child_last_name'])[$i];
+                $childArray['dob'] = date("d-m-Y",strtotime($this->request->getData(['child_DOB'])[$i]));
                 $childArray['note'] = $this->request->getData(['child_note'])[$i];
 
                 $child_entity = $childTable->newEntity($childArray);
@@ -180,6 +252,8 @@ class EnrolmentsController extends AppController
     }
 
     public function success(){
+
+        
 
     }
 }

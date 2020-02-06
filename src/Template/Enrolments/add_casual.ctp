@@ -130,7 +130,9 @@
     <div class="row">
         <div class="col-12 col-lg-8 ml-auto mr-auto mb-4">
             <div class="multisteps-form__progress">
-                <button class="multisteps-form__progress-btn child_progress_btn js-active" type="button" title="Child Info">Child's info
+                <button class="multisteps-form__progress-btn child_progress_btn js-active" type="button" title="Child Info">Select a class
+                </button>
+                <button class="multisteps-form__progress-btn child_progress_btn" type="button" title="Child Info">Child's info
                 </button>
                 <button class="multisteps-form__progress-btn user_progress_btn " type="button" title="Your Contact Details">Your contact
                     details
@@ -145,8 +147,28 @@
     <div class="row">
         <div class="col-12 col-lg-8 m-auto">
             <?php echo $this->Form->create('enrolment', ['class' => 'multisteps-form__form', 'id' => 'enrol_form']); ?>
-            <!--Child form panel-->
+            <!-- Class Info Section -->
             <div class="multisteps-form__panel shadow p-4 rounded bg-white js-active" data-animation="scaleIn">
+                <h3 class="multisteps-form__title">Available Classes</h3>
+                <input type="hidden" name="_csrfToken" value="<?= $this->request->getParam('_csrfToken'); ?>"/>
+                <div class="multisteps-form__content">
+                    <h5 class="card-header">Please pick a class date</h5>
+                    <div class="col-sm-12 card-body class_select">
+                        <?php foreach($classData as $class): ?>
+                        <button type="button" class="btn_class_select"><?php echo date("d-m-Y",strtotime($class->class_date)); ?></button>
+                        <?php endforeach; ?>
+                    </div>
+                    <h5 class="card-header">Selected classes</h5>
+                    <div class="col-sm-12 card-body selected_class">
+
+                    </div>
+                    <div class="button-row d-flex mt-4">
+                        <button class="btn btn-primary ml-auto js-btn-next" type="button" title="Next">Next</button>
+                    </div>
+                </div>
+            </div>
+            <!--Child form panel-->
+            <div class="multisteps-form__panel shadow p-4 rounded bg-white" data-animation="scaleIn">
                 <h3 class="multisteps-form__title">Child's Info</h3>
                 <input type="hidden" name="_csrfToken" value="<?= $this->request->getParam('_csrfToken'); ?>"/>
                 <div class="multisteps-form__content">
@@ -172,6 +194,7 @@
                             <button type="button" class="btn btn-info add_row mt-3">Add An Additional Child</button>
                     </span>
                     <div class="button-row d-flex mt-4">
+                        <button class="btn btn-primary js-btn-prev" type="button" title="Prev">Prev</button>
                         <button class="btn btn-primary ml-auto js-btn-next child-btn-next" id="child_next_btn" type="button"
                                 title="Next">Next
                         </button>
@@ -248,52 +271,52 @@
                         <div class="card-body">
                             <table class="table table-borderless">
                                 <thead>
-                                    <tr>
-                                        <th>Location</th>
-                                        <th>Age Group</th>
-                                        <th>Class Time</th>
-                                        <th>Price</th>
-                                    </tr>
+                                <tr>
+                                    <th>Location</th>
+                                    <th>Age Group</th>
+                                    <th>Class Time</th>
+                                    <th>Price</th>
+                                </tr>
                                 </thead>
                                 <tbody>
-                                    <tr>
-                                        <td id="tb_class_location"></td>
-                                        <td id="tb_class_ageGroup"></td>
-                                        <td id="tb_class_time"></td>
-                                        <td id="tb_class_price"></td>
-                                    </tr>
+                                <tr>
+                                    <td id="tb_class_location"></td>
+                                    <td id="tb_class_ageGroup"></td>
+                                    <td id="tb_class_time"></td>
+                                    <td id="tb_class_price"></td>
+                                </tr>
                                 </tbody>
                             </table>
                         </div>
                     </div>
                     <table class="table table-striped table-light">
                         <tbody>
-                            <tr>
-                                <td class="left">
-                                    <strong class="text-dark">Subtotal</strong>
-                                </td>
-                                <td class="right" id="tb_sub_total"></td>
-                            </tr>
-                            <tr class="hide_row" id="tb_tshirt_row">
-                                <td class="left" id="t_shirt_price">
-                                    <strong class="text-dark">T-Shirt</strong>
-                                </td>
-                                <td class="right">$22</td>
-                            </tr>
-                            <tr class="hide_row" id="tb_cd_row">
-                                <td class="left" id="cd_price">
-                                    <strong class="text-dark">CD</strong>
-                                </td>
-                                <td class="right">$10</td>
-                            </tr>
-                            <tr>
-                                <td class="left">
-                                    <strong class="text-dark">Total</strong>
-                                </td>
-                                <td class="right">
-                                    <strong class="text-dark" id="tb_total_price"></strong>
-                                </td>
-                            </tr>
+                        <tr>
+                            <td class="left">
+                                <strong class="text-dark">Subtotal</strong>
+                            </td>
+                            <td class="right" id="tb_sub_total"></td>
+                        </tr>
+                        <tr class="hide_row" id="tb_tshirt_row">
+                            <td class="left" id="t_shirt_price">
+                                <strong class="text-dark">T-Shirt</strong>
+                            </td>
+                            <td class="right">$22</td>
+                        </tr>
+                        <tr class="hide_row" id="tb_cd_row">
+                            <td class="left" id="cd_price">
+                                <strong class="text-dark">CD</strong>
+                            </td>
+                            <td class="right">$10</td>
+                        </tr>
+                        <tr>
+                            <td class="left">
+                                <strong class="text-dark">Total</strong>
+                            </td>
+                            <td class="right">
+                                <strong class="text-dark" id="tb_total_price"></strong>
+                            </td>
+                        </tr>
                         </tbody>
                     </table>
                     <hr>
@@ -306,7 +329,7 @@
                 </div>
             </div>
 
-<!--            payment panel-->
+            <!--            payment panel-->
             <div class="multisteps-form__panel shadow p-4 rounded bg-white" data-animation="scaleIn">
                 <h3 class="multisteps-form__title">Payment</h3>
                 <div class="multisteps-form__content">
@@ -522,13 +545,7 @@
 
     $('#payment_btn').click(function(){
 
-
-        let csrf_token = $('[name="_csrfToken"]').val();
-
         $.ajax({
-            // beforeSend: function (xhr) {
-            //     xhr.setRequestHeader('X-CSRF-Token', csrf_token);
-            // },
             method: 'get',
             url: "<?php echo $this->Url->build(['controller' => 'Payments', 'action' => 'payment']); ?>",
             data: {item_array},
@@ -538,7 +555,37 @@
         })
     });
 
+    // eventHandler for casual class select button
+    $('.class_select button').click(function(){
 
+        let buttonInDiv = $('.selected_class button');
+        let flag = false;
+        let buttonClone = $(this).clone().addClass('btn_selected_class');
+
+        if(buttonInDiv.length == 0){
+            $('.selected_class').append(buttonClone);
+        }else if(buttonInDiv.length > 0){
+            for(let i=0;i<buttonInDiv.length;i++){
+                if(buttonInDiv[i].innerText == $(this).text()){
+                    flag = true;
+                    break;
+                }
+            }
+        }
+
+        if(flag == false && buttonInDiv.length != 0){
+            let buttonClone = $(this).clone().addClass('btn_selected_class');
+            $('.selected_class').append(buttonClone);
+        }
+    });
+
+    $('.multisteps-form__content').on('click', '.btn_selected_class', function(){
+
+        $(this).remove();
+    });
+
+
+    // Validation
     $(function () {
 
         $('#enrol_form').validate({
