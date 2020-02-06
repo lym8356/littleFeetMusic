@@ -16,6 +16,7 @@
 $cakeDescription = 'CakePHP: the rapid development php framework';
 ?>
 <!DOCTYPE html>
+<html>
 <head>
     <?= $this->Html->charset() ?>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -46,86 +47,82 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
 
 </head>
 <?php echo $this->element('header') ?>
-
+<body class="text-dark">
 <div class="headpic">
     <div class="container">
         <?php echo $this->Html->image('LFM.jpg'); ?>
     </div>
 </div>
 
-<body>
-<div class = "text-dark">
-
 <section class="map">
-
-<div class="container">
-	<div class="row">
-        <div class="col-sm-12 text-center">
-        <address>
-           <h3>PO Box 2020<br/> Parkdale Vic 3195</h3>
-            <h2>
-            <a href="tel:0410 600 060"> 0410 600 060 </a><br/></h2>
-            <h5>
-            <a href="mailto:team117bluewater@gmail.com">info@littlefeetmusic.com.au</a></p>
-            </h5>
-            <button id="enquiry" class="btn btn-warning btn-lg">Contact</button>
-        </address>
-    </div>
-</div>
-
-<div class="container">
-    <div class="row">
-        <div class="col-md-4">
-            <h2>Albert Park</h2>
-            <address>
-                <strong>Gasworks Arts Park </strong><br>
-                21 Graham St​<br>
-                Albert Park Vic 3206<br><br>
-                <a href="img/GLS.jpg" data-fancybox="gal">Click here to see the map</a><br>
-            </address>
-        </div>
-        <div class="col-md-8">
-            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d12602.906683432071!2d144.9461685139601!3d-37.84328423248015!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6ad667e9c057cb0d%3A0x997d9948b75df7e6!2s21%20Graham%20St%2C%20Albert%20Park%20VIC%203206!5e0!3m2!1sen!2sau!4v1571043345323!5m2!1sen!2sau" width=100% height="250" frameborder="0" style="border:0;" allowfullscreen=""></iframe>
+    <div class="container">
+    	<div class="row" >
+            <div class="col-sm-12 text-center">
+                <address>
+                   <h3>PO Box 2020<br/> Parkdale Vic 3195</h3>
+                    <h2>
+                    <a href="tel:0410 600 060"> 0410 600 060 </a><br/></h2>
+                    <h5>
+                    <a href="mailto:team117bluewater@gmail.com">info@littlefeetmusic.com.au</a></p>
+                    </h5>
+                    <button id="enquiry" class="btn btn-warning btn-lg">Contact</button>
+                </address>
+            </div>
         </div>
     </div>
-</div>
-<div class="container">
-    <div class="row">
-        <div class="col-md-4">
-            <h2>Mordialloc</h2>
-            <address>
-                <strong>Mordialloc Neighbourhood House</strong><br>
-                457 Main St<br>
-                Mordialloc Vic 3195<br>
-
-            </address>
+    <div class="container">
+        <div class="row" style="background-color: #fff5e6;">
+            <div class="col-md-4">
+                <h2>Albert Park</h2>
+                <address>
+                    <strong>Gasworks Arts Park </strong><br>
+                    21 Graham St​<br>
+                    Albert Park Vic 3206<br><br>
+                    <a href="img/GLS.jpg" data-fancybox="gal">Click here to see the map</a><br>
+                </address>
+            </div>
+            <div class="col-md-8" style="padding-bottom: 10px">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d12602.906683432071!2d144.9461685139601!3d-37.84328423248015!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6ad667e9c057cb0d%3A0x997d9948b75df7e6!2s21%20Graham%20St%2C%20Albert%20Park%20VIC%203206!5e0!3m2!1sen!2sau!4v1571043345323!5m2!1sen!2sau" width=100% height="250" frameborder="0" style="border:0;" allowfullscreen=""></iframe>
+            </div>
         </div>
-        <div class="col-md-8">
-            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d12575.199730077584!2d145.0857013456294!3d-38.00512681723409!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6ad66d98ee7786c1%3A0x9473fc6d779f20e6!2s457%20Main%20St%2C%20Mordialloc%20VIC%203195!5e0!3m2!1sen!2sau!4v1571043050372!5m2!1sen!2sau" width=100% height="250" frameborder="0" style="border:0;" allowfullscreen=""></iframe>
-        </div>
-
-
     </div>
-</div>
-<div class="container">
-    <div class="row">
-        <div class="col-md-4">
-            <h2>Port Melbourne</h2>
-            <address>
-                <strong>Liardet St Community Centre </strong><br>
-                154 Liardet St<br>
-                (Enter via Lalor St)<br>
-                Port Melbourne Vic 3207<br>
-            </address>
+    <div class="container">
+        <div class="row" style="background-color: #ffe6ff;">
+            <div class="col-md-4">
+                <h2>Mordialloc</h2>
+                <address>
+                    <strong>Mordialloc Neighbourhood House</strong><br>
+                    457 Main St<br>
+                    Mordialloc Vic 3195<br>
+
+                </address>
+            </div>
+            <div class="col-md-8" style="padding-bottom: 10px">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d12575.199730077584!2d145.0857013456294!3d-38.00512681723409!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6ad66d98ee7786c1%3A0x9473fc6d779f20e6!2s457%20Main%20St%2C%20Mordialloc%20VIC%203195!5e0!3m2!1sen!2sau!4v1571043050372!5m2!1sen!2sau" width=100% height="250" frameborder="0" style="border:0;" allowfullscreen=""></iframe>
+            </div>
+
+
         </div>
-        <div class="col-md-8">
-            <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d12603.829983928848!2d144.9415322!3d-37.8378809!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x46e231fe9fd41feb!2sPort%20Melbourne%20Neighbourhood%20Centre!5e0!3m2!1sen!2sau!4v1571042664510!5m2!1sen!2sau" width=100% height="250" frameborder="0" style="border:0;" allowfullscreen=""></iframe>
-
-        </div>
-
-
     </div>
-</div>
+    <div class="container">
+        <div class="row" style="background-color:#fff5e6;">
+            <div class="col-md-4">
+                <h2>Port Melbourne</h2>
+                <address>
+                    <strong>Liardet St Community Centre </strong><br>
+                    154 Liardet St<br>
+                    (Enter via Lalor St)<br>
+                    Port Melbourne Vic 3207<br>
+                </address>
+            </div>
+            <div class="col-md-8" style="padding-bottom: 10px">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d12603.829983928848!2d144.9415322!3d-37.8378809!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x46e231fe9fd41feb!2sPort%20Melbourne%20Neighbourhood%20Centre!5e0!3m2!1sen!2sau!4v1571042664510!5m2!1sen!2sau" width=100% height="250" frameborder="0" style="border:0;" allowfullscreen=""></iframe>
+
+            </div>
+
+
+        </div>
+    </div>
 </section>
 
 <div id="contact-popup">
@@ -133,7 +130,7 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
           method="post" enctype="multipart/form-data">
         <button type="button" data-dismiss="modal" class="close">&times;</button>
         <h1>Contact Us</h1>
-        <p>* required fields</p>
+        <p class="text-danger">* required fields</p>
         <div>
             <div>
                 <label>Name *: </label><span id="userName-info"
@@ -186,21 +183,38 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
         </div>
     </form>
 </div>
-    <section class="testimonial text-dark">
-        <div class="container">
-            <div class="row">
-                <div class="text-center text-justify text-dark">
-                    <div class="col-sm-2"></div>
-                    <div class="col p-2">
-                        <p> <i>So much fun - all the kids love the music and singing by Rachel!
-                                Get around this everyone!!!! This woman is awesome!!!</i></p>
-                    </div>
-                    <div class="col-sm-1"></div>
+<section class="testimonial text-dark">
+    <div class="container">
+        <div class="row">
+            <div class="text-center text-justify text-dark">
+                <div class="col-sm-2"></div>
+                <div class="col p-2">
+                    <p> <i>So much fun - all the kids love the music and singing by Rachel!
+                            Get around this everyone!!!! This woman is awesome!!!</i></p>
                 </div>
+                <div class="col-sm-1"></div>
             </div>
         </div>
-    </section>
-</body>
+    </div>
+    <div style="background-color: white; padding: 1rem;">
+        <?php
+            if(isset($_POST['submit'])) {
+                $email_to = "team117bluewater@gmail.com";
+                $email_subject = $_POST['userNeed'];
+                $email_message=$_POST['message'];
+                $email_from=$_POST['userEmail'];
+                $name=$_POST['userName'];
+                $headers=array(
+                    'From' => $_POST['userEmail'],
+                    'Reply-To' => $_POST['userEmail'],
+                    'X-Mailer' => 'PHP/' . phpversion()
+                );
+                mail($email_to,$email_subject,$email_message,$headers);
+            }
+        ?>
+    </div>
+</section>
+
 
 <script>
     $(document).ready(function () {
@@ -257,47 +271,7 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
     });
 
 </script>
-<?php
-if(isset($_POST['submit'])) {
-    require 'vendor/phpmailer/phpmailer/src/PHPMailer.php';
-    require 'vendor/phpmailer/phpmailer/src/SMTP.php';
-
-
-
-
-
-    $mail = new PHPMailer\PHPMailer\PHPMailer();
-    $mail->IsSmtp();
-
-    $mail->Host='smtp.gmail.com';
-    $mail->Port=587;
-    $mail->SMTPDebug = 0;
-    $mail->SMTPAuth=true;
-    $mail->SMTPSecure='false';
-    $mail->Username='team117bluewater@gmail.com';
-    $mail->Password='M0nash123';
-
-
-
-    $mail->From=$_POST['userEmail'];
-    $mail->FromName=$_POST['userName'];
-    $mail->AddReplyTo($_POST['userEmail'], $_POST['userName']);
-    $mail->addAddress('team117bluewater@gmail.com', 'Little Feet Music');
-    $mail->Subject=$_POST['userNeed'];
-    $mail->Body=($_POST['message']);
-    $mail->send();
-
-    if(!$mail->Send()) {
-        echo "Mailer Error: " . $mail->ErrorInfo;
-        return false;
-    } else {
-
-        return true;
-    }
-
-
-}
-?>
-
+</body>
+</html>
 
 

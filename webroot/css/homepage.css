@@ -290,15 +290,14 @@ blockquote:after {
 
 }
 
-td, th{
+.enrol_info_table .fixed-col{
     min-width: 200px;
     max-width: 200px;
     padding: 5px 8px;
 }
 #locell{
-    min-width: 160px;
-    max-width: 160px;
-    padding: 2px 2px;
+    min-width: 155px;
+    max-width: 155px;
+    padding: 2px;
 }
-
 

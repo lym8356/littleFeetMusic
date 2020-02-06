@@ -140,15 +140,12 @@ class TermsController extends AppController
         })->toArray();
         $locationData=TableRegistry::get('Locations')->find('all')->contain('Terms')->group('Locations.id')->toArray();
         $termsArray=[];
-        $dlc=[];
 
         foreach($daysData as $key=>$days){
-            $dlc=$days['loc'];
             foreach($locationData as $key1=>$location){
-
-                foreach($location['terms'] as $key2=>$term){
+                foreach($days['terms'] as $key2=>$term){
                     if($term['day_id']==$days['id'] && $location['Id']==$term['location_id']){                        
-                        $now = date('Y-m-d');
+                        $now = date('dd-mm-yyyy');
                         $lfmdataQuery=TableRegistry::get('Lfmclasses')->find('all',['conditions'=>['Lfmclasses.terms_id'=>$term['id'],"Lfmclasses.class_date>='$now'"]])
                             ->order(['class_date'=>'ASC']);
                         $lfmdata=$lfmdataQuery->limit(1)->first();
@@ -177,6 +174,5 @@ class TermsController extends AppController
         }
         $this->set(compact('termsArray'));
         $this->set(compact('locationData'));
-        $this->set(compact('dlc'));
     }
 }

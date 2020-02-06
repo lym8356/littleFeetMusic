@@ -19,6 +19,13 @@ $cakeDescription = 'User Panel';
         <?= $cakeDescription ?>:
         <?= $this->fetch('title') ?>
     </title>
+    <style type="text/css">
+        .fix-pos{
+            position: fixed;
+            top: 20px;
+            right: 30px;
+        }
+    </style>
 </head>
 
 <body>
@@ -26,7 +33,7 @@ $cakeDescription = 'User Panel';
     <header>
         <nav class="navbar navbar-expand-lg fixed-top navbar-dark" style="background-color: #AD33FF;">
             <a class="navbar-brand d-flex w-40 mr-50 ml-5" href="./Home"> <?php echo $this->Html->image('Logo.gif'); ?></a>
-            <button class="navbar-toggler" type="button"
+            <button class="navbar-toggler fix-pos" type="button"
                     data-toggle="collapse" data-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false"
                     aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>

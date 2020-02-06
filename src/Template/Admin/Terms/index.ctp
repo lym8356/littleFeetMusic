@@ -4,16 +4,16 @@
 
 </head>
 <body>
-<ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
-    <li class="nav-item active">
-        <a class="nav-link active" id="pills-home-tab" data-toggle="pill" href="#class-summary" role="tab"
-           aria-controls="pills-home" aria-selected="true">List View</a>
-    </li>
-    <li class="nav-item">
-        <a class="nav-link" id="pills-profile-tab" data-toggle="pill" href="#class-calendar" role="tab"
-           aria-controls="pills-profile" aria-selected="false">Calendar View</a>
-    </li>
-</ul>
+<!--<ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">-->
+<!--    <li class="nav-item active">-->
+<!--        <a class="nav-link active" id="pills-home-tab" data-toggle="pill" href="#class-summary" role="tab"-->
+<!--           aria-controls="pills-home" aria-selected="true">List View</a>-->
+<!--    </li>-->
+<!--    <li class="nav-item">-->
+<!--        <a class="nav-link" id="pills-profile-tab" data-toggle="pill" href="#class-calendar" role="tab"-->
+<!--           aria-controls="pills-profile" aria-selected="false">Calendar View</a>-->
+<!--    </li>-->
+<!--</ul>-->
 
 <div class="tab-content" id="pills-tabContent">
     <div class="tab-pane fade in active" id="class-summary" role="tabpanel" aria-labelledby="pills-home-tab">
@@ -25,7 +25,7 @@
                     ['class' => 'btn btn-lg btn-primary pull-right',
                         'style' => 'margin-bottom: 20px',
                         'escape' => false]) ?>
-                <div class="row col-md-2" style="margin:auto;">
+                <div class="row col-md-3" style="margin:auto;">
                     <?= $this->Form->control('search', ['label' => 'Search By Age Group: ', 'class' => 'form-control']); ?>
                 </div>
                 <div class="row col-md-2" style="margin:auto;">
@@ -43,7 +43,8 @@
                                 <th scope="col"><?= $this->Paginator->sort('start_date') ?></th>
                                 <th scope="col"><?= $this->Paginator->sort('end_date') ?></th>
                                 <th scope="col"><?= $this->Paginator->sort('week_length') ?></th>
-                                <th scope="col"><?= $this->Paginator->sort('day_id') ?></th>
+<!--                                <th scope="col">--><!--<?//= $this->Paginator->sort('day_id') ?>--><!--</th>-->
+                                <th scope="col"><?= $this->Paginator->sort('class_day') ?></th>
                                 <th scope="col"><?= $this->Paginator->sort('start_time') ?></th>
                                 <th scope="col"><?= $this->Paginator->sort('end_time') ?></th>
                                 <th scope="col"><?= $this->Paginator->sort('duration') ?></th>

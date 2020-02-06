@@ -135,7 +135,7 @@
                 <button class="multisteps-form__progress-btn user_progress_btn " type="button" title="Your Contact Details">Your contact
                     details
                 </button>
-                <button class="multisteps-form__progress-btn sum_progress_btn " type="button" title="Class Summary">Enrolment summary
+                <button class="multisteps-form__progress-btn sum_progress_btn" type="button" title="Class Summary">Enrolment summary
                 </button>
                 <button class="multisteps-form__progress-btn payment_progress_btn " type="button" title="Payment">Payment</button>
             </div>
@@ -151,25 +151,22 @@
                 <input type="hidden" name="_csrfToken" value="<?= $this->request->getParam('_csrfToken'); ?>"/>
                 <div class="multisteps-form__content">
                     <label class="text-danger">* Required</label> <br>
-                    <label class="text-info">
-                        <small><b>Note: Siblings must be enrolled in the same class to get the 25% sibling discount.</b></small>
-                    </label>
                     <p id="child_validation_error" style="color: red;"></p>
                     <div class="form-row mt-2 child_field">
                         <div class="col-12 col-sm-6">
-                            <?php echo $this->Form->control('child_first_name[]', ['class' => 'form-control', 'label' => "Child's first name *"]); ?>
+                            <?php echo $this->Form->control('child_first_name[]', ['class' => 'form-control mb-4', 'label' => "Child's first name *"]); ?>
                             <?php echo $this->Form->control('child_last_name[]', ['class' => 'form-control', 'label' => "Child's last name *"]); ?>
                         </div>
-                        <div class="col-12 col-sm-6 mt-4 mt-sm-0">
-                            <?php echo $this->Form->control('child_dob[]', ['class' => 'form-control child_dob', 'label' => "Child's DOB *"]); ?>
+                        <div class="col-12 col-sm-6  mt-sm-0">
+                            <?php echo $this->Form->control('child_dob[]', ['class' => 'form-control mb-4 child_dob', 'label' => "Child's DOB *"]); ?>
                             <?php echo $this->Form->control('child_note[]', ['class' => 'form-control valid', 'type' => 'text', 'label' => 'Extra note']); ?>
                         </div>
                     </div>
-                    <label class="text-info">
-                        <small><b>Note: You can only enroll a sibling (or more than one) in the same class to get the discount</b></small>
+                    <label class="text-info mt-2">
+                        <small><b>Note: Siblings must be enrolled in the same class to get the 25% sibling discount.</b></small>
                     </label>
                     <span class="input-group-btn">
-                            <button type="button" class="btn btn-info add_row mt-3">Add An Additional Child</button>
+                            <button type="button" class="btn btn-info add_row mt-3">Add A Sibling</button>
                     </span>
                     <div class="button-row d-flex mt-4">
                         <button class="btn btn-primary ml-auto js-btn-next child-btn-next" id="child_next_btn" type="button"
@@ -188,18 +185,18 @@
 
                     <div class="form-row mt-4 user_field">
                         <div class="col-12 col-sm-6">
-                            <?php echo $this->Form->control('user_first_name', ['class' => 'form-control', 'label' => 'First Name *']); ?>
+                            <?php echo $this->Form->control('user_first_name', ['class' => 'form-control mb-4', 'label' => 'First Name *']); ?>
                             <?php echo $this->Form->control('user_last_name', ['class' => 'form-control', 'label' => 'Last Name *']); ?>
                         </div>
                         <div class="col-12 col-sm-6 mt-4 mt-sm-0">
-                            <?php echo $this->Form->control('user_email', ['class' => 'form-control', 'type' => 'text', 'label' => 'Email *']); ?>
-                            <?php echo $this->Form->control('user_phone', ['class' => 'form-control', 'label' => 'Phone *(0412345678)']); ?>
+                            <?php echo $this->Form->control('user_email', ['class' => 'form-control mb-4', 'type' => 'text', 'label' => 'Email *']); ?>
+                            <?php echo $this->Form->control('user_phone', ['class' => 'form-control mb-4', 'label' => 'Phone *(10 digits)']); ?>
                         </div>
                         <div class="col-12 col-sm-6 mt-4 mt-sm-0">
-                            <?php echo $this->Form->control('user_postcode', ['class' => 'form-control', 'type' => 'text', 'label' => 'Postcode']); ?>
+                            <?php echo $this->Form->control('user_postcode', ['class' => 'form-control mb-4', 'type' => 'text', 'label' => 'Postcode']); ?>
                         </div>
                         <div class="col-12 col-sm-6 mt-4 mt-sm-0">
-                            <?php echo $this->Form->control('relation', ['class' => 'form-control',
+                            <?php echo $this->Form->control('relation', ['class' => 'form-control mb-4',
                                 'label' => 'Relationship to children *', 'type' => 'select', 'options' => array('Parent' => 'Parent', 'Grandparent' => 'Grandparent',
                                     'Carer' => 'Carer', 'Nanny' => 'Nanny', 'Other' => 'Other')]); ?>
                         </div>
@@ -262,6 +259,18 @@
                                     <td id="tb_class_time"></td>
                                     <td id="tb_class_price"></td>
                                 </tr>
+                                    <tr>
+                                        <th>Location</th>
+                                        <th>Age Group</th>
+                                        <th>Class Time</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td id="tb_class_location"></td>
+                                        <td id="tb_class_ageGroup"></td>
+                                        <td id="tb_class_time"></td>
+                                    </tr>
                                 </tbody>
                             </table>
                         </div>
@@ -337,8 +346,6 @@
     let child_fn_array = [];
     let child_ln_array = [];
     let child_dob_array = [];
-    let child_note_array = [];
-
     let item_array = [];
 
     let glob_sub_total;
@@ -385,7 +392,6 @@
         child_fn_array = [];
         child_ln_array = [];
         child_dob_array = [];
-        child_note_array = [];
 
         $('input[name^="child_first_name"]').each(function () {
             let temVar = $(this).val();
@@ -405,14 +411,6 @@
                 child_dob_array.push($(this).val());
             }
         });
-        $('input[name^="child_note"]').each(function () {
-            let temVar = $(this).val();
-            if (temVar == '') {
-                child_note_array.push("");
-            } else {
-                child_note_array.push($(this).val());
-            }
-        });
     }
 
     function createDetailTable() {
@@ -423,10 +421,14 @@
         item_array = [];
 
         let html = "<table class='table table-borderless'>";
-        html += "<thead><tr><th>#</th><th>First Name</th><th>Last Name</th><th>DOB</th><th>Note</th><th>Price</th>";
+        // html += "<thead><tr><th>#</th><th>First Name</th><th>Last Name</th><th>DOB</th><th>Price</th>";
 
-        html += "<tr>" + "<td class='center'>" + 1 + "</td><td class='left'>" + child_fn_array[0] + "</td><td class='left'>" + child_ln_array[0] + "</td><td class='right'>" +
-            child_dob_array[0] + "</td><td class='center'>" + child_note_array[0] + "</td><td class='right'>" + normalPrice + "</td>" + "</tr>";
+        // html += "<tr>" + "<td class='center'>" + 1 + "</td><td class='left'>" + child_fn_array[0] + "</td><td class='left'>" + child_ln_array[0] + "</td><td class='right'>" +
+        //     child_dob_array[0] + "</td><td class='right'>" + "$"+normalPrice + "</td>" + "</tr>";
+        html += "<thead><tr><th>#</th><th>Name</th><th>DOB</th><th>Price</th>";
+
+        html += "<tr>" + "<td class='center'>" + 1 + "</td><td class='left'>" + child_fn_array[0]+" " + child_ln_array[0] + "</td><td class='right'>" +
+            child_dob_array[0] + "</td><td class='right'>" + "$"+normalPrice + "</td>" + "</tr>";
 
         item_array.push({name: 'Class Enrolment', price: normalPrice*100, qty: 1});
 
@@ -434,8 +436,8 @@
 
         for (let i = 1; i < child_fn_array.length; i++) {
             let next = i + 1;
-            html += "<td>" + next + "</td><td>" + child_fn_array[i] + "</td><td>" + child_ln_array[i] + "</td><td>" +
-                child_dob_array[i] + "</td><td>" + child_note_array[i] + "</td><td>" + discountPrice + " <small style='color: red;'>(25% Sibling Discount)</small>" + "</td>";
+            html += "<td>" + next + "</td><td>" + child_fn_array[i] + " " + child_ln_array[i] + "</td><td>" +
+                child_dob_array[i] + "</td><td>" + "$"+discountPrice + " <small style='color: red;'>(25% Sibling Discount)</small>" + "</td>";
 
             subTotal += discountPrice;
 
@@ -455,7 +457,7 @@
         $('#tb_sub_total').text("$" + subTotal);
         glob_sub_total = subTotal;
 
-        $('#tb_total_price').text(subTotal);
+        $('#tb_total_price').text("$"+subTotal);
     }
 
     $(document).on('blur','.child_field :input',function(){

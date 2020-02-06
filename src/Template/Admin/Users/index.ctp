@@ -23,12 +23,10 @@
                         <table class="table table-striped table-hover table-bordered">
                             <thead class="thead-dark">
                             <tr>
-                                <th scope="col"><?= $this->Paginator->sort('Full name') ?></th>
-                                <th scope="col"><?= $this->Paginator->sort('username') ?></th>
-                                               <!--<th scope="col">--><!--<?//*= $this->Paginator->sort('password') */?>--><!--</th>-->
+                                <th scope="col"><?= $this->Paginator->sort('First name') ?></th>
+                                <th scope="col"><?= $this->Paginator->sort('Last name') ?></th>
                                 <th scope="col"><?= $this->Paginator->sort('email') ?></th>
                                 <th scope="col"><?= $this->Paginator->sort('phone') ?></th>
-                                <!--                <th scope="col">--><!--<?//= $this->Paginator->sort('birthdate') ?>--><!--</th>-->
                                 <th scope="col"><?= $this->Paginator->sort('postcode') ?></th>
                                 <th scope="col"><?= $this->Paginator->sort('role') ?></th>
                                 <th scope="col"><?= $this->Paginator->sort('created') ?></th>
@@ -39,9 +37,9 @@
                             <tbody>
                             <?php foreach ($users as $user): ?>
                                 <tr>
-                                    <td><?= h($user->f_name),' ', h($user->l_name) ?></td>
-                                    <td><?= h($user->username) ?></td>
-                                    <!--<td><?/*= h($user->password) */?></td>-->
+<!--                                    <td>--><!--<?//= h($user->f_name),' ', h($user->l_name) ?>--><!--</td>-->
+                                    <td><?= h($user->f_name) ?></td>
+                                    <td><?= h($user->l_name) ?></td>
                                     <td><?= h($user->email) ?></td>
                                     <td><?= h($user->phone) ?></td>
                                     <td><?= h($user->postcode) ?></td>

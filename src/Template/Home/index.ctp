@@ -16,6 +16,7 @@
 $cakeDescription = 'CakePHP: the rapid development php framework';
 ?>
 <!DOCTYPE html>
+<html>
 <head>
     <?= $this->Html->charset() ?>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -68,11 +69,11 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
                             <div>
                                 <?php foreach ($home as $a)
                                 {
-                                ?>
+                                    ?>
                                     <br><h2><b><?php echo $a->heading ?></b></h2>
                                     <br><p><?php echo $a->p2 ;?></p>
                                     <p><?php echo $a->p ;?></p>
-                                <?php
+                                    <?php
                                 }
                                 ?>
                             </div>
@@ -94,11 +95,11 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
 </section>
 
 <div id="contact-popup">
-    <form class="contact-form" action="" id="contact-form"
-          method="post" enctype="multipart/form-data">
+    <form class="contact-form" action=" " id="contact-form"
+          method="post" enctype="multipart/form-data" style="width: auto">
         <button type="button" data-dismiss="modal" class="close">&times;</button>
         <h1>Contact Us</h1>
-        <p>* required fields</p>
+        <p class="text-danger">* required fields</p>
         <div>
             <div>
                 <label>Name *: </label><span id="userName-info" class="info"></span>
@@ -149,7 +150,38 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
         </div>
     </form>
 </div>
-</body>
+
+<section class="testimonial">
+    <div class="container">
+        <div class="row">
+            <div class="text-center">
+                <div class="col-sm-1"></div>
+                <div class="col p-3">
+                    <p> <i>How awesome is these Albums???? These are a must-have in the car, keeps my little ones entertained and singing along every single time! Love these, and recommend to anyone with kids!!!</i></p>
+                </div>
+                <div class="col-sm-1"></div>
+            </div>
+        </div>
+    </div>
+    <div style="background-color: white; padding: 1rem;">
+        <?php
+        if(isset($_POST['submit'])) {
+            $email_to = "team117bluewater@gmail.com";
+            $email_subject = $_POST['userNeed'];
+            $email_message=$_POST['message'];
+            $email_from=$_POST['userEmail'];
+            $name=$_POST['userName'];
+            $headers=array(
+                'From' => $_POST['userEmail'],
+                'Reply-To' => $_POST['userEmail'],
+                'X-Mailer' => 'PHP/' . phpversion()
+            );
+            mail($email_to,$email_subject,$email_message,$headers);
+        }
+    ?>
+    </div>
+</section>
+
 
 <script>
     $(document).ready(function () {
@@ -208,57 +240,18 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
     });
 
 </script>
+<section>
 
-<?php
-if(isset($_POST['submit'])) {
-    require 'vendor/phpmailer/phpmailer/src/PHPMailer.php';
-    require 'vendor/phpmailer/phpmailer/src/SMTP.php';
-    require 'vendor/phpmailer/phpmailer/src/Exception.php';
-
-    $mail = new PHPMailer\PHPMailer\PHPMailer();
-    $mail->IsSmtp();
-
-    $mail->Host='smtp.gmail.com';
-    $mail->Port=587;
-    $mail->SMTPDebug = 0;
-    $mail->SMTPAuth=true;
-    $mail->SMTPSecure='false';
-    $mail->Username='team117bluewater@gmail.com';
-    $mail->Password='M0nash123';
-
-    $mail->From=$_POST['userEmail'];
-    $mail->FromName=$_POST['userName'];
-    $mail->AddReplyTo($_POST['userEmail'], $_POST['userName']);
-    $mail->addAddress('team117bluewater@gmail.com', 'Little Feet Music');
-    $mail->Subject=$_POST['userNeed'];
-    $mail->Body=($_POST['message']);
-    if(!$mail->send())
-    {
-        $msg = "We have received your enquiry, thank you!";
-    }
-    else
-    {
-
-        return true;
-    }
-}
-?>
-
-
-<section class="testimonial">
-    <div class="container">
-        <div class="row">
-            <div class="text-center">
-                <div class="col-sm-1"></div>
-                <div class="col p-3">
-                    <p> <i>How awesome is these Albums???? These are a must-have in the car, keeps my little ones entertained and singing along every single time! Love these, and recommend to anyone with kids!!!</i></p>
-                </div>
-                <div class="col-sm-1"></div>
-            </div>
-        </div>
-    </div>
 </section>
+
+
+
 </body>
+
+
+</html>
+
+
 
 
 
