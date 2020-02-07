@@ -1,17 +1,12 @@
- {
+{
     box-sizing: border-box;
     color: Black;
 }
 
- .fixedsize{
-     min-width: 148px;
-     max-width: 148px;
- }
-  .fixtd{
-    min-width: 100px;
-    max-width: 100px;
- }
-
+.fixedsize{
+    min-width: 148px;
+    max-width: 148px;
+}
 
 head {
 
@@ -118,7 +113,7 @@ img {
 
 .testimonial {
     margin-top: 20px;
-   background-color: #CCE8E0;
+    background-color: #CCE8E0;
     width: 100%;
     margin-bottom: -200px;
 
