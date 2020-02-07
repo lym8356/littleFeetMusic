@@ -291,20 +291,28 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
 
 <?php
 if(isset($_POST['submit'])) {
-    require 'vendor/phpmailer/phpmailer/src/PHPMailer.php';
-    require 'vendor/phpmailer/phpmailer/src/SMTP.php';
-    require 'vendor/phpmailer/phpmailer/src/Exception.php';
+    require '../vendor/phpmailer/phpmailer/src/PHPMailer.php';
+    require '../vendor/phpmailer/phpmailer/src/SMTP.php';
+    require '../vendor/phpmailer/phpmailer/src/Exception.php';
 
     $mail = new PHPMailer\PHPMailer\PHPMailer();
     $mail->IsSmtp();
 
-    $mail->Host='smtp.gmail.com';
-    $mail->Port=587;
+//    $mail->Host='smtp.gmail.com';
+//    $mail->Port=587;
+//    $mail->SMTPDebug = 0;
+//    $mail->SMTPAuth=true;
+//    $mail->SMTPSecure='false';
+//    $mail->Username='team117bluewater@gmail.com';
+//    $mail->Password='M0nash123';
+    //Change these details below to match your new mail server
+    $mail->Host='mail.dreamfactorymusic.com.au';
+    $mail->Port=465;
     $mail->SMTPDebug = 0;
     $mail->SMTPAuth=true;
-    $mail->SMTPSecure='false';
-    $mail->Username='team117bluewater@gmail.com';
-    $mail->Password='M0nash123';
+    $mail->SMTPSecure='ssl';
+    $mail->Username='_mainaccount@dreamfactorymusic.com.au';
+    $mail->Password='Z9.3TDQg2(pq9q';
 
     $mail->From=$_POST['userEmail'];
     $mail->FromName=$_POST['userName'];

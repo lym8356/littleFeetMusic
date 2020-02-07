@@ -67,6 +67,11 @@ $action=$this->request->params['action'];
                     <use xlink:href="#stroked-notepad"></use>
                 </svg> Manage Enrolment', '/admin/enrolments/index',
                 ['escape' => false]); ?></li>
+        <li class="sidebar_item <?php echo ($controller=='Home')?'active':'';?>">
+            <?= $this->Html->link('<svg class="glyph stroked notepad">
+                    <use xlink:href="#stroked-notepad"></use>
+                </svg> Add New Enrolment', '/Enrolments',
+                ['escape' => false]); ?></li>
         <li class="sidebar_item <?php echo ($controller=='Users')?'active':'';?>">
             <?= $this->Html->link('<svg class="glyph stroked male-user">
                 <use xlink:href="#stroked-male-user"></use>
@@ -83,7 +88,7 @@ $action=$this->request->params['action'];
                     <use xlink:href="#stroked-app-window-with-content"></use>
         </svg> Manage Location', '/admin/locations/index',
             ['escape' => false]); ?></li>
-        <li class="sidebar_item <?php echo ($controller=='Articles')?'active':'';?>">
+        <li class="sidebar_item <?php echo ($controller=='Cms')?'active':'';?>">
             <?= $this->Html->link('<svg class="glyph stroked app window with content">
                     <use xlink:href="#stroked-app-window-with-content"></use>
                 </svg> CMS', '/admin/cms',

@@ -11,7 +11,7 @@
         <div class="row">
             <div class="col-lg-12">
                 <?= $this->Flash->render(); ?>
-                <h3 class="card-header">Manage Staff</h3>
+<!--                <h3 class="card-header">Manage Staff</h3>-->
                 <?php echo $this->Html->link('Add A New Staff Member', ['action' => 'add'],
                     ['class' => 'btn btn-lg btn-primary pull-right',
                         'style' => 'margin-bottom: 20px',
