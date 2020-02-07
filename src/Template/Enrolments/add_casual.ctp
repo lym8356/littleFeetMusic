@@ -120,6 +120,17 @@
         .hide_row{
             display:none;
         }
+        .btn_class_select{
+            background-color: orange;
+        }
+        .btn_class_select:focus{
+            background-color: green;
+        }
+        .btn_selected_class{
+            background-color: green;            
+            }
+
+        }
 
 
     </style>
@@ -155,7 +166,7 @@
                     <h5 class="card-header">Please pick a class date</h5>
                     <div class="col-sm-12 card-body class_select">
                         <?php foreach($classData as $class): ?>
-                        <button type="button" class="btn_class_select"><?php echo date("d-m-Y",strtotime($class->class_date)); ?></button>
+                        <button type="button" class="btn btn_class_select p-1 m-1"><?php echo date("d-m-Y",strtotime($class->class_date)); ?></button>
                         <?php endforeach; ?>
                     </div>
                     <h5 class="card-header">Selected classes</h5>
@@ -173,25 +184,19 @@
                 <input type="hidden" name="_csrfToken" value="<?= $this->request->getParam('_csrfToken'); ?>"/>
                 <div class="multisteps-form__content">
                     <label class="text-danger">* Required</label> <br>
-                    <label class="text-info">
-                        <small><b>Note: Siblings must be enrolled in the same class to get the 25% sibling discount.</b></small>
-                    </label>
                     <p id="child_validation_error" style="color: red;"></p>
                     <div class="form-row mt-2 child_field">
                         <div class="col-12 col-sm-6">
-                            <?php echo $this->Form->control('child_first_name[]', ['class' => 'form-control', 'label' => "Child's first name *"]); ?>
+                            <?php echo $this->Form->control('child_first_name[]', ['class' => 'form-control mb-4', 'label' => "Child's first name *"]); ?>
                             <?php echo $this->Form->control('child_last_name[]', ['class' => 'form-control', 'label' => "Child's last name *"]); ?>
                         </div>
                         <div class="col-12 col-sm-6 mt-4 mt-sm-0">
-                            <?php echo $this->Form->control('child_dob[]', ['class' => 'form-control child_dob', 'label' => "Child's DOB *"]); ?>
+                            <?php echo $this->Form->control('child_dob[]', ['class' => 'form-control child_dob mb-4', 'label' => "Child's DOB *"]); ?>
                             <?php echo $this->Form->control('child_note[]', ['class' => 'form-control valid', 'type' => 'text', 'label' => 'Extra note']); ?>
                         </div>
                     </div>
-                    <label class="text-info">
-                        <small><b>Note: You can only enroll a sibling (or more than one) in the same class to get the discount</b></small>
-                    </label>
                     <span class="input-group-btn">
-                            <button type="button" class="btn btn-info add_row mt-3">Add An Additional Child</button>
+                            <button type="button" class="btn btn-info add_row mt-3">Add Another Child</button>
                     </span>
                     <div class="button-row d-flex mt-4">
                         <button class="btn btn-primary js-btn-prev" type="button" title="Prev">Prev</button>
@@ -211,12 +216,12 @@
 
                     <div class="form-row mt-4 user_field">
                         <div class="col-12 col-sm-6">
-                            <?php echo $this->Form->control('user_first_name', ['class' => 'form-control', 'label' => 'First Name *']); ?>
-                            <?php echo $this->Form->control('user_last_name', ['class' => 'form-control', 'label' => 'Last Name *']); ?>
+                            <?php echo $this->Form->control('user_first_name', ['class' => 'form-control mb-4', 'label' => 'First Name *']); ?>
+                            <?php echo $this->Form->control('user_last_name', ['class' => 'form-control mb-4', 'label' => 'Last Name *']); ?>
                         </div>
                         <div class="col-12 col-sm-6 mt-4 mt-sm-0">
-                            <?php echo $this->Form->control('user_email', ['class' => 'form-control', 'type' => 'text', 'label' => 'Email *']); ?>
-                            <?php echo $this->Form->control('user_phone', ['class' => 'form-control', 'label' => 'Phone *(0412345678)']); ?>
+                            <?php echo $this->Form->control('user_email', ['class' => 'form-control mb-4', 'type' => 'text', 'label' => 'Email *']); ?>
+                            <?php echo $this->Form->control('user_phone', ['class' => 'form-control mb-4', 'label' => 'Phone *(10 digit)']); ?>
                         </div>
                         <div class="col-12 col-sm-6 mt-4 mt-sm-0">
                             <?php echo $this->Form->control('user_postcode', ['class' => 'form-control', 'type' => 'text', 'label' => 'Postcode']); ?>
@@ -453,13 +458,13 @@
         item_array = [];
 
         let html = "<table class='table table-borderless'>";
-        html += "<thead><tr><th>#</th><th>First Name</th><th>Last Name</th><th>DOB</th><th>Note</th><th>Price</th>";
+        html += "<thead><tr><th>#</th><th> Name</th><th>DOB</th><th>Price</th>";
 
         for (let i = 0; i < child_fn_array.length; i++) {
 
             let next = i + 1;
-            html += "<tr><td>" + next + "</td><td>" + child_fn_array[i] + "</td><td>" + child_ln_array[i] + "</td><td>" +
-                child_dob_array[i] + "</td><td>" + child_note_array[i] + "</td><td>" + normalPrice +  "</td>";
+            html += "<tr><td>" + next + "</td><td>" + child_fn_array[i] + " " + child_ln_array[i] + "</td><td>" +
+                child_dob_array[i] + "</td><td>" +"$"+ normalPrice +  "</td>";
 
             subTotal += normalPrice;
 
@@ -483,7 +488,7 @@
         console.log($('#selected_class_summary').innerHTML);
         glob_sub_total = subTotal;
 
-        $('#tb_total_price').text(subTotal);
+        $('#tb_total_price').text("$"+subTotal);
     }
 
     $(document).on('click','.child-btn-next',function(){
@@ -565,24 +570,30 @@
             }
         })
     });
-
     // eventHandler for casual class select button
     $('.class_select button').click(function(){
 
         let buttonInDiv = $('.selected_class button');
         let flag = false;
         let buttonClone = $(this).clone().addClass('btn_selected_class');
+        // var color = clicked ? 'red' : 'blue';
+        // $(this).css('background-color', color);
+        // clicked = !clicked;
 
         if(buttonInDiv.length == 0){
             $('.selected_class').append(buttonClone);
+            $(this).css('background-color', 'green');
+            // $(this).hide();
         }else if(buttonInDiv.length > 0){
             for(let i=0;i<buttonInDiv.length;i++){
                 if(buttonInDiv[i].innerText == $(this).text()){
                     flag = true;
+                    // $(this).hide();
+                    $(this).css('background-color', 'green');
                     break;
                 }
             }
-        }
+        } 
 
         if(flag == false && buttonInDiv.length != 0){
             let buttonClone = $(this).clone().addClass('btn_selected_class');
