@@ -17,7 +17,7 @@
                 <section>
                     <div class="col-sm-2">
                     <div class="logo"> <a class="footlogo" href="./Home">
-                        <?php echo $this->Html->image('ftLogo.gif'); ?> </a></div>
+                        <?php echo $this->Html->image('ftlogo.gif'); ?> </a></div>
                      </div>
                 </section>
                 <div class="col-sm-2"></div>

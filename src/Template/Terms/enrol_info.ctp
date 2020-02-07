@@ -6,13 +6,6 @@
         .enrol_info_table, .enrol_info_table th, .enrol_info_table td{
             border: 2px solid mediumseagreen !important;
         }
-        th,td{
-            max-width: 100px;
-        }
-        .fixed-col{
-        min-width: 100px;
-        max-width: 100px;
-        }
     </style>
     <script type="text/javascript">
         $(document).ready( function () {
@@ -33,7 +26,7 @@
     <!-- datatables -->
      <?= $this->Html->script('//cdn.datatables.net/1.10.20/css/jquery.dataTables.min.css') ?>
      <?= $this->Html->script('//cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js') ?>
-     
+
 </head>
 <body>
 <section>
