@@ -166,7 +166,7 @@
                         <small><b>Note: Siblings must be enrolled in the same class to get the 25% sibling discount.</b></small>
                     </label>
                     <span class="input-group-btn">
-                            <button type="button" class="btn btn-info add_row mt-3">Add A Sibling</button>
+                            <div><button type="button" class="btn btn-info add_row mt-3">Add A Sibling</button></div>
                     </span>
                     <div class="button-row d-flex mt-4">
                         <button class="btn btn-primary ml-auto js-btn-next child-btn-next" id="child_next_btn" type="button"
@@ -249,7 +249,6 @@
                                     <th>Location</th>
                                     <th>Age Group</th>
                                     <th>Class Time</th>
-                                    <th>Price</th>
                                 </tr>
                                 </thead>
                                 <tbody>
@@ -257,13 +256,8 @@
                                     <td id="tb_class_location"></td>
                                     <td id="tb_class_ageGroup"></td>
                                     <td id="tb_class_time"></td>
-                                    <td id="tb_class_price"></td>
+<!--                                    <td id="tb_class_price"></td>-->
                                 </tr>
-                                    <tr>
-                                        <th>Location</th>
-                                        <th>Age Group</th>
-                                        <th>Class Time</th>
-                                    </tr>
                                 </thead>
                                 <tbody>
                                     <tr>

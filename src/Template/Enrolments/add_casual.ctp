@@ -160,10 +160,10 @@
                     </div>
                     <h5 class="card-header">Selected classes</h5>
                     <div class="col-sm-12 card-body selected_class">
-
+                        <!---selected classes go here --->
                     </div>
                     <div class="button-row d-flex mt-4">
-                        <button class="btn btn-primary ml-auto js-btn-next" type="button" title="Next">Next</button>
+                        <button class="btn btn-primary ml-auto casual-next-btn js-btn-next" type="button" title="Next">Next</button>
                     </div>
                 </div>
             </div>
@@ -240,7 +240,9 @@
                     <label>
                         Child Info Summary
                     </label>
-                    <div id="enrolment_detail_table"></div>
+                    <div id="enrolment_detail_table">
+
+                    </div>
                     <div class="form-check">
                         <input class="form-check-input" type="checkbox" value="" id="chb_tshirt">
                         <label class="form-check-label h6" for="chb_tshirt">
@@ -287,6 +289,9 @@
                                 </tr>
                                 </tbody>
                             </table>
+                            <div id="selected_class_summary">
+
+                            </div>
                         </div>
                     </div>
                     <table class="table table-striped table-light">
@@ -361,13 +366,14 @@
     let child_ln_array = [];
     let child_dob_array = [];
     let child_note_array = [];
+    let selected_class_array = [];
 
     let item_array = [];
 
     let glob_sub_total;
 
     $('.add_row').click(function (e) {
-        if (($('.child_field').length) < 5) {
+        if (($('.child_field').length) < 3) {
             var clone = $('.child_field').first().clone();
             clone.append("<div class='col-sm-12 mt-2'><button type='button' class='btn btn-danger float-right remove_row'>Remove</button></div>");
 
@@ -376,7 +382,7 @@
 
             $('[name^="child_dob"]').datepicker({dateFormat:'dd-mm-yy'});
         } else {
-            alert('You Can Only Enrol 5 Children At Once');
+            alert('You Can Only Enrol 3 Children At Once');
         }
         //datePickerField.push(document.getElementsByClassName('child_dob'));
         //alert(datePickerField);
@@ -440,29 +446,24 @@
 
     function createDetailTable() {
         let normalPrice = parseFloat($('#class_price').val());
-        let discountPrice = normalPrice * 0.75;
         let subTotal = 0;
+        let enrolment_qty = selected_class_array.length;
+        normalPrice *= enrolment_qty;
 
         item_array = [];
 
         let html = "<table class='table table-borderless'>";
         html += "<thead><tr><th>#</th><th>First Name</th><th>Last Name</th><th>DOB</th><th>Note</th><th>Price</th>";
 
-        html += "<tr>" + "<td class='center'>" + 1 + "</td><td class='left'>" + child_fn_array[0] + "</td><td class='left'>" + child_ln_array[0] + "</td><td class='right'>" +
-            child_dob_array[0] + "</td><td class='center'>" + child_note_array[0] + "</td><td class='right'>" + normalPrice + "</td>" + "</tr>";
+        for (let i = 0; i < child_fn_array.length; i++) {
 
-        item_array.push({name: 'Class Enrolment', price: normalPrice*100, qty: 1});
-
-        subTotal += normalPrice;
-
-        for (let i = 1; i < child_fn_array.length; i++) {
             let next = i + 1;
-            html += "<td>" + next + "</td><td>" + child_fn_array[i] + "</td><td>" + child_ln_array[i] + "</td><td>" +
-                child_dob_array[i] + "</td><td>" + child_note_array[i] + "</td><td>" + discountPrice + " <small style='color: red;'>(25% Sibling Discount)</small>" + "</td>";
+            html += "<tr><td>" + next + "</td><td>" + child_fn_array[i] + "</td><td>" + child_ln_array[i] + "</td><td>" +
+                child_dob_array[i] + "</td><td>" + child_note_array[i] + "</td><td>" + normalPrice +  "</td>";
 
-            subTotal += discountPrice;
+            subTotal += normalPrice;
 
-            item_array.push({name: 'Class Enrolment (Discounted)', price: normalPrice*100, qty: 1});
+            item_array.push({name: 'Casual Class Enrolment', price: normalPrice*100, qty: enrolment_qty});
 
             if (next != child_fn_array.length) {
                 html += "</tr><tr>";
@@ -474,18 +475,28 @@
         $('#tb_class_location').html($('#class_location').val());
         $('#tb_class_ageGroup').html($('#class_ageGroup').val());
         $('#tb_class_time').html($('#class_time').val());
-        $('#tb_class_price').html("Standard Unit Price: $" + $('#class_price').val());
+        $('#tb_class_price').html("$" + $('#class_price').val());
         $('#tb_sub_total').text("$" + subTotal);
+        // for(let j=0; j<enrolment_qty;j++){
+        //     $('#selected_class_summary').append(selected_class_array[j]);
+        // }
+        console.log($('#selected_class_summary').innerHTML);
         glob_sub_total = subTotal;
 
         $('#tb_total_price').text(subTotal);
     }
 
-    $(document).on('blur','.child_field :input',function(){
+    $(document).on('click','.child-btn-next',function(){
 
         appendChildList();
         createDetailTable();
     });
+
+    $(document).on('blur','.child_field :input',function(){
+
+        appendChildList();
+    });
+
 
     $('#chb_tshirt').click(function(){
         let temp_total = glob_sub_total;
@@ -582,6 +593,15 @@
     $('.multisteps-form__content').on('click', '.btn_selected_class', function(){
 
         $(this).remove();
+    });
+
+    $('.casual-next-btn').click(function(){
+
+        selected_class_array = [];
+        let buttonInDiv = $('.selected_class button');
+        for(let i=0;i<buttonInDiv.length;i++){
+            selected_class_array.push(buttonInDiv[i].innerText);
+        }
     });
 
 

@@ -84,8 +84,8 @@ class EnrolmentsController extends AppController
 
             $lfmData=TableRegistry::get('Lfmclasses')->find('all',['conditions'=>['Lfmclasses.id'=>$lfmid]])->first();
             $this->request->data['price'] = $lfmData['price'];
-            $this->request->data['class_time'] = date("G:i", strtotime($termData['start_time']));
-            $this->request->data['location'] = $termData['location']['name'];
+            $this->request->data['class_time'] = date("G:i", strtotime($termData['start_time'])).'-'.date("G:i", strtotime($termData['end_time']));
+            $this->request->data['location'] = $termData['location']['street_address'].', '.$termData['location']['name'];
             $this->request->data['age_group'] = $termData['age_group'];
             $this->request->data['term_id'] = $termid;
         }else{
@@ -148,18 +148,13 @@ class EnrolmentsController extends AppController
 
             $this->set('classData',$lfmdata);
 
-//            $termsArray=explode("-",$requestdata);
-//
-//            $termid=$termsArray[0];
-//            $lfmid=$termsArray[1];
-//            $termData=TableRegistry::get('Terms')->find('all',['conditions'=>['Terms.id'=>$termid]])->contain('Locations')->first();
-//
-//            $lfmData=TableRegistry::get('Lfmclasses')->find('all',['conditions'=>['Lfmclasses.id'=>$lfmid]])->first();
-//            $this->request->data['price'] = $lfmData['price'];
-//            $this->request->data['class_time'] = date("G:i", strtotime($termData['start_time']));
-//            $this->request->data['location'] = $termData['location']['name'];
-//            $this->request->data['age_group'] = $termData['age_group'];
-//            $this->request->data['term_id'] = $termid;
+            $termData=TableRegistry::get('Terms')->find('all',['conditions'=>['Terms.id'=>$requestTermID]])->contain('Locations')->first();
+
+            $this->request->data['price'] = $termData['casual_rate'];
+            $this->request->data['class_time'] = date("G:i", strtotime($termData['start_time'])).'-'.date("G:i", strtotime($termData['end_time']));
+            $this->request->data['location'] = $termData['location']['street_address'].', '.$termData['location']['name'];
+            $this->request->data['age_group'] = $termData['age_group'];
+            $this->request->data['term_id'] = $requestTermID;
         }else{
 
             $userArray = array();
@@ -253,7 +248,7 @@ class EnrolmentsController extends AppController
 
     public function success(){
 
-        
+
 
     }
 }
