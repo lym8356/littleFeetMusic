@@ -585,11 +585,11 @@
             $(this).css('background-color', 'green');
             // $(this).hide();
         }else if(buttonInDiv.length > 0){
+            $(this).css('background-color', 'green');
             for(let i=0;i<buttonInDiv.length;i++){
                 if(buttonInDiv[i].innerText == $(this).text()){
                     flag = true;
                     // $(this).hide();
-                    $(this).css('background-color', 'green');
                     break;
                 }
             }

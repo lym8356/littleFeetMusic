@@ -40,6 +40,7 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
     <?= $this->Html->script('/font-awesome/js/all.min.js') ?>
     <!-- custom css -->
     <?= $this->Html->css('Class.css') ?>
+    <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
 
     <?= $this->fetch('meta') ?>
     <?= $this->fetch('css') ?>
@@ -59,7 +60,8 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
     <section>
         <div class="row container ml-2 mt-3 mb-3">
             <div class="p-1">
-                <button class="btn btn-outline-success fixedsize p-1" id="btn1" value="1" onclick="viewClass()"> Babies </button></div>
+                <!-- <button class="btn btn-outline-success fixedsize p-1" id="btn1" value="1" onclick="viewClass()"> Babies </button></div> -->
+                <button class="btn btn-outline-success fixedsize p-1" id="btn1"> Babies </button></div>
             <div class="p-1">
                 <button class="btn btn-outline-success fixedsize p-1" id="btn2" value="1" onclick="viewClass1()"> Toddlers</button></div>
             <div class="p-1">
@@ -92,21 +94,40 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
                         </span>
                     </div>
                     <div class="col-sm mb-4" id="right-col">
-                        <div class="container mt-3"><span id="clsimage"><?php echo $this->Html->image('cls2.jpg'); ?></span></div>
+                        <div class="container mt-3"><img src="img/cls-baby.jpg" id="specify_image" alt="General Pic"></div>
                     </div>
                 </div>
             </div>
         </div>
     </section>
+        <script >
+        $(document).ready(function(){
+            $('#btn1').click(function(){
+                $('#specify_image').attr("src","img/Hidden1.jpg");
+                $('#specifyClass').text("<h2>Babies </h2><p>Live music, singing, dancing and playing percussion instruments. Loads of songs you know, and heaps of new ones to learn! Fun, colourful puppets, finger and lap plays. These classes are great for child/parent bonding and for giving parents and carers musical ideas for home. You'll know loads of the songs, and there are loads of new ones to learn! Term fee includes a Little Feet Music song book!\n</p>");
+            })
+        }
+    </script>
+<!--     <script>
+        $(document).ready(function(){
+            $("img").click(function(){
+                // Change src attribute of image
+                $(this).attr("src", "/examples/images/card-front.jpg");
+                $('specifyClass').text("<h2>Babies </h2><p>Live music, singing, dancing and playing percussion instruments. Loads of songs you know, and heaps of new ones to learn! Fun, colourful puppets, finger and lap plays. These classes are great for child/parent bonding and for giving parents and carers musical ideas for home. You'll know loads of the songs, and there are loads of new ones to learn! Term fee includes a Little Feet Music song book!\n</p>");
+            });    
+        });
+    </script> -->
 
-    <script type="text/javascript">
+<!--     <script>
         function viewClass(){
             var a = document.getElementById("btn1").value;
+            $('.specify_image').attr("src","img/cls2.jpg");
             if (a=="1"){
                 document.getElementById("specifyClass").innerHTML= "<h2>Babies </h2><p>Live music, singing, dancing and playing percussion instruments. Loads of songs you know, and heaps of new ones to learn! Fun, colourful puppets, finger and lap plays. These classes are great for child/parent bonding and for giving parents and carers musical ideas for home. You'll know loads of the songs, and there are loads of new ones to learn! Term fee includes a Little Feet Music song book!\n</p>";
-                //document.getElementById("clsimage").innerHTML = "<?php echo $this->Html->image('cls-baby.jpg'); ?>";
             }
         }
+    </script> -->
+    <script>
 
         function viewClass1() {
             var b = document.getElementById("btn2").value;
