@@ -21,8 +21,8 @@
                 'placeholder' => 'Enter First Name','label'=>'First Name*', 'required' => true]);
             echo $this->Form->control('l_name', ['class' => 'form-control',
                 'placeholder' => 'Enter Last Name','label'=>'Last Name*', 'required' => true]);
-//            echo $this->Form->control('username', ['class' => 'form-control',
-//                'placeholder' => 'Enter username', 'label'=>'Username *', 'required' => true]);
+            echo $this->Form->control('username', ['class' => 'form-control',
+                'placeholder' => 'Enter username', 'label'=>'Username *', 'required' => true]);
             echo $this->Form->control('password', ['class' => 'form-control',
                 'placeholder' => 'Enter password', 'label'=>'Password *', 'required' => true]);
             echo $this->Form->control('email', ['class' => 'form-control',
@@ -31,12 +31,14 @@
                 'placeholder' => 'Enter phone number', 'label'=>'Phone *',
                 'type'=>'number', 'rule'=>array('phone','/^(?:\+?61|0)[2-478](?:[ -]?[0-9]){8}$/','all' ),
                 'required' => true]);
-//            echo $this->Form->control('birthdate', ['class' => 'form-control','id' => 'bd',
-//                'type' => 'text', 'placeholder' => 'Enter Birthdate', 'required' => false]);
+            echo $this->Form->control('birthdate', ['class' => 'form-control','id' => 'bd',
+                'type' => 'text', 'placeholder' => 'Enter Birthdate', 'required' => false]);
             echo $this->Form->control('postcode', ['class' => 'form-control',
                 'placeholder' => 'Enter Postcode', 'required' => false]);
             $options = array('teacher' => 'Teacher', 'admin' => 'Admin', 'staff'=>'Staff');
-            echo $this->Form->input('role', array('options'=>$options,
+//            echo $this->Form->input('role', array('options'=>$options,
+//                'type'=>'select', ['empty'=>true, 'label'=>'Role *']));
+            echo $this->Form->control('role', array('options'=>$options,
                 'type'=>'select', ['empty'=>true, 'label'=>'Role *']));
             ?>
         </fieldset>

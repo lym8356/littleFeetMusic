@@ -25,6 +25,7 @@
                             <tr>
                                 <th scope="col"><?= $this->Paginator->sort('First name') ?></th>
                                 <th scope="col"><?= $this->Paginator->sort('Last name') ?></th>
+                                <th scope="col"><?= $this->Paginator->sort('Username') ?></th>
                                 <th scope="col"><?= $this->Paginator->sort('email') ?></th>
                                 <th scope="col"><?= $this->Paginator->sort('phone') ?></th>
 <!--                                <th scope="col"><?//= $this->Paginator->sort('postcode') ?></th>-->
@@ -41,6 +42,7 @@
     <!--                                    <td>--><!--<?//= h($user->f_name),' ', h($user->l_name) ?>--><!--</td>-->
                                         <td><?= h($user->f_name) ?></td>
                                         <td><?= h($user->l_name) ?></td>
+                                        <td><?= h($user->username) ?></td>
                                         <td><?= h($user->email) ?></td>
                                         <td><?= h($user->phone) ?></td>
 <!--                                        <td><?//= h($user->postcode) ?></td>-->

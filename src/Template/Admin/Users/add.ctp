@@ -14,8 +14,10 @@
     <?= $this->Form->create($user) ?>
     <div class="col-lg-4">
         <?php
-        echo $this->Form->control('name', ['class' => 'form-control',
-            'placeholder' => 'Enter Name', 'value'=>'', 'required' => false]);
+        echo $this->Form->control('f_name', ['class' => 'form-control',
+            'placeholder' => 'Enter First Name','label'=>'First Name*', 'required' => true]);
+        echo $this->Form->control('l_name', ['class' => 'form-control',
+            'placeholder' => 'Enter Last Name','label'=>'Last Name*', 'required' => true]);
         echo $this->Form->control('username', ['class' => 'form-control',
             'placeholder' => 'Enter username', 'value'=>'', 'label'=>'Username *', 'required' => true]);
         echo $this->Form->control('password', ['class' => 'form-control',
@@ -32,8 +34,11 @@
             'placeholder' => 'Enter Birthday', 'value'=>'', 'required' => false]);
         echo $this->Form->control('postcode', ['class' => 'form-control',
             'placeholder' => 'Enter Postcode', 'value'=>'', 'required' => false]);
-        echo $this->Form->control('role', ['class' => 'form-control',
-            'placeholder' => 'Enter staff, admin, teacher or user', 'value'=>'', 'label'=>'Role *', 'required' => true]);
+//        echo $this->Form->control('role', ['class' => 'form-control',
+//            'placeholder' => 'Enter staff, admin, teacher or user', 'value'=>'', 'label'=>'Role *', 'required' => true]);
+        $options = array('teacher' => 'Teacher', 'admin' => 'Admin', 'staff'=>'Staff');
+        echo $this->Form->control('role', array('options'=>$options,
+            'type'=>'select', ['empty'=>true, 'label'=>'Role *']));
         ?>
         <?= $this->Form->button('Create', ['class' => 'btn btn-success pull-right', 'style' => 'margin-top: 10px;']); ?>
         <?= $this->Form->end(); ?>
