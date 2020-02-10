@@ -78,7 +78,7 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
                     <strong>Gasworks Arts Park </strong><br>
                     21 Graham St​<br>
                     Albert Park Vic 3206<br><br>
-                    <a href="img/GLS.jpg" data-fancybox="gal">Click here to see the map</a><br>
+                    <a href="img/GLS.jpg" data-fancybox="gal" target="_blank">Click here to see the map</a><br>
                 </address>
             </div>
             <div class="col-md-8" style="padding-bottom: 10px">

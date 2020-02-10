@@ -34,17 +34,18 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
     <?= $this->Html->css('/bootstrap/css/bootstrap.min.css') ?>
     <?= $this->Html->script('/bootstrap/js/jquery-3.3.1.slim.min.js') ?>
     <?= $this->Html->script('/bootstrap/js/bootstrap.min.js') ?>
+    <?= $this->Html->script('js/jquery-3.4.1s.min') ?>
     <?= $this->Html->script('/bootstrap/js/popper.min.js') ?>
     <!-- font awesome -->
     <?= $this->Html->css('/font-awesome/css/all.min.css') ?>
     <?= $this->Html->script('/font-awesome/js/all.min.js') ?>
     <!-- custom css -->
     <?= $this->Html->css('Class.css') ?>
-    <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
 
     <?= $this->fetch('meta') ?>
     <?= $this->fetch('css') ?>
     <?= $this->fetch('script') ?>
+    <?= $this->Html->script('/jquery-validation/jquery.validate.js') ?>
 
 
 </head>
@@ -61,7 +62,7 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
         <div class="row container ml-2 mt-3 mb-3">
             <div class="p-1">
                 <!-- <button class="btn btn-outline-success fixedsize p-1" id="btn1" value="1" onclick="viewClass()"> Babies </button></div> -->
-                <button class="btn btn-outline-success fixedsize p-1" id="btn1"> Babies </button></div>
+                <button class="btn btn-outline-success fixedsize p-1" id="btn1" value="1"> Babies </button></div>
             <div class="p-1">
                 <button class="btn btn-outline-success fixedsize p-1" id="btn2" value="1" onclick="viewClass1()"> Toddlers</button></div>
             <div class="p-1">
@@ -100,25 +101,18 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
             </div>
         </div>
     </section>
-        <script >
+
+        <script>
         $(document).ready(function(){
-            $('#btn1').click(function(){
-                $('#specify_image').attr("src","img/Hidden1.jpg");
-                $('#specifyClass').text("<h2>Babies </h2><p>Live music, singing, dancing and playing percussion instruments. Loads of songs you know, and heaps of new ones to learn! Fun, colourful puppets, finger and lap plays. These classes are great for child/parent bonding and for giving parents and carers musical ideas for home. You'll know loads of the songs, and there are loads of new ones to learn! Term fee includes a Little Feet Music song book!\n</p>");
-            })
-        }
-    </script>
-<!--     <script>
-        $(document).ready(function(){
-            $("img").click(function(){
+            $("#btn1").click(function(){
                 // Change src attribute of image
-                $(this).attr("src", "/examples/images/card-front.jpg");
-                $('specifyClass').text("<h2>Babies </h2><p>Live music, singing, dancing and playing percussion instruments. Loads of songs you know, and heaps of new ones to learn! Fun, colourful puppets, finger and lap plays. These classes are great for child/parent bonding and for giving parents and carers musical ideas for home. You'll know loads of the songs, and there are loads of new ones to learn! Term fee includes a Little Feet Music song book!\n</p>");
+                $("#specify_image").attr("src", "img/cls2.jpg");
+                $('#specifyClass').html("<h2>Babies </h2><p>Live music, singing, dancing and playing percussion instruments. Loads of songs you know, and heaps of new ones to learn! Fun, colourful puppets, finger and lap plays. These classes are great for child/parent bonding and for giving parents and carers musical ideas for home. You'll know loads of the songs, and there are loads of new ones to learn! Term fee includes a Little Feet Music song book!\n</p>");
             });    
         });
-    </script> -->
+    </script>
 
-<!--     <script>
+    <script>
         function viewClass(){
             var a = document.getElementById("btn1").value;
             $('.specify_image').attr("src","img/cls2.jpg");
@@ -126,8 +120,18 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
                 document.getElementById("specifyClass").innerHTML= "<h2>Babies </h2><p>Live music, singing, dancing and playing percussion instruments. Loads of songs you know, and heaps of new ones to learn! Fun, colourful puppets, finger and lap plays. These classes are great for child/parent bonding and for giving parents and carers musical ideas for home. You'll know loads of the songs, and there are loads of new ones to learn! Term fee includes a Little Feet Music song book!\n</p>";
             }
         }
+    </script>
+
+<!--     <script type="text/javascript">
+        function viewClass(){
+            var a = document.getElementById("btn1").value;
+            if (a=="1"){
+                document.getElementById("specifyClass").innerHTML= "<h2>Babies </h2><p>Live music, singing, dancing and playing percussion instruments. Loads of songs you know, and heaps of new ones to learn! Fun, colourful puppets, finger and lap plays. These classes are great for child/parent bonding and for giving parents and carers musical ideas for home. You'll know loads of the songs, and there are loads of new ones to learn! Term fee includes a Little Feet Music song book!\n</p>";
+                //document.getElementById("clsimage").innerHTML = "<?php echo $this->Html->image('cls-baby.jpg'); ?>";
+            }
+        }
     </script> -->
-    <script>
+    <script type="text/javascript">
 
         function viewClass1() {
             var b = document.getElementById("btn2").value;
