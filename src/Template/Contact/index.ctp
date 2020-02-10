@@ -55,18 +55,22 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
 </div>
 
 <section class="map">
-    <div class="container">
-    	<div class="row" >
-            <div class="col-sm-12 text-center">
+    <div class="container" style="padding-top: 20px">
+        <div class="row" style="background-color: #ffe6ff;">
+            <div class="col-sm-4">
+                <h2>Office</h2>
                 <address>
-                   <h3>PO Box 2020<br/> Parkdale Vic 3195</h3>
-                    <h2>
-                    <a href="tel:0410 600 060"> 0410 600 060 </a><br/></h2>
+                    <h5>PO Box 2020<br/> Parkdale Vic 3195</h5>
                     <h5>
-                    <a href="mailto:team117bluewater@gmail.com">info@littlefeetmusic.com.au</a></p>
+                        <a href="tel:0410 600 060"> 0410 600 060 </a><br/></h5>
+                    <h5>
+                        <a href="mailto:team117bluewater@gmail.com" >info@littlefeetmusic.com.au</a></p>
                     </h5>
                     <button id="enquiry" class="btn btn-warning btn-lg">Contact</button>
                 </address>
+            </div>
+            <div class="col-sm-8" style="padding-bottom: 10px">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d12577.173800744824!2d145.0768127!3d-37.9936152!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x1d04567609f506f0!2sParkdale%20Station!5e0!3m2!1sen!2sau!4v1581238345259!5m2!1sen!2sau" width=100% height="250" frameborder="0" style="border:0;" allowfullscreen=""></iframe>
             </div>
         </div>
     </div>
@@ -271,6 +275,7 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
     });
 
 </script>
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 <?php
 if(isset($_POST['submit'])) {
     require '../vendor/phpmailer/phpmailer/src/PHPMailer.php';
@@ -308,9 +313,10 @@ if(isset($_POST['submit'])) {
         return false;
     }
     else
-    {
+    { echo  '<script> swal("Hi, '. $_POST['userName'] .'!\n" +
+ "Thanks for your email.  I’ll get back to you as soon as I can! ")</script>';
 
-        return true;
+
     }
 }
 ?>

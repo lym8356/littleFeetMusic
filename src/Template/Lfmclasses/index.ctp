@@ -112,7 +112,7 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
             $("#btn2").click(function(){
                 $("#specify_image").attr("src", "img/a1.jpg");
                 $("#specifyClass").html("<h2>Toddlers</h2><p> Live music where listening skills are enhanced - children start to learn how to identify changes in music (e.g., start and stop) and musical elements such as dynamics (loud and quiet), tempo (fast and slow) and timbre (characteristics of sounds). Learn about taking it in turns, meet some interesting and friendly puppets, learn colours and counting through music, and have a great fun time. Listening and social skills are developed and nurtured. Term fee includes a Little Feet Music song book!</p>");
-            })    
+            })
             $("#btn3").click(function(){
                 $("#specify_image").attr("src","img/a2.jpg");
                 $("#specifyClass").html("<h2> Preschoolers </h2><p>Live music! Cool, creative and fun! Singing and conscious learning of beat, tempo, dynamics and pitch through fabulously fun and stimulating games, movement, songs and rhymes. Musical elements are expanded on and the focus is on having fun while gaining an understanding of music. Simple notation and the concept of reading from left to right are developed. There’s lots of structured musical game playing and solo singing opportunities in a relaxed and friendly environment. Children who continue on for the 4-5 year old program learn some of the symbols which represent musical sounds and rests and how to play simple songs/melodies on the chime bars. Term fee includes a Little Feet Music song book!\n</p>");
@@ -285,23 +285,34 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
     });
 
 </script>
+
+
+
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 <?php
 if(isset($_POST['submit'])) {
-    require 'vendor/phpmailer/phpmailer/src/PHPMailer.php';
-    require 'vendor/phpmailer/phpmailer/src/SMTP.php';
+    require '../vendor/phpmailer/phpmailer/src/PHPMailer.php';
+    require '../vendor/phpmailer/phpmailer/src/SMTP.php';
+    require '../vendor/phpmailer/phpmailer/src/Exception.php';
 
     $mail = new PHPMailer\PHPMailer\PHPMailer();
     $mail->IsSmtp();
 
-    $mail->Host='smtp.gmail.com';
-    $mail->Port=587;
+//    $mail->Host='smtp.gmail.com';
+//    $mail->Port=587;
+//    $mail->SMTPDebug = 0;
+//    $mail->SMTPAuth=true;
+//    $mail->SMTPSecure='false';
+//    $mail->Username='team117bluewater@gmail.com';
+//    $mail->Password='M0nash123';
+    //Change these details below to match your new mail server
+    $mail->Host='mail.dreamfactorymusic.com.au';
+    $mail->Port=465;
     $mail->SMTPDebug = 0;
     $mail->SMTPAuth=true;
-    $mail->SMTPSecure='false';
-    $mail->Username='team117bluewater@gmail.com';
-    $mail->Password='M0nash123';
-
-
+    $mail->SMTPSecure='ssl';
+    $mail->Username='_mainaccount@dreamfactorymusic.com.au';
+    $mail->Password='Z9.3TDQg2(pq9q';
 
     $mail->From=$_POST['userEmail'];
     $mail->FromName=$_POST['userName'];
@@ -309,14 +320,16 @@ if(isset($_POST['submit'])) {
     $mail->addAddress('team117bluewater@gmail.com', 'Little Feet Music');
     $mail->Subject=$_POST['userNeed'];
     $mail->Body=($_POST['message']);
-    $mail->send();
-
-    if(!$mail->Send()) {
+    if(!$mail->send())
+    {
         echo "Mailer Error: " . $mail->ErrorInfo;
         return false;
-    } else {
+    }
+    else
+    { echo  '<script> swal("Hi, '. $_POST['userName'] .'!\n" +
+ "Thanks for your email.  I’ll get back to you as soon as I can! ")</script>';
 
-        return true;
+
     }
 }
 ?>

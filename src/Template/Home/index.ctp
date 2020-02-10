@@ -163,6 +163,7 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
             </div>
         </div>
     </div>
+</section>
 
 
 <script>
@@ -222,12 +223,8 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
     });
 
 </script>
-<section>
 
-</section>
-
-
-
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 <?php
 if(isset($_POST['submit'])) {
     require '../vendor/phpmailer/phpmailer/src/PHPMailer.php';
@@ -265,14 +262,13 @@ if(isset($_POST['submit'])) {
         return false;
     }
     else
-    {
+    { echo  '<script> swal("Hi, '. $_POST['userName'].'!\n" +
+ "Thanks for your email.  I’ll get back to you as soon as I can! ")</script>';
 
-        return true;
+
     }
 }
 ?>
-
-</section>
 </body>
 
 
