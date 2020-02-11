@@ -54,7 +54,9 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
     </div>
 </div>
 
+
 <section class="map">
+
     <div class="container" style="padding-top: 20px">
         <div class="row" style="background-color: #ffe6ff;">
             <div class="col-sm-4">
@@ -104,8 +106,6 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
             <div class="col-md-8" style="padding-bottom: 10px">
                 <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d12575.199730077584!2d145.0857013456294!3d-38.00512681723409!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6ad66d98ee7786c1%3A0x9473fc6d779f20e6!2s457%20Main%20St%2C%20Mordialloc%20VIC%203195!5e0!3m2!1sen!2sau!4v1571043050372!5m2!1sen!2sau" width=100% height="250" frameborder="0" style="border:0;" allowfullscreen=""></iframe>
             </div>
-
-
         </div>
     </div>
     <div class="container">
@@ -121,13 +121,11 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
             </div>
             <div class="col-md-8" style="padding-bottom: 10px">
                 <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d12603.829983928848!2d144.9415322!3d-37.8378809!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x46e231fe9fd41feb!2sPort%20Melbourne%20Neighbourhood%20Centre!5e0!3m2!1sen!2sau!4v1571042664510!5m2!1sen!2sau" width=100% height="250" frameborder="0" style="border:0;" allowfullscreen=""></iframe>
-
             </div>
-
-
         </div>
     </div>
 </section>
+
 
 <div id="contact-popup">
     <form class="contact-form" action="" id="contact-form"
@@ -187,6 +185,7 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
         </div>
     </form>
 </div>
+
 <section class="testimonial text-dark">
     <div class="container">
         <div class="row">
@@ -199,23 +198,6 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
                 <div class="col-sm-1"></div>
             </div>
         </div>
-    </div>
-    <div style="background-color: white; padding: 1rem;">
-        <?php
-            if(isset($_POST['submit'])) {
-                $email_to = "team117bluewater@gmail.com";
-                $email_subject = $_POST['userNeed'];
-                $email_message=$_POST['message'];
-                $email_from=$_POST['userEmail'];
-                $name=$_POST['userName'];
-                $headers=array(
-                    'From' => $_POST['userEmail'],
-                    'Reply-To' => $_POST['userEmail'],
-                    'X-Mailer' => 'PHP/' . phpversion()
-                );
-                mail($email_to,$email_subject,$email_message,$headers);
-            }
-        ?>
     </div>
 </section>
 
@@ -276,23 +258,17 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
 
 </script>
 <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+
 <?php
 if(isset($_POST['submit'])) {
-    require '../vendor/phpmailer/phpmailer/src/PHPMailer.php';
-    require '../vendor/phpmailer/phpmailer/src/SMTP.php';
-    require '../vendor/phpmailer/phpmailer/src/Exception.php';
+    require 'vendor/phpmailer/phpmailer/src/PHPMailer.php';
+    require 'vendor/phpmailer/phpmailer/src/SMTP.php';
+    require 'vendor/phpmailer/phpmailer/src/Exception.php';
 
     $mail = new PHPMailer\PHPMailer\PHPMailer();
     $mail->IsSmtp();
 
-//    $mail->Host='smtp.gmail.com';
-//    $mail->Port=587;
-//    $mail->SMTPDebug = 0;
-//    $mail->SMTPAuth=true;
-//    $mail->SMTPSecure='false';
-//    $mail->Username='team117bluewater@gmail.com';
-//    $mail->Password='M0nash123';
-    //Change these details below to match your new mail server
+
     $mail->Host='mail.dreamfactorymusic.com.au';
     $mail->Port=465;
     $mail->SMTPDebug = 0;
@@ -313,8 +289,60 @@ if(isset($_POST['submit'])) {
         return false;
     }
     else
-    { echo  '<script> swal("Hi, '. $_POST['userName'] .'!\n" +
+    {
+        $autoRespond = new PHPMailer\PHPMailer\PHPMailer();
+
+        $autoRespond->IsSmtp();
+
+
+        $autoRespond->Host='mail.dreamfactorymusic.com.au';
+        $autoRespond->Port=465;
+        $autoRespond->SMTPDebug = 0;
+        $autoRespond->SMTPAuth=true;
+        $autoRespond->SMTPSecure='ssl';
+        $autoRespond->Username='_mainaccount@dreamfactorymusic.com.au';
+        $autoRespond->Password='Z9.3TDQg2(pq9q';
+
+
+        $autoRespond->isHTML(true);
+        $autoRespond->setFrom('team117bluewater@gmail.com', 'Little Feet Music');
+        $autoRespond->addAddress($_POST['userEmail']);
+        $autoRespond->Subject = "Thank you!";
+        $autoRespond->Body = "
+        <div>
+        <h4><p>Hi, {$_POST['userName']}!</p></h4>
+        <strong><p>Thanks for your email. I’ll get back to you as soon as I can!</p></strong>
+       
+        
+        
+        <p>Hear Little Feet Music songs on <a href='https://www.abc.net.au/abckids/abc-kids-listen-app/11131286' target=\"_blank\">ABC Kids Listen!</a><br>
+        <a href='http://littlefeetmusic.com.au/video-music' target=\"_blank\">Watch our videos!</a><br>
+        ALBUM!  I recorded it in Nashville and it’s absolutely amazing!  <a href='http://www.littlefeetmusic.com.au/online-shop#!/~/cart' target=\"_blank\">Get the CD online here</a> or listen on <a href='https://open.spotify.com/playlist/6ZG4FxeNLLYcF4gUam9ulV?si=AAO4FDFXTkaBHZX2F-gaow'target=\"_blank\"> Spotify here!</a><br>
+        <logo><img src='http://littlefeetmusic.dreamfactorymusic.com.au/img/logo.gif'></logo></p>
+        Fly Virgin, Qantas, Air Vanuatu, Malaysia or Singapore Airlines to hear my albums on the inflight entertainment!<br>
+        <a href='https://open.spotify.com/playlist/6ZG4FxeNLLYcF4gUam9ulV?si=AAO4FDFXTkaBHZX2F-gaow' target=\"_blank\">Listen on Spotify here!</a> <br>
+        <a href='https://www.facebook.com/LittleFeetMusic/' target=\"_blank\"> Hang out with us on Facebook!</a><br>
+        <a href='https://twitter.com/littlefeetmusic' target=\"_blank\"> Follow us on Twitter!</a><br>
+        <a href='https://instagram.com/littlefeetmusic/' target=\"_blank\">See what we look like on Instagram!</a><br>
+        <a href='https://www.youtube.com/user/LittleFeetMusic' target=\"_blank\">Check out some videos on YouTube!</a><br>
+       
+        
+        <strong><p>Thanks!<br>
+        Rachel Parkinson</p></strong>
+        
+        </div>";
+
+
+        if(!$autoRespond->Send())
+        {
+            echo "Mailer Error: " . $mail->ErrorInfo;
+            return false;
+        }
+        else{
+            echo  '<script> swal("Hi, '. $_POST['userName'] .'!\n" +
  "Thanks for your email.  I’ll get back to you as soon as I can! ")</script>';
+        }
+
 
 
     }

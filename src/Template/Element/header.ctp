@@ -32,7 +32,8 @@ $cakeDescription = 'User Panel';
 <section>
     <header>
         <nav class="navbar navbar-expand-lg fixed-top navbar-dark" style="background-color: #AD33FF;">
-            <a class="navbar-brand d-flex w-40 mr-50 ml-5" href="./Home"> <?php echo $this->Html->image('logo.gif'); ?></a>
+            <a class="navbar-brand d-flex w-40 mr-50 ml-5" href="./Home">
+            <logo><?php echo $this->Html->image('logo.gif'); ?></logo></a>
             <button class="navbar-toggler fix-pos" type="button"
                     data-toggle="collapse" data-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false"
                     aria-label="Toggle navigation">

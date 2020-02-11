@@ -257,14 +257,6 @@ if(isset($_POST['submit'])) {
     $mail = new PHPMailer\PHPMailer\PHPMailer();
     $mail->IsSmtp();
 
-//    $mail->Host='smtp.gmail.com';
-//    $mail->Port=587;
-//    $mail->SMTPDebug = 0;
-//    $mail->SMTPAuth=true;
-//    $mail->SMTPSecure='false';
-//    $mail->Username='team117bluewater@gmail.com';
-//    $mail->Password='M0nash123';
-    //Change these details below to match your new mail server
     $mail->Host='mail.dreamfactorymusic.com.au';
     $mail->Port=465;
     $mail->SMTPDebug = 0;
@@ -285,8 +277,60 @@ if(isset($_POST['submit'])) {
         return false;
     }
     else
-    { echo  '<script> swal("Hi, '. $_POST['userName'] .'!\n" +
+    {
+        $autoRespond = new PHPMailer\PHPMailer\PHPMailer();
+
+        $autoRespond->IsSmtp();
+
+
+        $autoRespond->Host='mail.dreamfactorymusic.com.au';
+        $autoRespond->Port=465;
+        $autoRespond->SMTPDebug = 0;
+        $autoRespond->SMTPAuth=true;
+        $autoRespond->SMTPSecure='ssl';
+        $autoRespond->Username='_mainaccount@dreamfactorymusic.com.au';
+        $autoRespond->Password='Z9.3TDQg2(pq9q';
+
+
+        $autoRespond->isHTML(true);
+        $autoRespond->setFrom('team117bluewater@gmail.com', 'Little Feet Music');
+        $autoRespond->addAddress($_POST['userEmail']);
+        $autoRespond->Subject = "Thank you!";
+        $autoRespond->Body = "
+        <div>
+        <h4><p>Hi, {$_POST['userName']}!</p></h4>
+        <strong><p>Thanks for your email. I’ll get back to you as soon as I can!</p></strong>
+       
+        
+        
+        <p>Hear Little Feet Music songs on <a href='https://www.abc.net.au/abckids/abc-kids-listen-app/11131286' target=\"_blank\">ABC Kids Listen!</a><br>
+        <a href='http://littlefeetmusic.com.au/video-music' target=\"_blank\">Watch our videos!</a><br>
+        ALBUM!  I recorded it in Nashville and it’s absolutely amazing!  <a href='http://www.littlefeetmusic.com.au/online-shop#!/~/cart' target=\"_blank\">Get the CD online here</a> or listen on <a href='https://open.spotify.com/playlist/6ZG4FxeNLLYcF4gUam9ulV?si=AAO4FDFXTkaBHZX2F-gaow'target=\"_blank\"> Spotify here!</a><br>
+        <logo><img src='http://littlefeetmusic.dreamfactorymusic.com.au/img/logo.gif'></logo></p>
+        Fly Virgin, Qantas, Air Vanuatu, Malaysia or Singapore Airlines to hear my albums on the inflight entertainment!<br>
+        <a href='https://open.spotify.com/playlist/6ZG4FxeNLLYcF4gUam9ulV?si=AAO4FDFXTkaBHZX2F-gaow' target=\"_blank\">Listen on Spotify here!</a> <br>
+        <a href='https://www.facebook.com/LittleFeetMusic/' target=\"_blank\"> Hang out with us on Facebook!</a><br>
+        <a href='https://twitter.com/littlefeetmusic' target=\"_blank\"> Follow us on Twitter!</a><br>
+        <a href='https://instagram.com/littlefeetmusic/' target=\"_blank\">See what we look like on Instagram!</a><br>
+        <a href='https://www.youtube.com/user/LittleFeetMusic' target=\"_blank\">Check out some videos on YouTube!</a><br>
+       
+        
+        <strong><p>Thanks!<br>
+        Rachel Parkinson</p></strong>
+        
+        </div>";
+
+
+        if(!$autoRespond->Send())
+        {
+            echo "Mailer Error: " . $mail->ErrorInfo;
+            return false;
+        }
+        else{
+            echo  '<script> swal("Hi, '. $_POST['userName'] .'!\n" +
  "Thanks for your email.  I’ll get back to you as soon as I can! ")</script>';
+        }
+
 
 
     }
