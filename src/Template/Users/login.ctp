@@ -8,7 +8,7 @@
         $this->Form->setTemplates([
             'inputContainer' => '<div class="form-group{{required}}">
                         {{content}} <span class="help">{{help}}</span></div>',
-            'input' => '<input type="{{type}}" name="{{name}}" 
+            'input' => '<input type="{{type}}" name="{{name}}"
                         class="form-control form-control-danger" {{attrs}}/>',
             'inputContainerError' => '<div class="form-group has has-danger
                     {{type}}{{required}} error">{{content}}{{error}}</div>',
@@ -18,8 +18,9 @@
         echo $this->Form->create($login);
         echo $this->Form->controls(
             [
-                'username' => ['required' => false, 'placeholder' => 'Enter Username'],
-                'password' => ['required' => false, 'placeholder' => 'Enter password']
+                'username' => ['required' => true, 'placeholder' => 'Enter Username'],
+//                'email' => ['required' => false, 'placeholder' => 'Enter Email'],
+                'password' => ['required' => true, 'placeholder' => 'Enter password']
             ],
             ['legend' => 'Login']
         );
@@ -29,7 +30,7 @@
 
         ?>
     </div>
-    <div class="col-lg-4"></div>    
+    <div class="col-lg-4"></div>
 
 </div>
 

@@ -32,24 +32,26 @@
                 'type'=>'number', 'rule'=>array('phone','/^(?:\+?61|0)[2-478](?:[ -]?[0-9]){8}$/','all' ),
                 'required' => true]);
             echo $this->Form->control('birthdate', ['class' => 'form-control','id' => 'bd',
-                'type' => 'text', 'placeholder' => 'Enter Birthdate', 'required' => false]);
+                'type' => 'text',  'required' => false, 'value'=>'']);
+
             echo $this->Form->control('postcode', ['class' => 'form-control',
                 'placeholder' => 'Enter Postcode', 'required' => false]);
             $options = array('teacher' => 'Teacher', 'admin' => 'Admin', 'staff'=>'Staff');
-//            echo $this->Form->input('role', array('options'=>$options,
-//                'type'=>'select', ['empty'=>true, 'label'=>'Role *']));
-            echo $this->Form->control('role', array('options'=>$options,
-                'type'=>'select', ['empty'=>true, 'label'=>'Role *']));
             ?>
+            <div class="form-group"><?= $this->Form->control('role', array('class' => 'form-control', 'options'=>$options,
+                    'type'=>'select', ['empty'=>true, 'label'=>'Role *', 'class' => 'form-control','style' => 'margin-left: 10px;']));
+                ?></div>
         </fieldset>
 
-        <?= $this->Form->button('Save Changes', ['class' => 'btn btn-success pull-right', 'style' => 'margin-top: 10px; margin-bottom: 100px;']) ?>
+        <?= $this->Form->button('Save Changes', ['class' => 'btn btn-success pull-right',
+            'style' => 'margin-top: 10px; margin-bottom: 100px;']) ?>
         <?= $this->Form->end() ?>
-        <?php echo $this->Html->link(__('Back to Users'), ['action' => 'index'],
+        <?php echo $this->Html->link(__('Back'), ['action' => 'index'],
             ['class' => 'btn btn-info pull-right', 'style' => 'margin-top: 10px; margin-right: 5px;'])
         ?>
     </div>
 </div>
+
 <script>
     $( "#bd" ).datepicker({dateFormat:'yy-mm-dd'});
 </script>

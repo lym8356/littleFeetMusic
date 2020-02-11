@@ -55,7 +55,7 @@ class UsersController extends AppController
                         }
                         //$this->Flash->success('Login Success.', ['key' => 'message']);
                     } else {
-                        $this->Flash->error('Username or password is incorrect', ['key' => 'message']);
+                        $this->Flash->error('Email or password is incorrect', ['key' => 'message']);
                     }
                 }
             }

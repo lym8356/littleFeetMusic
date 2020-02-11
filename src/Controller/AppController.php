@@ -48,7 +48,9 @@ class AppController extends Controller
         $this->loadComponent('Auth', [
             'authenticate' => [
                 'Form' => [
-                    'fields' => ['username' => 'username',
+                    'fields' => [
+                        'username' => 'username',
+//                        'email'=>'email',
                         'password' => 'password']
                 ]
             ],
@@ -61,7 +63,7 @@ class AppController extends Controller
                 'action' => 'index'
             ],
             'logoutRedirect'=>[
-                'controller'=>'users',
+                'controller'=>'Users',
                 'action'=>'login'
             ],
             'authError' => 'Authentication Failed.',
