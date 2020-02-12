@@ -77,6 +77,11 @@ $action=$this->request->params['action'];
                 <use xlink:href="#stroked-male-user"></use>
                 </svg> Manage Staff', '/admin/users/index',
                 ['escape' => false]); ?></li>
+        <li class="sidebar_item <?php echo ($controller=='Client')?'active':'';?>">
+            <?= $this->Html->link('<svg class="glyph stroked male-user">
+                <use xlink:href="#stroked-male-user"></use>
+                </svg> Manage Client', '/admin/clients/index',
+                ['escape' => false]); ?></li>
         <!--<li class="sidebar_item <?php echo ($controller=='Childs')?'active':'';?>">
             <?= $this->Html->link('<svg class="glyph stroked female-user">)
                     <use xlink:href="#stroked-female-user"></use>
