@@ -78,7 +78,7 @@ class UsersController extends AppController
             } else {
 
                 $sign_up->name = $this->request->getData('name');
-                $sign_up->username = $this->request->getData('username');
+//                $sign_up->username = $this->request->getData('username');
                 $sign_up->password = $this->request->getData('password');
                 $sign_up->email = $this->request->getData('email');
                 $sign_up->phone = $this->request->getData('phone');
@@ -138,4 +138,62 @@ class UsersController extends AppController
         $this->Auth->logout();
         return $this->redirect(['controller' => 'Home', 'action' => 'index']);
     }
+
+    public function forgotpassword()
+    {
+
+        if ($this->request->is('post')) {
+            $myemail = $this->request->getData('email');
+            $mytoken = Security::hash(Security::randomBytes(25));
+            $userTable = TableRegistry::get('Users');
+            $user = $userTable->find('all')->where(['email' => $myemail])->first();
+            $user->token = $mytoken;
+            if ($userTable->save($user)) {
+                $this->Flash->success('Reset password link has been sent to your email(' . $myemail . '). please open your inbox');
+
+
+                TransportFactory::setConfig('gmail', [
+                    'host' => 'mail.dreamfactorymusic.com.au',
+                    'port' => 465,
+                    'username' => '_mainaccount@dreamfactorymusic.com.au',
+                    'password' => 'Z9.3TDQg2(pq9q',
+                    'className' => 'Smtp'
+                ]);
+
+                $email = new Email('default');
+                $email->setTransport('gmail');
+
+                $success = $email->setFrom(['ieteam116@gmail.com' => 'pony music'])
+                    ->setTo($myemail)
+                    ->setEmailFormat('html')
+                    ->setSubject('please reset your password')
+                    ->send('Hello, ' . $myemail . '<br/> please click this link to reset your password<br/> <a href="../users/reset_password/' . $mytoken . '">Reset Password</a>');
+
+                if ($success) {
+                    $this->Flash->success('Reset password link has been sent to your email(' . $myemail . '). please open your inbox');
+                } else {
+                    $this->Flash->error('Could not send email');
+                }
+            }
+
+        }
+    }
+
+    public function resetpassword($token)
+    {
+
+        if ($this->request->is('post')) {
+            $mypass = $this->request->getdata('password');
+            $usertable = TableRegistry::get('Users');
+            $user = $usertable->find('all')->where(['token' => $token])->first();
+
+            $user->password = $mypass;
+            if ($usertable->save($user)) {
+                return $this->redirect(['action' => 'login']);
+            }
+
+
+        }
+    }
+
 }

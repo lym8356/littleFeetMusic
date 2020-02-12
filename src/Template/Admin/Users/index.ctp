@@ -25,13 +25,13 @@
                             <tr>
                                 <th scope="col"><?= $this->Paginator->sort('First name') ?></th>
                                 <th scope="col"><?= $this->Paginator->sort('Last name') ?></th>
-                                <th scope="col"><?= $this->Paginator->sort('Username') ?></th>
+                                <!--<th scope="col"><?= $this->Paginator->sort('Username') ?></th>-->
                                 <th scope="col"><?= $this->Paginator->sort('email') ?></th>
                                 <th scope="col"><?= $this->Paginator->sort('phone') ?></th>
 <!--                                <th scope="col"><?//= $this->Paginator->sort('postcode') ?></th>-->
                                 <th scope="col"><?= $this->Paginator->sort('role') ?></th>
-<!--                                <th scope="col"><?//= $this->Paginator->sort('created') ?></th>-->
-<!--                                <th scope="col"><?//= $this->Paginator->sort('modified') ?></th>-->
+                                <th scope="col"><?= $this->Paginator->sort('created') ?></th>
+                                <th scope="col"><?= $this->Paginator->sort('modified') ?></th>
                                 <th scope="col" colspan="3" class="actions"><?= __('Actions') ?></th>
                             </tr>
                             </thead>
@@ -42,13 +42,13 @@
     <!--                                    <td>--><!--<?//= h($user->f_name),' ', h($user->l_name) ?>--><!--</td>-->
                                         <td><?= h($user->f_name) ?></td>
                                         <td><?= h($user->l_name) ?></td>
-                                        <td><?= h($user->username) ?></td>
+                                        <!--<td><?= h($user->username) ?></td>-->
                                         <td><?= h($user->email) ?></td>
                                         <td><?= h($user->phone) ?></td>
 <!--                                        <td><?//= h($user->postcode) ?></td>-->
                                         <td><?= h($user->role) ?></td>
-<!--                                        <td><?//= h($user->created) ?></td>-->
-<!--                                        <td><?//= h($user->modified) ?></td>-->
+                                        <td><?= h($user->created) ?></td>
+                                        <td><?= h($user->modified) ?></td>
                                         <td class="actions">
                                             <div class="btn" role="group">
                                                 <?= $this->Html->link(__('Edit'), ['action' => 'edit', $user->id],

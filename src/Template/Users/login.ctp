@@ -18,8 +18,7 @@
         echo $this->Form->create($login);
         echo $this->Form->controls(
             [
-                'username' => ['required' => true, 'placeholder' => 'Enter Username'],
-                'email' => ['required' => false, 'placeholder' => 'Enter Email'],
+                'email' => ['required' => true, 'placeholder' => 'Enter Email'],
                 'password' => ['required' => true, 'placeholder' => 'Enter password']
             ],
             ['legend' => 'Login']

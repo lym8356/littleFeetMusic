@@ -19,17 +19,13 @@
             'placeholder' => 'Enter First Name','label'=>'First Name*', 'required' => true]);
         echo $this->Form->control('l_name', ['class' => 'form-control',
             'placeholder' => 'Enter Last Name','label'=>'Last Name*', 'required' => true]);
-        echo $this->Form->control('username', ['class' => 'form-control',
-            'placeholder' => 'Enter username', 'value'=>'', 'label'=>'Username *', 'required' => true]);
+//        echo $this->Form->control('username', ['class' => 'form-control',
+//            'placeholder' => 'Enter username', 'value'=>'', 'label'=>'Username *', 'required' => true]);
+        echo $this->Form->control('email', ['class' => 'form-control',
+            'placeholder' => 'Enter email', 'value'=>'', 'label'=>'Email *', 'required' => true]);
         echo $this->Form->control('password', ['class' => 'form-control',
             'placeholder' => 'Enter password', 'value'=>'', 'autocomplete'=>"new-password",
                 'label'=>'Password *', 'required' => true]);
-        echo $this->Form->control('email', ['class' => 'form-control',
-            'placeholder' => 'Enter email', 'value'=>'', 'label'=>'Email *', 'required' => true]);
-        ?>
-<!--    </div>-->
-<!--    <div class="col-lg-4">-->
-        <?php
         echo $this->Form->control('phone', ['class' => 'form-control',
             'placeholder' => 'Enter phone number', 'value'=>'', 'label'=>'Phone *', 'required' => true]);
         echo $this->Form->control('birthday', ['class' => 'form-control', 'id' => 'bd', 'type' => 'text',
