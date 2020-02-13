@@ -189,10 +189,10 @@ class EnrolmentsController extends AppController
             $this->request->data['term_id'] = $termid;
         }else{
             $itemArray = $this->request->getData('item_array');
-            //$returnUrl = strval($this->payment($itemArray));
+            $returnUrl = strval($this->payment($itemArray));
             //pr("'".$returnUrl."'");die;
-            $returnUrl = 'https://connect.squareupsandbox.com/v2/checkout?c=CBASEFI3IoURI7rvPaITefWKo2g&l=SZM300NX9NJNM';
-            return $this->redirect($returnUrl);
+            //$returnUrl = 'https://connect.squareupsandbox.com/v2/checkout?c=CBASEFI3IoURI7rvPaITefWKo2g&l=SZM300NX9NJNM';
+
 
             $submittedForm = $this->request->data['formSerialized'];
             $formattedForm = array();
@@ -245,7 +245,7 @@ class EnrolmentsController extends AppController
 
                 $this->saveTermEnrolment($enrolment_result->id,$formattedForm['term_id']);
             }
-
+            return $this->redirect($returnUrl);
 
             //$returnUrl = 'https://connect.squareupsandbox.com/v2/checkout?c=CBASEFI3IoURI7rvPaITefWKo2g&l=SZM300NX9NJNM';
         }
