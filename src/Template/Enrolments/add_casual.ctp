@@ -122,12 +122,13 @@
         }
         .btn_class_select{
             background-color: orange;
-        }
-        .btn_class_select:focus{
-            background-color: green;
+            max-width: 130px;
+            min-width: 130px;
         }
         .btn_selected_class{
             background-color: green;
+            max-width: 130px;
+            min-width: 130px;
             }
 
         }
@@ -616,6 +617,16 @@
     });
 
     $('.multisteps-form__content').on('click', '.btn_selected_class', function(){
+        let clsbtn = $('.class_select button');
+
+        for(let i=0;i<clsbtn.length;i++){
+                if($(this).text()==clsbtn[i].innerText){
+                    $("clsbtn[i]").removeClass("btn_selected_class");
+                    $("clsbtn[i]").addClass("btn_class_select");
+
+
+                }
+            }
 
         $(this).remove();
     });
