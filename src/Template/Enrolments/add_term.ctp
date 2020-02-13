@@ -121,7 +121,6 @@
             display:none;
         }
 
-
     </style>
 </head>
 <body>
@@ -303,7 +302,7 @@
                     <div class="row">
                         <div class="button-row d-flex mt-4 col-12">
                             <button class="btn btn-primary js-btn-prev" type="button" title="Prev">Prev</button>
-                            <button class="btn btn-primary ml-auto js-btn-next" id="payment_btn" type="button" title="Next">Next</button>
+                            <button class="btn btn-primary ml-auto js-btn-next" id="enrol_btn" type="button" title="Next">Next</button>
                         </div>
                     </div>
                 </div>
@@ -314,6 +313,9 @@
                 <h3 class="multisteps-form__title">Payment</h3>
                 <div class="multisteps-form__content">
                     <div class="form-row mt-4" id="payment_render">
+
+                    </div>
+                    <div id="test">
 
                     </div>
                     <div class="button-row d-flex mt-4">
@@ -330,7 +332,7 @@
 
 <script>
 
-    $('[name^="child_dob"]').datepicker({dateFormat:'dd-mm-yy'});
+    $('[name^="child_dob"]').datepicker({dateFormat:'dd/mm/yy'});
 
 
     // let datePickerField =
@@ -364,22 +366,6 @@
     });
 
 
-    $('#enrolBtn').click(function (e) {
-        e.preventDefault();
-        let csrf_token = $('[name="_csrfToken"]').val();
-        let formSerialize = $('#enrol_form').serialize();
-        $.ajax({
-            beforeSend: function (xhr) {
-                xhr.setRequestHeader('X-CSRF-Token', csrf_token);
-            },
-            type: "post",
-            url: "<?php echo $this->Url->build(['controller' => 'Enrolments', 'action' => 'add']); ?>",
-            data: formSerialize,
-            success: function (response) {
-                $('#enrol_status').html(response);
-            }
-        });
-    });
 
     function appendChildList() {
 
@@ -516,22 +502,23 @@
         }
     });
 
-    $('#payment_btn').click(function(){
+    $('#enrol_btn').click(function(e){
 
-
+        //e.preventDefault();
         let csrf_token = $('[name="_csrfToken"]').val();
+        let formSerialized = $('#enrol_form').serialize();
 
         $.ajax({
-            // beforeSend: function (xhr) {
-            //     xhr.setRequestHeader('X-CSRF-Token', csrf_token);
-            // },
-            method: 'get',
-            url: "<?php echo $this->Url->build(['controller' => 'Payments', 'action' => 'payment']); ?>",
-            data: {item_array},
+            beforeSend: function (xhr) {
+                xhr.setRequestHeader('X-CSRF-Token', csrf_token);
+            },
+            method: 'post',
+            url: "<?php echo $this->Url->build(['controller' => 'Enrolments', 'action' => 'addTerm']); ?>",
+            data: {item_array,formSerialized},
             success: function (response) {
-                $('#payment_render').html(response);
+                $('#test').html(response);
             }
-        })
+        });
     });
 
 

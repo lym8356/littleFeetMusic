@@ -9,7 +9,7 @@ use Cake\Validation\Validator;
 /**
  * Enrolments Model
  *
- * @property &\Cake\ORM\Association\BelongsTo $Lfmclasses
+ * @property &\Cake\ORM\Association\BelongsTo $Terms
  * @property \App\Model\Table\UsersTable&\Cake\ORM\Association\BelongsTo $Users
  * @property \App\Model\Table\ChildsTable&\Cake\ORM\Association\BelongsTo $Childs
  *
@@ -42,9 +42,8 @@ class EnrolmentsTable extends Table
 
         $this->addBehavior('Timestamp');
 
-        $this->belongsTo('Lfmclasses', [
-            'foreignKey' => 'lfmclasses_id',
-            'joinType' => 'INNER'
+        $this->belongsTo('Terms', [
+            'foreignKey' => 'term_id'
         ]);
         $this->belongsTo('Users', [
             'foreignKey' => 'guardian_id',
@@ -74,13 +73,23 @@ class EnrolmentsTable extends Table
             ->allowEmptyString('enrolment_type');
 
         $validator
-            ->scalar('enrolment_status')
-            ->maxLength('enrolment_status', 20)
-            ->allowEmptyString('enrolment_status');
+            ->scalar('payment_method')
+            ->maxLength('payment_method', 20)
+            ->allowEmptyString('payment_method');
+
+        $validator
+            ->scalar('payment_status')
+            ->maxLength('payment_status', 20)
+            ->allowEmptyString('payment_status');
 
         $validator
             ->numeric('enrolment_cost')
             ->allowEmptyString('enrolment_cost');
+
+        $validator
+            ->scalar('comment')
+            ->maxLength('comment', 255)
+            ->allowEmptyString('comment');
 
         return $validator;
     }
@@ -94,9 +103,9 @@ class EnrolmentsTable extends Table
      */
     public function buildRules(RulesChecker $rules)
     {
-        $rules->add($rules->existsIn(['lfmclasses_id'], 'Lfmclasses'));
-        $rules->add($rules->existsIn(['child_id'], 'Childs'));
+        $rules->add($rules->existsIn(['term_id'], 'Terms'));
         $rules->add($rules->existsIn(['guardian_id'], 'Users'));
+        $rules->add($rules->existsIn(['child_id'], 'Childs'));
 
         return $rules;
     }

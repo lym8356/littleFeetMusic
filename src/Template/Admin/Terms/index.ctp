@@ -68,7 +68,7 @@
                                     <td><?= h(date("G:i", strtotime($term->end_time))) ?></td>
                                     <td><?= $this->Number->format($term->duration) ?></td>
                                     <td><?= $this->Number->format($term->capacity) ?></td>
-                                    <td><?= $this->Number->format($term->cost_per_class) ?></td>
+                                    <td><?= $this->Number->format($term->casual_rate) ?></td>
                                     <td><?= h($term->note) ?></td>
                                     <td class="actions">
                                         <div class="btn" role="group">

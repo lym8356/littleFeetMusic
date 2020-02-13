@@ -44,9 +44,9 @@
 
             </table>
             <?php echo $this->Form->control('end_date', ['class' => 'form-control',
-                'id' => 'end_date', 'type' => 'text']); ?>
+                'id' => 'end_date', 'type' => 'text', 'readonly'=>'readonly']); ?>
             <?php echo $this->Form->control('day_id', ['class' => 'form-control',
-                'id' => 'day_id', 'type' => 'text', 'label' => 'Class Day']); ?>
+                'id' => 'day_id', 'type' => 'text', 'label' => 'Class Day', 'readonly' => 'readonly']); ?>
             <div>
                 <p class="form-control-static" id="class_day"></p>
             </div>
@@ -68,7 +68,7 @@
             echo $this->Form->control('duration', ['class' => 'form-control', 'value' => '0','label' => 'Class Duration (in minutes)',
                 'id' => 'duration']);
             echo $this->Form->control('end_time', ['class' => 'form-control',
-                'id' => 'end_time', 'type' => 'text']);
+                'id' => 'end_time', 'type' => 'text', 'readonly' => 'readonly']);
             echo $this->Form->control('capacity', ['class' => 'form-control','type'=>'number',
                 'placeholder'=>'Please enter class capacity']);
             echo $this->Form->control('casual_rate', ['class' => 'form-control','type' => 'number']);
@@ -86,7 +86,6 @@
 
     $( function() {
         $( "#start_date" ).datepicker({dateFormat:'yy-mm-dd'});
-        $( "#end_date" ).datepicker({dateFormat:'yy-mm-dd'});
 
         $('#start_date, #week_length').bind('change', function() {
 

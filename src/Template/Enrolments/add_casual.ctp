@@ -155,7 +155,7 @@
                     <h5 class="card-header">Please pick a class date</h5>
                     <div class="col-sm-12 card-body class_select">
                         <?php foreach($classData as $class): ?>
-                        <button type="button" class="btn_class_select"><?php echo date("d-m-Y",strtotime($class->class_date)); ?></button>
+                        <button type="button" class="btn_class_select"><?php echo date("d/m/Y",strtotime($class->class_date)); ?></button>
                         <?php endforeach; ?>
                     </div>
                     <h5 class="card-header">Selected classes</h5>
@@ -277,18 +277,20 @@
                                     <th>Location</th>
                                     <th>Age Group</th>
                                     <th>Class Time</th>
-                                    <th>Price</th>
+                                    <th>Price Per Class</th>
                                 </tr>
                                 </thead>
                                 <tbody>
                                 <tr>
-                                    <td id="tb_class_location"></td>
+                                    <td id="tb_class_location" style="max-width: 150px;"></td>
                                     <td id="tb_class_ageGroup"></td>
                                     <td id="tb_class_time"></td>
                                     <td id="tb_class_price"></td>
                                 </tr>
                                 </tbody>
                             </table>
+                            <h6 style="color: red;">Class Selected</h6>
+                            <hr>
                             <div id="selected_class_summary">
 
                             </div>
@@ -328,7 +330,7 @@
                     <div class="row">
                         <div class="button-row d-flex mt-4 col-12">
                             <button class="btn btn-primary js-btn-prev" type="button" title="Prev">Prev</button>
-                            <button class="btn btn-primary ml-auto js-btn-next" id="payment_btn" type="button" title="Next">Next</button>
+                            <button class="btn btn-primary ml-auto js-btn-next" id="enrol_btn" type="button" title="Next">Next</button>
                         </div>
                     </div>
                 </div>
@@ -338,7 +340,10 @@
             <div class="multisteps-form__panel shadow p-4 rounded bg-white" data-animation="scaleIn">
                 <h3 class="multisteps-form__title">Payment</h3>
                 <div class="multisteps-form__content">
-                    <div class="form-row mt-4" id="payment_render">
+                    <div id="otherItems">
+
+                    </div>
+                    <div id="test">
 
                     </div>
                     <div class="button-row d-flex mt-4">
@@ -477,13 +482,14 @@
         $('#tb_class_time').html($('#class_time').val());
         $('#tb_class_price').html("$" + $('#class_price').val());
         $('#tb_sub_total').text("$" + subTotal);
-        // for(let j=0; j<enrolment_qty;j++){
-        //     $('#selected_class_summary').append(selected_class_array[j]);
-        // }
-        console.log($('#selected_class_summary').innerHTML);
+        $('#selected_class_summary').html("");
+        for(let j=0; j<enrolment_qty;j++){
+            $('#selected_class_summary').append("<button disabled>"+selected_class_array[j]+"</button>"+" ");
+        }
         glob_sub_total = subTotal;
 
         $('#tb_total_price').text(subTotal);
+
     }
 
     $(document).on('click','.child-btn-next',function(){
@@ -554,16 +560,23 @@
         }
     });
 
-    $('#payment_btn').click(function(){
+    $('#enrol_btn').click(function(e){
+
+        e.preventDefault();
+        let csrf_token = $('[name="_csrfToken"]').val();
+        let formSerialized = $('#enrol_form').serialize();
 
         $.ajax({
-            method: 'get',
-            url: "<?php echo $this->Url->build(['controller' => 'Payments', 'action' => 'payment']); ?>",
-            data: {item_array},
+            beforeSend: function (xhr) {
+                xhr.setRequestHeader('X-CSRF-Token', csrf_token);
+            },
+            method: 'post',
+            url: "<?php echo $this->Url->build(['controller' => 'Enrolments', 'action' => 'addCasual']); ?>",
+            data: {item_array,formSerialized},
             success: function (response) {
-                $('#payment_render').html(response);
+                $('#test').html(response);
             }
-        })
+        });
     });
 
     // eventHandler for casual class select button
@@ -601,6 +614,9 @@
         let buttonInDiv = $('.selected_class button');
         for(let i=0;i<buttonInDiv.length;i++){
             selected_class_array.push(buttonInDiv[i].innerText);
+        }
+        for(let j=0;j<selected_class_array.length;j++){
+            $('.selected_class').append("<input name='date[]' type='hidden' value='"+selected_class_array[j]+"'/>");
         }
     });
 

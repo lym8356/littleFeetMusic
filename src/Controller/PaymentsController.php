@@ -15,7 +15,8 @@ class PaymentsController extends AppController
     public function payment()
     {
 
-        $itemArray = $this->request->getQuery();
+        $itemArray = $this->request->getQuery('item_array');
+        //pr($this->request->getData());pr($itemArray);die;
 
         $access_token = 'EAAAEHND9hsKev-_M94G0qZAP3N560UizdQ8wzEQeyQSEaBgjzj6wEenwidQWtda';
         $location_id = 'SZM300NX9NJNM';

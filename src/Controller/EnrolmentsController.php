@@ -3,6 +3,9 @@ namespace App\Controller;
 
 use App\Controller\AppController;
 use Cake\ORM\TableRegistry;
+use Cake\Routing\Router;
+use Cake\ORM\Behavior\TimestampBehavior;
+use SquareConnect\ApiException;
 
 /**
  * Enrolments Controller
@@ -13,6 +16,7 @@ use Cake\ORM\TableRegistry;
  */
 class EnrolmentsController extends AppController
 {
+
     /**
      * Index method
      *
@@ -44,25 +48,117 @@ class EnrolmentsController extends AppController
         $this->set('enrolment', $enrolment);
     }
 
-    private function saveEnrollment($user_id,$term_id,$price){
+    private function payment($itemArray){
+
+        $access_token = 'EAAAEHND9hsKev-_M94G0qZAP3N560UizdQ8wzEQeyQSEaBgjzj6wEenwidQWtda';
+        $location_id = 'SZM300NX9NJNM';
+        $end_point = 'https://connect.squareupsandbox.com';
+
+        $api_config = new \SquareConnect\Configuration();
+        $api_config->setHost($end_point);
+        # Initialize the authorization for Square
+        $api_config->setAccessToken($access_token);
+        $api_client = new \SquareConnect\ApiClient($api_config);
+
+        $lineItems = [];
+
+        $discounts = [];
+        $discounts_item = new \SquareConnect\Model\OrderLineItemDiscount();
+        $discounts_item->setName('Sibling Discount');
+        $discounts_item->setPercentage('25');
+        $discounts_item->setScope('LINE_ITEM');
+        array_push($discounts, $discounts_item);
+
+        foreach ($itemArray as $item) {
+
+            if($item['name'] == 'Class Enrolment (Discounted)'){
+                $price = new \SquareConnect\Model\Money;
+                $price->setAmount((int)$item['price']);
+                $price->setCurrency('AUD');
+
+                $itemEach = new \SquareConnect\Model\OrderLineItem();
+                $itemEach->setName($item['name']);
+                $itemEach->setQuantity($item['qty']);
+                $itemEach->setBasePriceMoney($price);
+                $itemEach->setDiscounts($discounts);
+                array_push($lineItems, $itemEach);
+            }else {
+                $price = new \SquareConnect\Model\Money;
+                $price->setAmount((int)$item['price']);
+                $price->setCurrency('AUD');
+
+                $itemEach = new \SquareConnect\Model\OrderLineItem();
+                $itemEach->setName($item['name']);
+                $itemEach->setQuantity($item['qty']);
+                $itemEach->setBasePriceMoney($price);
+                array_push($lineItems, $itemEach);
+            }
+        }
+
+        $order = new \SquareConnect\Model\CreateOrderRequest();
+        $order->setLineItems($lineItems);
+
+        try {
+            $checkout_api = new \SquareConnect\Api\CheckoutApi($api_client);
+            $checkout = new \SquareConnect\Model\CreateCheckoutRequest();
+            $checkout->setIdempotencyKey(uniqid());
+            $checkout->setOrder($order);
+            $redirectUrl = Router::url(['controller' => 'Enrolments', 'action' => 'success'], TRUE);
+            $checkout->setRedirectUrl($redirectUrl);
+            $response = $checkout_api->createCheckout($location_id, $checkout);
+            $checkoutId = $response->getCheckout()->getId();
+
+        } catch (ApiException $e){
+            pr($e->getMessage());
+            exit();
+        }
+
+        $checkoutUrl = $response->getCheckout()->getCheckoutPageUrl();
+
+        return $checkoutUrl;
+        //$this->set('checkoutUrl', $checkoutUrl);
+
+    }
+
+    private function saveTermEnrolment($enrol_id, $term_id){
 
         $now = date('Y-m-d');
-        $lfmdataQuery=TableRegistry::get('Lfmclasses')->find('all',['conditions'=>['Lfmclasses.terms_id'=>$term_id,"Lfmclasses.class_date>='$now'"]])
+        $lfmdataQuery=TableRegistry::getTableLocator()->get('Lfmclasses')->find('all',
+            ['conditions'=>['Lfmclasses.terms_id'=>$term_id,"Lfmclasses.class_date>='$now'"]])
             ->order(['class_date'=>'ASC'])->toArray();
 
-        foreach($lfmdataQuery as $lfm){
 
-            $user_child_data=TableRegistry::getTableLocator()->get('users_childs')->find('all',['conditions'=>['users_childs.user_id'=>$user_id]])->toArray();
-            $enrolmentdata=[];
-            foreach($user_child_data as $userchild){
-                $enrolmetTable=TableRegistry::getTableLocator()->get('enrolments');
-                $enrolmentdata['lfmclasses_id']=$lfm->id;
-                $enrolmentdata['guardian_id']=$user_id;
-                $enrolmentdata['enrolment_cost']=$price;
-                $enrolmentdata['child_id']=$userchild->child_id;
-                $enrolmententity = $enrolmetTable->newEntity($enrolmentdata);
-                $enrolmetTable->save($enrolmententity);
-            }
+        foreach($lfmdataQuery as $lfm){
+            $enrolTable = TableRegistry::getTableLocator()->get('Enrol');
+
+            $enrolArray=[];
+            $enrolArray['enrolments_id'] = $enrol_id;
+            $enrolArray['lfmclass_id'] = $lfm['id'];
+            $enrolArray['attendance'] = 'unknown';
+
+            $enrol_entity = $enrolTable->newEntity($enrolArray);
+            $enrol_result = $enrolTable->save($enrol_entity);
+        }
+    }
+
+    private function saveCasualEnrolment($enrol_id, $term_id, $dateArray){
+
+        for($i=0;$i<sizeof($dateArray);$i++){
+
+            $formattedDate = date('Y-m-d', strtotime(str_replace('/', '-', $dateArray[$i])));
+
+            $lfmdataQuery=TableRegistry::getTableLocator()->get('Lfmclasses')->find('all',
+                ['conditions'=>['Lfmclasses.class_date'=>$formattedDate, 'Lfmclasses.terms_id'=>$term_id]])->first()->toArray();
+
+
+            $enrolTable = TableRegistry::getTableLocator()->get('Enrol');
+            $enrolArray=[];
+            $enrolArray['enrolments_id'] = $enrol_id;
+            $enrolArray['lfmclass_id'] = $lfmdataQuery['id'];
+            $enrolArray['attendance'] = 'unknown';
+
+            $enrol_entity = $enrolTable->newEntity($enrolArray);
+            $enrol_result = $enrolTable->save($enrol_entity);
         }
 
     }
@@ -80,35 +176,47 @@ class EnrolmentsController extends AppController
 
             $termid=$termsArray[0];
             $lfmid=$termsArray[1];
-            $termData=TableRegistry::get('Terms')->find('all',['conditions'=>['Terms.id'=>$termid]])->contain('Locations')->first();
+            $termData=TableRegistry::get('Terms')->find('all',
+                ['conditions'=>['Terms.id'=>$termid]])->contain('Locations')->first();
 
-            $lfmData=TableRegistry::get('Lfmclasses')->find('all',['conditions'=>['Lfmclasses.id'=>$lfmid]])->first();
+            $lfmData=TableRegistry::get('Lfmclasses')->find('all',
+                ['conditions'=>['Lfmclasses.id'=>$lfmid]])->first();
             $this->request->data['price'] = $lfmData['price'];
-            $this->request->data['class_time'] = date("G:i", strtotime($termData['start_time'])).'-'.date("G:i", strtotime($termData['end_time']));
+            $this->request->data['class_time'] = date("G:i", strtotime($termData['start_time'])).'-'.
+                date("G:i", strtotime($termData['end_time']));
             $this->request->data['location'] = $termData['location']['street_address'].', '.$termData['location']['name'];
             $this->request->data['age_group'] = $termData['age_group'];
             $this->request->data['term_id'] = $termid;
         }else{
+            $itemArray = $this->request->getData('item_array');
+            //$returnUrl = strval($this->payment($itemArray));
+            //pr("'".$returnUrl."'");die;
+            $returnUrl = 'https://connect.squareupsandbox.com/v2/checkout?c=CBASEFI3IoURI7rvPaITefWKo2g&l=SZM300NX9NJNM';
+            return $this->redirect($returnUrl);
+
+            $submittedForm = $this->request->data['formSerialized'];
+            $formattedForm = array();
+            parse_str($submittedForm, $formattedForm);
 
             $userArray = array();
-            $userArray['f_name'] = $this->request->getData(['user_first_name']);
-            $userArray['l_name'] = $this->request->getData(['user_last_name']);
-            $userArray['birthday'] = date("Y-m-d",strtotime($this->request->getData(['user_dob'])));
-            $userArray['email'] = $this->request->getData(['user_email']);
-            $userArray['phone'] = $this->request->getData(['user_phone']);
-            $userArray['postcode'] = $this->request->getData(['user_postcode']);
+            $userArray['f_name'] = $formattedForm['user_first_name'];
+            $userArray['l_name'] = $formattedForm['user_last_name'];
+            $userArray['email'] = $formattedForm['user_email'];
+            $userArray['phone'] = $formattedForm['user_phone'];
+            $userArray['postcode'] = $formattedForm['user_postcode'];
 
             $usersTable = TableRegistry::getTableLocator()->get('users');
             $user_entity = $usersTable->newEntity($userArray);
             $user_results = $usersTable->save($user_entity);
 
             $childArray = array();
-            for($i=0;$i<count($this->request->getData(['child_first_name']));$i++){
+            for($i=0;$i<count($formattedForm['child_first_name']);$i++){
+
                 $childTable = TableRegistry::getTableLocator()->get('childs');
-                $childArray['first_name'] = $this->request->getData(['child_first_name'])[$i];
-                $childArray['last_name'] = $this->request->getData(['child_last_name'])[$i];
-                $childArray['dob'] = date("Y-m-d",strtotime($this->request->getData(['child_DOB'])[$i]));
-                $childArray['note'] = $this->request->getData(['child_note'])[$i];
+                $childArray['first_name'] = $formattedForm['child_first_name'][$i];
+                $childArray['last_name'] = $formattedForm['child_last_name'][$i];
+                $childArray['dob'] = date("Y-m-d",strtotime($formattedForm['child_dob'][$i]));
+                $childArray['note'] = $formattedForm['child_note'][$i];
 
                 $child_entity = $childTable->newEntity($childArray);
                 $child_results = $childTable->save($child_entity);
@@ -116,26 +224,37 @@ class EnrolmentsController extends AppController
                 $user_child_relation=[];
                 $user_child_relation['user_id']=$user_results->id;
                 $user_child_relation['child_id']=$child_results->id;
-                $user_child_relation['relationship']=$this->request->getData(['relation'])[$i];
-                // pr($user_child_relation);die;
+                $user_child_relation['relationship']=$formattedForm['relation'];
+
                 $user_childTable = TableRegistry::getTableLocator()->get('users_childs');
                 $user_child_entity = $user_childTable->newEntity($user_child_relation);
-
                 $user_child_result = $user_childTable->save($user_child_entity);
 
+                $enrolmentArray=[];
+                $enrolmentArray['term_id'] = $formattedForm['term_id'];
+                $enrolmentArray['enrolment_cost'] = $formattedForm['price'];
+                $enrolmentArray['guardian_id'] = $user_results->id;
+                $enrolmentArray['child_id'] = $child_results->id;
+                $enrolmentArray['enrolment_type'] = 'Term';
+                $enrolmentArray['payment_method'] = 'Square';
+                $enrolmentArray['payment_status'] = 'Pending';
+                $enrolmentArray['comment'] = '';
 
+                $enrolment_entity = $this->Enrolments->newEntity($enrolmentArray);
+                $enrolment_result = $this->Enrolments->save($enrolment_entity);
+
+                $this->saveTermEnrolment($enrolment_result->id,$formattedForm['term_id']);
             }
 
-            $this->saveEnrollMent($user_results->id,$this->request->getData('term_id'),$this->request->getData('price'));
 
-            return $this->redirect(['action' => 'success']);
-
+            //$returnUrl = 'https://connect.squareupsandbox.com/v2/checkout?c=CBASEFI3IoURI7rvPaITefWKo2g&l=SZM300NX9NJNM';
         }
 
     }
 
     public function addCasual(){
 
+        $returnUrl = '';
         if((!empty($this->request->getQuery('term_id')))){
             $requestTermID = $this->request->getQuery('term_id');
             $now = date('Y-m-d');
@@ -157,25 +276,29 @@ class EnrolmentsController extends AppController
             $this->request->data['term_id'] = $requestTermID;
         }else{
 
+            $submittedForm = $this->request->data['formSerialized'];
+            $formattedForm = array();
+            parse_str($submittedForm, $formattedForm);
+
             $userArray = array();
-            $userArray['f_name'] = $this->request->getData(['user_first_name']);
-            $userArray['l_name'] = $this->request->getData(['user_last_name']);
-            $userArray['birthday'] = date("d-m-Y",strtotime($this->request->getData(['user_dob'])));
-            $userArray['email'] = $this->request->getData(['user_email']);
-            $userArray['phone'] = $this->request->getData(['user_phone']);
-            $userArray['postcode'] = $this->request->getData(['user_postcode']);
+            $userArray['f_name'] = $formattedForm['user_first_name'];
+            $userArray['l_name'] = $formattedForm['user_last_name'];
+            $userArray['email'] = $formattedForm['user_email'];
+            $userArray['phone'] = $formattedForm['user_phone'];
+            $userArray['postcode'] = $formattedForm['user_postcode'];
 
             $usersTable = TableRegistry::getTableLocator()->get('users');
             $user_entity = $usersTable->newEntity($userArray);
             $user_results = $usersTable->save($user_entity);
 
             $childArray = array();
-            for($i=0;$i<count($this->request->getData(['child_first_name']));$i++){
+            for($i=0;$i<count($formattedForm['child_first_name']);$i++){
+
                 $childTable = TableRegistry::getTableLocator()->get('childs');
-                $childArray['first_name'] = $this->request->getData(['child_first_name'])[$i];
-                $childArray['last_name'] = $this->request->getData(['child_last_name'])[$i];
-                $childArray['dob'] = date("d-m-Y",strtotime($this->request->getData(['child_DOB'])[$i]));
-                $childArray['note'] = $this->request->getData(['child_note'])[$i];
+                $childArray['first_name'] = $formattedForm['child_first_name'][$i];
+                $childArray['last_name'] = $formattedForm['child_last_name'][$i];
+                $childArray['dob'] = date("Y-m-d",strtotime($formattedForm['child_dob'][$i]));
+                $childArray['note'] = $formattedForm['child_note'][$i];
 
                 $child_entity = $childTable->newEntity($childArray);
                 $child_results = $childTable->save($child_entity);
@@ -183,22 +306,36 @@ class EnrolmentsController extends AppController
                 $user_child_relation=[];
                 $user_child_relation['user_id']=$user_results->id;
                 $user_child_relation['child_id']=$child_results->id;
-                $user_child_relation['relationship']=$this->request->getData(['relation'])[$i];
-                // pr($user_child_relation);die;
+                $user_child_relation['relationship']=$formattedForm['relation'];
+
                 $user_childTable = TableRegistry::getTableLocator()->get('users_childs');
                 $user_child_entity = $user_childTable->newEntity($user_child_relation);
-
                 $user_child_result = $user_childTable->save($user_child_entity);
 
+                $enrolmentArray=[];
+                $termInfo = TableRegistry::getTableLocator()->get('Terms')->find('all',['conditions'=>['id'=>$formattedForm['term_id']]])->first();
 
+                $enrolmentArray['enrolment_cost'] = $termInfo->casual_rate * sizeof($formattedForm['date']);
+                $enrolmentArray['term_id'] = $formattedForm['term_id'];
+                $enrolmentArray['guardian_id'] = $user_results->id;
+                $enrolmentArray['child_id'] = $child_results->id;
+                $enrolmentArray['enrolment_type'] = 'Casual';
+                $enrolmentArray['payment_method'] = 'Square';
+                $enrolmentArray['payment_status'] = 'Pending';
+                $enrolmentArray['comment'] = '';
+
+                $enrolment_entity = $this->Enrolments->newEntity($enrolmentArray);
+                $enrolment_result = $this->Enrolments->save($enrolment_entity);
+
+
+                $this->saveCasualEnrolment($enrolment_result->id, $formattedForm['term_id'], $formattedForm['date']);
             }
 
-            $this->saveEnrollMent($user_results->id,$this->request->getData('term_id'),$this->request->getData('price'));
-
-            return $this->redirect(['action' => 'success']);
-
+            $itemArray = $this->request->getData('item_array');
+            $returnUrl = $this->payment($itemArray);
         }
 
+        return $this->redirect($returnUrl);
     }
 
     /**
