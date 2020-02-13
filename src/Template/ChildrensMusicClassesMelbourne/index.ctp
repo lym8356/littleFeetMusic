@@ -76,10 +76,10 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
                                     <a href="./Class/EnrolInfo" class="btn btn-warning btn-lg" >Enrol online now!</a>
                                     <h6>Or call  <a href="tel:0410 600 060">0410 600 060</a>  to enrol over the phone!</h6>
                                     <ul>
-                                        <li><a href="./Class/EnrolInfo">Port Melbourne</a></li>
-                                        <li><a href="./Class/EnrolInfo">Albert Park</a></li>
-                                        <li><a href="./Class/EnrolInfo">Parkdale</a></li>
-                                        <li><a href="./Class/EnrolInfo">Mordialloc</a></li>
+                                        <li><a href="./Enrolments">Port Melbourne</a></li>
+                                        <li><a href="./Enrolments">Albert Park</a></li>
+                                        <li><a href="./Enrolments">Parkdale</a></li>
+                                        <li><a href="./Enrolments">Mordialloc</a></li>
                                     </ul>
 
                                     <p>Vibrant, interactive and live music and movement classes for children 6 months to 5 years in Albert Park, Beaumaris and Black Rock. The music is ALL LIVE, fun and entertaining, and run by Little Feet Music, Rachel Parkinson.

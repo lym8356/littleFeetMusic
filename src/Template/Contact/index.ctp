@@ -57,6 +57,7 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
 
 <section class="map">
 
+
     <div class="container" style="padding-top: 20px">
         <div class="row" style="background-color: #ffe6ff;">
             <div class="col-sm-4">
@@ -76,6 +77,7 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
             </div>
         </div>
     </div>
+    <!--{Map and address section}-->
     <div class="container">
         <div class="row" style="background-color: #fff5e6;">
             <div class="col-md-4">
@@ -126,7 +128,7 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
     </div>
 </section>
 
-
+<!---{popup form}-->
 <div id="contact-popup">
     <form class="contact-form" action="" id="contact-form"
           method="post" enctype="multipart/form-data">

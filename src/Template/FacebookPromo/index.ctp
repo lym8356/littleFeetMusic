@@ -75,7 +75,7 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
                                         <p>At Little Feet Music the music is all LIVE!</p></h4>
                                     <h6>Or call  <a href="tel:03 9587 1216">03 9587 1216</a>  to enrol over the phone!</h6>
                                     <ul>
-                                        <li><a href="./Class/EnrolInfo">Albert Park</a></li>
+                                        <li><a href="./Enrolments">Albert Park</a></li>
                                         <li>Beaumaris</li>
                                         <li>Black Rock</li>
                                     </ul>

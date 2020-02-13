@@ -9,6 +9,9 @@
     RewriteRule    ^(\.well-known/.*)$ $1 [L]
     RewriteRule    ^$    webroot/    [L]
     RewriteRule    (.*) webroot/$1    [L]
-    #ErrorDocument  404 src/Template/Error/404.ctp
+    RewriteRule ^/ChildrensMusicClassesMelbourne$ /childrens-music-classes-melbourne [L]
+    RewriteRule ^/BestChildrensSongs$ /best-childrens-songs [L]
+    RewriteRule ^/FacebookPromo$ /facebook-promo [L]
+
 </IfModule>
 
