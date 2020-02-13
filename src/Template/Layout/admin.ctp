@@ -67,23 +67,33 @@ $action=$this->request->params['action'];
                     <use xlink:href="#stroked-notepad"></use>
                 </svg> Manage Enrolment', '/admin/enrolments/index',
                 ['escape' => false]); ?></li>
+        <li class="sidebar_item <?php echo ($controller=='Home')?'active':'';?>">
+            <?= $this->Html->link('<svg class="glyph stroked notepad">
+                    <use xlink:href="#stroked-notepad"></use>
+                </svg> Add New Enrolment', '/Enrolments',
+                ['escape' => false]); ?></li>
         <li class="sidebar_item <?php echo ($controller=='Users')?'active':'';?>">
             <?= $this->Html->link('<svg class="glyph stroked male-user">
                 <use xlink:href="#stroked-male-user"></use>
                 </svg> Manage Staff', '/admin/users/index',
                 ['escape' => false]); ?></li>
-        <li class="sidebar_item <?php echo ($controller=='Childs')?'active':'';?>">
+        <li class="sidebar_item <?php echo ($controller=='Client')?'active':'';?>">
+            <?= $this->Html->link('<svg class="glyph stroked male-user">
+                <use xlink:href="#stroked-male-user"></use>
+                </svg> Manage Client', '/admin/clients/index',
+                ['escape' => false]); ?></li>
+        <!--<li class="sidebar_item <?php echo ($controller=='Childs')?'active':'';?>">
             <?= $this->Html->link('<svg class="glyph stroked female-user">)
                     <use xlink:href="#stroked-female-user"></use>
                 </svg> Manage Child', '/admin/childs/index',
-                ['escape' => false]); ?></li>
+                ['escape' => false]); ?></li>-->
 
         <li class="sidebar_item <?php echo ($controller=='Locations')?'active':'';?>">
             <?= $this->Html->link('<svg class="glyph stroked app window with content">
                     <use xlink:href="#stroked-app-window-with-content"></use>
         </svg> Manage Location', '/admin/locations/index',
             ['escape' => false]); ?></li>
-        <li class="sidebar_item <?php echo ($controller=='Articles')?'active':'';?>">
+        <li class="sidebar_item <?php echo ($controller=='Cms')?'active':'';?>">
             <?= $this->Html->link('<svg class="glyph stroked app window with content">
                     <use xlink:href="#stroked-app-window-with-content"></use>
                 </svg> CMS', '/admin/cms',

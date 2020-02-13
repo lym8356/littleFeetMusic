@@ -21,7 +21,7 @@
         ?>
     <?= $this->Form->button('Create', ['class' => 'btn btn-success pull-right', 'style' => 'margin-top: 10px; margin-bottom: 100px;']) ?>
     <?= $this->Form->end() ?>
-    <?php echo $this->Html->link(__('Back to Users'), ['action' => 'index'],
+    <?php echo $this->Html->link(__('Back to Location List'), ['action' => 'index'],
     ['class' => 'btn btn-info pull-right', 'style' => 'margin-top: 10px; margin-right: 5px;'])
     ?>
 </div>

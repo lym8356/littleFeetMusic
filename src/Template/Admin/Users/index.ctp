@@ -4,14 +4,14 @@
  * @var \App\Model\Entity\User[]|\Cake\Collection\CollectionInterface $users
  */
 ?>
-<link rel="stylesheet" type="text/css" href="../../../../webroot/css/base.css">
+<link rel="stylesheet" type="text/css" href="../webroot/css/base.css">
 
 <div class="tab-content" id="pills-tabContent">
     <div class="tab-pane fade in active" id="class-summary" role="tabpanel" aria-labelledby="pills-home-tab">
         <div class="row">
             <div class="col-lg-12">
                 <?= $this->Flash->render(); ?>
-                <h3 class="card-header">Manage Staff</h3>
+<!--                <h3 class="card-header">Manage Staff</h3>-->
                 <?php echo $this->Html->link('Add A New Staff Member', ['action' => 'add'],
                     ['class' => 'btn btn-lg btn-primary pull-right',
                         'style' => 'margin-bottom: 20px',
@@ -25,12 +25,13 @@
                             <tr>
                                 <th scope="col"><?= $this->Paginator->sort('First name') ?></th>
                                 <th scope="col"><?= $this->Paginator->sort('Last name') ?></th>
+                                <!--<th scope="col"><?= $this->Paginator->sort('Username') ?></th>-->
                                 <th scope="col"><?= $this->Paginator->sort('email') ?></th>
                                 <th scope="col"><?= $this->Paginator->sort('phone') ?></th>
 <!--                                <th scope="col"><?//= $this->Paginator->sort('postcode') ?></th>-->
                                 <th scope="col"><?= $this->Paginator->sort('role') ?></th>
-<!--                                <th scope="col"><?//= $this->Paginator->sort('created') ?></th>-->
-<!--                                <th scope="col"><?//= $this->Paginator->sort('modified') ?></th>-->
+                                <th scope="col"><?= $this->Paginator->sort('created') ?></th>
+                                <th scope="col"><?= $this->Paginator->sort('modified') ?></th>
                                 <th scope="col" colspan="3" class="actions"><?= __('Actions') ?></th>
                             </tr>
                             </thead>
@@ -41,18 +42,19 @@
     <!--                                    <td>--><!--<?//= h($user->f_name),' ', h($user->l_name) ?>--><!--</td>-->
                                         <td><?= h($user->f_name) ?></td>
                                         <td><?= h($user->l_name) ?></td>
+                                        <!--<td><?= h($user->username) ?></td>-->
                                         <td><?= h($user->email) ?></td>
                                         <td><?= h($user->phone) ?></td>
 <!--                                        <td><?//= h($user->postcode) ?></td>-->
                                         <td><?= h($user->role) ?></td>
-<!--                                        <td><?//= h($user->created) ?></td>-->
-<!--                                        <td><?//= h($user->modified) ?></td>-->
+                                        <td><?= h($user->created) ?></td>
+                                        <td><?= h($user->modified) ?></td>
                                         <td class="actions">
                                             <div class="btn" role="group">
                                                 <?= $this->Html->link(__('Edit'), ['action' => 'edit', $user->id],
                                                     ['class' => 'btn btn-success']) ?>
                                                 <?= $this->Form->postLink(__('Delete'), ['action' => 'delete', $user->id],
-                                                    ['confirm' => __('Are you sure you want to delete {0}?', $user->name),
+                                                    ['confirm' => __('Are you sure you want to delete {0} {1}?', $user->f_name,$user->l_name ),
                                                         'class' => 'btn btn-danger']) ?>
                                             </div>
                                         </td>

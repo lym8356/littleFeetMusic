@@ -9,10 +9,13 @@
     <p class="lead"><strong>An email</strong> has been sent to your email address.</p>
     <hr>
     <p>
-        Having trouble? <a href="/team117-app/Contact">Contact us</a>
+        Having trouble? <a href="/Contact">Contact us</a>
+    </p>
+    <p>
+        Want to enrol in another class? <a href="/Enrolments">Enrol</a>
     </p>
     <p class="lead">
-        <a class="btn btn-primary btn-sm" href="/team117-app/Home" role="button">Continue to homepage</a>
+        <a class="btn btn-primary btn-sm" href="/Home" role="button">Continue to homepage</a>
     </p>
 </div>
 </body>

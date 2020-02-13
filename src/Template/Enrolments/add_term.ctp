@@ -6,7 +6,7 @@
 ?>
 <!DOCTYPE html>
 <html>
-<head>
+<head><meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     <!-- jquery validation -->
     <?= $this->Html->script('/jquery-validation/jquery.validate.js') ?>
 
@@ -165,7 +165,7 @@
                         <small><b>Note: Siblings must be enrolled in the same class to get the 25% sibling discount.</b></small>
                     </label>
                     <span class="input-group-btn">
-                            <div><button type="button" class="btn btn-info add_row mt-3">Add A Sibling</button></div>
+                            <button type="button" class="btn btn-info add_row mt-3">Add A Sibling</button>
                     </span>
                     <div class="button-row d-flex mt-4">
                         <button class="btn btn-primary ml-auto js-btn-next child-btn-next" id="child_next_btn" type="button"
@@ -255,15 +255,19 @@
                                     <td id="tb_class_location"></td>
                                     <td id="tb_class_ageGroup"></td>
                                     <td id="tb_class_time"></td>
-<!--                                    <td id="tb_class_price"></td>-->
+                                </tr>
+                                <tr>
+                                    <th>Location</th>
+                                    <th>Age Group</th>
+                                    <th>Class Time</th>
                                 </tr>
                                 </thead>
                                 <tbody>
-                                    <tr>
-                                        <td id="tb_class_location"></td>
-                                        <td id="tb_class_ageGroup"></td>
-                                        <td id="tb_class_time"></td>
-                                    </tr>
+                                <tr>
+                                    <td id="tb_class_location"></td>
+                                    <td id="tb_class_ageGroup"></td>
+                                    <td id="tb_class_time"></td>
+                                </tr>
                                 </tbody>
                             </table>
                         </div>
@@ -433,7 +437,6 @@
         $('#tb_class_location').html($('#class_location').val());
         $('#tb_class_ageGroup').html($('#class_ageGroup').val());
         $('#tb_class_time').html($('#class_time').val());
-        $('#tb_class_price').html("Standard Unit Price: $" + $('#class_price').val());
         $('#tb_sub_total').text("$" + subTotal);
         glob_sub_total = subTotal;
 

@@ -5,45 +5,39 @@
  */
 ?>
 <head>
+    <!-- datepicker -->
     <?= $this->Html->css('/datetimepicker/css/jquery-ui.min.css') ?>
     <?= $this->Html->script('/datetimepicker/js/jquery-ui.min.js') ?>
 </head>
-
-<div class="users form large-9 medium-8 columns content">
-    <br>
+<br>
+<div class="row col-lg-10">
     <?= $this->Form->create($user) ?>
-    <div class="row col-lg-6">
+    <div class="col-lg-6">
         <fieldset>
-            <legend><?= __('Edit User') ?></legend>
-            <p>Sections marked with a * are compulsory</p>
             <?php
             echo $this->Form->control('f_name', ['class' => 'form-control',
                 'placeholder' => 'Enter First Name','label'=>'First Name*', 'required' => true]);
             echo $this->Form->control('l_name', ['class' => 'form-control',
                 'placeholder' => 'Enter Last Name','label'=>'Last Name*', 'required' => true]);
 //            echo $this->Form->control('username', ['class' => 'form-control',
-//                'placeholder' => 'Enter username', 'label'=>'Username *', 'required' => true]);
+//                'placeholder' => 'Enter username', 'value'=>'', 'label'=>'Username *', 'required' => true]);
+//            echo $this->Form->control('password', ['class' => 'form-control',
+//                'placeholder' => 'Enter password', 'value'=>'', 'autocomplete'=>"new-password",
+//                'label'=>'Password *', 'required' => true]);
             echo $this->Form->control('email', ['class' => 'form-control',
-                'placeholder' => 'Enter email', 'label'=>'Email *']);
-            echo $this->Form->control('password', ['class' => 'form-control',
-                'placeholder' => 'Enter password', 'label'=>'Password *', 'required' => true]);
+                'placeholder' => 'Enter email', 'value'=>'', 'label'=>'Email *', 'required' => true]);
             echo $this->Form->control('phone', ['class' => 'form-control',
-                'placeholder' => 'Enter phone number', 'label'=>'Phone *',
-                'type'=>'number', 'rule'=>array('phone','/^(?:\+?61|0)[2-478](?:[ -]?[0-9]){8}$/','all' ),
-                'required' => true]);
-            echo $this->Form->control('birthdate', ['class' => 'form-control','id' => 'bd',
-                'type' => 'text',  'required' => false, 'value'=>'']);
-
+                'placeholder' => 'Enter phone number', 'value'=>'', 'label'=>'Phone *', 'required' => true]);
+            echo $this->Form->control('birthday', ['class' => 'form-control', 'id' => 'bd', 'type' => 'text',
+                'placeholder' => 'Enter Birthday', 'value'=>'', 'required' => false]);
             echo $this->Form->control('postcode', ['class' => 'form-control',
-                'placeholder' => 'Enter Postcode', 'required' => false]);
-            $options = array('teacher' => 'Teacher', 'admin' => 'Admin', 'staff'=>'Staff');
-            ?>
-            <div class="form-group"><?= $this->Form->control('role', array('class' => 'form-control', 'options'=>$options,
+                'placeholder' => 'Enter Postcode', 'value'=>'', 'required' => false]);
+//            $options = array('teacher' => 'Teacher', 'admin' => 'Admin', 'staff'=>'Staff'); ?>
+            <!--<div class="form-group"><?= $this->Form->control('role', array('class' => 'form-control', 'options'=>$options,
                     'type'=>'select', ['empty'=>true, 'label'=>'Role *', 'class' => 'form-control','style' => 'margin-left: 10px;']));
-                ?></div>
+                ?></div>-->
         </fieldset>
-
-        <?= $this->Form->button('Save Changes', ['class' => 'btn btn-success pull-right',
+        <?= $this->Form->button('Add Client', ['class' => 'btn btn-success pull-right',
             'style' => 'margin-top: 10px; margin-bottom: 100px;']) ?>
         <?= $this->Form->end() ?>
         <?php echo $this->Html->link(__('Back'), ['action' => 'index'],
