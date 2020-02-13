@@ -254,7 +254,6 @@ class EnrolmentsController extends AppController
 
     public function addCasual(){
 
-        $returnUrl = '';
         if((!empty($this->request->getQuery('term_id')))){
             $requestTermID = $this->request->getQuery('term_id');
             $now = date('Y-m-d');
@@ -275,6 +274,8 @@ class EnrolmentsController extends AppController
             $this->request->data['age_group'] = $termData['age_group'];
             $this->request->data['term_id'] = $requestTermID;
         }else{
+            $itemArray = $this->request->getData('item_array');
+            $returnUrl = $this->payment($itemArray);
 
             $submittedForm = $this->request->data['formSerialized'];
             $formattedForm = array();
@@ -331,11 +332,10 @@ class EnrolmentsController extends AppController
                 $this->saveCasualEnrolment($enrolment_result->id, $formattedForm['term_id'], $formattedForm['date']);
             }
 
-            $itemArray = $this->request->getData('item_array');
-            $returnUrl = $this->payment($itemArray);
+            return $this->redirect($returnUrl);
+
         }
 
-        return $this->redirect($returnUrl);
     }
 
     /**
