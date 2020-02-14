@@ -108,11 +108,6 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
         </div>
     </section>
 
-
-
-
-
-</seciton>
 </div>
 
 </body>

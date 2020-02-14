@@ -4,6 +4,13 @@ namespace App\Controller;
 use App\Controller\AppController;
 use Cake\Event\Event;
 use Cake\ORM\TableRegistry;
+use Cake\Routing\Router;
+use Cake\Mailer\Email;
+use Cake\Auth\DefaultPasswordHasher;
+use Cake\Utility\Security;
+use Cake\Mailer\TransportFactory;
+
+
 
 /**
  * Users Controller
@@ -139,9 +146,8 @@ class UsersController extends AppController
         return $this->redirect(['controller' => 'Home', 'action' => 'index']);
     }
 
-    public function forgotpassword()
+    public function forgotPassword()
     {
-
         if ($this->request->is('post')) {
             $myemail = $this->request->getData('email');
             $mytoken = Security::hash(Security::randomBytes(25));
@@ -150,7 +156,6 @@ class UsersController extends AppController
             $user->token = $mytoken;
             if ($userTable->save($user)) {
                 $this->Flash->success('Reset password link has been sent to your email(' . $myemail . '). please open your inbox');
-
 
                 TransportFactory::setConfig('gmail', [
                     'host' => 'mail.dreamfactorymusic.com.au',
@@ -170,7 +175,7 @@ class UsersController extends AppController
                     ->send('Hello, ' . $myemail . '<br/> please click this link to reset your password<br/> <a href="../users/reset_password/' . $mytoken . '">Reset Password</a>');
 
                 if ($success) {
-                    $this->Flash->success('Reset password link has been sent to your email(' . $myemail . '). please open your inbox');
+                    $this->Flash->success('Reset password link has been sent to your email (' . $myemail . '). Please open your inbox');
                 } else {
                     $this->Flash->error('Could not send email');
                 }
@@ -179,20 +184,17 @@ class UsersController extends AppController
         }
     }
 
-    public function resetpassword($token)
+    public function resetPassword($token)
+//    public function resetPassword()
     {
-
         if ($this->request->is('post')) {
             $mypass = $this->request->getdata('password');
-            $usertable = TableRegistry::get('Users');
+            $usertable = TableRegistry::getTableLocator()->get('Users');
             $user = $usertable->find('all')->where(['token' => $token])->first();
-
             $user->password = $mypass;
             if ($usertable->save($user)) {
                 return $this->redirect(['action' => 'login']);
             }
-
-
         }
     }
 

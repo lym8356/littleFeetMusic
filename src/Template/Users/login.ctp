@@ -23,6 +23,8 @@
             ],
             ['legend' => 'Login']
         );
+        echo $this->Html->link(' Forgot my Password<span class="sr-only">(current)</span>', '/Users/forgot_password',
+            ['class' => 'nav-link', 'escape' => false]);
         echo $this->Form->button('<i class="fa fa-user"></i> Login',
             ['class'=> 'btn btn-success btn-block mt-2']);
         echo $this->Form->end();

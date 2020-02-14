@@ -57,8 +57,6 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
     </div>
 </div>
 
-
-
 <body>
 <body class="text-dark">
 
@@ -110,10 +108,6 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
         </div>
     </div>
 </section>
-
-
-
-
 
 
 <section class="testimonial text-dark">
@@ -300,9 +294,9 @@ if(isset($_POST['submit'])) {
         <div>
         <h4><p>Hi, {$_POST['userName']}!</p></h4>
         <strong><p>Thanks for your email. I’ll get back to you as soon as I can!</p></strong>
-       
-        
-        
+
+
+
         <p>Hear Little Feet Music songs on <a href='https://www.abc.net.au/abckids/abc-kids-listen-app/11131286' target=\"_blank\">ABC Kids Listen!</a><br>
         <a href='http://littlefeetmusic.com.au/video-music' target=\"_blank\">Watch our videos!</a><br>
         ALBUM!  I recorded it in Nashville and it’s absolutely amazing!  <a href='http://www.littlefeetmusic.com.au/online-shop#!/~/cart' target=\"_blank\">Get the CD online here</a> or listen on <a href='https://open.spotify.com/playlist/6ZG4FxeNLLYcF4gUam9ulV?si=AAO4FDFXTkaBHZX2F-gaow'target=\"_blank\"> Spotify here!</a><br>
@@ -313,11 +307,11 @@ if(isset($_POST['submit'])) {
         <a href='https://twitter.com/littlefeetmusic' target=\"_blank\"> Follow us on Twitter!</a><br>
         <a href='https://instagram.com/littlefeetmusic/' target=\"_blank\">See what we look like on Instagram!</a><br>
         <a href='https://www.youtube.com/user/LittleFeetMusic' target=\"_blank\">Check out some videos on YouTube!</a><br>
-       
-        
+
+
         <strong><p>Thanks!<br>
         Rachel Parkinson</p></strong>
-        
+
         </div>";
 
 
