@@ -9,7 +9,7 @@ use Cake\Validation\Validator;
 /**
  * Enrolments Model
  *
- * @property &\Cake\ORM\Association\BelongsTo $Terms
+ * @property \App\Model\Table\TermsTable&\Cake\ORM\Association\BelongsTo $Terms
  * @property \App\Model\Table\UsersTable&\Cake\ORM\Association\BelongsTo $Users
  * @property \App\Model\Table\ChildsTable&\Cake\ORM\Association\BelongsTo $Childs
  *

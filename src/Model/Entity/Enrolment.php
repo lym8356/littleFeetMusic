@@ -18,7 +18,7 @@ use Cake\ORM\Entity;
  * @property \Cake\I18n\FrozenTime|null $created
  * @property \Cake\I18n\FrozenTime|null $modified
  *
- * @property \App\Model\Entity\Lfmclass $lfmclass
+ * @property \App\Model\Entity\Term $term
  * @property \App\Model\Entity\User $user
  * @property \App\Model\Entity\Child $child
  */
@@ -44,7 +44,7 @@ class Enrolment extends Entity
         'comment' => true,
         'created' => true,
         'modified' => true,
-        'lfmclass' => true,
+        'term' => true,
         'user' => true,
         'child' => true
     ];
