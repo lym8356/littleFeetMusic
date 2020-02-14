@@ -55,8 +55,10 @@ class EnrolmentsController extends AppController
             $headerData=array_merge($staticHeader,$dateDynamicHeader);
             $localArray['header']= $headerData;
 
+
             debug($enrolmentData = TableRegistry::getTableLocator()->get('Enrolments')->find()->where(['term_id' => $term->id])
                 ->contain(['Users','Childs'])->toArray());
+            
 
             $localArray['enrolData'] = $enrolmentData;
 
