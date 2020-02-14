@@ -6,11 +6,14 @@
         .enrol_info_table, .enrol_info_table th, .enrol_info_table td{
             border: 2px solid mediumseagreen !important;
         }
+
     </style>
     <script type="text/javascript">
         $(document).ready( function () {
-            $('#myTable').DataTable();
-        } )
+            $('#dttbl').DataTable();
+        } );
+        $('#dttbl').DataTable( {
+         responsive: true;
     </script>
     <!-- custom css -->
     <?= $this->Html->css('homepage.css') ?>
@@ -24,7 +27,7 @@
     <?= $this->Html->css('/font-awesome/css/all.min.css') ?>
     <?= $this->Html->script('/font-awesome/js/all.min.js') ?>
     <!-- datatables -->
-    <?= $this->Html->script('//cdn.datatables.net/1.10.20/css/jquery.dataTables.min.css') ?>
+    <?= $this->Html->css('//cdn.datatables.net/1.10.20/css/jquery.dataTables.min.css') ?>
     <?= $this->Html->script('//cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js') ?>
 
 </head>
@@ -48,7 +51,7 @@
                 <?php if(count($termsArray)>0){?>
                     <!--                     <div class="text-center" style="margin-top: 30px;font-weight:bold;color:#3a945b;" width="500"><h3><?php echo $key ." " ;?></h3></div> -->
                     <div class="text-center" width="500"><h3 style="color:#3a945b; margin-top: 30px; font-weight: bold;"><?php echo $key ." " ;?></h3></div>
-                    <table style="margin-top: 10px;" class=" myTable enrol_info_table table-bordered" align="center">
+                    <table id="dttbl" style="margin-top: 10px;" class="enrol_info_table table-bordered" align="center">
                         <thead class="col-sm-2">
                         <tr >
                             <th></th>
