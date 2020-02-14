@@ -38,7 +38,6 @@
                 <td><?= h($enrolment->enrolment_date) ?></td>
                 <td><?= h($enrolment->enrolment_time) ?></td>
                 <td><?= h($enrolment->enrolment_type) ?></td>
-                <td><?= h($enrolment->enrolment_status) ?></td>
                 <td><?= $this->Number->format($enrolment->enrolment_cost) ?></td>
                 <td><?= $enrolment->has('term') ? $this->Html->link($enrolment->term->name, ['controller' => 'Terms', 'action' => 'view', $enrolment->term->id]) : '' ?></td>
                 <td><?= h($enrolment->customer_name) ?></td>

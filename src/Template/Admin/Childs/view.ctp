@@ -117,7 +117,6 @@
             <tr>
                 <th scope="col"><?= __('Id') ?></th>
                 <th scope="col"><?= __('Enrolment Type') ?></th>
-                <th scope="col"><?= __('Enrolment Status') ?></th>
                 <th scope="col"><?= __('Enrolment Cost') ?></th>
                 <th scope="col"><?= __('Lfmclasses Id') ?></th>
                 <th scope="col"><?= __('Guardian Id') ?></th>
@@ -130,7 +129,6 @@
             <tr>
                 <td><?= h($enrolments->id) ?></td>
                 <td><?= h($enrolments->enrolment_type) ?></td>
-                <td><?= h($enrolments->enrolment_status) ?></td>
                 <td><?= h($enrolments->enrolment_cost) ?></td>
                 <td><?= h($enrolments->lfmclasses_id) ?></td>
                 <td><?= h($enrolments->guardian_id) ?></td>
