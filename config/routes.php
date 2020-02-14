@@ -55,7 +55,6 @@ Router::scope('/', function (RouteBuilder $routes) {
     $routes->connect('/Signup', ['controller' => 'Users', 'action' => 'signup']);
     $routes->connect('/Logout', ['controller' => 'Users', 'action' => 'logout']);
     $routes->connect('/User/Profile', ['controller' => 'Users', 'action' => 'profile']);
-
     $routes->connect('/Class', ['controller' => 'Lfmclasses', 'action' => 'index']);
     $routes->connect('/Enrolments', ['controller' => 'Terms', 'action' => 'enrolInfo']);
 

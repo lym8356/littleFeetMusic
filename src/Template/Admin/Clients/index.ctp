@@ -2,6 +2,7 @@
 /**
  * @var \App\View\AppView $this
  * @var \App\Model\Entity\User[]|\Cake\Collection\CollectionInterface $users
+ * @var \App\Model\Entity\User[]|\Cake\Collection\CollectionInterface $childs
  */
 ?>
 <link rel="stylesheet" type="text/css" href="../webroot/css/base.css">
@@ -12,10 +13,14 @@
             <div class="col-lg-12">
                 <?= $this->Flash->render(); ?>
                 <!--                <h3 class="card-header">Manage Staff</h3>-->
-                <?php echo $this->Html->link('Add A New Client', ['action' => 'add'],
-                    ['class' => 'btn btn-lg btn-primary pull-right',
+                <?php echo $this->Html->link('Export Client Data', ['action' => 'export'],
+                    ['class' => 'btn btn-lg btn-success',
                         'style' => 'margin-bottom: 20px',
                         'escape' => false]) ?>
+            <?php echo $this->Html->link('Add A New Client', ['action' => 'add'],
+                ['class' => 'btn btn-lg btn-primary pull-right',
+                    'style' => 'margin-bottom: 20px',
+                    'escape' => false]) ?>
             </div>
         </div>
         <div class="card-body">
@@ -25,11 +30,10 @@
                     <tr>
                         <th scope="col"><?= $this->Paginator->sort('First name') ?></th>
                         <th scope="col"><?= $this->Paginator->sort('Last name') ?></th>
-                        <!--                                <th scope="col"><?//= $this->Paginator->sort('Username') ?></th>-->
                         <th scope="col"><?= $this->Paginator->sort('email') ?></th>
                         <th scope="col"><?= $this->Paginator->sort('phone') ?></th>
                         <th scope="col"><?= $this->Paginator->sort('postcode') ?></th>
-                        <!--<th scope="col"><?= $this->Paginator->sort('role') ?></th>-->
+                        <!--<th scope="col"><?= $this->Paginator->sort("Child's First Name") ?></th>-->
                         <!--                                <th scope="col"><?//= $this->Paginator->sort('created') ?></th>-->
                         <!--                                <th scope="col"><?//= $this->Paginator->sort('modified') ?></th>-->
                         <th scope="col" colspan="3" class="actions"><?= __('Actions') ?></th>
@@ -37,20 +41,24 @@
                     </thead>
                     <tbody>
                     <?php foreach ($users as $user): ?>
-                        <?php if($user['role']="user"){?>
+                        <?php if($user['role']="user"): ?>
                             <tr>
-                                <!--                                    <td>--><!--<?//= h($user->f_name),' ', h($user->l_name) ?>--><!--</td>-->
                                 <td><?= h($user->f_name) ?></td>
                                 <td><?= h($user->l_name) ?></td>
-<!--                                <td><?//= h($user->username) ?></td>-->
                                 <td><?= h($user->email) ?></td>
                                 <td><?= h($user->phone) ?></td>
                                 <td><?= h($user->postcode) ?></td>
-                                <!--<td><?= h($user->role) ?></td>-->
+<!--                                --><?php //foreach ($childs as $child): ?>
+<!--                                --><?php //if (!empty($child->users)): ?>
+<!--                                <td><?//= h($child->first_name) ?></td>-->
+<!--                                --><?php //endif ?>
+<!--                                --><?php //endforeach; ?>
                                 <!--                                        <td><?//= h($user->created) ?></td>-->
                                 <!--                                        <td><?//= h($user->modified) ?></td>-->
                                 <td class="actions">
                                     <div class="btn" role="group">
+                                        <!--<?= $this->Html->link(__('View'), ['action' => 'view', $user->id],
+                                            ['class' => 'btn btn-primary']) ?>-->
                                         <?= $this->Html->link(__('Edit'), ['action' => 'edit', $user->id],
                                             ['class' => 'btn btn-success']) ?>
                                         <?= $this->Form->postLink(__('Delete'), ['action' => 'delete', $user->id],
@@ -59,7 +67,7 @@
                                     </div>
                                 </td>
                             </tr>
-                        <?php } ?>
+                        <?php endif ?>
                     <?php endforeach; ?>
                 </table>
                 <div class="paginator">

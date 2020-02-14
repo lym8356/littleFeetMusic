@@ -107,6 +107,7 @@ class UsersController extends AppController
         }
         return $this->redirect(['action' => 'index']);
     }
+
     public function login()
     {
         $this->Flash->error(__('The user session timed out!'));

@@ -163,7 +163,7 @@ class UsersController extends AppController
                 $email = new Email('default');
                 $email->setTransport('gmail');
 
-                $success = $email->setFrom(['ieteam116@gmail.com' => 'pony music'])
+                $success = $email->setFrom(['_mainaccount@dreamfactorymusic.com.au' => 'little feet music'])
                     ->setTo($myemail)
                     ->setEmailFormat('html')
                     ->setSubject('please reset your password')
