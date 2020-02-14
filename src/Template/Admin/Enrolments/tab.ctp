@@ -27,7 +27,7 @@
 
 <body>
 <?php foreach ($dataArray as $data): ?>
-    <table class="table-bordered table-responsive m">
+    <table class="table-bordered table-striped table-responsive m">
         <?php foreach ($data['termData'] as $key => $term) { ?>
             <tr>
                 <th class="tb-small" scope="col"><?php echo $key ?></th>
@@ -35,7 +35,7 @@
             </tr>
         <?php } ?>
     </table>
-    <table class="table table-bordered table-responsive enrol_table">
+    <table class="table table-bordered table-striped table-responsive enrol_table">
         <thead>
         <tr>
             <tr>

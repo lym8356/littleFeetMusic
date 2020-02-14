@@ -189,9 +189,14 @@ class EnrolmentsController extends AppController
             $this->request->data['term_id'] = $termid;
         }else{
             $itemArray = $this->request->getData('item_array');
-            $returnUrl = strval($this->payment($itemArray));
-            //pr("'".$returnUrl."'");die;
-            //$returnUrl = 'https://connect.squareupsandbox.com/v2/checkout?c=CBASEFI3IoURI7rvPaITefWKo2g&l=SZM300NX9NJNM';
+            $returnUrl = $this->payment($itemArray);
+
+            $my_results = ['checkoutURL'=>$returnUrl];
+
+            $this->set([
+                'my_response' => $my_results,
+                '_serialize' => 'my_response',
+            ]);
 
 
             $submittedForm = $this->request->data['formSerialized'];
@@ -245,9 +250,7 @@ class EnrolmentsController extends AppController
 
                 $this->saveTermEnrolment($enrolment_result->id,$formattedForm['term_id']);
             }
-            return $this->redirect($returnUrl);
-
-            //$returnUrl = 'https://connect.squareupsandbox.com/v2/checkout?c=CBASEFI3IoURI7rvPaITefWKo2g&l=SZM300NX9NJNM';
+            return $this->RequestHandler->renderAs($this, 'json');
         }
 
     }
@@ -276,6 +279,13 @@ class EnrolmentsController extends AppController
         }else{
             $itemArray = $this->request->getData('item_array');
             $returnUrl = $this->payment($itemArray);
+
+            $my_results = ['checkoutURL'=>$returnUrl];
+
+            $this->set([
+                'my_response' => $my_results,
+                '_serialize' => 'my_response',
+            ]);
 
             $submittedForm = $this->request->data['formSerialized'];
             $formattedForm = array();
@@ -332,8 +342,7 @@ class EnrolmentsController extends AppController
                 $this->saveCasualEnrolment($enrolment_result->id, $formattedForm['term_id'], $formattedForm['date']);
             }
 
-            return $this->redirect($returnUrl);
-
+            return $this->RequestHandler->renderAs($this, 'json');
         }
 
     }

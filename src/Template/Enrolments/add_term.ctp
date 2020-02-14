@@ -256,18 +256,6 @@
                                     <td id="tb_class_ageGroup"></td>
                                     <td id="tb_class_time"></td>
                                 </tr>
-                                <tr>
-                                    <th>Location</th>
-                                    <th>Age Group</th>
-                                    <th>Class Time</th>
-                                </tr>
-                                </thead>
-                                <tbody>
-                                <tr>
-                                    <td id="tb_class_location"></td>
-                                    <td id="tb_class_ageGroup"></td>
-                                    <td id="tb_class_time"></td>
-                                </tr>
                                 </tbody>
                             </table>
                         </div>
@@ -306,7 +294,7 @@
                     <div class="row">
                         <div class="button-row d-flex mt-4 col-12">
                             <button class="btn btn-primary js-btn-prev" type="button" title="Prev">Prev</button>
-                            <button class="btn btn-primary ml-auto js-btn-next" id="enrol_btn" type="button" title="Next">Next</button>
+                            <button class="btn btn-primary ml-auto js-btn-next" id="enrol_btn" type="button" title="Next">Enrol</button>
                         </div>
                     </div>
                 </div>
@@ -314,19 +302,8 @@
 
             <!--            payment panel-->
             <div class="multisteps-form__panel shadow p-4 rounded bg-white" data-animation="scaleIn">
-                <h3 class="multisteps-form__title">Payment</h3>
-                <div class="multisteps-form__content">
-                    <div class="form-row mt-4" id="payment_render">
+                <h3 class="multisteps-form__title">Please wait while we redirect to payment website</h3>
 
-                    </div>
-                    <div id="test">
-
-                    </div>
-                    <div class="button-row d-flex mt-4">
-                        <button class="btn btn-primary js-btn-prev" type="button" title="Prev">Prev</button>
-                        <button class="btn btn-success ml-auto" type="button" title="Send">Send</button>
-                    </div>
-                </div>
             </div>
             <?php echo $this->Form->end(); ?>
         </div>
@@ -336,12 +313,14 @@
 
 <script>
 
-    $('[name^="child_dob"]').datepicker({dateFormat:'dd/mm/yy'});
+    $('[name^="child_dob"]').datepicker({
+        dateFormat:'dd/mm/yy',
+        changeMonth: true,
+        changeYear: true,
+        showButtonPanel: true,
+        yearRange : '-50:+10'
+    });
 
-
-    // let datePickerField =
-    // datePickerField.push(document.getElementsByClassName('child_dob'));
-    // alert(datePickerField);
 
     let child_fn_array = [];
     let child_ln_array = [];
@@ -355,10 +334,11 @@
             var clone = $('.child_field').first().clone();
             clone.append("<div class='col-sm-12 mt-2'><button type='button' class='btn btn-danger float-right remove_row'>Remove</button></div>");
 
-            clone.find('input').val('');
             clone.insertBefore('.add_row');
 
-            $('[name^="child_dob"]').datepicker({dateFormat:'dd-mm-yy'});
+            $('[name^="child_dob"]').each(function(){
+                $(this).datepicker({dateFormat:'dd-mm-yy'});
+            })
         } else {
             alert('You Can Only Enrol 5 Children At Once');
         }
@@ -519,7 +499,7 @@
             url: "<?php echo $this->Url->build(['controller' => 'Enrolments', 'action' => 'addTerm']); ?>",
             data: {item_array,formSerialized},
             success: function (response) {
-                $('#test').html(response);
+                window.location.replace(response.checkoutURL);
             }
         });
     });

@@ -35,7 +35,7 @@
                 <thead>
                     <tr>
                         <th scope="col">Week Number </th>
-                        <th scope="col">Price For Each Week</th>
+                        <th scope="col">Price</th>
                     </tr>
                 </thead>
                 <tbody id="price_tb">
@@ -65,8 +65,8 @@
             echo $this->Form->control('name', ['class' => 'form-control', 'value' => '', 'placeholder'=>'Please enter Term name']);
             echo $this->Form->control('start_time', ['class' => 'form-control',
                 'id' => 'start_time', 'type' => 'text']);
-            echo $this->Form->control('duration', ['class' => 'form-control', 'value' => '0','label' => 'Class Duration (in minutes)',
-                'id' => 'duration']);
+            echo $this->Form->control('duration', ['class' => 'form-control', 'type' => 'select', 'options'=>['30','40', '60'],
+                'empty' => 'Please Select', 'label' => 'Class Duration (in minutes)', 'id' => 'duration']);
             echo $this->Form->control('end_time', ['class' => 'form-control',
                 'id' => 'end_time', 'type' => 'text', 'readonly' => 'readonly']);
             echo $this->Form->control('capacity', ['class' => 'form-control','type'=>'number',
@@ -125,13 +125,15 @@
 
     $( function () {
 
-        $('#start_time').timepicker({ 'timeFormat': 'H:i' });
-        $('#end_time').timepicker({ 'timeFormat': 'H:i' });
+        $('#start_time').timepicker({
+            'timeFormat': 'H:i' ,
+            'minTime': '08:00'
+        });
 
         $('#start_time, #duration').bind('change', function() {
 
             let startTime = $('#start_time').val();
-            let timeChange = parseInt($('#duration').val());
+            let timeChange = parseInt($('#duration option:selected').text());
             let startHour = startTime.split(':')[0];
             let startMin = startTime.split(':')[1];
             let endHour = 0;

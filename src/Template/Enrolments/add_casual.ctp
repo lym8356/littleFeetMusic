@@ -345,19 +345,8 @@
 
             <!--            payment panel-->
             <div class="multisteps-form__panel shadow p-4 rounded bg-white" data-animation="scaleIn">
-                <h3 class="multisteps-form__title">Payment</h3>
-                <div class="multisteps-form__content">
-                    <div id="otherItems">
+                <h3 class="multisteps-form__title">Please wait while we redirect to payment website</h3>
 
-                    </div>
-                    <div id="test">
-
-                    </div>
-                    <div class="button-row d-flex mt-4">
-                        <button class="btn btn-primary js-btn-prev" type="button" title="Prev">Prev</button>
-                        <button class="btn btn-success ml-auto" type="button" title="Send">Send</button>
-                    </div>
-                </div>
             </div>
             <?php echo $this->Form->end(); ?>
         </div>
@@ -580,7 +569,7 @@
             url: "<?php echo $this->Url->build(['controller' => 'Enrolments', 'action' => 'addCasual']); ?>",
             data: {item_array,formSerialized},
             success: function (response) {
-                $('#test').html(response);
+                window.location.replace(response.checkoutURL);
             }
         });
     });
