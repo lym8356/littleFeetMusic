@@ -22,7 +22,6 @@
                 <th scope="col"><?= $this->Paginator->sort('enrolment_date') ?></th>
                 <th scope="col"><?= $this->Paginator->sort('enrolment_time') ?></th>
                 <th scope="col"><?= $this->Paginator->sort('enrolment_type') ?></th>
-                <th scope="col"><?= $this->Paginator->sort('enrolment_status') ?></th>
                 <th scope="col"><?= $this->Paginator->sort('enrolment_cost') ?></th>
                 <th scope="col"><?= $this->Paginator->sort('terms_id') ?></th>
                 <th scope="col"><?= $this->Paginator->sort('customer_name') ?></th>

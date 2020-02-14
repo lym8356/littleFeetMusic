@@ -27,10 +27,6 @@
             <td><?= h($enrolment->enrolment_type) ?></td>
         </tr>
         <tr>
-            <th scope="row"><?= __('Enrolment Status') ?></th>
-            <td><?= h($enrolment->enrolment_status) ?></td>
-        </tr>
-        <tr>
             <th scope="row"><?= __('Lfmclass') ?></th>
             <td><?= $enrolment->has('lfmclass') ? $this->Html->link($enrolment->lfmclass->id, ['controller' => 'Lfmclasses', 'action' => 'view', $enrolment->lfmclass->id]) : '' ?></td>
         </tr>

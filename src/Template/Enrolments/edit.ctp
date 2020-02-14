@@ -26,7 +26,6 @@
             echo $this->Form->control('enrolment_date', ['empty' => true]);
             echo $this->Form->control('enrolment_time', ['empty' => true]);
             echo $this->Form->control('enrolment_type');
-            echo $this->Form->control('enrolment_status');
             echo $this->Form->control('enrolment_cost');
             echo $this->Form->control('terms_id', ['options' => $terms, 'empty' => true]);
             echo $this->Form->control('customer_name');

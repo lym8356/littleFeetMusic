@@ -28,7 +28,6 @@
         <legend><?= __('Edit Enrolment') ?></legend>
         <?php
             echo $this->Form->control('enrolment_type');
-            echo $this->Form->control('enrolment_status');
             echo $this->Form->control('enrolment_cost');
             echo $this->Form->control('lfmclasses_id', ['options' => $lfmclasses]);
             echo $this->Form->control('guardian_id', ['options' => $users]);

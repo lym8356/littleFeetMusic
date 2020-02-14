@@ -56,9 +56,9 @@ class EnrolmentsController extends AppController
             $localArray['header']= $headerData;
 
 
-            debug($enrolmentData = TableRegistry::getTableLocator()->get('Enrolments')->find()->where(['term_id' => $term->id])
-                ->contain(['Users','Childs'])->toArray());
-            
+            $enrolmentData = TableRegistry::getTableLocator()->get('Enrolments')->find()->where(['term_id' => $term->id])
+                ->contain(['Users','Childs'])->toArray();
+
 
             $localArray['enrolData'] = $enrolmentData;
 

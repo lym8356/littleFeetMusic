@@ -23,10 +23,6 @@
             <td><?= h($enrolment->enrolment_type) ?></td>
         </tr>
         <tr>
-            <th scope="row"><?= __('Enrolment Status') ?></th>
-            <td><?= h($enrolment->enrolment_status) ?></td>
-        </tr>
-        <tr>
             <th scope="row"><?= __('Term') ?></th>
             <td><?= $enrolment->has('term') ? $this->Html->link($enrolment->term->name, ['controller' => 'Terms', 'action' => 'view', $enrolment->term->id]) : '' ?></td>
         </tr>
