@@ -26,9 +26,6 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
     </title>
     <?= $this->Html->meta('icon') ?>
 
-    <!--    <?//= $this->Html->css('base.css') ?> -->
-    <!--    <?//= $this->Html->css('style.css') ?> -->
-
     <!-- bootstrap -->
     <?= $this->Html->css('/bootstrap/css/bootstrap.min.css') ?>
     <?= $this->Html->script('/bootstrap/js/jquery-3.3.1.slim.min.js') ?>
@@ -55,7 +52,6 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
 <body>
 <div class="row">
     <div class="container">
-
         <div class="card">
             <div class="card ">
                 <h4>Forgot Password</h4>
@@ -77,17 +73,14 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
                     <div class="col-md">
                         <?= $this->Form->control('email', ['type' => 'email','label' => 'Email *', 'required' => true]); ?>
                     </div>
-
                 </div>
-
                 <div class="row">
-<!--                    --><?php //echo $this->Html->link('login', ['action'=>'login'],['class'=>'btn btn-primary '])?>
-                    <?php echo $this->Form->submit('Reset password', ['class'=>'btn btn-danger pull-right',
-//                                'style' => 'margin-bottom: 20px',
-                        'escape' => false])?>
+                    <?php echo $this->Form->submit('Reset password', ['class'=>'btn btn-danger', 'alignment'=>'right','escape' => false])?>
                     <?php echo $this->Form->end() ?>
                 </div>
             </div>
         </div>
     </div>
+</div>
+
 </body>

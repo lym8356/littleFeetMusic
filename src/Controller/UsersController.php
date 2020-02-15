@@ -151,41 +151,55 @@ class UsersController extends AppController
         if ($this->request->is('post')) {
             $myemail = $this->request->getData('email');
             $mytoken = Security::hash(Security::randomBytes(25));
-            $userTable = TableRegistry::get('Users');
+            $userTable = TableRegistry::getTableLocator()->get('Users');
             $user = $userTable->find('all')->where(['email' => $myemail])->first();
             $user->token = $mytoken;
+            TransportFactory::setConfig('dream', [
+                'host' => 'ssl://mail.dreamfactorymusic.com.au',
+                'debug'=> 0,
+                'port' => 465,
+                'username' => '_mainaccount@dreamfactorymusic.com.au',
+                'password' => 'Z9.3TDQg2(pq9q',
+                'className' => 'Smtp',
+                'tls' => true,
+                'auth'=> true,
+                'timeout' => 30,
+                'log' => false,
+                'emailFormat' => 'html'
+            ]);
             if ($userTable->save($user)) {
-                $this->Flash->success('Reset password link has been sent to your email(' . $myemail . '). please open your inbox');
-
-                TransportFactory::setConfig('gmail', [
-                    'host' => 'mail.dreamfactorymusic.com.au',
-                    'port' => 465,
-                    'username' => '_mainaccount@dreamfactorymusic.com.au',
-                    'password' => 'Z9.3TDQg2(pq9q',
-                    'className' => 'Smtp'
-                ]);
+                $this->Flash->success('Reset password link has been sent to your email(
+                ' . $myemail . '). please open your inbox');
 
                 $email = new Email('default');
-                $email->setTransport('gmail');
 
-                $success = $email->setFrom(['_mainaccount@dreamfactorymusic.com.au' => 'little feet music'])
+//                $email->setTransport('gmail');
+
+                $msg='Hello, ' . $myemail . '<br/> please click this link to reset your password<br/>
+<a href="http://http://ie.infotech.monash.edu/team117/Development/users/reset_password/' . $mytoken . '>Reset Password</a>';
+
+                $success = $email
+                    ->setTransport('dream')
+                    ->setFrom(['_mainaccount@dreamfactorymusic.com.au' => 'little feet music'])
+                    ->setSender(['_mainaccount@dreamfactorymusic.com.au' => 'little feet music'])
                     ->setTo($myemail)
                     ->setEmailFormat('html')
-                    ->setSubject('please reset your password')
-                    ->send('Hello, ' . $myemail . '<br/> please click this link to reset your password<br/> <a href="../users/reset_password/' . $mytoken . '">Reset Password</a>');
+                    ->setSubject('Little Feet Music: Reset your password')
+                    ->setViewVars(array('msg' => $msg))
+                    ->send($msg);
 
                 if ($success) {
                     $this->Flash->success('Reset password link has been sent to your email (' . $myemail . '). Please open your inbox');
                 } else {
                     $this->Flash->error('Could not send email');
                 }
-            }
 
+
+            }
         }
     }
 
     public function resetPassword($token)
-//    public function resetPassword()
     {
         if ($this->request->is('post')) {
             $mypass = $this->request->getdata('password');
