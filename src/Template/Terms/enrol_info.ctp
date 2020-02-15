@@ -49,7 +49,6 @@
 
             <?php foreach ($termsArray as $key=>$location_d):?>
                 <?php if(count($termsArray)>0){?>
-                    <!--                     <div class="text-center" style="margin-top: 30px;font-weight:bold;color:#3a945b;" width="500"><h3><?php echo $key ." " ;?></h3></div> -->
                     <div class="text-center" width="500"><h3 style="color:#3a945b; margin-top: 30px; font-weight: bold;"><?php echo $key ." " ;?></h3></div>
                     <table id="dttbl" style="margin-top: 10px;" class="enrol_info_table table-bordered" align="center">
                         <thead class="col-sm-2">

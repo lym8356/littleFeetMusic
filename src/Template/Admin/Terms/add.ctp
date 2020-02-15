@@ -65,8 +65,8 @@
             echo $this->Form->control('name', ['class' => 'form-control', 'value' => '', 'placeholder'=>'Please enter Term name']);
             echo $this->Form->control('start_time', ['class' => 'form-control',
                 'id' => 'start_time', 'type' => 'text']);
-            echo $this->Form->control('duration', ['class' => 'form-control', 'type' => 'select', 'options'=>['30','40', '60'],
-                'empty' => 'Please Select', 'label' => 'Class Duration (in minutes)', 'id' => 'duration']);
+            echo $this->Form->control('duration', ['class' => 'form-control', 'type' => 'select', 'options'=>['30'=>'30','40'=>'40','60'=>'60'],
+                'empty' => 'Please Select','label' => 'Class Duration (in minutes)', 'id' => 'duration']);
             echo $this->Form->control('end_time', ['class' => 'form-control',
                 'id' => 'end_time', 'type' => 'text', 'readonly' => 'readonly']);
             echo $this->Form->control('capacity', ['class' => 'form-control','type'=>'number',

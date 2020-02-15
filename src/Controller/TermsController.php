@@ -133,7 +133,6 @@ class TermsController extends AppController
             $now = date('Y-m-d');
             return $q->where(["Lfmclasses.class_date>='$now'"]);
         });
-        $terms = $this->paginate($terms);
 
         $daysData=TableRegistry::get('Days')->find('all')->contain(['Terms.Locations'])->group('Days.id')->matching('Terms', function(\Cake\ORM\Query $q) {
             return $q->group(["Terms.Locations.id"]);
@@ -144,7 +143,7 @@ class TermsController extends AppController
         foreach($daysData as $key=>$days){
             foreach($locationData as $key1=>$location){
                 foreach($days['terms'] as $key2=>$term){
-                    if($term['day_id']==$days['id'] && $location['Id']==$term['location_id']){                        
+                    if($term['day_id']==$days['id'] && $location['Id']==$term['location_id']){
                         $now = date('dd-mm-yyyy');
                         $lfmdataQuery=TableRegistry::get('Lfmclasses')->find('all',['conditions'=>['Lfmclasses.terms_id'=>$term['id'],"Lfmclasses.class_date>='$now'"]])
                             ->order(['class_date'=>'ASC']);
@@ -159,9 +158,6 @@ class TermsController extends AppController
                             $termsArray[$days['name']][$location['name']][$key2]['end_time']=$term['end_time'];
                             $termsArray[$days['name']][$location['name']][$key2]['start_date']=$term['start_date'];
                             $termsArray[$days['name']][$location['name']][$key2]['casual_rate']=$term['casual_rate'];
-                            // $termsArray[$days['loc']][$location['name']]=$term['loc'];
-                            // $termsArray[$days['name']][$location['name']][$key2]['day_loc']=$term['loc'];
-
 
 
                             $termsArray[$days['name']][$location['name']][$key2]['price']=$lfmdata['price'];
@@ -172,7 +168,7 @@ class TermsController extends AppController
                 }
             }
         }
+        //pr($termsArray);die;
         $this->set(compact('termsArray'));
-        $this->set(compact('locationData'));
     }
 }

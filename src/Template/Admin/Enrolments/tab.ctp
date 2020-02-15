@@ -1,5 +1,7 @@
 <html>
 <head>
+    <!-- Data Table Libraries-->
+
     <style type="text/css">
         .tb-small{
             min-width: 150px;
@@ -22,11 +24,29 @@
         .p_declined{
             color: red;
         }
+        .modal-dialog{
+            position: relative;
+            display: table; /* This is important */
+            overflow-y: auto;
+            overflow-x: auto;
+            width: auto;
+            min-width: 300px;
+        }
     </style>
 </head>
 
 <body>
 <?php foreach ($dataArray as $data): ?>
+    <button type="button" class="btn btn-success btn-md causal_price_btn pull-right"  data-backdrop="static" style="margin-left: 20px;"
+            data-keyboard="false" data-toggle="modal" data-target="#enrolInfo" data-termid= "<?php echo $data['term_id']; ?>">
+        Add Casual Enrolment
+    </button>
+
+    <button type="button" class="btn btn-primary btn-md term_price_btn pull-right"  data-backdrop="static"
+            data-keyboard="false" data-toggle="modal" data-target="#enrolInfo" data-termid= "<?php echo $data['term_id']; ?>">
+        Add Term Enrolment
+    </button>
+
     <table class="table-bordered table-striped table-responsive m">
         <?php foreach ($data['termData'] as $key => $term) { ?>
             <tr>
@@ -85,16 +105,31 @@
                 <?php }?>
             <?php } ?>
          <?php } ?>
-
         </tr>
         </tbody>
     </table>
+    <hr>
 <?php endforeach; ?>
+<div class="modal fade" role="dialog" id="enrolInfo">
+    <div class="modal-dialog modal-xl modal-dialog-centered">
+        <div class="modal-content" id="modal-content">
+            <div class="modal-header">
+                <h6 id="header-title"><strong>Enrolment Form</strong></h6>
+                <button type="button" data-dismiss="modal" class="close">&times;</button>
+            </div>
+            <div class="modal-body">
 
+            </div>
+            <div class="modal-footer">
+
+            </div>
+        </div>>
+    </div>
+</div>
 <script>
 
     $(document).ready(function(){
-
+        // $('.enrol_table').DataTable();
         $('.p_status').each(function(){
             switch ($(this).text()){
                 case 'Pending':
@@ -110,8 +145,41 @@
                     break;
             }
         })
-
     });
+    let term_id;
+    $('.term_price_btn').click(function (e) {
+        term_id = $(this).data("termid");
+
+        $('#header-title').html('<h5>Term Enrolment Form</h5>');
+        $.ajax({
+            method: 'get',
+            url: "<?php echo $this->Url->build(['action' => 'addTerm']); ?>",
+            data: {term_id},
+            dataType: 'html',
+            success: function (response) {
+                $('.modal-body').html(response);
+            }
+        });
+    });
+
+    $('.causal_price_btn').click(function () {
+        term_id = $(this).data("termid");
+
+        $('#header-title').html('<h5>Casual Enrolment Form</h5>');
+        $.ajax({
+            method: 'get',
+            url: "<?php echo $this->Url->build(['action' => 'addCasual']); ?>",
+            data: {term_id},
+            success: function (response) {
+                $('.modal-body').html(response);
+            }
+        });
+    });
+
+    $('.close').click(function () {
+        location.reload();
+    });
+
 </script>
 </body>
 </html>

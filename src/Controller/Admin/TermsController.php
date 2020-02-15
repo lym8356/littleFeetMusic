@@ -63,6 +63,7 @@ class TermsController extends AppController
     {
         $term = $this->Terms->newEntity();
         if ($this->request->is('post')) {
+            pr($this->request->getData());
             $term = $this->Terms->patchEntity($term, $this->request->getData());
             if ($termData=$this->Terms->save($term)) {
 

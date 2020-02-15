@@ -338,7 +338,7 @@
                     <div class="row">
                         <div class="button-row d-flex mt-4 col-12">
                             <button class="btn btn-primary js-btn-prev" type="button" title="Prev">Prev</button>
-                            <button class="btn btn-primary ml-auto js-btn-next" id="enrol_btn" type="button" title="Next">Next</button>
+                            <button class="btn btn-primary ml-auto js-btn-next" id="enrol_btn" type="button" title="Next">Enrol</button>
                         </div>
                     </div>
                 </div>
@@ -394,22 +394,6 @@
     });
 
 
-    $('#enrolBtn').click(function (e) {
-        e.preventDefault();
-        let csrf_token = $('[name="_csrfToken"]').val();
-        let formSerialize = $('#enrol_form').serialize();
-        $.ajax({
-            beforeSend: function (xhr) {
-                xhr.setRequestHeader('X-CSRF-Token', csrf_token);
-            },
-            type: "post",
-            url: "<?php echo $this->Url->build(['controller' => 'Enrolments', 'action' => 'add']); ?>",
-            data: formSerialize,
-            success: function (response) {
-                $('#enrol_status').html(response);
-            }
-        });
-    });
 
     function appendChildList() {
 
@@ -558,7 +542,7 @@
 
     $('#enrol_btn').click(function(e){
 
-        e.preventDefault();
+        //e.preventDefault();
         let csrf_token = $('[name="_csrfToken"]').val();
         let formSerialized = $('#enrol_form').serialize();
 
@@ -612,8 +596,6 @@
                 if($(this).text()==clsbtn[i].innerText){
                     $("clsbtn[i]").removeClass("btn_selected_class");
                     $("clsbtn[i]").addClass("btn_class_select");
-
-
                 }
             }
 
@@ -627,6 +609,7 @@
         for(let i=0;i<buttonInDiv.length;i++){
             selected_class_array.push(buttonInDiv[i].innerText);
         }
+        $('.selected_class').html("");
         for(let j=0;j<selected_class_array.length;j++){
             $('.selected_class').append("<input name='date[]' type='hidden' value='"+selected_class_array[j]+"'/>");
         }
