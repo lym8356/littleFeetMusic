@@ -21,6 +21,7 @@ use Cake\ORM\Entity;
  * @property \App\Model\Entity\Term $term
  * @property \App\Model\Entity\User $user
  * @property \App\Model\Entity\Child $child
+ * @property \App\Model\Entity\Enrol[] $enrols
  */
 class Enrolment extends Entity
 {
@@ -46,6 +47,7 @@ class Enrolment extends Entity
         'modified' => true,
         'term' => true,
         'user' => true,
-        'child' => true
+        'child' => true,
+        'enrols' => true
     ];
 }

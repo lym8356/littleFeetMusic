@@ -14,11 +14,11 @@
     <?= $this->Html->css('/font-awesome/css/all.min.css') ?>
     <?= $this->Html->script('/font-awesome/js/all.min.js') ?>
 
-
     <!--   dashboard js-->
     <?= $this->Html->script('/dashboard/js/jquery-1.11.1.min.js') ?>
     <?= $this->Html->script('/dashboard/js/bootstrap.min.js') ?>
     <?= $this->Html->script('/dashboard/js/bootstrap-datepicker.js') ?>
+
 
     <!--Icons-->
     <?= $this->Html->script('/dashboard/js/lumino.glyphs.js') ?>

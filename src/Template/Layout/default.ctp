@@ -43,6 +43,7 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
     <!-- custom css -->
     <?= $this->Html->css('global-style.css') ?>
 
+
     <?= $this->fetch('meta') ?>
     <?= $this->fetch('css') ?>
     <?= $this->fetch('script') ?>

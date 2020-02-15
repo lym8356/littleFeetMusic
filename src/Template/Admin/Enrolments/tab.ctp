@@ -1,6 +1,9 @@
 <html>
 <head>
     <!-- Data Table Libraries-->
+    <!-- Jquery UI library -->
+    <?= $this->Html->css('/datetimepicker/css/jquery-ui.min.css') ?>
+    <?= $this->Html->script('/datetimepicker/js/jquery-ui.min.js') ?>
 
     <style type="text/css">
         .tb-small{
@@ -47,6 +50,12 @@
         Add Term Enrolment
     </button>
 
+    <div style="margin-top: 6%; position: absolute; margin-left: 80%;">
+        <div class="delete_icon" style="width:100px;height:100px;padding-left: 30px;padding-top: 20px;">
+            <i class="fas fa-trash fa-3x"></i>
+        </div>
+    </div>
+
     <table class="table-bordered table-striped table-responsive m">
         <?php foreach ($data['termData'] as $key => $term) { ?>
             <tr>
@@ -75,7 +84,7 @@
             array_push($dateHeader, $data['header'][$date]);
         }
         ?>
-        <tr>
+        <tr data-enrol-id = "<?php echo $enrolment->id ?>">
             <td><?php echo $enrolment['child']['first_name'] . ' ' . $enrolment['child']['last_name']; ?></td>
             <td><?php echo $enrolment['user']['f_name'] . ' ' . $enrolment['user']['l_name']; ?></td>
             <td><?php echo date('d/m/Y', strtotime($enrolment['child']['dob'])); ?></td>
@@ -127,7 +136,6 @@
     </div>
 </div>
 <script>
-
     $(document).ready(function(){
         // $('.enrol_table').DataTable();
         $('.p_status').each(function(){
@@ -143,6 +151,33 @@
                     break;
                 default:
                     break;
+            }
+        });
+    });
+
+    $(function(){
+        var c = {};
+        $('.enrol_table tr').draggable({
+            helper: "clone",
+            start: function(event, ui){
+                c.tr = this;
+                c.helper = ui.helper;
+            }
+        });
+        $('.delete_icon').droppable({
+            drop: function(event, ui){
+                let id = $(ui.draggable).attr("data-enrol-id");
+                //var id =   $(this).attr('data-enrol-id');
+                alert();
+                $.ajax({
+                    method: 'post',
+                    url: "<?php echo $this->Url->build(['action' => 'delete']); ?>",
+                    data: {id},
+                    success: function(response){
+                        console.log(response);
+                        location.reload();
+                    }
+                })
             }
         })
     });

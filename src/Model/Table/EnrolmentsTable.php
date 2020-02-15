@@ -12,6 +12,7 @@ use Cake\Validation\Validator;
  * @property \App\Model\Table\TermsTable&\Cake\ORM\Association\BelongsTo $Terms
  * @property \App\Model\Table\UsersTable&\Cake\ORM\Association\BelongsTo $Users
  * @property \App\Model\Table\ChildsTable&\Cake\ORM\Association\BelongsTo $Childs
+ * @property \App\Model\Table\EnrolsTable&\Cake\ORM\Association\HasMany $Enrols
  *
  * @method \App\Model\Entity\Enrolment get($primaryKey, $options = [])
  * @method \App\Model\Entity\Enrolment newEntity($data = null, array $options = [])
@@ -52,6 +53,10 @@ class EnrolmentsTable extends Table
         $this->belongsTo('Childs', [
             'foreignKey' => 'child_id',
             'joinType' => 'INNER'
+        ]);
+        $this->hasMany('Enrols', [
+            'foreignKey' => 'enrolment_id',
+            'dependent' => true
         ]);
     }
 

@@ -61,8 +61,8 @@ class EnrolmentsFixture extends TestFixture
                 'payment_status' => 'Lorem ipsum dolor ',
                 'enrolment_cost' => 1,
                 'comment' => 'Lorem ipsum dolor sit amet',
-                'created' => '2020-02-14 06:14:11',
-                'modified' => '2020-02-14 06:14:11'
+                'created' => '2020-02-15 18:36:22',
+                'modified' => '2020-02-15 18:36:22'
             ],
         ];
         parent::init();

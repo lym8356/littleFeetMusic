@@ -129,10 +129,10 @@ class EnrolmentsController extends AppController
 
 
         foreach($lfmdataQuery as $lfm){
-            $enrolTable = TableRegistry::getTableLocator()->get('Enrol');
+            $enrolTable = TableRegistry::getTableLocator()->get('Enrols');
 
             $enrolArray=[];
-            $enrolArray['enrolments_id'] = $enrol_id;
+            $enrolArray['enrolment_id'] = $enrol_id;
             $enrolArray['lfmclass_id'] = $lfm['id'];
             $enrolArray['attendance'] = 'unknown';
 
@@ -151,9 +151,9 @@ class EnrolmentsController extends AppController
                 ['conditions'=>['Lfmclasses.class_date'=>$formattedDate, 'Lfmclasses.terms_id'=>$term_id]])->first()->toArray();
 
 
-            $enrolTable = TableRegistry::getTableLocator()->get('Enrol');
+            $enrolTable = TableRegistry::getTableLocator()->get('Enrols');
             $enrolArray=[];
-            $enrolArray['enrolments_id'] = $enrol_id;
+            $enrolArray['enrolment_id'] = $enrol_id;
             $enrolArray['lfmclass_id'] = $lfmdataQuery['id'];
             $enrolArray['attendance'] = 'unknown';
 
@@ -277,6 +277,7 @@ class EnrolmentsController extends AppController
             $this->request->data['age_group'] = $termData['age_group'];
             $this->request->data['term_id'] = $requestTermID;
         }else{
+            //pr($this->request->getData());die;
             $itemArray = $this->request->getData('item_array');
             $returnUrl = $this->payment($itemArray);
 

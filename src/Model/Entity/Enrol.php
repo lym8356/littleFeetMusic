@@ -7,7 +7,7 @@ use Cake\ORM\Entity;
  * Enrol Entity
  *
  * @property int $id
- * @property int $enrolments_id
+ * @property int $enrolment_id
  * @property int $lfmclass_id
  * @property string|null $attendance
  *
@@ -26,7 +26,7 @@ class Enrol extends Entity
      * @var array
      */
     protected $_accessible = [
-        'enrolments_id' => true,
+        'enrolment_id' => true,
         'lfmclass_id' => true,
         'attendance' => true,
         'enrolment' => true,

@@ -7,7 +7,7 @@ use Cake\ORM\Table;
 use Cake\Validation\Validator;
 
 /**
- * Enrol Model
+ * Enrols Model
  *
  * @property \App\Model\Table\EnrolmentsTable&\Cake\ORM\Association\BelongsTo $Enrolments
  * @property \App\Model\Table\LfmclassesTable&\Cake\ORM\Association\BelongsTo $Lfmclasses
@@ -21,7 +21,7 @@ use Cake\Validation\Validator;
  * @method \App\Model\Entity\Enrol[] patchEntities($entities, array $data, array $options = [])
  * @method \App\Model\Entity\Enrol findOrCreate($search, callable $callback = null, $options = [])
  */
-class EnrolTable extends Table
+class EnrolsTable extends Table
 {
     /**
      * Initialize method
@@ -33,12 +33,12 @@ class EnrolTable extends Table
     {
         parent::initialize($config);
 
-        $this->setTable('enrol');
+        $this->setTable('enrols');
         $this->setDisplayField('id');
         $this->setPrimaryKey('id');
 
         $this->belongsTo('Enrolments', [
-            'foreignKey' => 'enrolments_id',
+            'foreignKey' => 'enrolment_id',
             'joinType' => 'INNER'
         ]);
         $this->belongsTo('Lfmclasses', [
@@ -75,7 +75,7 @@ class EnrolTable extends Table
      */
     public function buildRules(RulesChecker $rules)
     {
-        $rules->add($rules->existsIn(['enrolments_id'], 'Enrolments'));
+        $rules->add($rules->existsIn(['enrolment_id'], 'Enrolments'));
         $rules->add($rules->existsIn(['lfmclass_id'], 'Lfmclasses'));
 
         return $rules;

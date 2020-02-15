@@ -66,7 +66,7 @@ class EnrolmentsController extends AppController
             foreach($enrolmentData as $enrol){
 
                 $tempHeader = [];
-                $enrolInstances = TableRegistry::getTableLocator()->get('enrol')->find()->where(['enrolments_id' => $enrol->id])
+                $enrolInstances = TableRegistry::getTableLocator()->get('Enrols')->find()->where(['enrolment_id' => $enrol->id])
                     ->contain('lfmclasses')->toArray();
 
                 foreach($enrolInstances as $instance){
@@ -129,10 +129,10 @@ class EnrolmentsController extends AppController
 
 
         foreach($lfmdataQuery as $lfm){
-            $enrolTable = TableRegistry::getTableLocator()->get('Enrol');
+            $enrolTable = TableRegistry::getTableLocator()->get('Enrols');
 
             $enrolArray=[];
-            $enrolArray['enrolments_id'] = $enrol_id;
+            $enrolArray['enrolment_id'] = $enrol_id;
             $enrolArray['lfmclass_id'] = $lfm['id'];
             $enrolArray['attendance'] = 'unknown';
 
@@ -151,9 +151,9 @@ class EnrolmentsController extends AppController
                 ['conditions'=>['Lfmclasses.class_date'=>$formattedDate, 'Lfmclasses.terms_id'=>$term_id]])->first()->toArray();
 
 
-            $enrolTable = TableRegistry::getTableLocator()->get('Enrol');
+            $enrolTable = TableRegistry::getTableLocator()->get('Enrols');
             $enrolArray=[];
-            $enrolArray['enrolments_id'] = $enrol_id;
+            $enrolArray['enrolment_id'] = $enrol_id;
             $enrolArray['lfmclass_id'] = $lfmdataQuery['id'];
             $enrolArray['attendance'] = 'unknown';
 
@@ -236,7 +236,7 @@ class EnrolmentsController extends AppController
 
                     $this->saveTermEnrolment($enrolment_result->id, $formData['term_id']);
                 }
-                $this->Flash->success(__('Enrolment has been saved.'));
+                //$this->Flash->success(__('Enrolment has been saved.'));
                 return $this->redirect(['action' => 'index']);
             }
         }
@@ -320,7 +320,7 @@ class EnrolmentsController extends AppController
 
                     $this->saveCasualEnrolment($enrolment_result->id, $formData['term_id'], $formData['date']);
                 }
-                $this->Flash->success(__('Enrolment has been saved.'));
+                //$this->Flash->success(__('Enrolment has been saved.'));
                 return $this->redirect(['action' => 'index']);
             }
         }
@@ -361,14 +361,16 @@ class EnrolmentsController extends AppController
      * @return \Cake\Http\Response|null Redirects to index.
      * @throws \Cake\Datasource\Exception\RecordNotFoundException When record not found.
      */
-    public function delete($id = null)
+    public function delete()
     {
         $this->request->allowMethod(['post', 'delete']);
+
+        $id = $this->request->getData('id');
         $enrolment = $this->Enrolments->get($id);
         if ($this->Enrolments->delete($enrolment)) {
-            $this->Flash->success(__('The enrolment has been deleted.'));
+            //$this->Flash->success(__('The enrolment has been deleted.'));
         } else {
-            $this->Flash->error(__('The enrolment could not be deleted. Please, try again.'));
+            //$this->Flash->error(__('The enrolment could not be deleted. Please, try again.'));
         }
 
         return $this->redirect(['action' => 'index']);
