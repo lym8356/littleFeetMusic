@@ -236,7 +236,7 @@ class EnrolmentsController extends AppController
 
                     $this->saveTermEnrolment($enrolment_result->id, $formData['term_id']);
                 }
-                $this->Flash->success(__('Enrolment has been saved.'));
+                //$this->Flash->success(__('Enrolment has been saved.'));
                 return $this->redirect(['action' => 'index']);
             }
         }
@@ -320,7 +320,7 @@ class EnrolmentsController extends AppController
 
                     $this->saveCasualEnrolment($enrolment_result->id, $formData['term_id'], $formData['date']);
                 }
-                $this->Flash->success(__('Enrolment has been saved.'));
+                //$this->Flash->success(__('Enrolment has been saved.'));
                 return $this->redirect(['action' => 'index']);
             }
         }
