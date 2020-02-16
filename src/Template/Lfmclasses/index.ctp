@@ -52,11 +52,11 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
 <?php echo $this->element('header') ?>
 <body>
 <body class="text-dark">
-    <div class="headpic">
-        <div class="container">
-            <?php echo $this->Html->image('LFM.jpg'); ?>
-        </div>
+<div class="headpic">
+    <div class="container">
+        <?php echo $this->Html->image('LFM.jpg'); ?>
     </div>
+</div>
 <div class="container" id="div1">
     <section>
         <div class="row container ml-2 mt-3 mb-3">
@@ -155,7 +155,7 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
     </div>
 </div>
 
-
+<!--{Enquiry popup form}--->
 <div id="contact-popup">
     <form class="contact-form" action="" id="contact-form"
           method="post" enctype="multipart/form-data">
@@ -165,7 +165,7 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
         <div>
             <div>
                 <label>Name *: </label><span id="userName-info"
-                                           class="info"></span>
+                                             class="info"></span>
             </div>
             <div>
                 <input type="text" id="userName" name="userName"
@@ -175,7 +175,7 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
         <div>
             <div>
                 <label>Email *: </label><span id="userEmail-info"
-                                            class="info"></span>
+                                              class="info"></span>
             </div>
             <div>
                 <input type="text" id="userEmail" name="userEmail"
@@ -201,7 +201,7 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
         <div>
             <div>
                 <label>Message *: </label><span id="userMessage-info"
-                                              class="info"></span>
+                                                class="info"></span>
             </div>
             <div>
                     <textarea id="message" name="message"
@@ -213,21 +213,21 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
         </div>
     </form>
 </div>
-        <section class="testimonial text-dark">
-            <div class="container">
-                <div class="row">
-                    <div class="text-center">
-                        <div class="col-sm-1"></div>
-                        <div class="col p-3">
-                            <p> <i>How awesome is these Albums???? These are a must-have in the car, keeps my little ones entertained and singing along every single time! Love these, and recommend to anyone with kids!!!</i></p>
-                        </div>
-                        <div class="col-sm-1"></div>
-                    </div>
+<section class="testimonial text-dark">
+    <div class="container">
+        <div class="row">
+            <div class="text-center">
+                <div class="col-sm-1"></div>
+                <div class="col p-3">
+                    <p> <i>How awesome is these Albums???? These are a must-have in the car, keeps my little ones entertained and singing along every single time! Love these, and recommend to anyone with kids!!!</i></p>
                 </div>
+                <div class="col-sm-1"></div>
             </div>
-        </section>
+        </div>
+    </div>
+</section>
 
-
+<!--{Form validation}-->
 <script>
     $(document).ready(function () {
         $("#enquiry").click(function () {
@@ -286,8 +286,7 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
 
 </script>
 
-
-
+<!--{Send mail function}-->
 <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 <?php
 if(isset($_POST['submit'])) {
@@ -310,7 +309,7 @@ if(isset($_POST['submit'])) {
     $mail->From=$_POST['userEmail'];
     $mail->FromName=$_POST['userName'];
     $mail->AddReplyTo($_POST['userEmail'], $_POST['userName']);
-    $mail->addAddress('team117bluewater@gmail.com', 'Little Feet Music');
+    $mail->addAddress('info@littlefeetmusic.com.au', 'Little Feet Music');
     $mail->Subject=$_POST['userNeed'];
     $mail->Body=($_POST['message']);
     if(!$mail->send())
@@ -335,7 +334,7 @@ if(isset($_POST['submit'])) {
 
 
         $autoRespond->isHTML(true);
-        $autoRespond->setFrom('team117bluewater@gmail.com', 'Little Feet Music');
+        $autoRespond->setFrom('info@littlefeetmusic.com.au', 'Little Feet Music');
         $autoRespond->addAddress($_POST['userEmail']);
         $autoRespond->Subject = "Thank you!";
         $autoRespond->Body = "

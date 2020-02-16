@@ -57,9 +57,12 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
     </div>
 </div>
 
+
+
 <body>
 <body class="text-dark">
 
+<!--{Introduction}-->
 <section id="LFM-about-us">
     <div class="container">
         <div class="row">
@@ -69,7 +72,7 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
                         <div class="col-md-6">
                             <div class="LFM-about-us-left text-justify">
                                 <h3>At Little Feet Music the music is all LIVE!
-                                    </h3>
+                                </h3>
                                 <p>Services included:</p>
                                 <ul>
                                     <li>Creative and cool music classes for children with parent or carer</li>
@@ -110,6 +113,10 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
 </section>
 
 
+
+
+
+<!--{Testimonial}-->
 <section class="testimonial text-dark">
     <div class="container">
         <div class="row text-center">
@@ -122,7 +129,7 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
     </div>
 </section>
 
-
+<!--{Enquiry popup form}-->
 <div id="contact-popup">
     <form class="contact-form" action="" id="contact-form"
           method="post" enctype="multipart/form-data">
@@ -182,7 +189,7 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
     </form>
 </div>
 
-
+<!--{Form validation}-->
 <script>
     $(document).ready(function () {
         let csrf_token = $('[name="_csrfToken"]').val();
@@ -242,6 +249,7 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
 
 </script>
 <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+<!--{Send mail function}-->
 <?php
 if(isset($_POST['submit'])) {
     require '../vendor/phpmailer/phpmailer/src/PHPMailer.php';
@@ -262,7 +270,7 @@ if(isset($_POST['submit'])) {
     $mail->From=$_POST['userEmail'];
     $mail->FromName=$_POST['userName'];
     $mail->AddReplyTo($_POST['userEmail'], $_POST['userName']);
-    $mail->addAddress('team117bluewater@gmail.com', 'Little Feet Music');
+    $mail->addAddress('info@littlefeetmusic.com.au', 'Little Feet Music');
     $mail->Subject=$_POST['userNeed'];
     $mail->Body=($_POST['message']);
     if(!$mail->send())
@@ -287,16 +295,16 @@ if(isset($_POST['submit'])) {
 
 
         $autoRespond->isHTML(true);
-        $autoRespond->setFrom('team117bluewater@gmail.com', 'Little Feet Music');
+        $autoRespond->setFrom('info@littlefeetmusic.com.au', 'Little Feet Music');
         $autoRespond->addAddress($_POST['userEmail']);
         $autoRespond->Subject = "Thank you!";
         $autoRespond->Body = "
         <div>
         <h4><p>Hi, {$_POST['userName']}!</p></h4>
         <strong><p>Thanks for your email. I’ll get back to you as soon as I can!</p></strong>
-
-
-
+       
+        
+        
         <p>Hear Little Feet Music songs on <a href='https://www.abc.net.au/abckids/abc-kids-listen-app/11131286' target=\"_blank\">ABC Kids Listen!</a><br>
         <a href='http://littlefeetmusic.com.au/video-music' target=\"_blank\">Watch our videos!</a><br>
         ALBUM!  I recorded it in Nashville and it’s absolutely amazing!  <a href='http://www.littlefeetmusic.com.au/online-shop#!/~/cart' target=\"_blank\">Get the CD online here</a> or listen on <a href='https://open.spotify.com/playlist/6ZG4FxeNLLYcF4gUam9ulV?si=AAO4FDFXTkaBHZX2F-gaow'target=\"_blank\"> Spotify here!</a><br>
@@ -307,11 +315,11 @@ if(isset($_POST['submit'])) {
         <a href='https://twitter.com/littlefeetmusic' target=\"_blank\"> Follow us on Twitter!</a><br>
         <a href='https://instagram.com/littlefeetmusic/' target=\"_blank\">See what we look like on Instagram!</a><br>
         <a href='https://www.youtube.com/user/LittleFeetMusic' target=\"_blank\">Check out some videos on YouTube!</a><br>
-
-
+       
+        
         <strong><p>Thanks!<br>
         Rachel Parkinson</p></strong>
-
+        
         </div>";
 
 
