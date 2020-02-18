@@ -70,7 +70,7 @@ $action=$this->request->params['action'];
         <li class="sidebar_item <?php echo ($controller=='Home')?'active':'';?>">
             <?= $this->Html->link('<svg class="glyph stroked notepad">
                     <use xlink:href="#stroked-notepad"></use>
-                </svg> Add New Enrolment', '/Enrolments',
+                </svg> Enrol via Square', '/Enrolments',
                 ['escape' => false]); ?></li>
         <li class="sidebar_item <?php echo ($controller=='Users')?'active':'';?>">
             <?= $this->Html->link('<svg class="glyph stroked male-user">
