@@ -7,8 +7,14 @@
 
     <style type="text/css">
         .tb-small{
-            min-width: 150px;
-            max-width: 150px;
+            min-width: 350px;
+            max-width: 350px;
+            padding: 2%;
+            background-color: white;
+        }
+        .tb-small-head{
+            min-width: 130px;
+            max-width: 130px;
             padding: 2%;
             background-color: white;
         }
@@ -59,7 +65,7 @@
     <table class="table-bordered table-striped table-responsive m">
         <?php foreach ($data['termData'] as $key => $term) { ?>
             <tr>
-                <th class="tb-small" scope="col"><?php echo $key ?></th>
+                <th class="tb-small-head" scope="col"><?php echo $key ?></th>
                 <td class="tb-small"><?php echo $term ?></td>
             </tr>
         <?php } ?>
