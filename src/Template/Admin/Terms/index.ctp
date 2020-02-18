@@ -107,6 +107,7 @@
 
 <script>
 
+    // handle search by name call
     $('document').ready(function () {
         $('#search').keyup(function () {
             let searchkey = $(this).val();
@@ -126,6 +127,7 @@
         };
     });
 
+    // handle search by location call
     $('document').ready(function () {
 
         $('#searchLocation').change(function () {

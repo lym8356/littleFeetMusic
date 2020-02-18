@@ -54,6 +54,8 @@ class EnrolmentsTable extends Table
             'foreignKey' => 'child_id',
             'joinType' => 'INNER'
         ]);
+
+        /* Set dependent to true, on delete, delete all associated enrol instances */
         $this->hasMany('Enrols', [
             'foreignKey' => 'enrolment_id',
             'dependent' => true

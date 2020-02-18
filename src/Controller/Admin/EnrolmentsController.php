@@ -25,11 +25,12 @@ class EnrolmentsController extends AppController
 
     }
 
-
+    /* Handle Ajax request to change view */
     public function tab(){
         if($this->request->is('ajax')){
             $this->layout = 'ajax';
         }
+        /* Get all term data where day_id equals to the day ID received */
         $dayVariable = $this->request->getQuery('dayID') ;
         $termsData = TableRegistry::getTableLocator()->get('Terms')->find()->where(['day_id' =>$dayVariable])
             ->contain(['Days','Lfmclasses'])->toArray();
@@ -48,23 +49,25 @@ class EnrolmentsController extends AppController
             $localArray['termData'] = $localTermArray;
             $localArray['term_id'] = $term->id;
 
+            /* This part of the date header is based on each term's classes dates */
             $dateDynamicHeader = array_map(function($e) {
                 return is_object($e) ? date('d/m',strtotime($e->class_date)) :date('d/m',strtotime($e['class_date']));
             }, $term['lfmclasses']);
 
+            /* Static header */
             $staticHeader=['Child’s name','Adult','DOB', 'Phone', 'Comments', 'Enrolment Type' , 'Enrolment Cost','Payment Type', 'Payment Status'];
             $headerData=array_merge($staticHeader,$dateDynamicHeader);
             $localArray['header']= $headerData;
 
-
+            /* Get enrolment data for each term */
             $enrolmentData = TableRegistry::getTableLocator()->get('Enrolments')->find()->where(['term_id' => $term->id])
                 ->contain(['Users','Childs'])->toArray();
-
 
             $localArray['enrolData'] = $enrolmentData;
 
             foreach($enrolmentData as $enrol){
 
+                /* For each enrolment, get all enrolled dates from enrol data */
                 $tempHeader = [];
                 $enrolInstances = TableRegistry::getTableLocator()->get('Enrols')->find()->where(['enrolment_id' => $enrol->id])
                     ->contain('lfmclasses')->toArray();
@@ -72,7 +75,7 @@ class EnrolmentsController extends AppController
                 foreach($enrolInstances as $instance){
                     array_push($tempHeader,date('d/m', strtotime($instance->Lfmclasses['class_date'])));
                 }
-
+                /* Pushed to dateHeader ready for view to color the cells */
                 array_push($dateHeader,$tempHeader);
 
             }
@@ -363,6 +366,7 @@ class EnrolmentsController extends AppController
      */
     public function delete()
     {
+        /* Handle Ajax delete request    */
         $this->request->allowMethod(['post', 'delete']);
 
         $id = $this->request->getData('id');

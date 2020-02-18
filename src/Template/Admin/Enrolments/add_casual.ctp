@@ -1,5 +1,7 @@
 <html>
 <head>
+    <!--Jquery stepper plugin -->
+    <!-- URL https://jsfiddle.net/yeyene/59e5e1ya/ -->
     <style>
         body {
             margin-top:30px;
@@ -348,6 +350,7 @@
         $(this).remove();
     });
 
+    // update the list every time this button is clicked
     $('.casual-next-btn').click(function(){
         selected_class_array = [];
         let buttonInDiv = $('.selected_class button');

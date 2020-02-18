@@ -394,7 +394,8 @@
     });
 
 
-
+    // this function inserts every child's detail and append them to array
+    // for later to display in the enrolment summary section
     function appendChildList() {
 
         child_fn_array = [];
@@ -430,6 +431,7 @@
         });
     }
 
+    // this function creates the detail table to display at enrolment summary
     function createDetailTable() {
         let normalPrice = parseFloat($('#class_price').val());
         let subTotal = 0;
@@ -483,7 +485,8 @@
         appendChildList();
     });
 
-
+    // if t-shirt checkbox is selected add the price to total price
+    // and if unselected hide the element
     $('#chb_tshirt').click(function(){
         let temp_total = glob_sub_total;
         if($(this).prop("checked") == true){
@@ -512,6 +515,8 @@
         }
     });
 
+    // if cd checkbox is selected add the price to total price
+    // and if unselected hide the element
     $('#chb_cd').click(function(){
         let temp_total = glob_sub_total;
         if($(this).prop("checked") == true){
@@ -539,7 +544,7 @@
             }
         }
     });
-
+    // send the entire form to the corresponding controller action
     $('#enrol_btn').click(function(e){
 
         //e.preventDefault();
@@ -561,23 +566,20 @@
     // eventHandler for casual class select button
     $('.class_select button').click(function(){
 
+        // get every button clicked and append to selected class div
         let buttonInDiv = $('.selected_class button');
         let flag = false;
         let buttonClone = $(this).clone().addClass('btn_selected_class');
-        // var color = clicked ? 'red' : 'blue';
-        // $(this).css('background-color', color);
-        // clicked = !clicked;
+
 
         if(buttonInDiv.length == 0){
             $('.selected_class').append(buttonClone);
             $(this).css('background-color', 'green');
-            // $(this).hide();
         }else if(buttonInDiv.length > 0){
             $(this).css('background-color', 'green');
             for(let i=0;i<buttonInDiv.length;i++){
                 if(buttonInDiv[i].innerText == $(this).text()){
                     flag = true;
-                    // $(this).hide();
                     break;
                 }
             }
@@ -589,6 +591,7 @@
         }
     });
 
+    // remove the clicked button from the selected class div
     $('.multisteps-form__content').on('click', '.btn_selected_class', function(){
         let clsbtn = $('.class_select button');
 
@@ -602,6 +605,7 @@
         $(this).remove();
     });
 
+    // update selected class array every time the next button is clicked in the class info panel
     $('.casual-next-btn').click(function(){
 
         selected_class_array = [];
@@ -616,7 +620,7 @@
     });
 
 
-    // Validation
+    // Jquery form validation plugin configuration
     $(function () {
 
         $('#enrol_form').validate({
@@ -648,7 +652,7 @@
 
 
 
-
+    // the following configurations are from form-stepper Jquery widget
     //DOM elements
     const DOMstrings = {
         stepsBtnClass: 'multisteps-form__progress-btn',

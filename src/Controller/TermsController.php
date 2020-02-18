@@ -129,26 +129,35 @@ class TermsController extends AppController
 
     public function enrolInfo(){
 
-        $terms=$this->Terms->find('all')->group('Terms.day_id')->contain(['Locations'])->matching('Lfmclasses', function(\Cake\ORM\Query $q) {
+        /* Setting terms array to be pass to be view */
+        /* Get all available terms where the classes in each term are greater than today's date */
+        $terms = $this->Terms->find('all')->group('Terms.day_id')->contain(['Locations'])->matching('Lfmclasses', function(\Cake\ORM\Query $q) {
             $now = date('Y-m-d');
             return $q->where(["Lfmclasses.class_date>='$now'"]);
         });
-
+        /* Get day's data */
         $daysData=TableRegistry::get('Days')->find('all')->contain(['Terms.Locations'])->group('Days.id')->matching('Terms', function(\Cake\ORM\Query $q) {
             return $q->group(["Terms.Locations.id"]);
         })->toArray();
+
+        /* Get location's data */
         $locationData=TableRegistry::get('Locations')->find('all')->contain('Terms')->group('Locations.id')->toArray();
         $termsArray=[];
 
+        /* Setting term array in format: [day][location][essential attribute] */
+        /** After day and location association has been set up, this format needs to be changed to match the update **/
         foreach($daysData as $key=>$days){
             foreach($locationData as $key1=>$location){
                 foreach($days['terms'] as $key2=>$term){
                     if($term['day_id']==$days['id'] && $location['Id']==$term['location_id']){
-                        $now = date('dd-mm-yyyy');
+                        $now = date('Y-m-d');
+                        /* Get the price attribute of the nearest class */
                         $lfmdataQuery=TableRegistry::get('Lfmclasses')->find('all',['conditions'=>['Lfmclasses.terms_id'=>$term['id'],"Lfmclasses.class_date>='$now'"]])
                             ->order(['class_date'=>'ASC']);
                         $lfmdata=$lfmdataQuery->limit(1)->first();
                         $class_count =$lfmdataQuery->count();
+                        
+                        /* Construct the array */
                         if($class_count>0){
                             $termsArray[$days['name']][$location['name']][$key2]['age_group']=$term['age_group'];
                             $termsArray[$days['name']][$location['name']][$key2]['location_id']=$term['location_id'];
@@ -168,7 +177,6 @@ class TermsController extends AppController
                 }
             }
         }
-        //pr($termsArray);die;
         $this->set(compact('termsArray'));
     }
 }

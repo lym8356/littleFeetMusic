@@ -89,6 +89,8 @@
 
         $('#start_date, #week_length').bind('change', function() {
 
+            // pre calculates the values based on user input
+            // update every time there's a change in the two fields
             let days = parseInt($('#week_length').val() * 7);
             let endDate = new Date($('#start_date').val());
             endDate.setDate(endDate.getDate() + (days - 7));
@@ -125,12 +127,15 @@
 
     $( function () {
 
+        // timepicker configuration
         $('#start_time').timepicker({
             'timeFormat': 'H:i' ,
             'minTime': '08:00'
         });
 
         $('#start_time, #duration').bind('change', function() {
+            // automatically calculate end time based on start time and duration
+            // auto calculate every time the two fields change
 
             let startTime = $('#start_time').val();
             let timeChange = parseInt($('#duration option:selected').text());
@@ -179,6 +184,8 @@
 
         let weekNum = 1;
 
+        // append the field to allow user input price for each week
+        // auto calculate the number rows need to be append
         $("#week_length").blur(function(){
             let rowCount = $('#price_tb tr').length;
             let weekLength = $("#week_length").val();

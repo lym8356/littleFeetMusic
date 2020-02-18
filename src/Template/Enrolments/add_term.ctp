@@ -312,7 +312,7 @@
 </body>
 
 <script>
-
+    // date picker configuration
     $('[name^="child_dob"]').datepicker({
         dateFormat:'dd/mm/yy',
         changeMonth: true,
@@ -321,7 +321,6 @@
         yearRange : '-50:+10'
     });
 
-
     let child_fn_array = [];
     let child_ln_array = [];
     let child_dob_array = [];
@@ -329,8 +328,10 @@
 
     let glob_sub_total;
 
+    // handles click action on add child button
     $('.add_row').click(function (e) {
         if (($('.child_field').length) < 5) {
+            // clone the first child field and append a remove button
             var clone = $('.child_field').first().clone();
             clone.append("<div class='col-sm-12 mt-2'><button type='button' class='btn btn-danger float-right remove_row'>Remove</button></div>");
 
@@ -350,7 +351,8 @@
     });
 
 
-
+    // this function inserts every child's detail and append them to array
+    // for later to display in the enrolment summary section
     function appendChildList() {
 
         child_fn_array = [];
@@ -377,6 +379,7 @@
         });
     }
 
+    // this function creates the detail table to display at enrolment summary
     function createDetailTable() {
         let normalPrice = parseFloat($('#class_price').val());
         let discountPrice = normalPrice * 0.75;
@@ -395,7 +398,7 @@
             child_dob_array[0] + "</td><td class='right'>" + "$"+normalPrice + "</td>" + "</tr>";
 
         item_array.push({name: 'Class Enrolment', price: normalPrice*100, qty: 1});
-
+        // calculate cost based on business logic
         subTotal += normalPrice;
 
         for (let i = 1; i < child_fn_array.length; i++) {
@@ -423,12 +426,15 @@
         $('#tb_total_price').text("$"+subTotal);
     }
 
+    // update the data every time the input fields change
     $(document).on('blur','.child_field :input',function(){
 
         appendChildList();
         createDetailTable();
     });
 
+    // if t-shirt checkbox is selected add the price to total price
+    // and if unselected hide the element
     $('#chb_tshirt').click(function(){
         let temp_total = glob_sub_total;
         if($(this).prop("checked") == true){
@@ -457,6 +463,8 @@
         }
     });
 
+    // if cd checkbox is selected add the price to total price
+    // and if unselected hide the element
     $('#chb_cd').click(function(){
         let temp_total = glob_sub_total;
         if($(this).prop("checked") == true){
@@ -485,6 +493,7 @@
         }
     });
 
+    // send the entire form to the corresponding controller action
     $('#enrol_btn').click(function(e){
 
         //e.preventDefault();
@@ -505,6 +514,7 @@
     });
 
 
+    // Jquery form validation plugin configuration
     $(function () {
 
         $('#enrol_form').validate({
@@ -536,7 +546,7 @@
 
 
 
-
+    // the following configurations are from form-stepper Jquery widget
     //DOM elements
     const DOMstrings = {
         stepsBtnClass: 'multisteps-form__progress-btn',
@@ -716,7 +726,7 @@
 
     //PREV/NEXT BTNS CLICK
     DOMstrings.stepsForm.addEventListener('click', e => {
-
+    // add validation to each next button
         const eventTarget = e.target;
 
         //check if we clicked on `PREV` or NEXT` buttons

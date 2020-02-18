@@ -131,6 +131,7 @@
 
 <script>
 
+    // the following script handles modal form actions
     let term_id;
     $('.term_price_btn').click(function () {
         term_id = $(this).data("termid");

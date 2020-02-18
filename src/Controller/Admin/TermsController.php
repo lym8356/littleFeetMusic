@@ -59,6 +59,7 @@ class TermsController extends AppController
      *
      * @return \Cake\Http\Response|null Redirects on successful add, renders view otherwise.
      */
+
     public function add()
     {
         $term = $this->Terms->newEntity();
@@ -67,6 +68,7 @@ class TermsController extends AppController
             $term = $this->Terms->patchEntity($term, $this->request->getData());
             if ($termData=$this->Terms->save($term)) {
 
+                /* Create class instances for this term */
                 $classInfo = array();
                 for($i=0;$i<count($this->request->getData(['week_no']));$i++){
                     $classInfo[$i]['week_no'] = $this->request->getData('week_no')[$i];
@@ -145,7 +147,7 @@ class TermsController extends AppController
 
     public function search()
     {
-
+        /* Handle Ajax request to search based on term names */
         $this->layout = 'ajax';
         $this->request->allowMethod('ajax');
 
@@ -163,11 +165,10 @@ class TermsController extends AppController
 
     public function searchLocation(){
 
-
+        /* Handles Ajax request to search based on locations */
         if($this->request->is('ajax')){
             $this->layout = 'ajax';
         }
-
 
         $conditions = array();
         $this->paginate = [
@@ -187,6 +188,8 @@ class TermsController extends AppController
         $this->set('_serialize', ['terms']);
     }
 
+    /* Associated with FullCalendar plugin */
+    /* Not implemented in this project */
     public function feed($id=null){
 
         $this->viewBuilder()->layout('ajax');

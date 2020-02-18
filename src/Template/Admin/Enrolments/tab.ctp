@@ -100,6 +100,7 @@
                 //pr($dateToCheck);
                 ?>
             <?php endforeach; ?>
+            <!--Create td logic, if the printed header matches the enrol date, a green cell is printed -->
             <?php for ($i = 0; $i < sizeof($dateHeader); $i++) {
                 $flag = false;
                 for($j = 0; $j < sizeof($dateToCheck); $j++) {
@@ -137,6 +138,7 @@
 </div>
 <script>
     $(document).ready(function(){
+        // Change text color based on status
         // $('.enrol_table').DataTable();
         $('.p_status').each(function(){
             switch ($(this).text()){
@@ -155,6 +157,7 @@
         });
     });
 
+    // Utilise draggable and droppable to delete enrolments
     $(function(){
         var c = {};
         $('.enrol_table tr').draggable({
@@ -181,6 +184,7 @@
             }
         })
     });
+    // handle open modal form
     let term_id;
     $('.term_price_btn').click(function (e) {
         term_id = $(this).data("termid");
@@ -197,6 +201,7 @@
         });
     });
 
+    // handle open modal form
     $('.causal_price_btn').click(function () {
         term_id = $(this).data("termid");
 
@@ -211,6 +216,7 @@
         });
     });
 
+    // close modal if cross button is clicked
     $('.close').click(function () {
         location.reload();
     });
