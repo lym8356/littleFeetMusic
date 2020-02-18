@@ -175,7 +175,7 @@
             </tr>
             </tbody>
         </table>
-        <h5 style="color:red;">*Please double check every information with the customer before proceeding to
+        <h5 style="color:red;">*Please check all information with the customer before proceeding to
             payment</h5>
         <p><h5 style="color:red;">*Click on the numbers on top to navigate to each panel</h5></p>
         <hr>

@@ -55,7 +55,7 @@
             data-keyboard="false" data-toggle="modal" data-target="#enrolInfo" data-termid= "<?php echo $data['term_id']; ?>">
         Add Term Enrolment
     </button>
-
+<!--Delete function: This icon is the drop location for draggable and droppable table rows-->
     <div style="margin-top: 6%; position: absolute; margin-left: 80%;">
         <div class="delete_icon" style="width:100px;height:100px;padding-left: 30px;padding-top: 20px;">
             <i class="fas fa-trash fa-3x"></i>
@@ -86,7 +86,7 @@
         $lengthforspace = count($data['header']) - count($staticHeader);
         $dateToCheck = array();
         $dateHeader = array();
-        for($date = 9;$date < sizeof($data['header']); $date++){
+        for($date = 8;$date < sizeof($data['header']); $date++){
             array_push($dateHeader, $data['header'][$date]);
         }
         ?>
@@ -95,7 +95,7 @@
             <td><?php echo $enrolment['user']['f_name'] . ' ' . $enrolment['user']['l_name']; ?></td>
             <td><?php echo date('d/m/Y', strtotime($enrolment['child']['dob'])); ?></td>
             <td><?php echo $enrolment['user']['phone']; ?></td>
-            <td><?php echo $enrolment['comment'] ?></td>
+            <!--$enrolment['enrolment_type'] goes here -->
             <td><?php echo $enrolment['enrolment_type'] ?></td>
             <td><?php echo $enrolment['enrolment_cost'] ?></td>
             <td><?php echo $enrolment['payment_method'] ?></td>
@@ -103,7 +103,6 @@
             <?php foreach($data['dateEnrolled'][$key] as $d): ?>
                 <?php
                 array_push($dateToCheck, $d);
-                //pr($dateToCheck);
                 ?>
             <?php endforeach; ?>
             <!--Create td logic, if the printed header matches the enrol date, a green cell is printed -->
@@ -176,19 +175,18 @@
         $('.delete_icon').droppable({
             drop: function(event, ui){
                 let id = $(ui.draggable).attr("data-enrol-id");
-                //var id =   $(this).attr('data-enrol-id');
-                alert();
+                alert('One enrolment has been deleted. ');
                 $.ajax({
                     method: 'post',
                     url: "<?php echo $this->Url->build(['action' => 'delete']); ?>",
                     data: {id},
                     success: function(response){
-                        console.log(response);
                         location.reload();
                     }
                 })
             }
-        })
+        });
+
     });
     // handle open modal form
     let term_id;

@@ -55,7 +55,7 @@ class EnrolmentsController extends AppController
             }, $term['lfmclasses']);
 
             /* Static header */
-            $staticHeader=['Child’s name','Adult','DOB', 'Phone', 'Comments', 'Enrolment Type' , 'Enrolment Cost','Payment Type', 'Payment Status'];
+            $staticHeader=['Child’s name','Adult','DOB', 'Phone', 'Enrolment Type', 'Enrolment Cost','Payment Type', 'Payment Status'];
             $headerData=array_merge($staticHeader,$dateDynamicHeader);
             $localArray['header']= $headerData;
 

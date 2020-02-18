@@ -156,7 +156,7 @@ class TermsController extends AppController
                             ->order(['class_date'=>'ASC']);
                         $lfmdata=$lfmdataQuery->limit(1)->first();
                         $class_count =$lfmdataQuery->count();
-                        
+
                         /* Construct the array */
                         if($class_count>0){
                             $termsArray[$days['name']][$location['name']][$key2]['age_group']=$term['age_group'];
