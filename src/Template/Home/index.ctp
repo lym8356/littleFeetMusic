@@ -59,6 +59,7 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
     </div>
 </div>
 
+<!--{Introduction}-->
 <section id="LFM-about-us">
     <div class="container text-dark">
         <div class="row">
@@ -94,6 +95,7 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
     </div>
 </section>
 
+<!--{Enquiry popup form}-->
 <div id="contact-popup">
     <form class="contact-form" action=" " id="contact-form"
           method="post" enctype="multipart/form-data" style="width: auto">
@@ -150,7 +152,7 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
         </div>
     </form>
 </div>
-
+<!--{testimonial}-->
 <section class="testimonial">
     <div class="container">
         <div class="row">
@@ -165,7 +167,7 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
     </div>
 </section>
 
-
+<!--{Form validation}-->
 <script>
     $(document).ready(function () {
         $("#enquiry").click(function () {
@@ -223,7 +225,7 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
     });
 
 </script>
-
+<!--{Send mail function}-->
 <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 <?php
 if(isset($_POST['submit'])) {
@@ -245,7 +247,7 @@ if(isset($_POST['submit'])) {
     $mail->From=$_POST['userEmail'];
     $mail->FromName=$_POST['userName'];
     $mail->AddReplyTo($_POST['userEmail'], $_POST['userName']);
-    $mail->addAddress('team117bluewater@gmail.com', 'Little Feet Music');
+    $mail->addAddress('info@littlefeetmusic.com.au', 'Little Feet Music');
     $mail->Subject=$_POST['userNeed'];
     $mail->Body=($_POST['message']);
     if(!$mail->send())
@@ -270,7 +272,7 @@ if(isset($_POST['submit'])) {
 
 
         $autoRespond->isHTML(true);
-        $autoRespond->setFrom('team117bluewater@gmail.com', 'Little Feet Music');
+        $autoRespond->setFrom('info@littlefeetmusic.com.au', 'Little Feet Music');
         $autoRespond->addAddress($_POST['userEmail']);
         $autoRespond->Subject = "Thank you!";
         $autoRespond->Body = "

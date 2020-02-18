@@ -59,6 +59,7 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
 
 
     <div class="container" style="padding-top: 20px">
+        <!--{Map and address section 1}-->
         <div class="row" style="background-color: #ffe6ff;">
             <div class="col-sm-4">
                 <h2>Office</h2>
@@ -72,12 +73,13 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
                     <button id="enquiry" class="btn btn-warning btn-lg">Contact</button>
                 </address>
             </div>
+            <!---{Map}-->
             <div class="col-sm-8" style="padding-bottom: 10px">
                 <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d12577.173800744824!2d145.0768127!3d-37.9936152!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x1d04567609f506f0!2sParkdale%20Station!5e0!3m2!1sen!2sau!4v1581238345259!5m2!1sen!2sau" width=100% height="250" frameborder="0" style="border:0;" allowfullscreen=""></iframe>
             </div>
         </div>
     </div>
-    <!--{Map and address section}-->
+    <!--{Map and address section 2}-->
     <div class="container">
         <div class="row" style="background-color: #fff5e6;">
             <div class="col-md-4">
@@ -89,11 +91,14 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
                     <a href="img/GLS.jpg" data-fancybox="gal" target="_blank">Click here to see the map</a><br>
                 </address>
             </div>
+            <!---{Map}-->
             <div class="col-md-8" style="padding-bottom: 10px">
                 <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d12602.906683432071!2d144.9461685139601!3d-37.84328423248015!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6ad667e9c057cb0d%3A0x997d9948b75df7e6!2s21%20Graham%20St%2C%20Albert%20Park%20VIC%203206!5e0!3m2!1sen!2sau!4v1571043345323!5m2!1sen!2sau" width=100% height="250" frameborder="0" style="border:0;" allowfullscreen=""></iframe>
             </div>
         </div>
     </div>
+
+    <!--{Map and address section 3}-->
     <div class="container">
         <div class="row" style="background-color: #ffe6ff;">
             <div class="col-md-4">
@@ -105,11 +110,13 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
 
                 </address>
             </div>
+            <!---{Map}-->
             <div class="col-md-8" style="padding-bottom: 10px">
                 <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d12575.199730077584!2d145.0857013456294!3d-38.00512681723409!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6ad66d98ee7786c1%3A0x9473fc6d779f20e6!2s457%20Main%20St%2C%20Mordialloc%20VIC%203195!5e0!3m2!1sen!2sau!4v1571043050372!5m2!1sen!2sau" width=100% height="250" frameborder="0" style="border:0;" allowfullscreen=""></iframe>
             </div>
         </div>
     </div>
+    <!--{Map and address section 4}-->
     <div class="container">
         <div class="row" style="background-color:#fff5e6;">
             <div class="col-md-4">
@@ -121,6 +128,7 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
                     Port Melbourne Vic 3207<br>
                 </address>
             </div>
+            <!---{Map}-->
             <div class="col-md-8" style="padding-bottom: 10px">
                 <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d12603.829983928848!2d144.9415322!3d-37.8378809!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x46e231fe9fd41feb!2sPort%20Melbourne%20Neighbourhood%20Centre!5e0!3m2!1sen!2sau!4v1571042664510!5m2!1sen!2sau" width=100% height="250" frameborder="0" style="border:0;" allowfullscreen=""></iframe>
             </div>
@@ -128,7 +136,7 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
     </div>
 </section>
 
-<!---{popup form}-->
+<!---{Enquiry popup form}-->
 <div id="contact-popup">
     <form class="contact-form" action="" id="contact-form"
           method="post" enctype="multipart/form-data">
@@ -188,6 +196,7 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
     </form>
 </div>
 
+<!--{testimonial}-->
 <section class="testimonial text-dark">
     <div class="container">
         <div class="row">
@@ -203,7 +212,7 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
     </div>
 </section>
 
-
+<!--{Form validation}-->
 <script>
     $(document).ready(function () {
         $("#enquiry").click(function () {
@@ -259,8 +268,8 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
     });
 
 </script>
+<!--{Send mail function}-->
 <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
-
 <?php
 if(isset($_POST['submit'])) {
     require '../vendor/phpmailer/phpmailer/src/PHPMailer.php';
@@ -282,7 +291,7 @@ if(isset($_POST['submit'])) {
     $mail->From=$_POST['userEmail'];
     $mail->FromName=$_POST['userName'];
     $mail->AddReplyTo($_POST['userEmail'], $_POST['userName']);
-    $mail->addAddress('team117bluewater@gmail.com', 'Little Feet Music');
+    $mail->addAddress('info@littlefeetmusic.com.au', 'Little Feet Music');
     $mail->Subject=$_POST['userNeed'];
     $mail->Body=($_POST['message']);
     if(!$mail->send())
@@ -307,7 +316,7 @@ if(isset($_POST['submit'])) {
 
 
         $autoRespond->isHTML(true);
-        $autoRespond->setFrom('team117bluewater@gmail.com', 'Little Feet Music');
+        $autoRespond->setFrom('info@littlefeetmusic.com.au', 'Little Feet Music');
         $autoRespond->addAddress($_POST['userEmail']);
         $autoRespond->Subject = "Thank you!";
         $autoRespond->Body = "

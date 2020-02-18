@@ -53,8 +53,8 @@
                     <table id="dttbl" style="margin-top: 10px;" class="enrol_info_table table-bordered" align="center">
                         <thead class="col-sm-2">
                         <tr >
-                            <th></th>
-                            <?php $header=[];
+                            <!-- <th></th>
+ -->                            <?php $header=[];
                             foreach ($location_d as $key1=>$terms_d){ ?>
                                 <?php
 
@@ -73,7 +73,7 @@
                             // array_column($terms_d,'age_group');
                             ?>
                             <tr>
-                                <td id="locell">Location:<br><b><?php echo $key1 ?></b></td>
+                                <!-- <td id="locell">Location:<br><b><?php echo $key1 ?></b></td> -->
                                 <?php $flag=false;foreach($terms_d as $termd){ ?>
                                     <?php for($i=0;$i<count($header);$i++){?>
                                         <?php if($header[$i]==$termd['age_group']){$flag=true;?>
